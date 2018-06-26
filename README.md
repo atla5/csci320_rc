@@ -16,3 +16,17 @@ Retail (h2) database project made in fulfillment of RIT's course CSCI-320.
 $ mvn install
 $ java ./src/main/java/com/rainforestcommerce/rcdb/RcdbApplication.java
 ``` 
+
+## Design Rationale
+
+We're implementing a basic Model-View-Controller pattern:
+
+|     | path | description |
+|:----|:-----|:------------|
+|Model|`src/main/.../models`|shared programmatic understanding of db schema|
+|View |`src/main/.../views`|implementation of UI in JavaFX|
+|Controllers|`src/main/.../controllers`|main logic responsible for accessing DB with SQL|
+
+This pattern helps us distribute functionality in a cleaner, less coupled manner,
+  such that we can independently test and display the content and not have the 
+  SQL directly exposed to the UI.
