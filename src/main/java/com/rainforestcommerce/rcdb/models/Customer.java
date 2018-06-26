@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Customer {
-    public static SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+    private static SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 
     private long accountNumber;
     private String customerName;
@@ -18,7 +18,7 @@ public class Customer {
         this.accountNumber = Long.parseLong(data.get(0));
         this.customerName = data.get(1);
         this.birthDate = sdf.parse(data.get(2));
-        this.isMale = "Male".equals(data.get(3));
+        this.isMale = "male".equalsIgnoreCase(data.get(3));
         //this.ethnicity = data.get(4);
         this.phone = (data.get(5)).replaceAll("\\D+","");
         //this.purchase_points = Integer.parseInt(data.get(6));
@@ -26,10 +26,6 @@ public class Customer {
 
     public long getAccountNumber() {
         return accountNumber;
-    }
-
-    public void setAccountNumber(long account_number) {
-        this.accountNumber = account_number;
     }
 
     public String getCustName() {
