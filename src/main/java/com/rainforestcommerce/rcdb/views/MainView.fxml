@@ -6,14 +6,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" opacity="0.72" prefHeight="400.0" prefWidth="640.0" spacing="20.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" opacity="0.72" prefHeight="400.0" prefWidth="640.0" spacing="20.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rainforestcommerce.rcdb.views.MainViewController">
    <children>
       <Text fill="#43a240" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to RainforestCommerce!" textAlignment="CENTER">
          <font>
             <Font name="Trebuchet MS Bold" size="29.0" />
          </font>
       </Text>
-      <Button id="customer_button" mnemonicParsing="false" prefHeight="76.0" prefWidth="272.0" text="Customer">
+      <Button id="customer_button" mnemonicParsing="false" onMousePressed="#handleCustomerButtonPress" prefHeight="76.0" prefWidth="272.0" text="Customer">
          <font>
             <Font name="Trebuchet MS" size="24.0" />
          </font>
