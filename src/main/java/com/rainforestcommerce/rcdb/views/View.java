@@ -12,10 +12,6 @@ public class View extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		/*primaryStage.setScene(
-				new Scene(
-						new StackPane(), 
-						500, 400));*/
 		ActivityManager.stage = primaryStage;
 		ActivityManager.start(Activity.START_SCREEN);
 		
