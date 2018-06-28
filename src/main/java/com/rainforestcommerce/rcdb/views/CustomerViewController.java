@@ -10,7 +10,7 @@ public class CustomerViewController {
 	private static VBox view;
 	static {
 		try {
-			view = FXMLLoader.load(ActivityManager.class.getResource("CustomerView.fxml"));
+			view = FXMLLoader.load(CustomerViewController.class.getResource("CustomerView.fxml"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
