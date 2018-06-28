@@ -1,6 +1,7 @@
 package com.rainforestcommerce.rcdb.views;
 
 import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class ActivityManager {
@@ -14,20 +15,21 @@ public class ActivityManager {
 	}
 	
 	public static Stage stage;
-	private static final int stageX = 500;
-	private static final int stageY = 400;
 	
 	public static void start(Activity activity) {
-		stage.hide();
 		switch(activity) {
 		case START_SCREEN:
-			stage.setScene(new Scene(MainViewController.getView(), stageX, stageY));
+			stage.getScene().setRoot(MainViewController.getView());
 			break;
 		case CUSTOMERS:
-			stage.setScene(new Scene(CustomerViewController.getView(), stageX, stageY));
+			stage.getScene().setRoot(CustomerViewController.getView());
 			break;
 		}
-		stage.show();
+	}
+	
+	public static void setStage(Stage primaryStage) {
+		stage = primaryStage;
+		stage.setScene(new Scene(new VBox(), 500, 400));
 	}
 
 }
