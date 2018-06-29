@@ -5,6 +5,9 @@ import java.text.ParseException;
 import java.util.Arrays;
 import java.util.Date;
 
+import org.h2.result.Row;
+import org.h2.result.RowFactory;
+import org.h2.value.Value;
 
 import com.rainforestcommerce.rcdb.models.Customer;
 
@@ -13,6 +16,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
@@ -49,12 +53,28 @@ public class CustomerViewController {
 	 * This method is called automatically by FXMLLoader.
 	 */
 	public void initialize() {
+		
+		// Get the table columns
 		TableColumn<Customer, String> nameColumn = (TableColumn<Customer, String>) customer_table.getColumns().get(0);
 		TableColumn<Customer, Date> dobColumn = (TableColumn<Customer, Date>) customer_table.getColumns().get(1);
 		TableColumn<Customer, Integer> pointsColumn = (TableColumn<Customer, Integer>) customer_table.getColumns().get(2);
 		
+		// Configure the columns to accept the correct properties of Customer
 		nameColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("custName"));
 		dobColumn.setCellValueFactory(new PropertyValueFactory<Customer, Date>("birthDate"));
+		
+		// Configure the click action for each row in the table
+		customer_table.setRowFactory(rf -> {
+			TableRow<Customer> row = new TableRow<>();
+			row.setOnMouseClicked(event -> {
+				Customer customer = row.getItem();
+				// TODO: implement correct action here 
+				// (probably saving the customer to some sort of session variable)
+				System.out.println("Clicked on " + customer.getCustName());
+			});
+			return row;
+			}
+		);
 		
 		// TEST CODE - remove when DB access is implemented
 		try {
