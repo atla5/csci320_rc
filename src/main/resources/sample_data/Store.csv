@@ -1,0 +1,1001 @@
+store_id,store_name,opening_time,closing_time,addr_city,addr_state,addr_zipcode,addr_street,addr_number
+1,Dot Lichen,8:00,23:59,Chicago,Illinois,60609,Sutteridge,535
+2,Garland-flower,8:00,23:59,Syracuse,New York,13210,Sullivan,507
+3,Haleakala Catchfly,8:00,23:59,Kent,Washington,98042,Susan,8
+4,Makino Bamboo,8:00,23:59,Des Moines,Iowa,50347,Nelson,1870
+5,Pennell's Lousewort,8:00,23:59,Kalamazoo,Michigan,49048,Hayes,178
+6,Spotted Beebalm,8:00,23:59,Austin,Texas,78744,Saint Paul,3
+7,Tucson Mountain Spiderling,8:00,23:59,Baltimore,Maryland,21229,Waywood,94
+8,Dwarf Wakerobin,8:00,23:59,Fullerton,California,92640,Beilfuss,287
+9,Lyall's Mariposa Lily,8:00,23:59,Philadelphia,Pennsylvania,19191,Northport,02309
+10,Arizona White Oak,8:00,23:59,Montgomery,Alabama,36177,Cambridge,924
+11,Neolamarckia,8:00,23:59,Houston,Texas,77223,Meadow Ridge,44471
+12,Bristlecone Pine,8:00,23:59,Tampa,Florida,33673,Merchant,56603
+13,Leucospermum,8:00,23:59,Silver Spring,Maryland,20910,Delaware,9614
+14,Chinese Sumac,8:00,23:59,Fort Worth,Texas,76129,Union,8
+15,Sickle Dichelyma Moss,8:00,23:59,Providence,Rhode Island,02912,Bowman,4958
+16,Schwaneck's Logwood,8:00,23:59,Virginia Beach,Virginia,23471,Esch,1121
+17,Yellowwood,8:00,23:59,Houston,Texas,77255,Express,21
+18,Reverchon's Bristlegrass,8:00,23:59,Columbus,Ohio,43226,Ilene,53
+19,Alpine Fleabane,8:00,23:59,Austin,Texas,78783,Dixon,798
+20,Olopu,8:00,23:59,Spokane,Washington,99215,Swallow,612
+21,Rapp's Ramonia,8:00,23:59,Young America,Minnesota,55573,Hagan,42
+22,Orcutt's Liveforever,8:00,23:59,Columbia,South Carolina,29220,Shasta,7
+23,Smooth Rose,8:00,23:59,Charlotte,North Carolina,28215,Village,1
+24,Elliott's Rush,8:00,23:59,Arlington,Texas,76096,Thackeray,882
+25,West Indian Livingvase,8:00,23:59,Johnstown,Pennsylvania,15906,Victoria,044
+26,Shiny Chickweed,8:00,23:59,Philadelphia,Pennsylvania,19115,Bayside,9572
+27,Leggett's Pinweed,8:00,23:59,Denver,Colorado,80249,Sachs,73
+28,Canada Germander,8:00,23:59,Los Angeles,California,90010,Monument,039
+29,Hairy Medick,8:00,23:59,Atlanta,Georgia,30306,Clyde Gallagher,164
+30,Glandular Clarkia,8:00,23:59,Huntsville,Alabama,35895,Stuart,8796
+31,Coiled Anther Penstemon,8:00,23:59,Battle Creek,Michigan,49018,Bashford,14
+32,Pine Barren Goldenheather,8:00,23:59,San Diego,California,92176,Stone Corner,21884
+33,Crossberry,8:00,23:59,Pasadena,California,91125,Westridge,2
+34,Desert Lily,8:00,23:59,Indianapolis,Indiana,46216,Debra,8281
+35,Stebbin's Bluegrass,8:00,23:59,Oklahoma City,Oklahoma,73114,Loftsgordon,9
+36,Gray's Townsend Daisy,8:00,23:59,Arlington,Virginia,22244,Brown,6
+37,Crimsoneyed Rosemallow,8:00,23:59,Topeka,Kansas,66611,Bunker Hill,7680
+38,Common Turmeric,8:00,23:59,Memphis,Tennessee,38150,Novick,88444
+39,Irish Hill Buckwheat,8:00,23:59,Oklahoma City,Oklahoma,73157,Sunbrook,2490
+40,Figleaf Goosefoot,8:00,23:59,Rochester,New York,14624,Pearson,1193
+41,Bracted Jewelflower,8:00,23:59,Fort Lauderdale,Florida,33305,Pankratz,73562
+42,Drummond's Mountain-avens,8:00,23:59,Honolulu,Hawaii,96805,Lerdahl,89
+43,Twoheaded Water-starwort,8:00,23:59,San Francisco,California,94147,Bluejay,55
+44,Prairie Spiderwort,8:00,23:59,Houston,Texas,77245,Raven,334
+45,False Rhodes Grass,8:00,23:59,North Las Vegas,Nevada,89087,Waxwing,11357
+46,Polycoccum Lichen,8:00,23:59,Albany,New York,12255,Pawling,09443
+47,Sticky Cinquefoil,8:00,23:59,Fort Wayne,Indiana,46862,Michigan,58
+48,Greenland Rim Lichen,8:00,23:59,Jamaica,New York,11407,Grasskamp,35
+49,Roemer's False Indigo,8:00,23:59,Mobile,Alabama,36628,Maple Wood,81
+50,Orbignya,8:00,23:59,Providence,Rhode Island,02912,Mendota,50491
+51,Cuero De Rana,8:00,23:59,Yakima,Washington,98907,Sutteridge,69527
+52,'ena'ena,8:00,23:59,Annapolis,Maryland,21405,Cardinal,7167
+53,Arroyo Willow,8:00,23:59,Knoxville,Tennessee,37924,Raven,56
+54,Short's Aster,8:00,23:59,Miami,Florida,33147,Glacier Hill,45663
+55,Trapeliopsis Lichen,8:00,23:59,Asheville,North Carolina,28805,Utah,9118
+56,Hermannia,8:00,23:59,New York City,New York,10105,Amoth,77624
+57,Ellis' Stinking Milkvetch,8:00,23:59,Washington,District of Columbia,20220,Buell,83
+58,Mountain Marlberry,8:00,23:59,Fargo,North Dakota,58106,Lindbergh,134
+59,Orphniospora Lichen,8:00,23:59,Irvine,California,92612,Crescent Oaks,9276
+60,Spreading Alkaliweed,8:00,23:59,Columbia,South Carolina,29225,Lillian,354
+61,Diamondleaf Willow,8:00,23:59,Orlando,Florida,32891,Dakota,6
+62,Maguire's Lewisia,8:00,23:59,Louisville,Kentucky,40233,Goodland,69
+63,Timber Milkvetch,8:00,23:59,Denver,Colorado,80209,Clarendon,669
+64,Greene's Milkweed,8:00,23:59,Saint Louis,Missouri,63136,Corry,0929
+65,Lecidea Lichen,8:00,23:59,Lima,Ohio,45807,Schmedeman,2478
+66,Spiked Ipomopsis,8:00,23:59,Seattle,Washington,98121,Blackbird,03
+67,Crandall's Beardtongue,8:00,23:59,Seattle,Washington,98158,Bartelt,1245
+68,Pearlbrush,8:00,23:59,Rockford,Illinois,61110,Summer Ridge,421
+69,Rock Melicgrass,8:00,23:59,Idaho Falls,Idaho,83405,Loftsgordon,8
+70,Himalayan Berry,8:00,23:59,Columbus,Ohio,43210,Sutherland,3
+71,Grimmia Dry Rock Moss,8:00,23:59,Philadelphia,Pennsylvania,19131,Spaight,7
+72,Heermann's Buckwheat,8:00,23:59,Houston,Texas,77025,Troy,6
+73,Lambsquarters,8:00,23:59,Houston,Texas,77255,Buena Vista,3
+74,Fragile Sheath Sedge,8:00,23:59,Durham,North Carolina,27705,Shelley,2
+75,Waxweed,8:00,23:59,Lancaster,California,93584,Sauthoff,614
+76,Davidson's Sage,8:00,23:59,New York City,New York,10024,Bluestem,0
+77,Big Blackberry,8:00,23:59,Dallas,Texas,75358,Carey,0136
+78,Derris,8:00,23:59,Omaha,Nebraska,68124,Lakewood Gardens,72362
+79,Arbol De Navidad,8:00,23:59,Vancouver,Washington,98687,Mccormick,2
+80,Gambir,8:00,23:59,Washington,District of Columbia,20470,Spenser,354
+81,Tawnyberry Holly,8:00,23:59,Pueblo,Colorado,81005,Prairie Rose,45255
+82,Willow Glowweed,8:00,23:59,Boise,Idaho,83727,Mariners Cove,669
+83,Dune Fescue,8:00,23:59,Austin,Texas,78789,Bartelt,35
+84,American Lotus,8:00,23:59,Denver,Colorado,80279,New Castle,7567
+85,Lemon Beebalm,8:00,23:59,Saint Paul,Minnesota,55172,Stoughton,82509
+86,Neon's Orange Lichen,8:00,23:59,Saint Augustine,Florida,32092,Northport,93
+87,Clay Hill Buckwheat,8:00,23:59,Brooklyn,New York,11215,Colorado,3857
+88,Sticky Sage,8:00,23:59,Melbourne,Florida,32941,Pine View,756
+89,Demangeon's Phylliscum Lichen,8:00,23:59,Panama City,Florida,32412,Hintze,370
+90,Drummond's Entosthodon Moss,8:00,23:59,Tampa,Florida,33673,Service,0
+91,Whitewoolly Buckwheat,8:00,23:59,Miami,Florida,33169,Westerfield,716
+92,Cinnamonspot Pondweed,8:00,23:59,El Paso,Texas,79955,Service,89354
+93,Crescent Milkvetch,8:00,23:59,Boise,Idaho,83722,Sachs,742
+94,Elongate Dicranum Moss,8:00,23:59,San Luis Obispo,California,93407,Red Cloud,8
+95,Dwarf Naupaka,8:00,23:59,Los Angeles,California,90030,Arapahoe,24
+96,Kauai Pteralyxia,8:00,23:59,Duluth,Minnesota,55805,Hayes,376
+97,Sierra Bluegrass,8:00,23:59,El Paso,Texas,79928,Dwight,8103
+98,Uinta Mountain Fleabane,8:00,23:59,Washington,District of Columbia,20067,Iowa,77077
+99,Fabronia Moss,8:00,23:59,Cumming,Georgia,30130,Spaight,736
+100,African Asparagus Fern,8:00,23:59,Colorado Springs,Colorado,80910,Dexter,8193
+101,Old Man's Whiskers,8:00,23:59,Norfolk,Virginia,23504,4th,63
+102,Florida False Beardgrass,8:00,23:59,Peoria,Illinois,61629,Del Mar,3
+103,European Wand Loosestrife,8:00,23:59,Seattle,Washington,98133,Melvin,78896
+104,Smooth Brome,8:00,23:59,Sunnyvale,California,94089,Scott,38648
+105,Sphagnum,8:00,23:59,Knoxville,Tennessee,37939,Acker,3959
+106,Nestegis,8:00,23:59,Wilmington,Delaware,19897,Marquette,94610
+107,Fourspike Heliotrope,8:00,23:59,Denver,Colorado,80270,Farmco,48190
+108,Copper Globemallow,8:00,23:59,El Paso,Texas,79989,Ryan,28738
+109,Shining Gum,8:00,23:59,Salt Lake City,Utah,84105,Algoma,3
+110,Chamisso Arnica,8:00,23:59,Orlando,Florida,32808,1st,58602
+111,Snowy Mermaid,8:00,23:59,Pittsburgh,Pennsylvania,15220,Little Fleur,0079
+112,Bryum Moss,8:00,23:59,Toledo,Ohio,43635,Barnett,38
+113,Sunset Lupine,8:00,23:59,Corpus Christi,Texas,78470,Crest Line,781
+114,Hybrid Violet,8:00,23:59,Washington,District of Columbia,20073,Namekagon,95
+115,Bahama Manjack,8:00,23:59,Memphis,Tennessee,38181,Mesta,7
+116,Nippon Daisy,8:00,23:59,Seattle,Washington,98175,Buell,07
+117,Japanese Primrose,8:00,23:59,Charlotte,North Carolina,28242,Division,3
+118,Rich's Seepweed,8:00,23:59,Gainesville,Georgia,30506,Melrose,23812
+119,Pyrenopsis Lichen,8:00,23:59,Migrate,Kentucky,41905,Redwing,1
+120,Ghostweed,8:00,23:59,Brea,California,92822,Kipling,694
+121,Weeping Forsythia,8:00,23:59,Baltimore,Maryland,21239,Burning Wood,66
+122,Vaucher's Hypnum Moss,8:00,23:59,Corpus Christi,Texas,78405,Crescent Oaks,6609
+123,Mokihana Kukae Moa,8:00,23:59,Baton Rouge,Louisiana,70810,Nevada,40173
+124,Maidenhair Fern,8:00,23:59,Wilkes Barre,Pennsylvania,18763,Talisman,417
+125,Beauvois' Spotted Felt Lichen,8:00,23:59,Stockton,California,95219,Veith,8
+126,Aplodon Moss,8:00,23:59,Des Moines,Iowa,50330,Rigney,1
+127,Whitesnow,8:00,23:59,Fort Myers,Florida,33913,Red Cloud,12
+128,Nile Grass,8:00,23:59,Jackson,Mississippi,39216,8th,0
+129,Weedy Dogfennel,8:00,23:59,Duluth,Georgia,30195,Dahle,79
+130,Bristle Berry,8:00,23:59,Tampa,Florida,33633,Hoard,79538
+131,Small Matweed,8:00,23:59,Rochester,New York,14683,Surrey,6
+132,Schismatomma Lichen,8:00,23:59,Sacramento,California,94273,Elka,0
+133,Glade Fern,8:00,23:59,Hartford,Connecticut,06152,Fair Oaks,997
+134,Hooker's Balsamroot,8:00,23:59,El Paso,Texas,79945,Mcguire,0604
+135,Texas Palafox,8:00,23:59,Ridgely,Maryland,21684,Wayridge,531
+136,Absaroka Range Beardtongue,8:00,23:59,Newton,Massachusetts,02458,Arizona,4299
+137,Longstalk Clover,8:00,23:59,Vancouver,Washington,98682,Comanche,26494
+138,Hairy-seed Goldenrod,8:00,23:59,New York City,New York,10019,Golf Course,33119
+139,Trembleya,8:00,23:59,El Paso,Texas,79950,Dunning,438
+140,Thread Lichen,8:00,23:59,Las Vegas,Nevada,89145,Miller,070
+141,Temblor Range Clarkia,8:00,23:59,Charlotte,North Carolina,28215,Roxbury,06
+142,Obtuseleaf Fissidens Moss,8:00,23:59,Saint Louis,Missouri,63116,Ridgeview,57520
+143,Cabbage Gum,8:00,23:59,Lexington,Kentucky,40596,Tomscot,2
+144,Ozark Grass,8:00,23:59,Oklahoma City,Oklahoma,73173,Sachtjen,0778
+145,Bear Valley Sandwort,8:00,23:59,North Hollywood,California,91606,Fairview,33836
+146,Silky Lupine,8:00,23:59,Silver Spring,Maryland,20918,Debra,0
+147,Hogwort,8:00,23:59,Littleton,Colorado,80126,Florence,4
+148,Mojave Woodyaster,8:00,23:59,Durham,North Carolina,27710,Boyd,6579
+149,White Spirea,8:00,23:59,New York City,New York,10034,Linden,143
+150,Tidal Spikerush,8:00,23:59,Houston,Texas,77045,Cottonwood,6733
+151,Stipulated Cinquefoil,8:00,23:59,Honolulu,Hawaii,96825,Vidon,7960
+152,Pohlia Moss,8:00,23:59,Monticello,Minnesota,55565,Hallows,165
+153,Field Fescue,8:00,23:59,Dallas,Texas,75287,Banding,8475
+154,Appalachian Shoestring Fern,8:00,23:59,Moreno Valley,California,92555,Warrior,9478
+155,Winged Sumac,8:00,23:59,Huntsville,Alabama,35810,Kedzie,0880
+156,Pilo Kea Lau Li'i,8:00,23:59,Salt Lake City,Utah,84140,Barnett,18
+157,Cowhorn Orchid,8:00,23:59,Miami,Florida,33164,Norway Maple,8
+158,Rhodora,8:00,23:59,Sacramento,California,95852,Hallows,63
+159,Funeral Mountain Milkvetch,8:00,23:59,Fresno,California,93715,Gale,48675
+160,Rio Grande Tickseed,8:00,23:59,Charlottesville,Virginia,22903,John Wall,031
+161,Dwarf Black Juniper,8:00,23:59,San Diego,California,92105,Hoepker,46496
+162,Calopo,8:00,23:59,Gainesville,Florida,32610,Armistice,600
+163,Rock Clubmoss,8:00,23:59,San Diego,California,92132,Westerfield,299
+164,Solidstem Burnet Saxifrage,8:00,23:59,Milwaukee,Wisconsin,53215,Scofield,2
+165,New Zealand Flax,8:00,23:59,Huntsville,Alabama,35815,Prairie Rose,8
+166,Tansyleaf Evening Primrose,8:00,23:59,Louisville,Kentucky,40220,Bunker Hill,9634
+167,Frankton's Saltbush,8:00,23:59,Las Vegas,Nevada,89178,Mifflin,0780
+168,White Prairie Clover,8:00,23:59,Dallas,Texas,75251,Bluestem,01566
+169,Dwarf Mountain Ragwort,8:00,23:59,Bradenton,Florida,34210,Rutledge,11826
+170,Whorled Clustervine,8:00,23:59,Charleston,West Virginia,25356,Grasskamp,4229
+171,Arizona Centaury,8:00,23:59,Monticello,Minnesota,55585,Nova,99171
+172,Trinidad Milkvetch,8:00,23:59,Tucson,Arizona,85720,Pearson,30
+173,Gmelin's Saltbush,8:00,23:59,Suffolk,Virginia,23436,Heath,5
+174,Congdon's Lewisia,8:00,23:59,Arlington,Texas,76011,Mandrake,8
+175,Compact Scloiciosporum Lichen,8:00,23:59,Denver,Colorado,80291,Garrison,866
+176,Stevens' Fiddleleaf,8:00,23:59,Englewood,Colorado,80150,Ridge Oak,396
+177,Leafy Nama,8:00,23:59,Hartford,Connecticut,06140,Fallview,9
+178,Leskea Moss,8:00,23:59,Winston Salem,North Carolina,27150,Reindahl,4
+179,Mariposa Pussypaws,8:00,23:59,Los Angeles,California,90065,Kim,81631
+180,Smooth Draba,8:00,23:59,Lake Charles,Louisiana,70616,Garrison,86
+181,Emorybush,8:00,23:59,Houston,Texas,77065,Judy,8901
+182,Emory's Rockdaisy,8:00,23:59,Sacramento,California,94286,Bay,93416
+183,Small Penstemon,8:00,23:59,Jamaica,New York,11470,Lawn,3044
+184,Amur Silvergrass,8:00,23:59,Norfolk,Virginia,23514,Anzinger,128
+185,Kalm's Hawkweed,8:00,23:59,New York City,New York,10009,Londonderry,25
+186,Molokai Nehe,8:00,23:59,Carol Stream,Illinois,60158,Delaware,67719
+187,Coccotrema Lichen,8:00,23:59,Littleton,Colorado,80127,Barby,89
+188,Robust Spineflower,8:00,23:59,Detroit,Michigan,48211,Merry,29
+189,San Antonio Stoneseed,8:00,23:59,Tampa,Florida,33615,Union,540
+190,Frosty Wattle,8:00,23:59,San Antonio,Texas,78225,Pond,3
+191,Blistered Navel Lichen,8:00,23:59,Gatesville,Texas,76598,Canary,061
+192,Eaton's Spikemoss,8:00,23:59,Durham,North Carolina,27705,Karstens,639
+193,Script Lichen,8:00,23:59,Atlanta,Georgia,30343,Raven,6428
+194,Junghuhn's Sphagnum,8:00,23:59,Sacramento,California,95894,Forest Run,88288
+195,Pearlflower,8:00,23:59,Dallas,Texas,75287,Vernon,648
+196,Solmsiella Moss,8:00,23:59,Bethesda,Maryland,20816,Schurz,77
+197,Horsehair Lichen,8:00,23:59,Las Vegas,Nevada,89160,Northview,8632
+198,Common Woodrush,8:00,23:59,Miami Beach,Florida,33141,Fisk,25825
+199,Jepson's Willow,8:00,23:59,Washington,District of Columbia,20067,Meadow Ridge,16
+200,White Rosemallow,8:00,23:59,Charlotte,North Carolina,28235,Montana,66
+201,Angularfruit Ma'oloa,8:00,23:59,Arlington,Texas,76096,Upham,63
+202,Sierra Linanthus,8:00,23:59,Jacksonville,Florida,32255,Lawn,60
+203,Mojave Pricklypoppy,8:00,23:59,Harrisburg,Pennsylvania,17110,Lakeland,3387
+204,Heartscale,8:00,23:59,Naperville,Illinois,60567,Red Cloud,16
+205,Sierra Valley Mousetail,8:00,23:59,Washington,District of Columbia,20215,Birchwood,85295
+206,Hairless Popcornflower,8:00,23:59,Fort Wayne,Indiana,46867,Monument,10
+207,Russian Wildrye,8:00,23:59,Houston,Texas,77218,Birchwood,9
+208,Western Meadow Aster,8:00,23:59,Evansville,Indiana,47705,Independence,03099
+209,Largeflower Hawksbeard,8:00,23:59,Santa Barbara,California,93150,South,102
+210,Kamchatka Buttercup,8:00,23:59,Louisville,Kentucky,40266,Porter,36
+211,False Brome,8:00,23:59,Frederick,Maryland,21705,Luster,8
+212,Shining Fleabane,8:00,23:59,Peoria,Illinois,61651,Division,6
+213,White Mangrove,8:00,23:59,Erie,Pennsylvania,16510,Bluejay,1268
+214,Comfrey,8:00,23:59,Washington,District of Columbia,20535,Dakota,04
+215,Texas Poppymallow,8:00,23:59,Fort Worth,Texas,76147,Del Sol,37
+216,Marsh Bellflower,8:00,23:59,Fresno,California,93704,Dennis,57317
+217,Canterbury Bells,8:00,23:59,Jacksonville,Florida,32230,Oriole,98616
+218,Beauvois' Spotted Felt Lichen,8:00,23:59,Las Vegas,Nevada,89115,Cardinal,90
+219,Trans-pecos Sea Lavender,8:00,23:59,Fresno,California,93762,Oriole,42299
+220,Fernleaf Licorice-root,8:00,23:59,Tucson,Arizona,85710,Westridge,33
+221,Rim Lichen,8:00,23:59,Las Cruces,New Mexico,88006,Brown,13
+222,Golden Polypody,8:00,23:59,Pueblo,Colorado,81005,Kenwood,19960
+223,London Planetree,8:00,23:59,New York City,New York,10270,Macpherson,23
+224,Greater Showy Stickseed,8:00,23:59,Boise,Idaho,83711,Shoshone,425
+225,Cottonwood,8:00,23:59,Albuquerque,New Mexico,87121,Crescent Oaks,2220
+226,Crabseye Lichen,8:00,23:59,San Diego,California,92105,Grayhawk,4267
+227,Chamisso Bush Lupine,8:00,23:59,Bridgeport,Connecticut,06606,Lakewood,5
+228,Solenospora Lichen,8:00,23:59,Cleveland,Ohio,44197,Annamark,37
+229,Bog Goldenrod,8:00,23:59,Phoenix,Arizona,85072,Michigan,19
+230,Rambling Dewberry,8:00,23:59,Sunnyvale,California,94089,Troy,5
+231,Flowery Phlox,8:00,23:59,El Paso,Texas,88579,Hoard,3709
+232,Diploid Timothy,8:00,23:59,Amarillo,Texas,79176,Kropf,7092
+233,Moxley's Dry Rock Moss,8:00,23:59,Washington,District of Columbia,20337,Eastlawn,199
+234,Swampforest Clermontia,8:00,23:59,New York City,New York,10115,Vidon,49209
+235,Solorinella Lichen,8:00,23:59,Roanoke,Virginia,24014,Drewry,79008
+236,Caribbean Thoroughwort,8:00,23:59,Des Moines,Iowa,50320,Orin,1030
+237,Purple Wormwood,8:00,23:59,San Diego,California,92191,7th,65833
+238,European Frostweed,8:00,23:59,Durham,North Carolina,27705,Morning,0
+239,Twospike Crabgrass,8:00,23:59,Dayton,Ohio,45490,Burrows,9
+240,Oahu Tetramolopium,8:00,23:59,Peoria,Illinois,61629,Ruskin,3269
+241,Yarrow,8:00,23:59,Philadelphia,Pennsylvania,19136,Doe Crossing,8
+242,Pearl Millet,8:00,23:59,Denver,Colorado,80228,David,025
+243,American Pokeweed,8:00,23:59,Anchorage,Alaska,99522,Hanson,3
+244,Narrowleaf Soap Plant,8:00,23:59,Chicago,Illinois,60614,Anzinger,99242
+245,Scribble Lichen,8:00,23:59,Shreveport,Louisiana,71115,Colorado,57803
+246,Hardham's Bedstraw,8:00,23:59,Baton Rouge,Louisiana,70894,Moland,95
+247,Livermore Nailwort,8:00,23:59,Cincinnati,Ohio,45238,Drewry,34
+248,Mat Rockspirea,8:00,23:59,Cheyenne,Wyoming,82007,Shelley,745
+249,Fir Clubmoss,8:00,23:59,San Jose,California,95108,Mccormick,50530
+250,Pritchardia,8:00,23:59,Akron,Ohio,44321,American Ash,4
+251,California Wild Hollyhock,8:00,23:59,Washington,District of Columbia,20057,Erie,19185
+252,Goatgrass,8:00,23:59,Asheville,North Carolina,28805,Twin Pines,5272
+253,Wild Lime,8:00,23:59,Brooksville,Florida,34605,Tony,53
+254,Giant White Fawnlily,8:00,23:59,Los Angeles,California,90040,Clove,0
+255,Desert Twinbugs,8:00,23:59,New York City,New York,10014,Division,09
+256,Layne's Ragwort,8:00,23:59,Mc Keesport,Pennsylvania,15134,1st,067
+257,Whiteweed,8:00,23:59,Troy,Michigan,48098,Vidon,74023
+258,Woollypod Milkvetch,8:00,23:59,Tacoma,Washington,98447,Kropf,382
+259,'ohi'a Lehua,8:00,23:59,Sacramento,California,95813,Arapahoe,8
+260,Dentate False Pennyroyal,8:00,23:59,Chicago,Illinois,60686,Dakota,8945
+261,Slender Bushmallow,8:00,23:59,Pasadena,California,91103,Colorado,02
+262,Sparse-flowered Bog Orchid,8:00,23:59,Seattle,Washington,98121,Hayes,293
+263,Stephanandra,8:00,23:59,Lake Charles,Louisiana,70616,Clyde Gallagher,3
+264,Curlyleaf,8:00,23:59,Fort Wayne,Indiana,46867,Westend,7978
+265,Edwards' Starwort,8:00,23:59,Washington,District of Columbia,56944,Summer Ridge,4195
+266,St. Andrew's Cross,8:00,23:59,Orlando,Florida,32885,Caliangt,46
+267,Manna Gum,8:00,23:59,Ogden,Utah,84409,Merrick,64475
+268,Aloe,8:00,23:59,Terre Haute,Indiana,47812,Riverside,70
+269,Saltmeadow Rush,8:00,23:59,Huntington,West Virginia,25716,Buell,2
+270,Smartweed Dodder,8:00,23:59,Brooklyn,New York,11215,Commercial,13
+271,Sorrel Buckwheat,8:00,23:59,Washington,District of Columbia,20057,Upham,7
+272,Schefflera,8:00,23:59,Baton Rouge,Louisiana,70820,Derek,200
+273,Giant White Fawnlily,8:00,23:59,Tuscaloosa,Alabama,35405,Eagle Crest,42670
+274,Cardinal Catchfly,8:00,23:59,Seattle,Washington,98185,Ryan,5
+275,Mt. Kahili Beggarticks,8:00,23:59,Henderson,Nevada,89074,Bowman,72
+276,Rockcress,8:00,23:59,Minneapolis,Minnesota,55441,Nevada,3927
+277,Santa Cruz Beehive Cactus,8:00,23:59,San Jose,California,95173,Evergreen,54
+278,White Fringed Orchid,8:00,23:59,North Hollywood,California,91606,Vermont,7
+279,White Fringetree,8:00,23:59,New York City,New York,10009,Kensington,77090
+280,Hawthorn,8:00,23:59,Topeka,Kansas,66622,Kings,074
+281,Catillaria Lichen,8:00,23:59,Clearwater,Florida,33758,Pond,9
+282,Helocarpon Lichen,8:00,23:59,New Orleans,Louisiana,70142,Fieldstone,707
+283,Corndaisy,8:00,23:59,Sioux City,Iowa,51110,Charing Cross,65
+284,Wrinkled Spineflower,8:00,23:59,Roanoke,Virginia,24034,Pepper Wood,908
+285,Flower Of An Hour,8:00,23:59,Chattanooga,Tennessee,37405,Independence,05
+286,Godfrey's Swampprivet,8:00,23:59,Worcester,Massachusetts,01610,Schmedeman,7
+287,Schreber's Dicranella Moss,8:00,23:59,Sacramento,California,94207,Lien,1907
+288,Alabama Lipfern,8:00,23:59,Dallas,Texas,75387,Mesta,01596
+289,Barbula Moss,8:00,23:59,Washington,District of Columbia,20337,Carey,00990
+290,Appalachian Barren Strawberry,8:00,23:59,Los Angeles,California,90076,Florence,69
+291,Pinnacles Buckwheat,8:00,23:59,New Orleans,Louisiana,70165,Clarendon,5
+292,Pygmypipes,8:00,23:59,Orlando,Florida,32825,Surrey,9
+293,Cup Lichen,8:00,23:59,Port Saint Lucie,Florida,34985,Dunning,19
+294,Foothill Clover,8:00,23:59,Santa Fe,New Mexico,87592,Merrick,241
+295,Bellflower Beardtongue,8:00,23:59,Pueblo,Colorado,81005,Rockefeller,33
+296,Bejuco De Miel,8:00,23:59,San Antonio,Texas,78291,Evergreen,24
+297,Haworth's Aeonium,8:00,23:59,Milwaukee,Wisconsin,53210,Valley Edge,24
+298,Fraser Fir,8:00,23:59,Chattanooga,Tennessee,37405,Buhler,13
+299,Smallflower Monkeyflower,8:00,23:59,South Bend,Indiana,46620,Union,953
+300,Largeflower Rose Gentian,8:00,23:59,Las Vegas,Nevada,89193,Di Loreto,7
+301,Preuss' Milkvetch,8:00,23:59,Grand Rapids,Michigan,49518,Autumn Leaf,4
+302,Isachne,8:00,23:59,Baltimore,Maryland,21203,High Crossing,70
+303,American Vetch,8:00,23:59,Scottsdale,Arizona,85271,Calypso,172
+304,Cascade Mountain Ash,8:00,23:59,Kansas City,Missouri,64109,Hallows,56
+305,Tansyleaf Nightshade,8:00,23:59,Lubbock,Texas,79491,Sunbrook,174
+306,Coast Range Brome,8:00,23:59,Saint Petersburg,Florida,33731,Kropf,284
+307,Pellitory,8:00,23:59,Carlsbad,California,92013,Namekagon,155
+308,Northern Biscuitroot,8:00,23:59,Aurora,Colorado,80015,Shopko,0
+309,Tropical Dock,8:00,23:59,New Brunswick,New Jersey,08922,Onsgard,3811
+310,Common Dandelion,8:00,23:59,Buffalo,New York,14233,Michigan,1381
+311,Manna Gum,8:00,23:59,Tulsa,Oklahoma,74193,Corscot,09
+312,Big Bend Beardtongue,8:00,23:59,Modesto,California,95354,Lakewood Gardens,6947
+313,Douglas's Catchfly,8:00,23:59,Wilmington,North Carolina,28405,5th,5492
+314,Horseweed,8:00,23:59,Panama City,Florida,32412,Westerfield,79377
+315,Frosted Buckwheat,8:00,23:59,High Point,North Carolina,27264,Jackson,2
+316,Wart Lichen,8:00,23:59,Van Nuys,California,91406,Charing Cross,188
+317,Heated Phacelia,8:00,23:59,Detroit,Michigan,48295,Montana,6049
+318,Weakleaf Bur Ragweed,8:00,23:59,Phoenix,Arizona,85005,Randy,13755
+319,Water Dead And Awake,8:00,23:59,Des Moines,Iowa,50305,Hazelcrest,3839
+320,Small Enchanter's Nightshade,8:00,23:59,Dallas,Texas,75397,Sachs,68996
+321,Fadyen's Silktassel,8:00,23:59,Washington,District of Columbia,20599,Pleasure,9019
+322,Doublehorn Calicoflower,8:00,23:59,Washington,District of Columbia,20535,Eastlawn,0
+323,Parrotweed,8:00,23:59,Visalia,California,93291,Tennyson,2
+324,Softseed Wild Petunia,8:00,23:59,Fort Wayne,Indiana,46805,Thompson,69
+325,Horsetail Milkweed,8:00,23:59,Shawnee Mission,Kansas,66215,Forest Dale,200
+326,Groundsel,8:00,23:59,Dallas,Texas,75236,Clemons,573
+327,Phloxleaf Bedstraw,8:00,23:59,Chattanooga,Tennessee,37416,Service,4943
+328,Ngai Camphor,8:00,23:59,Pittsburgh,Pennsylvania,15274,Burrows,602
+329,Fourvalve Mimosa,8:00,23:59,Miami,Florida,33175,Oxford,9027
+330,Beard Lichen,8:00,23:59,Laredo,Texas,78044,Eastlawn,88
+331,Silky Lupine,8:00,23:59,Fredericksburg,Virginia,22405,North,703
+332,Tunp Range Twinpod,8:00,23:59,Pittsburgh,Pennsylvania,15210,3rd,6
+333,Bengal Coffee,8:00,23:59,Albany,New York,12242,Florence,63
+334,Bigleaf Paspalum,8:00,23:59,Miami,Florida,33180,Marquette,44
+335,Rusby's Globemallow,8:00,23:59,Bakersfield,California,93399,Walton,2147
+336,Broadfruit Horned Beaksedge,8:00,23:59,Houston,Texas,77260,Reinke,0
+337,Farinose Crabseye Lichen,8:00,23:59,Washington,District of Columbia,20414,Ruskin,87
+338,Michaux's Beard Lichen,8:00,23:59,Omaha,Nebraska,68144,Gale,65205
+339,Crabgrass,8:00,23:59,Fort Wayne,Indiana,46814,Karstens,38
+340,Scouler's St. Johnswort,8:00,23:59,College Station,Texas,77844,Rowland,4
+341,Hooker's Townsend Daisy,8:00,23:59,Concord,California,94522,Londonderry,403
+342,Higuerito,8:00,23:59,Atlanta,Georgia,31132,Bartelt,7241
+343,Water Sphagnum,8:00,23:59,Davenport,Iowa,52804,Kropf,7350
+344,Hirsute Raspberry,8:00,23:59,San Antonio,Texas,78250,Hazelcrest,835
+345,Canyon Cupgrass,8:00,23:59,Philadelphia,Pennsylvania,19172,Vidon,897
+346,Bluethread,8:00,23:59,Indianapolis,Indiana,46278,Moose,99937
+347,Taproot Fleabane,8:00,23:59,Cape Coral,Florida,33915,Bobwhite,8
+348,Shell Lichen,8:00,23:59,Des Moines,Iowa,50305,Comanche,7292
+349,Wreath Lichen,8:00,23:59,Washington,District of Columbia,20036,Buell,2735
+350,Laxleaf Yelloweyed Grass,8:00,23:59,Los Angeles,California,90005,Morning,305
+351,Tall Blazing Star,8:00,23:59,Florence,South Carolina,29505,Schiller,10172
+352,Longleaf Cowpea,8:00,23:59,Anchorage,Alaska,99522,Hoepker,071
+353,Leptochidium Lichen,8:00,23:59,Albany,New York,12232,Bartillon,7489
+354,New Mexican Nightshade,8:00,23:59,Elizabeth,New Jersey,07208,Monument,40313
+355,Looseflower Water-willow,8:00,23:59,San Francisco,California,94147,Portage,5
+356,Lanceleaf Cottonwood,8:00,23:59,Phoenix,Arizona,85025,Pearson,58
+357,Livistona,8:00,23:59,Dallas,Texas,75231,Jackson,1
+358,Tortula Moss,8:00,23:59,Fort Smith,Arkansas,72916,Petterle,25047
+359,Carolina Vervain,8:00,23:59,Lincoln,Nebraska,68583,Superior,02
+360,Purple Amaranth,8:00,23:59,Washington,District of Columbia,20557,Fair Oaks,5
+361,Degener's Cyanea,8:00,23:59,Pompano Beach,Florida,33075,Warner,4
+362,Diphyscium Moss,8:00,23:59,Newark,New Jersey,07104,5th,7011
+363,Manilkara,8:00,23:59,Fort Wayne,Indiana,46896,Coolidge,264
+364,Carolina Joe Pye Weed,8:00,23:59,Saint Paul,Minnesota,55123,Mayfield,1445
+365,Pondweed,8:00,23:59,Evansville,Indiana,47725,Mosinee,84
+366,Santa Lucia Manzanita,8:00,23:59,Charleston,West Virginia,25313,Jana,859
+367,Dunguey,8:00,23:59,Des Moines,Iowa,50362,Sutteridge,136
+368,Carolina Poplar,8:00,23:59,Fort Wayne,Indiana,46814,Crownhardt,2
+369,Spiny Greasebush,8:00,23:59,Honolulu,Hawaii,96820,Mcguire,0528
+370,Garden Cucumber,8:00,23:59,San Diego,California,92115,Dakota,7910
+371,Capitate Sedge,8:00,23:59,El Paso,Texas,88558,New Castle,715
+372,Thickfoot Saltbush,8:00,23:59,Norfolk,Virginia,23504,Jenna,7391
+373,Virginia Wildrye,8:00,23:59,Alexandria,Virginia,22313,Macpherson,51
+374,Maemon Valley Maiden Fern,8:00,23:59,Gatesville,Texas,76598,Moulton,404
+375,Cream Ticktrefoil,8:00,23:59,Buffalo,New York,14276,Sullivan,44
+376,Pondweed,8:00,23:59,Newark,New Jersey,07195,Grim,141
+377,Piedmont Threeawn,8:00,23:59,Dallas,Texas,75216,Surrey,073
+378,Spiny Holdback,8:00,23:59,Baltimore,Maryland,21203,Union,073
+379,Giant Antifever Fontinalis Moss,8:00,23:59,West Palm Beach,Florida,33405,Erie,1576
+380,Soft Prairie Clover,8:00,23:59,Orlando,Florida,32891,Schurz,768
+381,Wingstem Spurry,8:00,23:59,Billings,Montana,59105,Surrey,3
+382,Purple Stripeseed,8:00,23:59,Kansas City,Missouri,64130,Basil,8603
+383,Goosegrass Sedge,8:00,23:59,West Palm Beach,Florida,33405,Anhalt,6987
+384,Arizona Yellowhood,8:00,23:59,Chula Vista,California,91913,Northridge,60
+385,Koolau Range Labordia,8:00,23:59,Glendale,California,91205,Mendota,8951
+386,Harrison's Milkvetch,8:00,23:59,Detroit,Michigan,48295,Ridgeview,5
+387,Twoleaf Watermilfoil,8:00,23:59,Pensacola,Florida,32511,Jackson,118
+388,Dacryodes,8:00,23:59,Cincinnati,Ohio,45208,Prentice,45054
+389,Orange Lichen,8:00,23:59,Tucson,Arizona,85754,Amoth,1
+390,Pearson's Phaeoceros,8:00,23:59,Louisville,Kentucky,40210,Northview,257
+391,Ginseng,8:00,23:59,San Antonio,Texas,78278,Caliangt,392
+392,Canaigre Dock,8:00,23:59,Pittsburgh,Pennsylvania,15205,Shelley,36655
+393,Silvery Lupine,8:00,23:59,South Bend,Indiana,46634,Pierstorff,106
+394,Seaside Goldenrod,8:00,23:59,Norfolk,Virginia,23514,Dennis,4
+395,Maricopa Xanthoparmelia Lichen,8:00,23:59,Burbank,California,91505,Buell,1
+396,Pohil's Milkvetch,8:00,23:59,Springfield,Massachusetts,01152,New Castle,68468
+397,Soot Lichen,8:00,23:59,Los Angeles,California,90087,Meadow Vale,22
+398,Marietta Hawthorn,8:00,23:59,Phoenix,Arizona,85083,Commercial,2
+399,Glaucous Beardtongue,8:00,23:59,New York City,New York,10029,Acker,1835
+400,St. Thomas Tree,8:00,23:59,Washington,District of Columbia,20520,Orin,3832
+401,Saltcedar,8:00,23:59,New York City,New York,10099,Arkansas,552
+402,Dot Lichen,8:00,23:59,Maple Plain,Minnesota,55579,Ilene,0
+403,Alkali Marsh Aster,8:00,23:59,Staten Island,New York,10310,Old Gate,871
+404,Sand Pygmyweed,8:00,23:59,Albany,New York,12232,Sunbrook,8027
+405,Slender Beaksedge,8:00,23:59,Northridge,California,91328,Memorial,3981
+406,Adriatic Bellflower,8:00,23:59,Knoxville,Tennessee,37939,Boyd,8
+407,Roadside Windmill Grass,8:00,23:59,Raleigh,North Carolina,27621,Schmedeman,01921
+408,Longrunner,8:00,23:59,Norcross,Georgia,30092,Corry,13017
+409,White Rocklettuce,8:00,23:59,Tucson,Arizona,85720,Fisk,7054
+410,Coastal Plain Palafox,8:00,23:59,Birmingham,Alabama,35225,Boyd,97354
+411,Acrocordia Lichen,8:00,23:59,New York City,New York,10099,Bashford,04
+412,Texan Gumweed,8:00,23:59,Spring,Texas,77388,Loomis,683
+413,Beirut Clover,8:00,23:59,Scottsdale,Arizona,85255,Lien,2670
+414,Spleenwort,8:00,23:59,Cincinnati,Ohio,45271,Glacier Hill,5
+415,Common Candle Snuffer Moss,8:00,23:59,Fargo,North Dakota,58122,Fordem,3760
+416,Puerto Rico Maidenhair,8:00,23:59,Trenton,New Jersey,08638,Columbus,1
+417,Sanguinaria,8:00,23:59,Metairie,Louisiana,70033,Eggendart,9
+418,Drooping Juniper,8:00,23:59,Eugene,Oregon,97405,Sutherland,1862
+419,Gold Blazingstar,8:00,23:59,Philadelphia,Pennsylvania,19178,Summer Ridge,8
+420,Branched Indian Clover,8:00,23:59,Houston,Texas,77030,Jenna,255
+421,Diamond-flowers,8:00,23:59,Jacksonville,Florida,32259,Golden Leaf,0935
+422,American Milletgrass,8:00,23:59,Bridgeport,Connecticut,06673,Esker,919
+423,Nakedstem Alkaliweed,8:00,23:59,Evansville,Indiana,47732,Clarendon,0
+424,King's Angelica,8:00,23:59,Mansfield,Ohio,44905,Pond,2
+425,Taylor County Goldaster,8:00,23:59,Arlington,Virginia,22212,Sycamore,6
+426,Spilonema Lichen,8:00,23:59,Portland,Oregon,97221,Stone Corner,5304
+427,Bulbous Adderstongue,8:00,23:59,New York City,New York,10155,American Ash,172
+428,Knotted Rush,8:00,23:59,Vancouver,Washington,98682,Sunbrook,2147
+429,Sticky Brittlebush,8:00,23:59,Fort Worth,Texas,76162,Westridge,4703
+430,Cyclopeltis,8:00,23:59,Naples,Florida,34108,Westport,98
+431,Rim Lichen,8:00,23:59,El Paso,Texas,79928,Shasta,500
+432,Rhabdoweisia Moss,8:00,23:59,Port Charlotte,Florida,33954,Havey,69
+433,Purple Mountain Saxifrage,8:00,23:59,Yakima,Washington,98907,Carioca,9663
+434,Franklin's Phacelia,8:00,23:59,Pompano Beach,Florida,33064,Gina,710
+435,Leafy Bladderwort,8:00,23:59,Crawfordsville,Indiana,47937,Dryden,1253
+436,Coastal Searocket,8:00,23:59,Fairbanks,Alaska,99790,Norway Maple,6
+437,Pseudocyphellaria Lichen,8:00,23:59,Pinellas Park,Florida,34665,Bobwhite,23078
+438,Dense False Gilyflower,8:00,23:59,Corpus Christi,Texas,78415,6th,8
+439,Oxeye,8:00,23:59,Scranton,Pennsylvania,18505,Charing Cross,529
+440,Soulard Crab,8:00,23:59,Metairie,Louisiana,70033,Grim,4591
+441,Claybank Beaksedge,8:00,23:59,Kansas City,Missouri,64109,Everett,0
+442,Synsepalum,8:00,23:59,Atlanta,Georgia,30392,Crescent Oaks,20
+443,Redflower Ragleaf,8:00,23:59,Anderson,South Carolina,29625,Brown,5227
+444,Dacrycarpus,8:00,23:59,Lawrenceville,Georgia,30045,Norway Maple,0815
+445,Catberry,8:00,23:59,Silver Spring,Maryland,20918,Esker,0595
+446,Yellow Prickle,8:00,23:59,Olympia,Washington,98506,Merrick,7
+447,Blackfoot Sandmat,8:00,23:59,Boston,Massachusetts,02119,Prentice,8
+448,Horsetail Paspalum,8:00,23:59,Syracuse,New York,13251,Continental,1
+449,Globe Dot Lichen,8:00,23:59,Wilkes Barre,Pennsylvania,18763,Ridgeway,510
+450,Limestone Calamint,8:00,23:59,Killeen,Texas,76544,Nancy,90
+451,Onosma,8:00,23:59,Memphis,Tennessee,38131,Banding,097
+452,Island Cyrtandra,8:00,23:59,Gary,Indiana,46406,Butternut,72
+453,Littleleaf Brickellbush,8:00,23:59,Oklahoma City,Oklahoma,73124,Bultman,90603
+454,Loch Lomond Eryngo,8:00,23:59,Houston,Texas,77255,Steensland,89226
+455,West Indian Bristlegrass,8:00,23:59,Athens,Georgia,30610,Colorado,25
+456,Nakedstem Sunray,8:00,23:59,Corpus Christi,Texas,78415,Ilene,90
+457,Winter Aconite,8:00,23:59,South Bend,Indiana,46699,Manitowish,63
+458,Graptophyllum,8:00,23:59,Honolulu,Hawaii,96845,Vermont,3596
+459,Tahquitz Mousetail,8:00,23:59,Atlanta,Georgia,30343,Arapahoe,065
+460,Wright's Rosette Grass,8:00,23:59,Seattle,Washington,98104,Goodland,530
+461,Golden Wattle,8:00,23:59,Tyler,Texas,75799,Red Cloud,35652
+462,Japanese Spiraea,8:00,23:59,Philadelphia,Pennsylvania,19131,Upham,7
+463,Island Wallflower,8:00,23:59,Brooklyn,New York,11254,Green,46
+464,Colonial Bentgrass,8:00,23:59,Ogden,Utah,84409,Butterfield,315
+465,Hybrid Oak,8:00,23:59,Oklahoma City,Oklahoma,73129,Jay,42026
+466,Rush,8:00,23:59,Charleston,South Carolina,29416,South,700
+467,New Zealand Flax,8:00,23:59,Irvine,California,92717,Sullivan,3
+468,Rinodina Lichen,8:00,23:59,Wichita,Kansas,67205,Sutherland,280
+469,Barnacle Lichen,8:00,23:59,Columbus,Ohio,43215,Village,7
+470,Wig Knapweed,8:00,23:59,Buffalo,New York,14276,Farragut,51
+471,Rockface Starviolet,8:00,23:59,Augusta,Georgia,30919,Amoth,903
+472,Margaranthus,8:00,23:59,Longview,Texas,75605,Weeping Birch,57850
+473,Sanionia Moss,8:00,23:59,Chula Vista,California,91913,Fordem,1981
+474,Porter's Wormwood,8:00,23:59,Irvine,California,92619,Sutteridge,9
+475,Wartycabbage,8:00,23:59,South Bend,Indiana,46699,Oriole,820
+476,Whitemargin Beardtongue,8:00,23:59,Des Moines,Iowa,50936,Quincy,0
+477,San Francisco Woodland-star,8:00,23:59,Milwaukee,Wisconsin,53277,Sherman,86
+478,Geysers Panicgrass,8:00,23:59,Phoenix,Arizona,85035,Larry,67077
+479,Commerson's Nightshade,8:00,23:59,Orlando,Florida,32835,Hovde,5902
+480,Drimys,8:00,23:59,Savannah,Georgia,31410,Bultman,74812
+481,Softhairy Maiden Fern,8:00,23:59,Loretto,Minnesota,55598,Forest Run,4882
+482,Bolander's Pea,8:00,23:59,Memphis,Tennessee,38119,Debs,21
+483,Milkvine,8:00,23:59,Southfield,Michigan,48076,Corry,2394
+484,Greater Florida Spurge,8:00,23:59,Washington,District of Columbia,20380,South,2
+485,Dotted Beadfern,8:00,23:59,Raleigh,North Carolina,27658,Green,8834
+486,Sticky Oxeye,8:00,23:59,Houston,Texas,77276,Forster,308
+487,'ahakea Lau Nui,8:00,23:59,Springfield,Ohio,45505,Ridgeview,98647
+488,Cusick's Indian Paintbrush,8:00,23:59,Albany,New York,12222,Monica,28
+489,Jaegerina Moss,8:00,23:59,Washington,District of Columbia,20337,Lakewood Gardens,09072
+490,Torrey's Popcornflower,8:00,23:59,Gainesville,Georgia,30506,Clarendon,85458
+491,Didymodon Moss,8:00,23:59,Oklahoma City,Oklahoma,73147,Cody,980
+492,Longleaf Fleabane,8:00,23:59,Reno,Nevada,89550,Boyd,15
+493,Heavy Sedge,8:00,23:59,Wichita,Kansas,67210,Sage,24822
+494,Lambsquarters,8:00,23:59,Saint Louis,Missouri,63136,Forest,79450
+495,Shockley's Goldenhead,8:00,23:59,El Paso,Texas,79923,Village,75
+496,Davidson's Stonecrop,8:00,23:59,Philadelphia,Pennsylvania,19141,Northland,08
+497,Zamia,8:00,23:59,Albuquerque,New Mexico,87195,Tony,1376
+498,Fivestamen Miterwort,8:00,23:59,Raleigh,North Carolina,27621,Kinsman,1626
+499,Fivefinger Chickensage,8:00,23:59,Fort Worth,Texas,76192,Chinook,190
+500,Early Yellowrocket,8:00,23:59,San Francisco,California,94137,Harper,73984
+501,Bride's Feathers,8:00,23:59,Paterson,New Jersey,07544,La Follette,0
+502,Luisierella Moss,8:00,23:59,San Antonio,Texas,78296,Mccormick,122
+503,Threebirds,8:00,23:59,Fresno,California,93773,Bellgrove,1
+504,Del Norte Willow,8:00,23:59,Jackson,Mississippi,39296,Twin Pines,329
+505,Tracy's Bluegrass,8:00,23:59,Boston,Massachusetts,02104,Eagle Crest,7396
+506,Fewflower Evening Primrose,8:00,23:59,Portland,Oregon,97255,La Follette,77208
+507,Ringseed Rush,8:00,23:59,El Paso,Texas,88514,Laurel,68241
+508,Hoary Plantain,8:00,23:59,Philadelphia,Pennsylvania,19191,Chive,551
+509,Hawai'i False Ohelo,8:00,23:59,Cleveland,Ohio,44197,Tony,6
+510,Persian Goatgrass,8:00,23:59,Waco,Texas,76796,Shopko,9085
+511,Adoxa,8:00,23:59,Reno,Nevada,89505,Orin,67
+512,Drummond's Clematis,8:00,23:59,Baltimore,Maryland,21281,Petterle,917
+513,Grimmia Dry Rock Moss,8:00,23:59,Brooklyn,New York,11210,Hoepker,7450
+514,Bryum Moss,8:00,23:59,Washington,District of Columbia,20442,Sunnyside,95992
+515,Bushy Buckwheat,8:00,23:59,Yakima,Washington,98907,Marcy,9
+516,Woodland Rush,8:00,23:59,San Diego,California,92105,Amoth,6663
+517,Cartilage Lichen,8:00,23:59,San Jose,California,95194,Southridge,1
+518,Gray Bushmallow,8:00,23:59,Dayton,Ohio,45470,Mallard,6288
+519,Lemmon's Wildginger,8:00,23:59,Bonita Springs,Florida,34135,Acker,68
+520,Thorne's Buckwheat,8:00,23:59,Riverside,California,92513,Rusk,1004
+521,Lanceleaf Goldenweed,8:00,23:59,Columbus,Ohio,43215,Nancy,78
+522,New England Blue Violet,8:00,23:59,Birmingham,Alabama,35215,Troy,1
+523,Protoblastenia Lichen,8:00,23:59,Washington,District of Columbia,20099,Redwing,269
+524,Beard Lichen,8:00,23:59,Chicago,Illinois,60686,Mccormick,2946
+525,Cinnamon Fern,8:00,23:59,Omaha,Nebraska,68134,Schurz,72121
+526,Twolobe Speedwell,8:00,23:59,Brooklyn,New York,11225,Browning,06
+527,Cola De Paloma,8:00,23:59,Dallas,Texas,75260,Schurz,23796
+528,Racemed Milkwort,8:00,23:59,Oklahoma City,Oklahoma,73114,Derek,0
+529,Garlicvine,8:00,23:59,Lexington,Kentucky,40510,Harbort,30
+530,Varigated Beard Lichen,8:00,23:59,Fort Lauderdale,Florida,33325,Straubel,168
+531,Pacific Manzanita,8:00,23:59,Largo,Florida,33777,Canary,457
+532,Redspined Fishhook Cactus,8:00,23:59,Fort Wayne,Indiana,46825,Sommers,870
+533,Widgeongrass,8:00,23:59,Washington,District of Columbia,20580,Miller,25926
+534,Columbia Gorge Rockcress,8:00,23:59,Baltimore,Maryland,21290,Rutledge,97
+535,Bistort Cartilage Lichen,8:00,23:59,San Diego,California,92110,Kingsford,7
+536,False Fleabane,8:00,23:59,Erie,Pennsylvania,16505,Lukken,66
+537,Curveseed Butterwort,8:00,23:59,Petaluma,California,94975,Lakeland,5034
+538,Pyrenocollema Lichen,8:00,23:59,Jackson,Mississippi,39236,Esch,7871
+539,Marin Knotweed,8:00,23:59,Atlanta,Georgia,30343,Pearson,646
+540,Rough Sprangletop,8:00,23:59,Denver,Colorado,80228,Westerfield,997
+541,Beard Lichen,8:00,23:59,El Paso,Texas,79989,Fuller,46
+542,Cup Lichen,8:00,23:59,Philadelphia,Pennsylvania,19191,Bowman,771
+543,Jessica Sticktight,8:00,23:59,Glendale,Arizona,85305,Lakewood,1
+544,Calcareous Lichenothelia Lichen,8:00,23:59,Bozeman,Montana,59771,Stuart,4922
+545,Pitchersage,8:00,23:59,Flint,Michigan,48505,Scoville,8
+546,Nakedstem Dewflower,8:00,23:59,Bloomington,Indiana,47405,Mesta,6
+547,Racomitrium Moss,8:00,23:59,Dallas,Texas,75287,Hoepker,3014
+548,Nettle,8:00,23:59,New York City,New York,10203,Fallview,04777
+549,Carolina Desert-thorn,8:00,23:59,Buffalo,New York,14215,Blackbird,50389
+550,Rose Bluet,8:00,23:59,Honolulu,Hawaii,96835,Jackson,24
+551,Tall Fescue,8:00,23:59,Vancouver,Washington,98664,Maryland,9796
+552,Tylophoron Lichen,8:00,23:59,Seminole,Florida,34642,Hayes,91
+553,Chiricahua Mountain Mock Vervain,8:00,23:59,Spring Hill,Florida,34611,Westridge,5833
+554,Arizona Spinystar,8:00,23:59,San Bernardino,California,92410,Larry,4911
+555,Canadian Lousewort,8:00,23:59,Pomona,California,91797,Almo,661
+556,Silverweed,8:00,23:59,Asheville,North Carolina,28815,Northridge,10
+557,Yellow Unicorn-plant,8:00,23:59,Roanoke,Virginia,24014,David,231
+558,Sandwort Microcalicium Lichen,8:00,23:59,Trenton,New Jersey,08603,Bartelt,2
+559,Spanish Bayonet,8:00,23:59,Olympia,Washington,98506,Hazelcrest,8
+560,Starke's Brachythecium Moss,8:00,23:59,Pasadena,California,91199,Crescent Oaks,24718
+561,Toothleaf,8:00,23:59,Hamilton,Ohio,45020,Prentice,46165
+562,Wart Lichen,8:00,23:59,Salt Lake City,Utah,84125,Sachs,438
+563,Boquillas Sandmat,8:00,23:59,Boise,Idaho,83757,Erie,1851
+564,Condensed Snow Lichen,8:00,23:59,Pasadena,California,91131,Vermont,16
+565,Hollyfern,8:00,23:59,Abilene,Texas,79605,Boyd,70678
+566,Jesuit's Bark,8:00,23:59,Brooklyn,New York,11247,Toban,07145
+567,Common Cordgrass,8:00,23:59,Portland,Oregon,97201,Southridge,845
+568,Persian Wheat,8:00,23:59,Phoenix,Arizona,85072,Hoffman,155
+569,Cottonseed,8:00,23:59,Sioux Falls,South Dakota,57110,Bellgrove,92
+570,Brown's Pea,8:00,23:59,Tucson,Arizona,85732,Fuller,6245
+571,Arkansas Sedge,8:00,23:59,Oakland,California,94622,Cardinal,7013
+572,Wart Lichen,8:00,23:59,Boston,Massachusetts,02283,Kenwood,967
+573,Anisomeridium Lichen,8:00,23:59,Washington,District of Columbia,20310,Marquette,014
+574,Tundra Warnstorfia Moss,8:00,23:59,Lincoln,Nebraska,68505,Mariners Cove,968
+575,Big-spore Quillwort,8:00,23:59,Brea,California,92822,Oneill,0
+576,Sand Croton,8:00,23:59,Farmington,Michigan,48335,Pierstorff,0
+577,Thunberg's Gardenia,8:00,23:59,Spring,Texas,77386,Texas,1
+578,Crisped Monardella,8:00,23:59,Palmdale,California,93591,Hayes,7
+579,Drumheads,8:00,23:59,Sandy,Utah,84093,Rowland,8317
+580,Autumn Olive,8:00,23:59,Indianapolis,Indiana,46231,Cordelia,29692
+581,Disc Lichen,8:00,23:59,Stockton,California,95298,Sugar,059
+582,Western White Pine,8:00,23:59,Lexington,Kentucky,40576,Dovetail,9924
+583,Hearst Ranch Buckbrush,8:00,23:59,Fort Worth,Texas,76198,Bluestem,9804
+584,Myurella Moss,8:00,23:59,Saint Petersburg,Florida,33710,Westport,9499
+585,Western Rough Goldenrod,8:00,23:59,Chico,California,95973,Mallory,331
+586,Little Green Sedge,8:00,23:59,El Paso,Texas,88519,Sycamore,3
+587,Ear Muhly,8:00,23:59,Jackson,Mississippi,39204,Gale,3190
+588,Annual Checkerbloom,8:00,23:59,Fresno,California,93786,Straubel,7483
+589,Hermannia,8:00,23:59,Panama City,Florida,32412,Crescent Oaks,5
+590,Bermudagrass,8:00,23:59,Washington,District of Columbia,20099,Bellgrove,2
+591,Riverweed,8:00,23:59,Oxnard,California,93034,Trailsway,8596
+592,Annual Rabbitsfoot Grass,8:00,23:59,Fargo,North Dakota,58106,Welch,967
+593,Fringed Dodder,8:00,23:59,Springfield,Illinois,62705,Fallview,4
+594,Mexican Silverbush,8:00,23:59,Tacoma,Washington,98417,Blue Bill Park,1
+595,Bear's Breech,8:00,23:59,Hampton,Virginia,23668,Cambridge,7
+596,Lady's Nightcap,8:00,23:59,Miami,Florida,33261,Gerald,15219
+597,Humboldt's Lily,8:00,23:59,Washington,District of Columbia,20380,Fuller,8897
+598,Chapman's Sedge,8:00,23:59,Harrisburg,Pennsylvania,17105,Village Green,1
+599,Northern Wildrice,8:00,23:59,Atlanta,Georgia,30343,Morrow,0
+600,Yerba De San Juan,8:00,23:59,New Orleans,Louisiana,70142,Grasskamp,62
+601,Dwarf Sedge,8:00,23:59,San Diego,California,92132,Mccormick,8800
+602,Threadleaf Sedge,8:00,23:59,San Francisco,California,94159,Buell,29198
+603,Bitter Ash,8:00,23:59,Albany,New York,12222,Independence,53109
+604,Molokai Mirrorplant,8:00,23:59,Washington,District of Columbia,20010,Melby,676
+605,Spanish Bayonet,8:00,23:59,Saint Louis,Missouri,63121,Saint Paul,10
+606,Hard Spinifex,8:00,23:59,Vancouver,Washington,98664,Ridgeview,5041
+607,Conglomerate Jelly Lichen,8:00,23:59,San Antonio,Texas,78285,Oakridge,4
+608,Branching Phacelia,8:00,23:59,Albany,Georgia,31704,Fulton,0
+609,Hartweg's Umbrellawort,8:00,23:59,Fresno,California,93750,South,0
+610,Riverweed,8:00,23:59,Kansas City,Kansas,66160,Talmadge,95744
+611,Bristleleaf Chaffhead,8:00,23:59,Los Angeles,California,90189,Declaration,1
+612,Urban's Nakedwood,8:00,23:59,Miami,Florida,33180,North,58007
+613,Twinflower,8:00,23:59,Milwaukee,Wisconsin,53205,Pennsylvania,26
+614,Zebrina,8:00,23:59,Fresno,California,93721,Vermont,9607
+615,Pacific Silver Fir,8:00,23:59,Atlanta,Georgia,30323,2nd,60957
+616,Peppervine,8:00,23:59,Philadelphia,Pennsylvania,19178,Brickson Park,4261
+617,Climbing Wartclub,8:00,23:59,Oklahoma City,Oklahoma,73129,Veith,6549
+618,Arrow Thelypody,8:00,23:59,Appleton,Wisconsin,54915,Holmberg,0
+619,Northeastern Saltbush,8:00,23:59,Raleigh,North Carolina,27610,Buena Vista,65
+620,Flagstaff Rockcress,8:00,23:59,Sarasota,Florida,34238,Lighthouse Bay,2
+621,Lija,8:00,23:59,Naples,Florida,33963,Pine View,5237
+622,Serjania,8:00,23:59,Dallas,Texas,75323,Division,68331
+623,Yellow Anisetree,8:00,23:59,Washington,District of Columbia,20551,Knutson,3
+624,Hybrid Oak,8:00,23:59,Jacksonville,Florida,32244,Spaight,6
+625,Tundra Warnstorfia Moss,8:00,23:59,Washington,District of Columbia,20057,Cordelia,5
+626,Field Locoweed,8:00,23:59,Jacksonville,Florida,32204,Luster,41
+627,Snowrose,8:00,23:59,Fresno,California,93709,Londonderry,8
+628,Mountain Misery,8:00,23:59,Saint Paul,Minnesota,55172,Fisk,2629
+629,Jones' Pepperweed,8:00,23:59,Santa Barbara,California,93111,Havey,1
+630,Soft Paspalum,8:00,23:59,Oklahoma City,Oklahoma,73157,American,2
+631,Bulrush,8:00,23:59,Tampa,Florida,33620,Summer Ridge,7
+632,Woolly Prairie Clover,8:00,23:59,Baltimore,Maryland,21290,Stuart,1168
+633,Manchurian Crab Apple,8:00,23:59,San Jose,California,95123,Surrey,919
+634,Coastal Plain Beaksedge,8:00,23:59,Philadelphia,Pennsylvania,19120,South,45118
+635,Darlingplum,8:00,23:59,Denver,Colorado,80255,Brown,7513
+636,Dwarfflower Heartleaf,8:00,23:59,Vero Beach,Florida,32969,Erie,1
+637,Chihuahuan Oak,8:00,23:59,New York City,New York,10039,Oxford,72
+638,Eastern Beebalm,8:00,23:59,Houston,Texas,77234,Mayfield,900
+639,Hillebrand's Ha'a,8:00,23:59,Dallas,Texas,75367,Knutson,8163
+640,Pygmy Buttercup,8:00,23:59,Melbourne,Florida,32941,Ludington,06
+641,Rusby's Locust,8:00,23:59,San Antonio,Texas,78265,Johnson,23
+642,Northern Lecidea Lichen,8:00,23:59,Denver,Colorado,80249,Sommers,048
+643,Shrubby Bedstraw,8:00,23:59,Sarasota,Florida,34233,Raven,851
+644,Scrub Spurge,8:00,23:59,Saint Paul,Minnesota,55146,Fisk,1116
+645,Tulare Cryptantha,8:00,23:59,Columbia,South Carolina,29220,Thackeray,20
+646,Lecidea Lichen,8:00,23:59,Seattle,Washington,98158,Sunbrook,6799
+647,Lake Ella Hawthorn,8:00,23:59,Grand Rapids,Michigan,49505,Bunker Hill,68
+648,Stemless Four-nerve Daisy,8:00,23:59,Oakland,California,94605,Coleman,6
+649,Rusty Lupine,8:00,23:59,Mansfield,Ohio,44905,Scoville,6
+650,Spiked Ipomopsis,8:00,23:59,Boston,Massachusetts,02119,Michigan,087
+651,Fringed Loosestrife,8:00,23:59,Charlotte,North Carolina,28284,Raven,8
+652,Flatsedge,8:00,23:59,San Francisco,California,94169,Hoffman,4
+653,American Mannagrass,8:00,23:59,Valley Forge,Pennsylvania,19495,Havey,9152
+654,Rim Lichen,8:00,23:59,Oklahoma City,Oklahoma,73173,Burning Wood,35624
+655,Buckwheat,8:00,23:59,Huntington,West Virginia,25711,Fallview,1
+656,Indian Biscuitroot,8:00,23:59,Richmond,Virginia,23260,Lakeland,7
+657,Monkey's-comb,8:00,23:59,Davenport,Iowa,52804,Debra,270
+658,Diente De Perro,8:00,23:59,College Station,Texas,77844,Chinook,446
+659,Fescue,8:00,23:59,Chicago,Illinois,60674,Thierer,2
+660,Candle Snuffer Moss,8:00,23:59,Washington,District of Columbia,20099,Blackbird,47
+661,Longpod Stitchwort,8:00,23:59,New Orleans,Louisiana,70183,Merchant,26110
+662,Pink Sundew,8:00,23:59,Savannah,Georgia,31422,Hooker,8511
+663,Smooth Black Sedge,8:00,23:59,Brooklyn,New York,11215,Dawn,2207
+664,Kunth's Smallgrass,8:00,23:59,Anchorage,Alaska,99517,Corscot,786
+665,Eucalyptus,8:00,23:59,Spokane,Washington,99205,Roth,14
+666,Haplophyton,8:00,23:59,New Haven,Connecticut,06520,Blackbird,4782
+667,Curlytop Gumweed,8:00,23:59,Bakersfield,California,93386,Sunbrook,68
+668,Mouseear Hawkweed,8:00,23:59,Santa Fe,New Mexico,87592,Service,5
+669,Grassland Tarweed,8:00,23:59,Tucson,Arizona,85732,Anniversary,3757
+670,Oregon Checkerbloom,8:00,23:59,Abilene,Texas,79605,Melvin,43019
+671,Broadnineleaf Biscuitroot,8:00,23:59,Sacramento,California,95894,Truax,53
+672,Broadleaf Glandweed,8:00,23:59,Chula Vista,California,91913,Sauthoff,735
+673,Arizona Manihot,8:00,23:59,Salem,Oregon,97306,Packers,33
+674,Queen Anne's Lace,8:00,23:59,Saint Louis,Missouri,63131,Roth,830
+675,Bur Oak,8:00,23:59,Cincinnati,Ohio,45228,Almo,7567
+676,Felt Lichen,8:00,23:59,Modesto,California,95397,Hauk,451
+677,Fig,8:00,23:59,El Paso,Texas,79928,Montana,00789
+678,Sanborn's Onion,8:00,23:59,Denver,Colorado,80223,Nevada,071
+679,Cooke's Map Lichen,8:00,23:59,Saint Petersburg,Florida,33737,Beilfuss,9811
+680,Kentucky Bluegrass,8:00,23:59,Inglewood,California,90398,Sugar,530
+681,Scribble Lichen,8:00,23:59,Young America,Minnesota,55564,Porter,5
+682,Polyblastia Lichen,8:00,23:59,Terre Haute,Indiana,47812,Monterey,7
+683,Stiff Yellow Flax,8:00,23:59,Las Vegas,Nevada,89110,Barnett,517
+684,Hairy Pagoda-plant,8:00,23:59,Phoenix,Arizona,85015,Hudson,80
+685,Beard Lichen,8:00,23:59,Bloomington,Indiana,47405,Portage,65
+686,Acacia,8:00,23:59,Baltimore,Maryland,21229,Colorado,44
+687,Birch,8:00,23:59,New York City,New York,10079,Crownhardt,6
+688,Tall Thoroughwort,8:00,23:59,Albany,Georgia,31704,Northwestern,4205
+689,Halfchaff Sedge,8:00,23:59,Atlanta,Georgia,30343,Esch,80777
+690,Onesided Monkeyflower,8:00,23:59,El Paso,Texas,88519,Valley Edge,0535
+691,Smallflower Fishhook Cactus,8:00,23:59,Green Bay,Wisconsin,54305,Ramsey,9
+692,Mountain-ash,8:00,23:59,Fresno,California,93778,Bellgrove,291
+693,Phantom Orchid,8:00,23:59,Las Vegas,Nevada,89120,Rusk,995
+694,Cusick's Bluegrass,8:00,23:59,Philadelphia,Pennsylvania,19131,Heffernan,797
+695,Helianthella,8:00,23:59,Rochester,New York,14619,Lerdahl,37
+696,Grevillea,8:00,23:59,Saint Louis,Missouri,63131,Calypso,4
+697,Thicket Globemallow,8:00,23:59,Evansville,Indiana,47725,Harper,28984
+698,Siskiyou Mountain Woodland-star,8:00,23:59,Santa Ana,California,92705,Sherman,19
+699,Cochise Horseweed,8:00,23:59,Battle Creek,Michigan,49018,Dunning,6
+700,Saussurea,8:00,23:59,Mobile,Alabama,36628,Roxbury,40
+701,Script Lichen,8:00,23:59,Helena,Montana,59623,Banding,2
+702,Lesser Shepherdscress,8:00,23:59,Peoria,Illinois,61656,Declaration,025
+703,California Helianthella,8:00,23:59,Jacksonville,Florida,32204,Anhalt,660
+704,Rocky Mountain Phacelia,8:00,23:59,Austin,Texas,78726,Shopko,6
+705,Burrdock,8:00,23:59,Saint Paul,Minnesota,55108,Algoma,6
+706,Ailanthus,8:00,23:59,Asheville,North Carolina,28805,Drewry,70
+707,Martinique Trimezia,8:00,23:59,Boise,Idaho,83727,Sycamore,5009
+708,Wishbone Fiddleleaf,8:00,23:59,Kansas City,Missouri,64199,Granby,4358
+709,Desert Trumpet,8:00,23:59,Waco,Texas,76711,Dwight,7061
+710,Snowpeaks Raspberry,8:00,23:59,Dayton,Ohio,45440,Oneill,385
+711,Squarrose Knapweed,8:00,23:59,Waco,Texas,76711,Burning Wood,51
+712,Fremont's Monkeyflower,8:00,23:59,Lake Charles,Louisiana,70607,Pepper Wood,31024
+713,Royal Cheesewood,8:00,23:59,Miami,Florida,33124,Morningstar,217
+714,Rinodina Lichen,8:00,23:59,Las Vegas,Nevada,89130,Stoughton,12912
+715,Rosy Pussytoes,8:00,23:59,Savannah,Georgia,31422,Boyd,0101
+716,Lava Cyrtandra,8:00,23:59,Davenport,Iowa,52809,Corben,79497
+717,Common Tansy,8:00,23:59,Grand Rapids,Michigan,49560,Gina,03541
+718,Pygmy Bentspur Orchid,8:00,23:59,Pasadena,California,91103,Marcy,96
+719,Threeleaf Goldthread,8:00,23:59,Washington,District of Columbia,20591,Corben,531
+720,Hepp's Cracked Lichen,8:00,23:59,Phoenix,Arizona,85030,Daystar,59630
+721,Drummond's Campion,8:00,23:59,Reno,Nevada,89519,Di Loreto,49
+722,Canby's Lobelia,8:00,23:59,Austin,Texas,78721,Browning,49
+723,Asian White Birch,8:00,23:59,Fort Worth,Texas,76121,Riverside,850
+724,Western Bog Yellowcress,8:00,23:59,Jersey City,New Jersey,07310,Buell,295
+725,San Gabriel Bluecup,8:00,23:59,El Paso,Texas,79994,Cottonwood,3278
+726,Brittlestem,8:00,23:59,Spokane,Washington,99215,Nova,4
+727,Mother Of Thyme,8:00,23:59,San Antonio,Texas,78296,Evergreen,120
+728,Balsam Of Tolu,8:00,23:59,Orange,California,92668,Village Green,07
+729,Dendrographa Lichen,8:00,23:59,Atlanta,Georgia,30301,Larry,94652
+730,Paradise Tansymustard,8:00,23:59,Tucson,Arizona,85754,Goodland,0
+731,Helminthostachys,8:00,23:59,Carson City,Nevada,89706,Springview,82
+732,Maui Stenogyne,8:00,23:59,Pittsburgh,Pennsylvania,15250,Rieder,6741
+733,Groundplum Milkvetch,8:00,23:59,Hialeah,Florida,33013,Summer Ridge,5
+734,Arizona Spinystar,8:00,23:59,Des Moines,Iowa,50393,Sugar,5499
+735,Shortbeard Plumegrass,8:00,23:59,Los Angeles,California,90189,Prairieview,2
+736,Longstalk Clover,8:00,23:59,Rochester,New York,14604,Center,0264
+737,Madhuca,8:00,23:59,Charleston,West Virginia,25362,Bluestem,78
+738,Trimezia,8:00,23:59,Peoria,Illinois,61605,Hayes,21
+739,Plateilema,8:00,23:59,Dallas,Texas,75205,Bayside,4893
+740,Cheesewood,8:00,23:59,Washington,District of Columbia,20503,Pond,4666
+741,Big Carpetgrass,8:00,23:59,Boulder,Colorado,80305,Fuller,431
+742,Sagebrush Cholla,8:00,23:59,Birmingham,Alabama,35231,Melvin,24413
+743,False Rosinweed,8:00,23:59,Washington,District of Columbia,20260,Westerfield,574
+744,Barometerbush,8:00,23:59,New Orleans,Louisiana,70187,Lakewood Gardens,57187
+745,Bush's Fissidens Moss,8:00,23:59,Pittsburgh,Pennsylvania,15225,Declaration,31
+746,Aroeira Blanca,8:00,23:59,Nashville,Tennessee,37245,Logan,08
+747,Arizona Calcareous Moss,8:00,23:59,Gainesville,Florida,32610,Talisman,26426
+748,Woolly Huckleberry,8:00,23:59,Providence,Rhode Island,02905,Michigan,3
+749,Beavertip Draba,8:00,23:59,Gary,Indiana,46406,Dakota,6
+750,Sagebrush Mariposa Lily,8:00,23:59,Portland,Maine,04109,Miller,1393
+751,Scalloped Milkwort,8:00,23:59,Austin,Texas,78721,Dunning,6
+752,Guiana Fern,8:00,23:59,Denver,Colorado,80262,Esch,58262
+753,Blue Ridge Blueberry,8:00,23:59,Memphis,Tennessee,38114,Caliangt,8434
+754,Ray's Knotweed,8:00,23:59,Houston,Texas,77065,Oriole,31
+755,Old World Flatsedge,8:00,23:59,Charlottesville,Virginia,22903,Ridgeway,85
+756,Boundary Peak Rockcress,8:00,23:59,Honolulu,Hawaii,96845,Village,0
+757,Santa Rita Threeawn,8:00,23:59,Fresno,California,93762,Montana,98276
+758,Common Ragwort,8:00,23:59,Jacksonville,Florida,32215,Anthes,4
+759,Douglas' Phacelia,8:00,23:59,Odessa,Texas,79764,Prairie Rose,45535
+760,Star Gentian,8:00,23:59,Washington,District of Columbia,20525,Fuller,162
+761,Duchesne Milkvetch,8:00,23:59,Greensboro,North Carolina,27415,Westerfield,7
+762,Jamaican Babyboot Orchid,8:00,23:59,Peoria,Illinois,61605,Corscot,1112
+763,Onesided Threadplant,8:00,23:59,Jamaica,New York,11499,Brown,56
+764,Valley Lupine,8:00,23:59,Philadelphia,Pennsylvania,19191,Tony,65
+765,Dotseed Plantain,8:00,23:59,Tampa,Florida,33605,Carpenter,23207
+766,Fairy Beaksedge,8:00,23:59,Flushing,New York,11388,Maywood,1815
+767,Cup Lichen,8:00,23:59,Springfield,Ohio,45505,Shopko,1041
+768,False Heather,8:00,23:59,Raleigh,North Carolina,27635,Pearson,87023
+769,Grayleaf Red Raspberry,8:00,23:59,Kansas City,Missouri,64187,Caliangt,9
+770,Dwarf Arctic Ragwort,8:00,23:59,Miami,Florida,33245,Northwestern,8
+771,Alamovine,8:00,23:59,Clearwater,Florida,33758,Red Cloud,6
+772,Anderson's Milkvetch,8:00,23:59,Richmond,Virginia,23242,Mayer,45702
+773,Beach Pea,8:00,23:59,Joliet,Illinois,60435,Johnson,76444
+774,Madam Gorgon,8:00,23:59,Indianapolis,Indiana,46226,Thackeray,76318
+775,Smallflower Delissea,8:00,23:59,Columbia,South Carolina,29220,Manitowish,03385
+776,Parakeetflower,8:00,23:59,West Palm Beach,Florida,33411,Redwing,3
+777,Staghorn Fern,8:00,23:59,Trenton,New Jersey,08638,Brown,1
+778,American Basswood,8:00,23:59,Lubbock,Texas,79415,Hazelcrest,6
+779,Tall Milkvetch,8:00,23:59,Bronx,New York,10474,Northfield,611
+780,Cyclanthera,8:00,23:59,Berkeley,California,94712,Karstens,9
+781,Blackfoot Groundsmoke,8:00,23:59,Houston,Texas,77055,Hooker,28
+782,Western Purple Cranesbill,8:00,23:59,Homestead,Florida,33034,Mayfield,05110
+783,Spider Plant,8:00,23:59,Tulsa,Oklahoma,74149,Roxbury,59
+784,Stinkgrass,8:00,23:59,Eugene,Oregon,97405,Pond,7
+785,Velvet Lupine,8:00,23:59,Anchorage,Alaska,99517,Eagan,80
+786,Brome Fescue,8:00,23:59,Washington,District of Columbia,20535,Prentice,18364
+787,Pointtip Twinpod,8:00,23:59,Milwaukee,Wisconsin,53263,Old Shore,8635
+788,Cockleshell Lichen,8:00,23:59,New York City,New York,10039,Hanover,8877
+789,Weeping Bottlebrush,8:00,23:59,Brooklyn,New York,11231,Messerschmidt,6
+790,Green-winged Orchid,8:00,23:59,Phoenix,Arizona,85045,Tennessee,412
+791,Narciso Colorado,8:00,23:59,Spring Hill,Florida,34611,Kipling,8
+792,Dot Lichen,8:00,23:59,South Bend,Indiana,46634,Jay,1
+793,Creeping Alkaligrass,8:00,23:59,Bozeman,Montana,59771,Riverside,202
+794,Barbas De Indio,8:00,23:59,Boston,Massachusetts,02298,Cherokee,93
+795,Dancing-lady Orchid,8:00,23:59,Albany,New York,12242,Esker,751
+796,Croomia,8:00,23:59,Johnstown,Pennsylvania,15906,Kipling,349
+797,Maranta,8:00,23:59,Saint Paul,Minnesota,55108,Eagle Crest,15
+798,African Mustard,8:00,23:59,Philadelphia,Pennsylvania,19196,Mandrake,62810
+799,Santa Catalina Island Manzanita,8:00,23:59,Columbia,South Carolina,29225,Cardinal,23531
+800,Hairless Fleabane,8:00,23:59,Charlottesville,Virginia,22908,Meadow Ridge,671
+801,Large Yellow Vetch,8:00,23:59,Wilmington,Delaware,19897,Maywood,251
+802,Viscid Mallow,8:00,23:59,Paterson,New Jersey,07505,Dryden,004
+803,Schwerin's False Indigo,8:00,23:59,Fresno,California,93794,Michigan,4
+804,Northern Licorice-root,8:00,23:59,Birmingham,Alabama,35205,Lawn,8
+805,Broadleaf Lupine,8:00,23:59,San Francisco,California,94169,Maple,95700
+806,Rat-tail Grass,8:00,23:59,San Antonio,Texas,78240,Stone Corner,32
+807,Eggyolk Lichen,8:00,23:59,Metairie,Louisiana,70005,Oakridge,89569
+808,Heller's Draba,8:00,23:59,Pueblo,Colorado,81015,Hudson,5701
+809,Largebract Ticktrefoil,8:00,23:59,Gainesville,Florida,32610,Autumn Leaf,4724
+810,Dunn's Mariposa Lily,8:00,23:59,Orlando,Florida,32891,Maywood,611
+811,Wart Lichen,8:00,23:59,Houston,Texas,77040,Hoard,1917
+812,Richardson's Bittercress,8:00,23:59,Orange,California,92867,Maryland,60077
+813,Broadleaf Ironweed,8:00,23:59,Washington,District of Columbia,20430,Summit,729
+814,Columbian Monkshood,8:00,23:59,Miami,Florida,33158,Golf,9120
+815,Basin Bellflower,8:00,23:59,Fort Myers,Florida,33913,Bellgrove,481
+816,Brachythecium Moss,8:00,23:59,Saginaw,Michigan,48609,Bellgrove,708
+817,Scott Mountain Phacelia,8:00,23:59,Charleston,West Virginia,25321,Mayer,2500
+818,Dentate False Pennyroyal,8:00,23:59,Colorado Springs,Colorado,80945,Warrior,7479
+819,Woodystem Speedwell,8:00,23:59,Brooklyn,New York,11225,Shoshone,44417
+820,Laurel De Paloma,8:00,23:59,Macon,Georgia,31210,Kensington,70
+821,Tahawas Porpidia Lichen,8:00,23:59,Albany,New York,12237,Longview,5
+822,Low Northern Sedge,8:00,23:59,Chicago,Illinois,60657,Lyons,0
+823,Entireleaf Western Daisy,8:00,23:59,Lansing,Michigan,48919,Maple,171
+824,Bingen Lupine,8:00,23:59,El Paso,Texas,88525,Delaware,876
+825,Bristlemallow,8:00,23:59,Waco,Texas,76796,Division,9
+826,Oak Ridge Lupine,8:00,23:59,Columbus,Ohio,43215,Debs,65
+827,Chihuahuan Lupine,8:00,23:59,Detroit,Michigan,48232,Spenser,967
+828,Velvet Lupine,8:00,23:59,Roanoke,Virginia,24020,Shopko,77
+829,Big Bend Pricklypear,8:00,23:59,Amarillo,Texas,79118,Heath,73081
+830,Mountain Meadowfoam,8:00,23:59,San Bernardino,California,92410,Lotheville,1
+831,Chestnut,8:00,23:59,Tyler,Texas,75705,Veith,3134
+832,Littlebrownjug,8:00,23:59,Tacoma,Washington,98481,Anderson,65
+833,Parry's Jujube,8:00,23:59,Anchorage,Alaska,99522,Rutledge,34742
+834,Kombe Arrow Poison,8:00,23:59,San Francisco,California,94126,Golf View,082
+835,Mountain Carpet Clover,8:00,23:59,Tallahassee,Florida,32314,Kropf,01
+836,Plantainleaf Dubautia,8:00,23:59,Honolulu,Hawaii,96815,Birchwood,892
+837,Carrotwood,8:00,23:59,Washington,District of Columbia,20456,La Follette,64107
+838,Butterbough,8:00,23:59,Washington,District of Columbia,20046,Basil,7
+839,Slender Panicgrass,8:00,23:59,Boise,Idaho,83727,Forest,32
+840,Dwarf Checkerbloom,8:00,23:59,Anchorage,Alaska,99507,Ruskin,804
+841,Springfield's Beardgrass,8:00,23:59,Louisville,Kentucky,40250,Valley Edge,120
+842,Lady Of The Night Orchid,8:00,23:59,Saint Louis,Missouri,63121,Thierer,93
+843,Hybrid Oak,8:00,23:59,Scranton,Pennsylvania,18505,Victoria,78
+844,Thymeleaf Sandwort,8:00,23:59,Shawnee Mission,Kansas,66225,Colorado,9
+845,Florida Diamondflowers,8:00,23:59,Bakersfield,California,93311,Marquette,0
+846,Button Eryngo,8:00,23:59,San Diego,California,92153,Glacier Hill,02
+847,Narrowleaf Zinnia,8:00,23:59,Washington,District of Columbia,20205,Myrtle,7
+848,Middleton False Foxglove,8:00,23:59,Arlington,Texas,76011,Thompson,198
+849,Palm-leaf Marshmallow,8:00,23:59,Bethesda,Maryland,20892,New Castle,42
+850,Chinese Box,8:00,23:59,Milwaukee,Wisconsin,53225,Boyd,96554
+851,Alkali Desertparsley,8:00,23:59,Minneapolis,Minnesota,55423,Burning Wood,5
+852,Aphragmus,8:00,23:59,Santa Rosa,California,95405,Warner,02
+853,Hairy Crabweed,8:00,23:59,Decatur,Georgia,30033,Pennsylvania,56512
+854,Poorman's Patch,8:00,23:59,Indianapolis,Indiana,46216,Lakewood,4256
+855,Coneplant,8:00,23:59,Birmingham,Alabama,35231,Jenifer,6
+856,Dwarf Cupflower,8:00,23:59,Washington,District of Columbia,20436,Forster,69492
+857,California Poppy,8:00,23:59,Albuquerque,New Mexico,87105,Farragut,43320
+858,Walking-stick Palm,8:00,23:59,Dallas,Texas,75265,Manitowish,908
+859,Parry's Rabbitbrush,8:00,23:59,Birmingham,Alabama,35215,Oak Valley,439
+860,Saber Bogmat,8:00,23:59,Gainesville,Georgia,30506,Shasta,2186
+861,Silverscale Saltbush,8:00,23:59,Peoria,Illinois,61614,Pine View,89961
+862,Shrubby Cinquefoil,8:00,23:59,Dallas,Texas,75353,Duke,73986
+863,Reynoldsia,8:00,23:59,Norfolk,Virginia,23504,Russell,5
+864,Bryoerythrophyllum Moss,8:00,23:59,Naples,Florida,33963,Kropf,6654
+865,Flame Bottletree,8:00,23:59,Manassas,Virginia,22111,Eagle Crest,19969
+866,Plum,8:00,23:59,Elmira,New York,14905,Clyde Gallagher,90
+867,Leathery Knotweed,8:00,23:59,Dayton,Ohio,45432,Jay,1992
+868,Giant Chinquapin,8:00,23:59,Vancouver,Washington,98687,Susan,560
+869,Durio,8:00,23:59,London,Kentucky,40745,Oxford,2747
+870,Parry Manzanita,8:00,23:59,Washington,District of Columbia,20260,Hudson,42
+871,Redclaws,8:00,23:59,Seattle,Washington,98185,Memorial,1
+872,Silverskin Lichen,8:00,23:59,Fayetteville,North Carolina,28305,Marquette,2062
+873,Faux Persil,8:00,23:59,San Luis Obispo,California,93407,Veith,99
+874,Bird-of-paradise,8:00,23:59,El Paso,Texas,79994,Mifflin,52
+875,Blandow's Helodium Moss,8:00,23:59,Dayton,Ohio,45490,Birchwood,04544
+876,California Wild Grape,8:00,23:59,East Saint Louis,Illinois,62205,Johnson,6
+877,Rockdaisy,8:00,23:59,Baltimore,Maryland,21281,Becker,0
+878,Spreading Yellowcress,8:00,23:59,Newark,New Jersey,07195,Esch,44759
+879,Agrimony,8:00,23:59,Jacksonville,Florida,32255,Vera,5647
+880,Coast Range False Bindweed,8:00,23:59,Toledo,Ohio,43699,West,3339
+881,Slenderleaf False Foxglove,8:00,23:59,Saint Augustine,Florida,32092,Sunfield,6920
+882,Gundelia,8:00,23:59,Los Angeles,California,90005,Burrows,1945
+883,Robison's Monardella,8:00,23:59,Hayward,California,94544,Buell,152
+884,Creeping Maiden Fern,8:00,23:59,Houston,Texas,77288,Caliangt,78
+885,Yukon Groundsel,8:00,23:59,Silver Spring,Maryland,20904,Cardinal,853
+886,Curved-fruit Blacksenna,8:00,23:59,Carson City,Nevada,89706,Dwight,42
+887,Wart Lichen,8:00,23:59,Trenton,New Jersey,08650,Reinke,964
+888,Scarlet Larkspur,8:00,23:59,Sioux Falls,South Dakota,57110,Independence,774
+889,'akupa,8:00,23:59,Santa Barbara,California,93150,Autumn Leaf,4651
+890,Grassland Silverpuffs,8:00,23:59,Spokane,Washington,99220,Esker,8
+891,Subalpine Mariposa Lily,8:00,23:59,Oklahoma City,Oklahoma,73104,Harper,34
+892,Bonnet Orchid,8:00,23:59,Cincinnati,Ohio,45271,Tony,8
+893,Whitejacket,8:00,23:59,Flint,Michigan,48555,Oriole,4
+894,Wyoming Townsend Daisy,8:00,23:59,Springfield,Illinois,62776,Buell,397
+895,Haplohymenium Moss,8:00,23:59,Sacramento,California,95828,Elka,782
+896,Roadside Sandmat,8:00,23:59,Sacramento,California,94250,Main,267
+897,Santa Fe Milkvetch,8:00,23:59,Sioux City,Iowa,51110,Quincy,15
+898,Snow Lichen,8:00,23:59,New York City,New York,10150,Parkside,276
+899,False Goldeneye,8:00,23:59,Modesto,California,95354,Farwell,85979
+900,Slender Grama,8:00,23:59,Waco,Texas,76796,Hintze,2
+901,Yosemite Buckthorn,8:00,23:59,Huntington,West Virginia,25709,Meadow Ridge,11595
+902,Orange Lichen,8:00,23:59,Baltimore,Maryland,21239,Fair Oaks,6528
+903,Merrill's Rim Lichen,8:00,23:59,Houston,Texas,77030,Buell,8
+904,Santa Barbara Island Liveforever,8:00,23:59,Minneapolis,Minnesota,55436,Springs,357
+905,Hyssop Loosestrife,8:00,23:59,Fort Smith,Arkansas,72916,Sage,23
+906,Spikemoss,8:00,23:59,San Francisco,California,94164,Milwaukee,5691
+907,Eastwood's Baby Blue Eyes,8:00,23:59,Honolulu,Hawaii,96820,Superior,12
+908,Weeping Willow,8:00,23:59,Lexington,Kentucky,40510,Montana,9
+909,Spotted Asian Poppy,8:00,23:59,Chicago,Illinois,60609,Del Mar,5
+910,Longleaf Jointfir,8:00,23:59,Houston,Texas,77266,Melby,1
+911,Prairie Phacelia,8:00,23:59,Erie,Pennsylvania,16522,Ridgeway,013
+912,Winged Buckwheat,8:00,23:59,Tulsa,Oklahoma,74184,Dwight,9640
+913,Mono Phacelia,8:00,23:59,San Francisco,California,94177,Caliangt,7754
+914,Petite Desertdandelion,8:00,23:59,Atlanta,Georgia,30356,Butterfield,33949
+915,Texas Blazingstar,8:00,23:59,Atlanta,Georgia,30392,Bowman,61665
+916,California Biddy-biddy,8:00,23:59,Washington,District of Columbia,20088,Rockefeller,821
+917,Echites,8:00,23:59,Knoxville,Tennessee,37939,Luster,9
+918,Jepson's Onion,8:00,23:59,Aurora,Colorado,80015,Prentice,7
+919,Slender Cryptantha,8:00,23:59,Washington,District of Columbia,20535,Oriole,68454
+920,Thickleaf Phlox,8:00,23:59,Fresno,California,93778,Merry,37727
+921,Beardless Rabbitsfoot Grass,8:00,23:59,Rochester,New York,14639,Clove,65
+922,Babyslippers,8:00,23:59,Billings,Montana,59105,Vera,3
+923,Purple Moorgrass,8:00,23:59,Indianapolis,Indiana,46254,Clove,20068
+924,African Mahogany,8:00,23:59,Baton Rouge,Louisiana,70805,Warner,8967
+925,Hall's Bentgrass,8:00,23:59,Hampton,Virginia,23668,Messerschmidt,11237
+926,Pinesap,8:00,23:59,Dallas,Texas,75379,Butternut,2
+927,Blodgett's Swallow-wort,8:00,23:59,Columbus,Georgia,31998,Lakewood Gardens,31130
+928,Hawai'i Silversword,8:00,23:59,Miami,Florida,33164,1st,69254
+929,Dwarf Spotflower,8:00,23:59,Lexington,Kentucky,40591,Monument,9535
+930,Beach Spiderlily,8:00,23:59,Maple Plain,Minnesota,55572,Holy Cross,590
+931,Creeping Marshwort,8:00,23:59,Las Vegas,Nevada,89120,Mitchell,680
+932,Hansen's Bird's Beak,8:00,23:59,Lubbock,Texas,79491,Colorado,427
+933,Pygmy Poppy,8:00,23:59,Bronx,New York,10464,Golf,28505
+934,Blue Ash,8:00,23:59,Whittier,California,90610,Nova,83
+935,Barbados Aloe,8:00,23:59,Cleveland,Ohio,44118,Vidon,131
+936,Dot Lichen,8:00,23:59,Toledo,Ohio,43635,Bultman,20437
+937,Woodland Strawberry,8:00,23:59,White Plains,New York,10633,Fairfield,25
+938,Prairie Dropseed,8:00,23:59,Trenton,New Jersey,08650,Packers,22
+939,Sand Goldenheather,8:00,23:59,New York City,New York,10034,Dunning,80216
+940,Alhagi,8:00,23:59,North Hollywood,California,91616,Corben,91
+941,Terrestrial Cowhorn Orchid,8:00,23:59,Saint Paul,Minnesota,55146,Moland,2182
+942,Yellow Oatgrass,8:00,23:59,Houston,Texas,77020,Bay,45
+943,Sitka Starwort,8:00,23:59,Boston,Massachusetts,02283,Mitchell,2
+944,Santa Cruz Mountains Beardtongue,8:00,23:59,Topeka,Kansas,66606,Monica,4681
+945,East Texas Greenthread,8:00,23:59,Mesquite,Texas,75185,Doe Crossing,1435
+946,Yellow Stonecrop,8:00,23:59,Fort Worth,Texas,76192,Thompson,18
+947,Fremont's Desert-thorn,8:00,23:59,Denton,Texas,76205,Kipling,41
+948,Arctic Brodoa Lichen,8:00,23:59,Saint Joseph,Missouri,64504,Crescent Oaks,35
+949,Winter Creeper,8:00,23:59,Austin,Texas,78726,Acker,349
+950,Arizona Passionflower,8:00,23:59,New Orleans,Louisiana,70165,Linden,17324
+951,Crocynia Lichen,8:00,23:59,Waco,Texas,76711,Rigney,54412
+952,Hitchenia,8:00,23:59,Virginia Beach,Virginia,23471,Crest Line,7501
+953,Yellow Bleeding Heart,8:00,23:59,Boise,Idaho,83732,Dakota,6
+954,Dogmustard,8:00,23:59,Lincoln,Nebraska,68583,Mitchell,49
+955,Rice Button Aster,8:00,23:59,Rochester,New York,14609,Elgar,4
+956,Blue Pygmyflower,8:00,23:59,Merrifield,Virginia,22119,Springview,10301
+957,Sierra Madre Lobelia,8:00,23:59,Denver,Colorado,80243,Pawling,9754
+958,Scorpion's-tail,8:00,23:59,Colorado Springs,Colorado,80905,Buena Vista,14477
+959,Cusick's Serviceberry,8:00,23:59,Topeka,Kansas,66699,Memorial,3123
+960,Hammond's Claytonia,8:00,23:59,Rochester,New York,14652,Grim,5
+961,Galactic Dot Lichen,8:00,23:59,Kent,Washington,98042,Trailsway,4
+962,Petitia,8:00,23:59,Levittown,Pennsylvania,19058,Green Ridge,72
+963,Wright's Golden Saxifrage,8:00,23:59,Davenport,Iowa,52804,Pennsylvania,88688
+964,Hooker's Orchid,8:00,23:59,Tampa,Florida,33673,Graceland,5
+965,Broadbeard Beardtongue,8:00,23:59,Birmingham,Alabama,35244,Toban,4
+966,Falling Dewberry,8:00,23:59,Washington,District of Columbia,20420,Clemons,61
+967,Pagoda Buckwheat,8:00,23:59,Tallahassee,Florida,32304,Wayridge,87
+968,Showy Goldenbanner,8:00,23:59,Arlington,Virginia,22205,Orin,73119
+969,Pasionaria De Cercas,8:00,23:59,Wichita,Kansas,67260,Northland,6
+970,Bog Anemone,8:00,23:59,Houston,Texas,77228,Rowland,72
+971,Curame,8:00,23:59,Largo,Florida,34643,Shoshone,7950
+972,Gray's Draba,8:00,23:59,Scottsdale,Arizona,85260,Schmedeman,7035
+973,Hillside Vervain,8:00,23:59,Salt Lake City,Utah,84189,Maywood,762
+974,Shrubby Alkaliaster,8:00,23:59,Washington,District of Columbia,20430,Monument,5
+975,Lescur's Pohlia Moss,8:00,23:59,Lincoln,Nebraska,68517,Corry,20
+976,Curtiss' Nutrush,8:00,23:59,Spokane,Washington,99210,Namekagon,865
+977,Ditrichum Moss,8:00,23:59,Saint Louis,Missouri,63167,Corben,4147
+978,Minniebush,8:00,23:59,Oklahoma City,Oklahoma,73124,Loeprich,334
+979,Blackthorn,8:00,23:59,Memphis,Tennessee,38114,Grasskamp,54
+980,Oleaster,8:00,23:59,El Paso,Texas,88553,Mallard,73375
+981,Pineland Fern,8:00,23:59,Lafayette,Indiana,47905,Amoth,1
+982,Parry's Oxytrope,8:00,23:59,Saint Louis,Missouri,63196,Melby,87227
+983,Big Deervetch,8:00,23:59,Durham,North Carolina,27705,Scofield,17
+984,Drooping Wattle,8:00,23:59,Saint Paul,Minnesota,55172,Novick,610
+985,Dawn Redwood,8:00,23:59,Milwaukee,Wisconsin,53225,Express,72
+986,Nylon Hedgehog Cactus,8:00,23:59,Lincoln,Nebraska,68524,Mcbride,5
+987,Japanese Red Pine,8:00,23:59,Monticello,Minnesota,55565,Rigney,05
+988,Manzanilla Horseweed,8:00,23:59,Tallahassee,Florida,32314,La Follette,5300
+989,Coastal Indigo,8:00,23:59,Portland,Oregon,97221,Brickson Park,79886
+990,Goosefoot Violet,8:00,23:59,Silver Spring,Maryland,20904,Portage,395
+991,Ravenel's Wart Lichen,8:00,23:59,Mobile,Alabama,36689,Mcbride,9244
+992,Saltmeadow Rush,8:00,23:59,Hampton,Virginia,23663,Maywood,9386
+993,Ramshaw Meadows Sand Verbena,8:00,23:59,Huntsville,Alabama,35810,Jenifer,55
+994,Piedmont Azalea,8:00,23:59,Newton,Massachusetts,02458,International,104
+995,Water Horsetail,8:00,23:59,Springfield,Massachusetts,01105,Jenna,1181
+996,Cutover Muhly,8:00,23:59,Anchorage,Alaska,99517,Burning Wood,4
+997,Ironweed,8:00,23:59,Cincinnati,Ohio,45249,Pond,76668
+998,Rimularia Lichen,8:00,23:59,Anniston,Alabama,36205,Ridgeview,941
+999,Palmer's Bluestar,8:00,23:59,Hicksville,New York,11854,Lake View,72238
+1000,Brachelyma Moss,8:00,23:59,Sterling,Virginia,20167,Carioca,0649
