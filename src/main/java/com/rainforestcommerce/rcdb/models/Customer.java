@@ -28,11 +28,11 @@ public class Customer {
         return accountNumber;
     }
 
-    public String getCustomerName() {
+    public String getCustName() {
         return customerName;
     }
 
-    public void setCustomerName(String cust_name) {
+    public void setCustName(String cust_name) {
         this.customerName = cust_name;
     }
 

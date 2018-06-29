@@ -37,7 +37,7 @@ public class CustomerViewController {
 		TableColumn<Customer, Date> dobColumn = (TableColumn<Customer, Date>) customer_table.getColumns().get(1);
 		TableColumn<Customer, Integer> pointsColumn = (TableColumn<Customer, Integer>) customer_table.getColumns().get(2);
 		
-		nameColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("customerName"));
+		nameColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("custName"));
 		dobColumn.setCellValueFactory(new PropertyValueFactory<Customer, Date>("birthDate"));
 		
 		try {
