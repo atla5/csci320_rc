@@ -17,13 +17,25 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 
+/**
+ * The controller for the Customer View.
+ * Responsible for loading the view's FXML, configuring the view's table
+ * to display Customer objects, and populating the table with the 
+ * Customer objects retrieved from the database.
+ * 
+ * @author Graham Home <gmh5970@g.rit.edu>
+ *
+ */
 public class CustomerViewController {
 	
+	// The root node of the view
 	private static VBox view;
 	
+	// The table node which is injected by FXMLLoader
 	@FXML
 	private TableView<Customer> customer_table;
 	
+	// Loads the view FXML
 	static {
 		try {
 			view = FXMLLoader.load(CustomerViewController.class.getResource("/CustomerView.fxml"));
@@ -32,6 +44,10 @@ public class CustomerViewController {
 		}
 	}
 	
+	/**
+	 * Sets up the Customer table to properly display Customer objects.
+	 * This method is called automatically by FXMLLoader.
+	 */
 	public void initialize() {
 		TableColumn<Customer, String> nameColumn = (TableColumn<Customer, String>) customer_table.getColumns().get(0);
 		TableColumn<Customer, Date> dobColumn = (TableColumn<Customer, Date>) customer_table.getColumns().get(1);
@@ -40,6 +56,7 @@ public class CustomerViewController {
 		nameColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("custName"));
 		dobColumn.setCellValueFactory(new PropertyValueFactory<Customer, Date>("birthDate"));
 		
+		// TEST CODE - remove when DB access is implemented
 		try {
 			ObservableList<Customer> customers = FXCollections.observableArrayList(
 				new Customer(Arrays.asList(new String[] {"1", "Graham", "08/03/1993", "true", "whatever", "1234567890"} )),
@@ -49,14 +66,14 @@ public class CustomerViewController {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+		// End test code
 	}
 	
+	/**
+	 * Returns the root node of the view.
+	 * @return : The root node.
+	 */
 	public static VBox getView() {
-		// TODO: Call method here to get customers from DB,
-		// populate tableview with rows,
-		// add click handler to each row
-		
-		// TEST CODE
 		return view;
 	}
 
