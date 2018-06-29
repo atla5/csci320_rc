@@ -14,7 +14,7 @@ public class MainViewController {
 	private static VBox view;
 	static {
 		try {
-			view = FXMLLoader.load(MainViewController.class.getResource("MainView.fxml"));
+			view = FXMLLoader.load(MainViewController.class.getResource("/MainView.fxml"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

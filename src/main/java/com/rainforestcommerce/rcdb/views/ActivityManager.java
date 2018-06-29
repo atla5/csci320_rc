@@ -18,12 +18,19 @@ public class ActivityManager {
 	
 	public static void start(Activity activity) {
 		switch(activity) {
-		case START_SCREEN:
-			stage.getScene().setRoot(MainViewController.getView());
-			break;
-		case CUSTOMERS:
-			stage.getScene().setRoot(CustomerViewController.getView());
-			break;
+			case START_SCREEN:
+				stage.getScene().setRoot(MainViewController.getView());
+				break;
+			case CUSTOMERS:
+				stage.getScene().setRoot(CustomerViewController.getView());
+				break;
+			case CART:
+				stage.getScene().setRoot(CartViewController.getView());
+				break;
+			case PRODUCTS:
+				stage.getScene().setRoot(OnlineStoreViewController.getView());
+				break;
+
 		}
 	}
 	
