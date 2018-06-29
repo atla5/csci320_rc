@@ -36,7 +36,7 @@ public class ActivityManager {
 	
 	public static void setStage(Stage primaryStage) {
 		stage = primaryStage;
-		stage.setScene(new Scene(new VBox(), 500, 400));
+		stage.setScene(new Scene(new VBox(), 625, 800));
 	}
 
 }

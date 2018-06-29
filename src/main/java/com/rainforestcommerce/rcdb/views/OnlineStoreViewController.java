@@ -11,7 +11,7 @@ public class OnlineStoreViewController {
 
     static {
         try {
-            view = FXMLLoader.load(CustomerViewController.class.getResource("/OnlineStoreViewController.fxml"));
+            view = FXMLLoader.load(CustomerViewController.class.getResource("/OnlineStoreView.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
