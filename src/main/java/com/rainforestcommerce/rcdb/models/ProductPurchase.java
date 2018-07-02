@@ -4,7 +4,7 @@ public class ProductPurchase {
 
     private long purchaseId;
     private long productId;
-    private int unit_price;
+    private float unit_price;
     private int quantity;
 
 
@@ -23,7 +23,11 @@ public class ProductPurchase {
         return productId;
     }
 
-    public int getOverallPrice(){
+    public float getOverallPrice(){
         return this.unit_price * this.quantity;
+    }
+    
+    public int getQuantity() {
+    	return this.quantity;
     }
 }
