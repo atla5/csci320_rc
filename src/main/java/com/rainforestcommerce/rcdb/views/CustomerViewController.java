@@ -35,10 +35,6 @@ public class CustomerViewController {
 	// The root node of the view
 	private static VBox view;
 	
-	// The table node which is injected by FXMLLoader
-	@FXML
-	private TableView<Customer> customer_table;
-	
 	// Loads the view FXML
 	static {
 		try {
@@ -47,6 +43,10 @@ public class CustomerViewController {
 			e.printStackTrace();
 		}
 	}
+	
+	// The table node which is injected by FXMLLoader
+	@FXML
+	private TableView<Customer> customer_table;
 	
 	/**
 	 * Sets up the Customer table to properly display Customer objects.
@@ -68,9 +68,7 @@ public class CustomerViewController {
 			TableRow<Customer> row = new TableRow<>();
 			row.setOnMouseClicked(event -> {
 				Customer customer = row.getItem();
-				// TODO: implement correct action here 
-				// (probably saving the customer to some sort of session variable)
-				System.out.println("Clicked on " + customer.getCustName());
+				SessionData.userId = customer.getAccountNumber();
 			});
 			return row;
 			}
