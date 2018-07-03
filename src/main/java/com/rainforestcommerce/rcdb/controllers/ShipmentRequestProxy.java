@@ -12,7 +12,7 @@ import org.h2.jdbcx.JdbcConnectionPool;
 
 public class ShipmentRequestProxy {
 
-	public static ArrayList<Product> getProductsForShipment(ShipmentRequest shipment){
+	public static ArrayList<Product> getProductsForShipment(ShipmentRequest shipment) throws SQLException{
 		Connection conn = ConnectionProxy.cp.getConnection();
 		PreparedStatement statement = conn.prepareStatement("SELECT * FROM Product WHERE ID = ?");
 		statement.setString(1, shipment.p_ID);
@@ -27,15 +27,13 @@ public class ShipmentRequestProxy {
 			));
 		}
 		conn.close();
-		//Write Database Access code here
 		return products;
 	}
 
-	public static void requestShipment(ShipmentRequest shipment){
+	public static void requestShipment(ShipmentRequest shipment) throws SQLException{
 		String statement = "";
 		Connection conn = ConnectionProxy.cp.getConnection();
 		conn.createStatement().execute(statement);
 		conn.close();
-		//Create a shipment request in the database
 	}
 }

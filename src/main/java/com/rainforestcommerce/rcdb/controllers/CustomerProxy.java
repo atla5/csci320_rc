@@ -9,7 +9,7 @@ import java.sql.*;
 import org.h2.jdbcx.JdbcConnectionPool;
 
 public class CustomerProxy {
-	public static ArrayList<Customer> getCustomers() {
+	public static ArrayList<Customer> getCustomers() throws SQLException{
 		Connection conn = ConnectionProxy.cp.getConnection();
 		String statement = "SELECT * FROM Customer";
 		ResultSet rs = conn.createStatement().executeQuery(statement);
@@ -24,7 +24,6 @@ public class CustomerProxy {
 			));
 		}
 		conn.close();
-		//Write Database Access code here
 		return customers;
 	}
 }

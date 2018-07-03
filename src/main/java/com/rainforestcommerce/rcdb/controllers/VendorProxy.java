@@ -11,21 +11,19 @@ import java.sql.*;
 import org.h2.jdbcx.JdbcConnectionPool;
 
 public class VendorProxy {
-	public static ArrayList<Vendor> getVendors() {
+	public static ArrayList<Vendor> getVendors() throws SQLException{
 		String statement = "";
 		Connection conn = ConnectionProxy.cp.getConnection();
 		conn.createStatement().execute(statement);
 		conn.close();
-		//Write Database Access code here
 		return new ArrayList<Vendor>();
 	}
 
-	public static ArrayList<ShipmentRequest> getShipmentsForVendor(Vendor vendor){
+	public static ArrayList<ShipmentRequest> getShipmentsForVendor(Vendor vendor) throws SQLException{
 		String statement = "";
 		Connection conn = ConnectionProxy.cp.getConnection();
 		conn.createStatement().execute(statement);
 		conn.close();
-		//Write Database Access code here
 		return new ArrayList<ShipmentRequest>();
 	}
 }
