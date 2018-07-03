@@ -41,7 +41,7 @@ public class StoreProxy {
 		Connection conn = ConnectionProxy.cp.getConnection();
 		PreparedStatement statement = conn.prepareStatement("SELECT * FROM ProductPurchases WHERE storeID = ?");
 		statement.setString(1, Long.toString(store.getStoreId()));
-		ResultSet rs = conn.createStatement().executeQuery(statement);
+		ResultSet rs = statement.executeQuery();
 		ArrayList<ProductPurchase> purchases = null;
 		while(rs.next()){
 			purchases.add(new ProductPurchase(
@@ -59,7 +59,7 @@ public class StoreProxy {
 		Connection conn = ConnectionProxy.cp.getConnection();
 		PreparedStatement statement = conn.prepareStatement("SELECT * FROM ShipmentRequest WHERE storeID = ?");
 		statement.setString(1, Long.toString(store.getStoreId()));
-		ResultSet rs = conn.createStatement().executeQuery(statement);
+		ResultSet rs = statement.executeQuery();
 		ArrayList<ShipmentRequest> shipments = null;
 		while(rs.next()){
 			shipments.add(new ShipmentRequest(
@@ -77,7 +77,7 @@ public class StoreProxy {
 		Connection conn = ConnectionProxy.cp.getConnection();
 		PreparedStatement statement = conn.prepareStatement("SELECT * FROM Products WHERE storeID = ?");
 		statement.setString(1, Long.toString(store.getStoreId()));
-		ResultSet rs = conn.createStatement().executeQuery(statement);
+		ResultSet rs = statement.executeQuery();
 		ArrayList<Product> products = null;
 		while(rs.next()){
 			products.add(new Product(
@@ -96,7 +96,7 @@ public class StoreProxy {
 		PreparedStatement statement = conn.prepareStatement("SELECT * FROM Products WHERE storeID = ? AND CHARINDEX(?, name) > 0");
 		statement.setString(1, Long.toString(store.getStoreId()));
 		statement.setString(2, search);
-		ResultSet rs = conn.createStatement().executeQuery(statement);
+		ResultSet rs = statement.executeQuery();
 		ArrayList<Product> products = null;
 		while(rs.next()){
 			products.add(new Product(

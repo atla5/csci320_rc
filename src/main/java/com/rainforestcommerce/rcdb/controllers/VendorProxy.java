@@ -12,18 +12,37 @@ import org.h2.jdbcx.JdbcConnectionPool;
 
 public class VendorProxy {
 	public static ArrayList<Vendor> getVendors() throws SQLException{
-		String statement = "";
-		Connection conn = ConnectionProxy.cp.getConnection();
-		conn.createStatement().execute(statement);
-		conn.close();
-		return new ArrayList<Vendor>();
+        Connection conn = ConnectionProxy.cp.getConnection();
+        String statement = "SELECT * FROM Vendors";
+        ResultSet rs = conn.createStatement().executeQuery(statement);
+        ArrayList<Vendor> vendors = null;
+        while(rs.next()){
+            vendors.add(new Vendor(
+                    rs.getLong("storeId"),
+                    rs.getString("name"),
+                    rs.getDate("openingTime"),
+                    rs.getDate("closingTime")
+            ));
+        }
+        conn.close();
+        return vendors;
 	}
 
 	public static ArrayList<ShipmentRequest> getShipmentsForVendor(Vendor vendor) throws SQLException{
-		String statement = "";
-		Connection conn = ConnectionProxy.cp.getConnection();
-		conn.createStatement().execute(statement);
-		conn.close();
-		return new ArrayList<ShipmentRequest>();
+        Connection conn = ConnectionProxy.cp.getConnection();
+        PreparedStatement statement = conn.prepareStatement("SELECT * FROM ShipmentRequest WHERE vendorID = ?");
+        statement.setString(1, vendor.getID());
+        ResultSet rs = statement.executeQuery();
+        ArrayList<ShipmentRequest> shipments = null;
+        while(rs.next()){
+            shipments.add(new ShipmentRequest(
+                    rs.getLong("upcCode"),
+                    rs.getString("productName"),
+                    rs.getInt("weight"),
+                    rs.getString("brand")
+            ));
+        }
+        conn.close();
+        return shipments;
 	}
 }
