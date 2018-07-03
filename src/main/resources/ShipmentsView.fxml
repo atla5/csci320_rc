@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="CENTER" opacity="0.72" prefHeight="400.0" prefWidth="640.0" spacing="20.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rainforestcommerce.rcdb.views.OnlineStoreViewController">
+   <children>
+      <StackPane prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <Text fill="#43a240" strokeType="OUTSIDE" strokeWidth="0.0" text="Store Name" textAlignment="CENTER" wrappingWidth="597.8297576904297">
+               <font>
+                  <Font name="Trebuchet MS Bold" size="29.0" />
+               </font>
+            </Text>
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="Logout" StackPane.alignment="CENTER_RIGHT" />
+         </children>
+      </StackPane>
+      <TableView fx:id="product_table1" prefHeight="508.0" prefWidth="600.0">
+         <columns>
+            <TableColumn id="product" editable="false" minWidth="150.0" prefWidth="150.0" text="Shipment ID" />
+            <TableColumn id="product" editable="false" minWidth="150.0" prefWidth="150.0" text="Vendor" />
+            <TableColumn id="size" minWidth="150.0" prefWidth="150.0" text="Arrival Date" />
+            <TableColumn id="brand" minWidth="148.0" prefWidth="148.0" text="Price" />
+         </columns>
+      </TableView>
+      <GridPane alignment="CENTER">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Button contentDisplay="CENTER" mnemonicParsing="false" text="Inventory" GridPane.rowIndex="2" />
+            <Button alignment="CENTER" mnemonicParsing="false" text="Purchases" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button alignment="CENTER" mnemonicParsing="false" text="Shipments" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</VBox>
