@@ -24,7 +24,7 @@ public class ShipmentRequestProxy {
         //}
         conn.close();
         //Write Database Access code here
-        return new ArrayList<Product>();
+        return products;
     }
 
     public static void requestShipment(ShipmentRequest shipment){
