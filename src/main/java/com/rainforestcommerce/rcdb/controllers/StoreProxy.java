@@ -15,25 +15,53 @@ import java.sql.*;
 import org.h2.jdbcx.JdbcConnectionPool;
 
 public class StoreProxy {
-    public static ArrayList<Store> getStores(JdbcConnectionPool cp){
-        String statement = "";
+    public static ArrayList<Store> getStores(){
         Connection conn = ConnectionProxy.cp.getConnection();
-        conn.createStatement().execute(statement);
+        String statement"SELECT * FROM Stores";
+        ResultSet rs = conn.createStatement().executeQuery(statement);
+        ArrayList<Store> stores = null;
+        while(rs.next()){
+            stores.add(new Store(
+                    rs.getLong("storeId"),
+                    rs.getString("name"),
+                    rs.getDate("openingTime"),
+                    rs.getDate("closingTime"),
+                    rs.getString("city"),
+                    rs.getString("state"),
+                    rs.getString("street"),
+                    rs.getString("zip"),
+                    rs.getString("number")
+            ));
+        }
         conn.close();
         //Write Database Access code here
-        return new ArrayList<Store>();
+        return stores;
     }
 
-    public static ArrayList<ProductPurchase> getPurchasesForStore(JdbcConnectionPool cp, Store store){
-        String statement = "";
+    public static ArrayList<ProductPurchase> getPurchasesForStore(Store store){
         Connection conn = ConnectionProxy.cp.getConnection();
-        conn.createStatement().execute(statement);
+        String statement"SELECT * FROM ProductPurchases";
+        ResultSet rs = conn.createStatement().executeQuery(statement);
+        ArrayList<Store> stores = null;
+        while(rs.next()){
+            stores.add(new Store(
+                    rs.getLong("storeId"),
+                    rs.getString("name"),
+                    rs.getDate("openingTime"),
+                    rs.getDate("closingTime"),
+                    rs.getString("city"),
+                    rs.getString("state"),
+                    rs.getString("street"),
+                    rs.getString("zip"),
+                    rs.getString("number")
+            ));
+        }
         conn.close();
         //Write Database Access code here
         return new ArrayList<ProductPurchase>();
     }
 
-    public static ArrayList<ShipmentRequest> getShipmentsForStore(JdbcConnectionPool cp, Store store){
+    public static ArrayList<ShipmentRequest> getShipmentsForStore(Store store){
         String statement = "";
         Connection conn = ConnectionProxy.cp.getConnection();
         conn.createStatement().execute(statement);
@@ -42,7 +70,7 @@ public class StoreProxy {
         return new ArrayList<ShipmentRequest>();
     }
 
-    public static ArrayList<Product> getProductsForStore(JdbcConnectionPool cp, Store store){
+    public static ArrayList<Product> getProductsForStore(Store store){
         String statement = "";
         Connection conn = ConnectionProxy.cp.getConnection();
         conn.createStatement().execute(statement);
