@@ -1,0 +1,1001 @@
+account_number,cust_name,birth_date,gender,ethnicity,phone,purchase_points
+1,Shelby Sheering,12/13/1961,Male,Native Hawaiian and Other Pacific Islander (NHPI),617-614-5930,4
+2,Olva Uttermare,11/6/1971,Female,Pima,632-904-6834,37849
+3,Ira Pyburn,12/17/1987,Female,Vietnamese,959-177-7722,8
+4,Emery Agget,11/30/1941,Male,Osage,970-933-7793,74
+5,Hurlee Dossantos,8/17/1932,Male,Chamorro,683-198-9630,32656
+6,Mick Kaindl,6/20/1977,Male,Navajo,502-265-7596,1
+7,Walliw Baggott,2/2/1959,Female,Spaniard,268-260-4151,57183
+8,Payton Bertolin,4/21/1965,Male,Peruvian,904-253-5598,1
+9,Carolynn Utterson,7/18/1926,Female,Cherokee,930-439-1676,34
+10,Nichole Sivell,3/26/1987,Male,Nicaraguan,841-930-3665,16
+11,Kyle Defrain,5/29/1950,Female,Paiute,172-995-9707,6635
+12,Vina Flag,4/24/1978,Female,Chamorro,655-148-3374,67137
+13,Trace Aire,10/8/1978,Male,Alaskan Athabascan,327-647-5182,4431
+14,Helen-elizabeth Sibray,11/21/1943,Female,Nicaraguan,379-584-4924,13
+15,Annalise Aprahamian,11/2/1923,Female,Puerto Rican,210-178-8555,820
+16,Becka Teesdale,6/9/2002,Female,Potawatomi,610-324-3462,25523
+17,Morgan Lewerenz,5/20/1968,Female,Cuban,339-186-4441,3190
+18,Tom Farlambe,2/16/1993,Male,Cree,479-789-0196,7
+19,Emory Oldknowe,5/27/1985,Male,Cuban,561-244-3825,35
+20,Aindrea Starbuck,11/11/1989,Female,Venezuelan,572-443-5092,8
+21,Alaster Adhams,3/23/1927,Male,Malaysian,465-640-4693,70
+22,Katy Zettler,10/18/1937,Female,Venezuelan,818-407-3206,70
+23,Valaria O' Mara,2/10/1945,Female,Yaqui,731-943-1357,965
+24,Maxi Davidovic,3/23/1985,Female,Cherokee,805-753-1185,540
+25,Judi Glasscoo,8/31/1963,Female,Costa Rican,578-599-5904,38
+26,Egon Frost,3/5/1953,Male,Potawatomi,567-609-4138,47827
+27,Avril Judson,3/16/1983,Female,Salvadoran,821-501-5175,57
+28,Ferris Vedenyapin,9/17/1933,Male,Japanese,250-760-9435,84
+29,Hagen Budibent,4/11/1969,Male,Panamanian,144-798-3482,66319
+30,Jerrylee Merrikin,8/29/1918,Female,Menominee,983-175-6082,70981
+31,Aubrie Elton,3/2/1979,Female,Tohono O'Odham,951-819-4177,9
+32,Deborah Aston,2/21/1942,Female,Nicaraguan,636-974-8330,3932
+33,Laney Sauven,11/26/1920,Male,Latin American Indian,265-783-1920,789
+34,Loydie Batchan,6/18/1957,Male,Mexican,990-704-1275,939
+35,Cosme Chadwell,4/12/1994,Male,Argentinian,681-664-4987,55
+36,Cristian Elwin,12/24/1989,Male,Alaska Native,916-915-1798,09
+37,Flossi Chesters,12/2/1997,Female,Comanche,235-398-7497,60588
+38,Ward Hobell,9/18/1941,Male,Black or African American,720-883-3188,7842
+39,Ardath Upham,12/18/1951,Female,Seminole,791-117-1961,65
+40,Phillie Woolley,2/6/1967,Female,Nicaraguan,804-759-8338,275
+41,Gilberto Moulton,4/12/1920,Male,Peruvian,503-126-9598,62463
+42,Alene Gorce,3/17/1987,Female,Lumbee,926-345-6842,2
+43,Ravi Woodyatt,9/4/1930,Male,Ottawa,464-920-9706,9298
+44,Nappy Spennock,4/20/1939,Male,Osage,292-253-8827,00
+45,Trenna Moult,6/1/1925,Female,Ute,402-541-0294,522
+46,Ado Toler,9/5/1950,Male,Crow,688-929-3349,5908
+47,Mahmoud Plinck,4/12/1970,Male,Latin American Indian,911-345-7777,46
+48,Jeniece Goring,9/23/1936,Female,Pima,488-806-4658,93262
+49,Elicia Fold,7/25/1966,Female,Uruguayan,440-556-1041,6
+50,Iorgo Nutbean,8/3/1951,Male,Mexican,862-935-0307,00392
+51,Aigneis Vaneschi,2/7/1937,Female,Apache,995-939-6997,82656
+52,Carilyn Lafford,7/27/1935,Female,Melanesian,523-833-9265,056
+53,Wildon Dovington,4/24/1980,Male,Peruvian,555-449-5948,6241
+54,Shandeigh Boulsher,7/5/1934,Female,Malaysian,598-763-1314,2707
+55,Averil MacDavitt,8/25/2001,Male,Alaskan Athabascan,957-846-6915,916
+56,Ora Gonning,6/9/1930,Female,Shoshone,147-195-4395,086
+57,Violette Stivens,7/14/1964,Female,Kiowa,783-347-1827,52
+58,Meredeth Gainseford,10/16/1933,Male,Argentinian,502-829-1094,498
+59,Sean Brixham,5/16/1964,Female,Polynesian,878-424-1873,2
+60,Juana Cato,12/18/1927,Female,Kiowa,748-350-5132,8471
+61,Kayla Frantsev,10/17/1936,Female,Sri Lankan,155-591-6222,09478
+62,Hortensia Wilcock,2/23/1948,Female,Crow,744-577-7945,58
+63,Moss Lightwood,3/31/1940,Male,Crow,408-452-9075,2
+64,Fredrika Muirden,9/24/1974,Female,Bolivian,713-857-1346,680
+65,Buckie Sopper,3/25/1962,Male,Salvadoran,172-154-2762,14
+66,Washington Athridge,11/18/1919,Male,Honduran,813-434-0724,89
+67,Lefty Morsey,7/18/1987,Male,Guamanian,411-427-9198,8940
+68,Silva Insull,8/14/1988,Female,Iroquois,373-975-8565,01244
+69,Adey Chavez,7/15/1994,Female,Spaniard,475-727-8425,13
+70,Anallise Charpin,1/12/1964,Female,Seminole,150-566-8853,9
+71,Skipper Stoute,7/28/1937,Male,Cuban,605-153-1248,2051
+72,Terry Norfolk,2/8/1994,Female,Honduran,531-840-1803,37741
+73,Aeriell Berwick,2/6/1971,Female,Argentinian,113-579-0644,9
+74,Louie Philipeau,3/29/1975,Male,South American,951-989-8097,80
+75,Terence Caddock,6/30/1925,Male,Comanche,617-481-9055,4547
+76,Alberik Manuelli,4/23/1920,Male,Bangladeshi,535-620-4669,64071
+77,Alan Maggs,12/14/1991,Male,Pueblo,887-408-2683,3073
+78,Alicea Clampett,2/5/1947,Female,Paraguayan,747-599-7515,72807
+79,Gawain Pressnell,4/3/1926,Male,Houma,438-228-0324,4635
+80,Cass Jeal,12/21/1942,Female,Native Hawaiian and Other Pacific Islander (NHPI),598-610-3933,48
+81,Atlanta Esch,1/1/1945,Female,Polynesian,270-458-7437,23674
+82,Pearl Cremen,7/18/1936,Female,Pueblo,469-176-4485,9
+83,Aubrie Matthiesen,6/28/1940,Female,Pima,742-302-9644,76
+84,Dare Pluthero,5/5/1987,Male,Costa Rican,523-112-2515,0
+85,Rici Strand,7/1/1979,Female,Creek,424-395-6050,523
+86,Sella Lydall,2/16/1972,Female,Tlingit-Haida,600-222-1162,610
+87,Sherm Ingall,1/15/1935,Male,Yakama,550-722-6537,5
+88,Jim Ofen,8/20/1969,Male,Thai,277-442-9570,7
+89,Devina Ivancevic,12/25/1972,Female,Guatemalan,845-927-8355,760
+90,Millard Shinton,2/15/1979,Male,Colville,813-940-1794,6
+91,Celestia McArtan,10/26/1932,Female,Native Hawaiian,500-422-8922,9
+92,Gallard Lilleman,6/20/1995,Male,Sri Lankan,860-545-3836,2
+93,Bud Laurence,12/8/1935,Male,Ute,841-130-2455,98
+94,Mozelle Ivanovic,7/5/1980,Female,Indonesian,873-379-9150,2596
+95,Pepillo Mackriell,3/8/1931,Male,White,961-802-7873,45
+96,Zenia Attwater,7/14/1941,Female,Cuban,600-452-9139,90331
+97,Ker Cuthbert,7/26/1936,Male,Malaysian,298-653-2676,3321
+98,Adler Stobbs,4/15/1974,Male,Guamanian,635-899-8161,2
+99,Skyler Overell,3/27/1943,Male,Spaniard,669-522-7558,9
+100,Yettie Hastler,3/19/1957,Female,Samoan,710-910-8694,5721
+101,Kendrick Williamson,5/6/1938,Male,Laotian,299-401-7939,08
+102,Ileana Chansonne,6/23/1982,Female,Melanesian,748-812-0209,06
+103,Norean Ekless,4/16/1936,Female,Houma,245-637-9319,7022
+104,Jolynn Kingcote,9/14/1971,Female,Bangladeshi,822-129-4110,93951
+105,Goober Pasley,10/18/1953,Male,Salvadoran,310-474-5615,25
+106,Ellene Tunder,6/18/1930,Female,Pueblo,258-412-6417,20423
+107,Sayre Brevetor,4/26/1987,Male,Nicaraguan,631-165-1897,4668
+108,Roland Scrogges,2/24/1942,Male,Korean,645-160-1344,71
+109,Hedvige Gammet,3/23/1943,Female,Melanesian,261-430-2861,4138
+110,Kerwin Feenan,4/20/1957,Male,Laotian,283-678-0053,38
+111,Tommie Heskins,8/15/1955,Female,Chamorro,213-945-6944,5
+112,Arte Cunniam,8/11/1958,Male,Iroquois,268-165-5549,7732
+113,Kristian Willgoose,10/2/1955,Male,Cambodian,326-699-8872,99
+114,Giana Monaghan,4/13/1919,Female,Sri Lankan,666-783-1670,30
+115,Ddene Sparsholt,11/26/1955,Female,Fijian,954-852-4917,3692
+116,Rita Postlewhite,6/17/1935,Female,Creek,791-900-7483,5374
+117,Nonnah Beedie,12/11/1958,Female,Potawatomi,929-578-6690,136
+118,Audy Basso,11/22/1974,Female,Menominee,877-743-4028,2
+119,Marlowe Girard,8/6/1980,Male,Eskimo,161-967-5634,40
+120,Kendricks Myall,8/23/1949,Male,Latin American Indian,313-848-4516,8400
+121,Frasquito Bricknall,10/29/1970,Male,Bolivian,126-498-0923,1261
+122,Nanete Littledyke,5/6/1992,Female,Pakistani,265-397-2247,31430
+123,Gordy Clissold,3/24/1987,Male,Thai,810-562-9215,642
+124,Haily Shapira,1/15/1982,Male,Tongan,503-801-5847,0054
+125,Foster Arnhold,7/20/1937,Male,Comanche,500-503-6556,963
+126,Rollin Cogar,3/22/1959,Male,Venezuelan,936-498-2663,38
+127,Sheffield Quartermain,11/30/1960,Male,Nicaraguan,969-362-7489,9
+128,Hilario De Normanville,3/4/1937,Male,Yaqui,140-191-9363,63927
+129,Golda Lympenie,11/14/1995,Female,Peruvian,244-699-1819,204
+130,Pernell Dyneley,9/14/1936,Male,Bangladeshi,243-174-0509,887
+131,Antoni Swede,11/5/1925,Male,Chilean,211-589-7356,7
+132,Baxie Kenchington,2/12/1999,Male,Costa Rican,443-655-6245,72
+133,Neil Lygo,3/17/1939,Male,Apache,918-500-1502,3129
+134,Joanie Follen,8/13/1990,Female,Pueblo,118-878-4293,956
+135,Zorah Villiers,9/14/1977,Female,Pueblo,849-341-3556,9282
+136,Gennifer Tregenza,3/2/1956,Female,Indonesian,905-564-2628,22844
+137,Emmett Butchard,6/27/1967,Male,Micronesian,495-361-4652,5
+138,Brier Dumphreys,6/22/1941,Female,Creek,555-841-3633,1
+139,Vincents Schroeder,1/17/1953,Male,Paraguayan,173-282-9084,182
+140,Chas Levens,1/17/1986,Male,Paraguayan,923-679-1484,72580
+141,Chloe Heigold,4/12/1939,Female,Native Hawaiian and Other Pacific Islander (NHPI),647-586-9948,28
+142,Flory Burd,4/1/1938,Male,Cree,653-583-8555,8
+143,Bud Bewshire,10/27/1945,Male,Mexican,400-720-1165,64
+144,Dorey MacCulloch,4/28/1952,Male,Sioux,672-981-1460,01815
+145,Dougie Shenley,5/14/1933,Male,Asian,844-883-9088,6
+146,Alphonso Bumfrey,12/9/1989,Male,Hmong,890-536-7315,395
+147,Anders Nornable,5/18/1948,Male,Fijian,287-254-9970,8514
+148,Baudoin Hingeley,2/8/1975,Male,Laotian,780-270-5907,91754
+149,Mendie Loins,9/13/1942,Male,Asian Indian,762-509-0091,98288
+150,Rosina Wiltshier,3/22/1965,Female,Colombian,606-191-6250,145
+151,Uri Tall,7/31/1986,Male,Ottawa,182-227-7992,030
+152,Martynne Dauber,10/17/1987,Female,Ute,280-659-7005,28
+153,Oneida Roughey,6/1/1992,Female,Spaniard,216-485-1867,46
+154,Marybelle Giovannacci,5/24/1984,Female,Bangladeshi,700-593-0212,93730
+155,Herculie Jacobovitch,7/12/1978,Male,Cuban,871-831-0168,42
+156,Raimund Spohr,3/17/1923,Male,Tongan,588-859-6820,9
+157,Morgen Cuer,7/7/1996,Male,Iroquois,783-721-8512,1
+158,Moe Childs,11/19/1980,Male,Chinese,712-191-6296,9720
+159,Tully Danilenko,5/27/1920,Male,Asian Indian,393-940-7600,0423
+160,Jeno Domniney,2/27/1993,Male,Latin American Indian,204-665-7137,821
+161,Ringo Bumfrey,7/14/1936,Male,Melanesian,146-147-6727,16
+162,Reid Brigham,2/27/1988,Male,Chickasaw,345-966-2524,3286
+163,Thia Crosfield,2/19/2002,Female,Native Hawaiian,673-826-7006,43
+164,Adah Vause,5/8/1920,Female,Cuban,559-777-6718,02
+165,Simonette Puddle,9/27/1920,Female,Puerto Rican,547-685-4854,563
+166,Danit Wippermann,9/10/1926,Female,Fijian,104-417-0472,45
+167,Annmaria Grice,10/17/1989,Female,Peruvian,899-914-0471,8
+168,Harold Clementucci,5/9/2001,Male,Shoshone,851-500-6780,6
+169,Anatol Backshill,3/15/1977,Male,Taiwanese,416-636-2511,8470
+170,Eileen Nuttey,6/4/1972,Female,Vietnamese,466-104-5451,3
+171,Patience Venart,7/22/1969,Female,Korean,221-915-1807,2605
+172,Edmon Dudgeon,2/7/1987,Male,Paiute,197-544-2773,808
+173,Parrnell Binge,3/4/1962,Male,Ottawa,498-547-2571,71
+174,Hailee Slamaker,5/18/1934,Female,Ottawa,907-729-3516,8349
+175,Skylar Forseith,10/24/1931,Male,Delaware,493-752-2200,073
+176,Mario Teasdale-Markie,3/27/1948,Male,Filipino,127-589-6787,34299
+177,Foss Hazelgreave,3/10/1954,Male,Polynesian,694-142-1361,57069
+178,Dasie Dawdry,12/13/1999,Female,Chamorro,865-212-4757,70003
+179,Wood Feveryear,8/8/1934,Male,Comanche,236-207-1498,795
+180,Eryn Camosso,3/5/1991,Female,Ute,193-508-7156,9806
+181,Clemence Guitton,12/18/1926,Female,Apache,826-625-9104,79
+182,Meggie Purver,5/28/1955,Female,Costa Rican,839-523-3058,3716
+183,Duky Philp,6/14/1962,Male,Colombian,200-880-4959,33090
+184,Hersch Fosbraey,12/23/1986,Male,Chickasaw,643-371-8709,4456
+185,Inge Waddilove,7/28/1936,Female,Vietnamese,240-531-8469,7
+186,Shaughn Bravey,10/21/1971,Male,Cherokee,665-561-7460,0769
+187,Kent Boynton,1/18/1983,Male,Argentinian,379-761-3494,979
+188,Carlen McCall,11/28/1999,Female,Polynesian,716-341-6548,090
+189,Rickie Barttrum,2/23/1922,Female,Laotian,601-236-8341,4890
+190,Perkin Brugman,1/20/1958,Male,Cherokee,811-798-2376,92
+191,Orbadiah Cubley,7/17/1992,Male,Filipino,492-627-2377,9773
+192,Ara De Haven,8/27/1938,Female,Uruguayan,838-660-9765,472
+193,Greg Hubbucks,8/10/1963,Male,Argentinian,962-662-7245,1
+194,Aubrey Mullally,10/10/1987,Male,Peruvian,875-410-3223,392
+195,Packston Bundey,11/24/1980,Male,Vietnamese,973-187-1553,5
+196,Waverly McGrale,5/26/1956,Male,Sioux,904-900-7994,2
+197,Rickert Eacott,5/1/1936,Male,Lumbee,700-280-8567,7
+198,Cyrill Kaesmakers,9/18/1995,Male,Yaqui,439-470-3156,0
+199,Reinald Korejs,9/14/1967,Male,Cheyenne,947-516-3683,394
+200,Marline Zimmermeister,7/29/1932,Female,Menominee,948-707-6091,769
+201,Fifine Dhennin,7/11/1929,Female,Laotian,158-243-8035,07
+202,Waneta Basford,11/19/1950,Female,Eskimo,552-669-5084,7711
+203,Berton Hadwick,10/29/1954,Male,Latin American Indian,253-503-8750,4292
+204,Kelci Freathy,6/3/1937,Female,Chinese,824-878-6773,97
+205,Carling Plascott,10/26/1941,Male,Dominican (Dominican Republic),411-451-0064,102
+206,Claudius Gallard,3/4/1947,Male,Argentinian,936-723-0027,3110
+207,Suki Oxshott,9/12/1995,Female,Guatemalan,416-768-4474,1077
+208,Gunilla Earry,12/27/1969,Female,Ottawa,456-600-9481,48924
+209,Hamlin Pouck,5/28/1949,Male,Guamanian,472-223-4257,00209
+210,Joyce Virgo,6/20/1945,Female,South American,687-915-3365,5257
+211,Brock Nibley,7/11/1966,Male,Taiwanese,879-419-1393,82355
+212,Myer Mellings,5/5/1921,Male,Guamanian,448-515-5748,3821
+213,Kellia Itzcak,11/28/1922,Female,American Indian,976-441-6138,7
+214,Elsey Sacks,5/5/1921,Female,Asian Indian,352-505-7472,94
+215,Cynthia Ferrarotti,4/14/1948,Female,Uruguayan,306-397-4323,6936
+216,Midge Macconachy,3/2/1963,Female,Colville,685-373-1702,3411
+217,Shandee Nestle,3/26/1930,Female,Crow,445-192-9463,342
+218,Sarah Mortlock,4/7/1986,Female,Tohono O'Odham,849-325-4439,22442
+219,Farlie Mountford,6/14/1962,Male,Cherokee,172-917-7547,96
+220,Scotti Juster,12/20/1951,Male,Chinese,212-706-3905,44
+221,Allx Peaseman,10/29/1955,Female,Tongan,174-871-7162,7698
+222,Sherm Lorente,5/15/1923,Male,Micronesian,893-407-8995,11
+223,Ruben Handlin,3/10/1986,Male,Peruvian,866-873-8435,00519
+224,Micki Lennard,4/23/1979,Female,American Indian and Alaska Native (AIAN),650-625-7162,669
+225,Ignatius Kenwood,2/22/1995,Male,Kiowa,455-831-4310,66401
+226,Renard Gittose,12/31/1979,Male,Pueblo,384-655-2059,4516
+227,Chantal Rosie,4/24/2001,Female,Peruvian,548-693-2263,99
+228,Saunders Betjeman,6/6/1938,Male,Tongan,188-968-0328,0373
+229,Fenelia Ambrogioni,7/27/1990,Female,Apache,754-238-1375,5851
+230,Arliene Pinchen,6/8/1940,Female,Filipino,963-513-4502,420
+231,Ruthanne Cicccitti,11/11/1991,Female,Spaniard,946-645-5183,3998
+232,Simone Doget,11/26/1963,Female,Tongan,776-549-5601,83995
+233,Elizabet Burkill,5/23/1929,Female,Pueblo,349-195-6735,8153
+234,Gabi Camerana,2/18/1928,Male,Taiwanese,387-757-2927,617
+235,Agosto Robker,6/14/1951,Male,Tongan,154-384-1086,59
+236,Sonnnie Repp,7/28/1937,Female,Asian Indian,368-134-0918,3
+237,Evaleen Garman,5/2/1970,Female,Sioux,472-142-1851,807
+238,Lynne Busk,10/20/1926,Female,Latin American Indian,789-721-0002,84
+239,Rolland Connolly,12/3/1956,Male,Thai,835-532-1669,9
+240,Kennedy Karpol,4/5/1949,Male,Blackfeet,318-269-0030,3134
+241,Andria Delany,1/17/1980,Female,Pueblo,236-289-8246,0836
+242,Dacia Quartley,7/7/1925,Female,Venezuelan,782-811-0287,143
+243,Donal Clemoes,5/10/1959,Male,Asian Indian,390-500-1110,0321
+244,Luci Bartram,9/3/1925,Female,Pueblo,293-673-9856,437
+245,Langston Annes,3/20/1968,Male,Native Hawaiian,617-974-7858,46014
+246,Robers Revett,10/7/1997,Male,Ottawa,500-732-0771,7
+247,Micaela Hollows,8/9/1982,Female,Colville,424-869-7727,6544
+248,Tris Conibeer,10/18/1976,Male,Mexican,304-100-1078,98
+249,Abrahan Mundie,10/29/1972,Male,Crow,628-573-6710,864
+250,Ulises Routley,10/9/1945,Male,Delaware,751-941-6918,5
+251,Shurlock Struther,11/22/1928,Male,Apache,722-355-9211,679
+252,Susanne Houndsom,9/26/1961,Female,South American,515-819-6151,5
+253,Dannel Rushbury,7/26/1952,Male,Central American,725-456-3666,9374
+254,Gianni Malyon,9/18/1962,Male,Cuban,605-822-7666,78917
+255,Perry Brownsword,10/7/1918,Male,Lumbee,954-507-4364,7982
+256,Herb Nendick,2/20/1961,Male,Argentinian,817-498-5489,15146
+257,Tonnie Hune,11/18/1929,Male,Asian Indian,177-477-4380,90
+258,Elfie Sammut,8/14/1964,Female,Uruguayan,912-319-3315,437
+259,Morrie Zannelli,4/24/1944,Male,Navajo,981-591-8574,5
+260,Sidonia Clitherow,4/27/1924,Female,Japanese,883-945-7680,28098
+261,Stillmann Maren,12/18/1988,Male,Eskimo,771-635-8517,04
+262,Simone Alishoner,8/30/1946,Female,Apache,490-998-5864,33563
+263,Jenda Spawforth,3/14/1984,Female,Potawatomi,720-368-4377,6
+264,Zack Ambrosini,1/18/1953,Male,Malaysian,675-895-6237,846
+265,Chuck Flaherty,3/20/1962,Male,Navajo,762-870-1179,47606
+266,Hernando Poluzzi,6/10/1967,Male,South American,710-301-3928,86
+267,Britte Tressler,12/7/1939,Female,Laotian,280-303-3937,64684
+268,Burg Blanch,9/22/1964,Male,Yakama,822-226-8521,68999
+269,Weber Brangan,2/2/1920,Male,Argentinian,120-822-7261,15
+270,Frederick Antonich,7/16/1948,Male,Ecuadorian,401-368-8079,782
+271,Maryrose Ramsdale,2/9/2002,Female,White,915-449-4446,7
+272,Shermy Serotsky,1/5/1929,Male,Tlingit-Haida,388-739-9508,55
+273,Ella Nisco,4/24/1969,Female,Sri Lankan,258-394-2587,2
+274,Jessie Leggen,4/2/1919,Male,Menominee,249-540-5441,53
+275,Gilli Foulks,3/3/1990,Female,Venezuelan,199-824-1275,52996
+276,Aura MacPherson,8/15/1983,Female,Cuban,609-443-8242,07
+277,Merl Eddleston,12/25/1985,Female,Ute,109-108-6378,71748
+278,Gloriane Thompkins,10/18/1957,Female,Indonesian,463-562-0994,32800
+279,Beckie Tattam,11/30/1943,Female,Navajo,722-539-9243,434
+280,Coraline Gartland,6/20/1939,Female,Fijian,706-588-0702,17
+281,Edgard Cossam,7/3/1969,Male,Peruvian,240-364-8334,1425
+282,Madalena Ham,8/14/1947,Female,Tlingit-Haida,549-755-1237,2
+283,Osbourne Bielfeld,2/23/1932,Male,Micronesian,229-405-5274,6
+284,Levon Winders,4/8/1936,Male,Pima,693-859-6731,654
+285,Carver Varcoe,3/8/1977,Male,Guatemalan,337-286-3461,30
+286,Rosamund Sheerin,5/19/1963,Female,Houma,296-323-4100,23
+287,Gerard Healks,9/29/1962,Male,Venezuelan,224-302-0519,7
+288,Pavla Leet,12/20/1985,Female,Nicaraguan,970-785-6103,8108
+289,Goddard Spinello,11/15/1964,Male,Melanesian,645-209-9866,8
+290,Adams Pocke,5/7/1951,Male,Chinese,838-388-4235,82
+291,Livvie Guido,12/10/1970,Female,Bangladeshi,496-233-9336,17660
+292,Ulberto Haily,3/29/1936,Male,Fijian,536-379-3995,4371
+293,Roxine Di Biasio,3/3/1943,Female,Samoan,615-929-9627,082
+294,Danna Rivelin,12/25/1920,Female,Native Hawaiian,199-529-2016,02
+295,James Murrells,6/28/1971,Male,Alaskan Athabascan,250-945-8818,4
+296,Analiese Kennea,2/21/1940,Female,Bolivian,449-864-7034,5
+297,Bucky Amburgy,11/27/1977,Male,Aleut,660-995-4697,794
+298,Rosy Wardale,3/29/1984,Female,Honduran,921-162-9194,024
+299,Birch Trittam,2/13/1974,Male,Osage,964-147-8007,62245
+300,Chery Hubach,9/8/1943,Female,Sioux,973-365-4820,96562
+301,Tymothy Boyde,9/21/1965,Male,Blackfeet,196-559-7392,2416
+302,Gui Danigel,6/1/1992,Female,Ecuadorian,552-295-8648,7966
+303,Nigel Halcro,7/3/1975,Male,Micronesian,846-753-3104,75
+304,Saleem Foord,2/11/1954,Male,Costa Rican,781-852-9786,9
+305,Dennison Matschoss,11/10/1974,Male,Alaska Native,329-903-4366,5
+306,Norene Serjent,11/9/1954,Female,Tohono O'Odham,815-451-9061,5
+307,Aarika Pineaux,8/31/1938,Female,Pima,401-449-2565,7249
+308,Kennie Prinnett,9/9/1931,Male,Hmong,746-674-0190,353
+309,Charlie Sinyard,11/15/1945,Male,Crow,213-651-6000,3
+310,Sawyere Diss,4/21/1933,Male,Aleut,763-931-2634,332
+311,Demetris Lengthorn,5/26/1925,Male,Chamorro,678-913-5332,15657
+312,Witty Copestick,11/16/1966,Male,Puerto Rican,417-990-3858,937
+313,Angy Cote,11/28/2000,Female,Cambodian,301-793-1691,8
+314,Christopher Brittan,10/24/1993,Male,Laotian,160-303-1980,202
+315,Meyer Dallison,12/10/1927,Male,Asian Indian,728-558-3043,6
+316,Darla Schwant,2/14/1970,Female,Houma,398-829-9951,880
+317,Gregoor Zipsell,8/6/1932,Male,American Indian,193-343-9275,1
+318,Blithe MacDonald,2/23/1975,Female,South American,680-210-2798,50429
+319,Rafferty Curd,8/27/1936,Male,Ottawa,345-686-8940,40
+320,Lucilia Buckleigh,2/6/1981,Female,Cuban,270-944-4814,75
+321,Judye Hrihorovich,4/6/1969,Female,Chamorro,994-224-2161,5
+322,Lanni Gerrets,1/2/1926,Female,Delaware,773-680-8826,6613
+323,Liesa O'Leagham,1/24/1988,Female,Apache,873-808-6863,6646
+324,Cort Press,8/8/1948,Male,Kiowa,912-292-1210,9
+325,Gibbie Snawden,5/27/1975,Male,Dominican (Dominican Republic),678-645-0333,3
+326,Richy Benardeau,1/19/1977,Male,Navajo,179-474-3226,54625
+327,Morse O'Carroll,8/10/1964,Male,Crow,967-616-9313,28278
+328,Manny Donovin,3/16/1959,Male,Ute,920-586-1507,814
+329,Vinny Kennewell,7/9/1942,Male,Bolivian,358-698-1741,086
+330,Robinetta Storre,8/3/1948,Female,Tohono O'Odham,722-356-6176,68
+331,Zachery Moncur,10/30/1936,Male,Guatemalan,596-621-1345,33
+332,Karen Joyson,4/29/1953,Female,Pakistani,524-540-6721,6438
+333,Mar Partrick,8/11/1918,Male,Blackfeet,555-809-4427,03
+334,Tally Sworn,7/30/1975,Female,Japanese,844-820-2363,136
+335,Ernestine Rutherfoord,12/15/2000,Female,Uruguayan,643-370-5784,3345
+336,Justinn Guerro,12/31/1924,Female,Guatemalan,808-537-8654,0
+337,Cooper Ivakhno,4/5/1971,Male,Yaqui,283-951-5845,4
+338,Bink Seldon,5/12/1966,Male,Micronesian,342-327-1102,1
+339,Ruthe Fakeley,9/2/1937,Female,Ottawa,470-206-7546,636
+340,Etty Fidian,8/23/1943,Female,Fijian,799-404-2267,893
+341,Care Mendoza,11/25/1945,Male,Fijian,470-495-7943,8
+342,Beulah Lusk,6/30/1945,Female,Cree,455-966-3092,72742
+343,Timotheus Ashenhurst,5/1/1970,Male,Pima,171-458-7929,642
+344,Enriqueta Henrych,3/1/1934,Female,Nicaraguan,874-291-6708,81712
+345,Irwinn Obbard,8/4/2001,Male,Central American,563-425-3281,916
+346,Sarene Moller,8/18/1966,Female,Yakama,425-564-0667,061
+347,Andonis Daingerfield,4/25/1999,Male,Uruguayan,833-731-3047,53
+348,Kellie Osgorby,7/24/2000,Female,Taiwanese,299-986-4086,189
+349,Harrison Elnor,12/20/1950,Male,Colville,181-509-9374,61
+350,Lucina Odam,2/1/1990,Female,Comanche,788-199-8291,07
+351,Lesly Dewing,5/20/1983,Female,Central American,595-890-5053,6011
+352,Angeline Blake,2/3/1970,Female,Cheyenne,990-797-2118,8932
+353,Gracie Vyel,9/18/1987,Female,Tohono O'Odham,826-872-1384,344
+354,Yasmin Consterdine,5/30/1987,Female,Laotian,617-371-0777,42
+355,Ettore Sillick,2/5/1939,Male,Pueblo,874-891-5223,7
+356,Horacio Brash,9/9/1934,Male,Chilean,328-978-2351,00
+357,Buckie Letcher,6/1/1936,Male,Peruvian,521-864-8173,9
+358,Scarlet Smales,2/5/1937,Female,Cambodian,817-529-6371,88
+359,Ringo Folli,4/13/1975,Male,Mexican,734-303-8732,407
+360,Winnifred Brokenshire,7/6/1940,Female,Argentinian,843-987-4374,31
+361,Amandie Garn,12/25/1960,Female,Guamanian,425-841-6347,56
+362,Raychel Blakely,8/9/1967,Female,Cambodian,749-614-6939,7926
+363,Nananne Scotchbourouge,12/29/1947,Female,Thai,536-965-4270,8
+364,Nathanael Shenfish,4/24/1948,Male,Sri Lankan,327-532-2205,98509
+365,Paxton Arenson,3/3/1946,Male,Hmong,651-685-2862,0566
+366,Yancy Picot,6/14/1949,Male,Eskimo,903-155-5532,82419
+367,Gabrila Kester,8/16/1962,Female,Uruguayan,709-132-6022,85
+368,Ethelbert Matysik,10/12/1968,Male,American Indian,647-641-5391,85
+369,Noella Winterflood,9/27/1999,Female,Puget Sound Salish,511-677-8147,33330
+370,Dunstan Gerauld,4/11/1920,Male,Bangladeshi,856-252-8180,651
+371,Alonzo Harrowing,2/14/1964,Male,Cambodian,699-909-8402,7636
+372,Adelbert Bridgeland,8/31/1966,Male,Fijian,416-380-7743,4
+373,Darelle Shepstone,5/30/1935,Female,Chamorro,558-551-9800,9735
+374,Ilene Lidstone,11/24/1964,Female,Sioux,520-968-4799,7748
+375,Amandi Conrart,1/22/1977,Female,Yaqui,924-539-7612,8577
+376,Valaria Brugman,3/19/1998,Female,Chamorro,222-313-9912,149
+377,Terra Yanukhin,11/28/1941,Female,Lumbee,451-367-0930,43139
+378,Prissie Belliard,6/14/1983,Female,Pakistani,597-805-7596,368
+379,Brandea Gergher,7/16/1941,Female,Panamanian,338-240-3105,733
+380,Yolande Goldberg,7/17/1978,Female,Korean,209-522-0078,64504
+381,Moyra Tewkesbury,10/28/1959,Female,Dominican (Dominican Republic),286-749-8163,18
+382,Sigfried Cocks,12/26/1960,Male,American Indian,857-560-4399,474
+383,Sheena Risebrow,2/6/1939,Female,Pueblo,450-253-2748,1
+384,Joyann Greiswood,7/29/1977,Female,Asian Indian,858-455-9963,210
+385,Malcolm Oddy,9/13/1997,Male,Paraguayan,260-142-2743,9
+386,Broddy Rammell,9/25/1919,Male,Guamanian,155-431-3035,98363
+387,Denys Weedall,12/26/1958,Female,Spaniard,238-853-2702,882
+388,Marris Putland,11/9/1995,Female,Colombian,692-138-2471,6
+389,Wolf Mertin,11/11/1973,Male,Latin American Indian,483-879-8592,7830
+390,Bernardina Woodworth,4/15/1951,Female,Asian,369-530-5685,9
+391,Lukas Currier,12/21/1921,Male,Yaqui,323-127-8361,6275
+392,Rodie Comolli,2/3/1979,Female,Nicaraguan,651-737-5532,386
+393,Caria Schwander,12/29/1956,Female,Yaqui,223-414-7702,68982
+394,Curry Bastable,1/9/1955,Male,Guamanian,686-974-4121,53042
+395,Rosaline Wiggett,12/26/1925,Female,Puerto Rican,150-144-2990,11651
+396,Charmian Stables,12/8/1973,Female,Cambodian,587-633-1734,9
+397,Aleen Yitshak,11/25/1928,Female,Colville,555-142-2420,275
+398,Ophelia Divers,10/2/1996,Female,Japanese,109-458-0488,44592
+399,Kevon Gregoletti,5/15/1956,Male,Cambodian,674-405-1975,4
+400,Virgie Janoschek,4/19/1928,Male,Seminole,463-881-5420,0357
+401,Layla Debrett,3/25/1970,Female,Taiwanese,594-878-6851,83
+402,Jolene Dowsing,4/2/1926,Female,Cambodian,969-226-9740,82
+403,Lisabeth Peotz,6/12/1947,Female,Asian,747-363-3865,9989
+404,Tim Windebank,6/30/1936,Male,Japanese,462-427-1839,572
+405,Frants Castiglio,3/31/1923,Male,Seminole,337-875-7398,27547
+406,Lorrayne Toten,10/12/1944,Female,Tlingit-Haida,520-535-9704,9
+407,Jeno Bezemer,7/6/1973,Male,Melanesian,353-492-5490,6421
+408,Isabelita Bibbie,3/4/1971,Female,American Indian and Alaska Native (AIAN),226-800-7599,721
+409,Jerrylee Rubenfeld,1/15/1945,Female,Guatemalan,517-334-8862,30405
+410,Tedie Akett,2/23/1939,Male,Alaskan Athabascan,385-797-1529,5769
+411,Rudolf Molan,11/25/1929,Male,Colombian,698-197-0246,5055
+412,Cosette Bentsen,2/3/1980,Female,Fijian,611-701-3636,4308
+413,Tomaso Catmull,9/4/1925,Male,Menominee,566-253-4158,6
+414,Lorraine Jinkinson,1/1/1929,Female,Native Hawaiian and Other Pacific Islander (NHPI),386-884-1933,14
+415,Aguste Kenwrick,6/29/1954,Male,Guatemalan,941-996-4113,2069
+416,Alec Gillyett,4/15/1970,Male,Ecuadorian,580-377-9792,7658
+417,Ward Kneafsey,11/10/1920,Male,Laotian,469-334-1567,4
+418,Angelina Caulfield,6/27/1932,Female,Uruguayan,979-755-4968,0839
+419,Blakelee Nelthrop,6/16/1941,Female,Paiute,723-607-9293,409
+420,Denney Swiggs,2/14/1930,Male,Tohono O'Odham,268-964-5636,496
+421,Enriqueta Piatkow,9/5/1964,Female,Laotian,916-125-4505,68714
+422,Holt Pepler,2/7/1940,Male,Chippewa,510-167-3763,22
+423,Kit Dockrell,11/17/1944,Male,Colville,184-621-7379,527
+424,Neely Paddy,1/1/1926,Female,Cherokee,129-534-9145,58513
+425,Fayette Kavanagh,3/3/1942,Female,Mexican,297-274-7079,7479
+426,Rosalie Kobke,8/9/1976,Female,Osage,703-605-4380,266
+427,Johnny Glennie,5/19/1992,Male,Alaska Native,991-916-2539,27
+428,Gwendolin Saldler,1/2/1919,Female,Shoshone,330-764-8996,52
+429,Forester Uzielli,5/31/1921,Male,Thai,261-552-5001,1990
+430,Fulton Arbon,9/16/1984,Male,Yuman,119-604-4429,14387
+431,Vicki Sharper,10/31/1991,Female,Salvadoran,110-273-1708,5101
+432,Barton O' Dornan,10/7/1957,Male,American Indian,668-171-4785,25786
+433,Alva Izakson,6/28/1947,Male,Shoshone,996-182-1791,9822
+434,Abbot Blouet,8/3/1973,Male,Ute,403-680-3431,4
+435,Cami Purton,8/2/1997,Female,Tohono O'Odham,995-603-6373,02329
+436,Christian Dew,3/1/1938,Female,Ecuadorian,592-439-4115,85
+437,Hamil Meneux,7/6/1920,Male,Cambodian,646-329-4990,7935
+438,Abe Alcoran,1/24/1966,Male,Dominican (Dominican Republic),675-341-4074,19114
+439,Aubert Bullivent,9/3/1977,Male,Chinese,998-853-5637,80
+440,Kassie Tingle,11/15/1986,Female,Puerto Rican,110-382-8914,303
+441,Stormie Coupman,1/24/1928,Female,Chamorro,478-767-4266,209
+442,Robbyn Kinnie,3/22/1958,Female,Kiowa,716-634-7838,697
+443,Kitti Cordingley,8/23/1968,Female,Chamorro,234-336-6534,8013
+444,Lockwood Cookney,4/25/1974,Male,Fijian,185-392-4297,4828
+445,Evangelia Heare,7/6/1962,Female,Delaware,116-642-1958,59
+446,Dorthy Baxster,6/5/1931,Female,Filipino,945-235-4967,82050
+447,Debora Dulany,3/24/1962,Female,Cuban,450-883-8504,7956
+448,Neel Thring,9/4/2001,Male,Asian Indian,605-860-9430,18370
+449,Reider Bootes,3/11/1958,Male,Yuman,466-476-1833,65
+450,Kenyon Welsby,1/26/1947,Male,Houma,422-696-0864,3
+451,Tommie Yorath,11/13/1954,Male,Central American,442-383-3110,93
+452,Jolie Atkin,5/15/2002,Female,Yaqui,213-884-6680,859
+453,Bree Bruniges,4/2/1937,Female,Cambodian,692-262-1016,26386
+454,Keen Scarce,12/8/1920,Male,Pima,712-473-5804,124
+455,Taryn Kealy,8/26/1999,Female,Melanesian,882-387-6369,840
+456,Marshal Klugel,8/28/1963,Male,Yuman,197-401-8550,2
+457,Bondie Downe,3/30/1979,Male,Cree,732-759-8538,3
+458,Carissa Hansed,8/12/1940,Female,Mexican,827-445-6221,35
+459,Lory Auty,8/21/1955,Female,Tongan,454-923-5300,2908
+460,Jenny Sweetzer,3/20/1947,Female,Alaskan Athabascan,806-966-8364,7
+461,Kennith Kubasek,11/7/1997,Male,Ecuadorian,968-668-2700,994
+462,Burty Stubbin,3/17/2002,Male,Tohono O'Odham,688-175-4345,302
+463,Annissa Noke,1/22/1992,Female,Micronesian,630-212-9249,9375
+464,Murray Campaigne,2/22/1969,Male,Bolivian,370-852-1582,499
+465,Fraser Lestor,12/3/1997,Male,Aleut,477-627-9046,393
+466,Efrem Drinkel,11/23/1973,Male,Pima,151-318-8400,68826
+467,Yorker John,11/9/1958,Male,Colombian,565-383-6619,92133
+468,Keefer Navein,10/26/1935,Male,Colville,675-423-9486,98
+469,Jephthah Pedley,3/29/1941,Male,Salvadoran,335-531-7385,2385
+470,Lorens Leith,3/4/1957,Male,Central American,664-932-9983,861
+471,Whitaker Yersin,7/22/1941,Male,Tohono O'Odham,239-836-3653,2
+472,Yard Pitbladdo,2/24/1997,Male,Dominican (Dominican Republic),833-338-9621,9
+473,Debra Lamplough,4/3/1925,Female,Crow,463-458-8568,3879
+474,Burnaby Berrisford,9/12/1944,Male,Yaqui,976-969-1028,64075
+475,Natassia MacAindreis,2/16/1953,Female,Micronesian,788-275-8490,8053
+476,Vikky Piche,5/26/1972,Female,Honduran,492-693-1678,2
+477,Lemmie Embra,2/15/1964,Male,Yuman,303-918-0756,4257
+478,Lesley Peschka,7/18/1938,Female,Colombian,405-515-1702,15865
+479,Cortie Hanne,2/7/1958,Male,Bangladeshi,586-736-7772,01873
+480,Tuckie Butter,7/6/1989,Male,Ecuadorian,670-680-1910,761
+481,Kelcy Jedrychowski,6/11/1924,Female,Choctaw,421-349-4937,04
+482,Meridith Seel,4/12/1961,Female,Paraguayan,172-364-5203,56
+483,Shaine Blown,5/29/1995,Male,Cheyenne,943-343-6774,496
+484,Star Denes,8/23/1970,Female,American Indian,795-901-1363,510
+485,Leopold Rosen,7/3/1992,Male,Sri Lankan,789-313-5064,8
+486,Inna Godmar,12/7/1934,Female,Menominee,667-188-9434,2
+487,Richmond Madgwich,6/22/1971,Male,American Indian and Alaska Native (AIAN),350-353-8331,0820
+488,Molly Pitkin,4/30/1943,Female,Asian,244-319-5150,001
+489,Niels Fanthome,5/31/1941,Male,Kiowa,448-562-2869,1928
+490,Carissa Greenslade,9/26/1947,Female,American Indian and Alaska Native (AIAN),835-932-8114,158
+491,Austin Brunsdon,2/9/1982,Male,Ute,800-679-3045,633
+492,Lon Boatwright,10/7/1985,Male,Mexican,708-596-6085,462
+493,Gilbert Olander,2/27/1956,Male,Tlingit-Haida,863-264-0445,81509
+494,Merry Ioannou,5/31/1975,Female,Uruguayan,977-269-6670,4190
+495,Madalena Paddie,3/14/1968,Female,Puget Sound Salish,947-867-6306,1287
+496,Gregoire Dundredge,10/18/1954,Male,Ottawa,602-831-3679,934
+497,Elihu Binton,12/19/1965,Male,Yuman,445-644-7559,24
+498,Sarajane Babb,12/26/1942,Female,American Indian and Alaska Native (AIAN),912-576-8084,13991
+499,Ursula MacAlroy,12/16/1982,Female,Eskimo,291-800-5209,91
+500,Bond Binford,6/1/1980,Male,Yuman,111-420-8995,78
+501,Lindsay Crosgrove,12/14/1994,Female,Choctaw,289-161-0498,388
+502,Bink Tawse,9/1/1919,Male,Shoshone,438-343-2524,864
+503,Terri-jo Stretton,3/23/1957,Female,Tongan,248-758-2254,43857
+504,Murray Mucklo,12/17/1931,Male,Eskimo,972-940-4242,584
+505,Gunar Spillard,1/7/1961,Male,Korean,745-278-5691,122
+506,Natty Tethacot,10/8/1987,Female,Paiute,242-920-7535,39
+507,Bryant McAvaddy,5/10/1948,Male,Latin American Indian,171-323-5055,50
+508,Dennet Simoneschi,10/31/1950,Male,Nicaraguan,200-399-9082,30
+509,Valeria Daniells,5/30/1964,Female,Cambodian,455-644-5600,31457
+510,Isidro Pringley,7/12/1977,Male,Polynesian,129-495-7072,8
+511,Marlowe Mattaus,9/16/1996,Male,Taiwanese,885-359-7558,41382
+512,Annnora Menilove,5/2/1934,Female,American Indian,927-635-1572,5484
+513,Kimberly Tarbert,10/30/1958,Female,Salvadoran,210-472-2065,4164
+514,Fayette Velde,12/9/1933,Female,Guatemalan,810-542-7201,9
+515,Afton Rosebotham,9/25/1969,Female,Chilean,958-871-9207,33
+516,Alidia Bifield,11/4/1981,Female,Yakama,671-731-3025,29
+517,Dougy Blaiklock,1/5/1944,Male,Filipino,407-831-5864,726
+518,Kalle Backshell,6/30/1967,Male,South American,831-761-0446,3524
+519,Tomi Bottrell,9/27/1948,Female,American Indian and Alaska Native (AIAN),378-317-3223,2
+520,Tressa Tour,12/31/1922,Female,Dominican (Dominican Republic),342-513-0345,0
+521,Arliene Tackle,1/27/1979,Female,Chinese,249-658-9742,7
+522,Adah Kynaston,12/19/1999,Female,Alaska Native,682-744-2914,5
+523,Joelle Bourget,4/19/1969,Female,Yakama,424-122-2910,94369
+524,Stanford Bourchier,2/7/1935,Male,Shoshone,230-727-5268,4861
+525,Koressa Clinton,1/27/1959,Female,Tohono O'Odham,152-850-9168,5945
+526,Haskel Cadreman,4/18/1935,Male,Yakama,541-522-1392,712
+527,Lombard Ondrousek,1/23/1984,Male,Melanesian,292-601-2757,8254
+528,Maurise Winterflood,10/19/1954,Female,South American,730-214-5648,608
+529,Gayla Holbie,4/10/1993,Female,American Indian,578-645-7603,50
+530,Wolf Stredwick,7/2/1971,Male,Navajo,441-794-6118,7517
+531,Ned Kubicka,12/8/1936,Male,Chickasaw,791-339-8750,7
+532,Lyssa Leeson,8/30/1997,Female,Cuban,371-323-1762,795
+533,Tildie Devons,9/25/1929,Female,Ecuadorian,907-792-3838,05
+534,Ailsun Jerrard,1/23/1998,Female,Apache,446-552-2017,951
+535,Othilie Gerrill,7/12/1980,Female,Choctaw,387-593-7412,9
+536,Trace Rediers,2/21/1922,Male,Bolivian,948-698-4862,9517
+537,Neda Esley,2/4/1932,Female,Crow,126-279-2719,72773
+538,Heidie Rhodes,6/30/1969,Female,Native Hawaiian,245-437-7486,19364
+539,Horacio Kinane,11/24/1966,Male,Navajo,639-601-9045,8
+540,Janek Ambrosio,5/27/2000,Male,Tlingit-Haida,560-337-3180,5836
+541,Dieter Windous,12/12/1930,Male,Chickasaw,819-907-7832,3368
+542,Robinet Gremain,9/19/1972,Male,Comanche,331-955-7960,1
+543,Lynea O'Neary,10/8/1965,Female,Colombian,582-937-7243,026
+544,Boone Taylerson,10/28/1928,Male,Micronesian,913-730-8656,4200
+545,Filberto Rapsey,8/24/1936,Male,Cheyenne,513-551-8288,00
+546,Ives Galton,4/24/1993,Male,Tongan,554-280-1041,928
+547,Travers Muldrew,6/18/1975,Male,Uruguayan,230-404-0621,9
+548,Alexis Pestricke,7/13/1980,Male,Kiowa,997-176-4243,851
+549,Horton McClintock,10/23/1946,Male,Creek,428-899-8976,743
+550,Con Vasile,5/10/2002,Male,Cherokee,948-118-0187,7
+551,Kathie Denman,6/12/1974,Female,Yuman,912-538-5644,5129
+552,Leola Truss,4/18/1974,Female,White,558-702-8316,569
+553,Lani Iban,12/25/1965,Female,Costa Rican,578-320-7261,48
+554,Barry McCaster,10/16/1982,Male,Tohono O'Odham,512-823-0043,2270
+555,Elissa Godsafe,9/14/1935,Female,Alaska Native,207-886-9616,3779
+556,Erma Stiven,3/18/1973,Female,Apache,578-306-7471,0824
+557,Goldie Polack,4/4/1976,Female,Lumbee,563-633-9733,45111
+558,Talyah Harvett,7/14/1955,Female,Samoan,371-209-4979,25411
+559,Norton O'Brian,4/7/1930,Male,Pueblo,873-379-5770,623
+560,Adelbert Linn,5/20/1952,Male,Dominican (Dominican Republic),206-669-5005,2014
+561,Emmott Avis,9/10/1948,Male,Yaqui,140-246-6950,5387
+562,Onfroi Staddon,12/14/1980,Male,White,497-297-9570,90532
+563,Poppy Saltsberg,3/14/1974,Female,Costa Rican,804-308-2786,751
+564,Gaile Gullifant,6/13/1948,Male,Peruvian,137-786-2024,099
+565,Guss Strachan,1/16/1959,Male,Thai,438-574-1178,162
+566,Florencia Josum,5/10/1951,Female,Alaskan Athabascan,344-277-6908,26539
+567,Timofei Callis,9/30/1919,Male,Ottawa,482-441-7516,826
+568,Cull Iacovini,10/6/1963,Male,Laotian,694-888-1652,7
+569,Sayre Marlow,4/29/1929,Female,Yaqui,591-936-8951,41
+570,Michal MacNally,3/7/1934,Male,Native Hawaiian and Other Pacific Islander (NHPI),528-174-1718,11463
+571,Byran Heineken,11/3/1998,Male,Alaskan Athabascan,989-609-4634,743
+572,Paule Yirrell,1/25/1996,Female,Peruvian,745-501-5658,585
+573,Tobie Antonin,4/14/1925,Male,Native Hawaiian,491-874-8180,879
+574,Remy Eagleston,2/3/1935,Female,Blackfeet,905-255-4162,560
+575,Jelene Grover,6/14/1992,Female,Indonesian,623-537-9466,53636
+576,Ethelbert Haggerston,1/17/1946,Male,Menominee,307-130-7576,7
+577,Parke Harkins,12/9/1993,Male,Vietnamese,814-704-1572,2
+578,Worthy Minall,10/5/1950,Male,Cherokee,364-792-7467,66658
+579,Phyllys Moorfield,2/1/1984,Female,Chamorro,393-951-7518,10810
+580,Georg Snepp,9/1/1998,Male,American Indian and Alaska Native (AIAN),494-256-1991,1029
+581,Blondy Oleszczak,8/12/1979,Female,Comanche,519-721-1711,70004
+582,Georgina Dugue,7/4/1987,Female,Costa Rican,488-795-6288,660
+583,Berty Alessandrelli,10/23/1942,Female,Nicaraguan,776-347-0928,312
+584,Reed Digg,2/23/1963,Male,American Indian,479-922-9271,62460
+585,Vittoria Dionis,7/10/1921,Female,White,462-915-8187,893
+586,Perl Ricciardiello,11/22/2000,Female,American Indian,386-663-8803,29
+587,Aleda Bliven,11/19/2001,Female,Thai,562-673-9818,05
+588,Hillel Lamond,3/29/1927,Male,Comanche,699-299-7346,8
+589,Ariella Hansana,3/21/1926,Female,Uruguayan,883-707-3208,52082
+590,Kayla Pien,8/14/1935,Female,Potawatomi,210-387-9903,3537
+591,Tony Gooding,6/16/1982,Female,Choctaw,124-152-5305,859
+592,Donall Benoy,10/19/1971,Male,Asian Indian,442-168-6270,63655
+593,Derrek Couves,4/21/1955,Male,Delaware,752-948-8837,17
+594,Giacobo Lynock,9/26/1943,Male,Colombian,219-456-0042,4032
+595,Julian Mariaud,11/7/1978,Male,Choctaw,612-660-1225,69152
+596,Hamlin Pear,10/1/1951,Male,Colville,567-497-6366,9
+597,Kristoffer Morales,6/28/1991,Male,Asian,299-114-3438,56168
+598,Gabriele Aynsley,2/13/1941,Male,Black or African American,413-501-0527,5
+599,Isis Dallon,1/16/1962,Female,White,582-991-0242,240
+600,Sadella Twinterman,6/17/1952,Female,Black or African American,534-412-9147,7307
+601,Evin Godfree,5/27/1969,Male,Dominican (Dominican Republic),385-789-9884,0164
+602,Dunstan Van der Krui,8/1/1954,Male,Alaskan Athabascan,380-824-2883,0
+603,Gard Kiehl,5/17/1947,Male,Aleut,401-185-0910,0197
+604,Sophey Willimont,11/3/1995,Female,Kiowa,335-506-3072,68955
+605,Hersh Knagges,8/1/1946,Male,Cambodian,838-250-9055,69
+606,Francis Curme,1/4/1922,Male,Blackfeet,208-993-9143,99257
+607,Frederico Neeves,11/20/1929,Male,Ute,128-432-8550,4815
+608,Tersina Oag,3/11/1961,Female,Houma,215-701-9875,4004
+609,Marion Grinyakin,1/12/1924,Female,Black or African American,649-784-8281,84
+610,Allsun O'Spillane,7/6/1935,Female,Pueblo,313-257-6947,5
+611,Christoffer Rabidge,5/25/1963,Male,Indonesian,382-309-8314,44008
+612,Bill Cowherd,10/26/1927,Male,Tlingit-Haida,605-453-0419,5
+613,Lorne Bemrose,10/18/1952,Female,American Indian and Alaska Native (AIAN),792-572-4820,7
+614,Abigale Ferrari,12/1/1957,Female,Ecuadorian,204-559-6625,774
+615,Esta Errichi,1/16/1983,Female,Eskimo,385-615-6501,96548
+616,Erl Damato,12/4/1954,Male,Puget Sound Salish,395-517-2558,425
+617,Dewey Selbach,7/9/1993,Male,Melanesian,558-133-8943,8633
+618,Ediva Berntsson,1/24/1952,Female,Venezuelan,107-505-2416,898
+619,Gaby Maggi,1/30/1986,Male,Dominican (Dominican Republic),933-244-6878,8
+620,Madlen Heis,3/28/1952,Female,Cheyenne,931-632-9353,7578
+621,Red Sink,11/3/1990,Male,Cheyenne,913-965-7528,9
+622,Ursulina Peat,2/3/1961,Female,Cambodian,826-925-3629,2
+623,Kennedy Peter,8/4/1956,Male,Chickasaw,201-698-0770,6
+624,Anetta Rittmeier,1/10/2000,Female,Bolivian,565-569-2770,8
+625,Batholomew Draayer,8/18/1987,Male,Argentinian,375-210-3445,565
+626,Cassie Mathewson,6/23/1957,Female,Taiwanese,820-228-8885,6
+627,Cchaddie Please,5/28/1999,Male,Chamorro,889-197-9309,99
+628,Leupold Bougourd,6/14/1996,Male,Pakistani,823-279-8005,36
+629,Haily Shuard,3/12/1992,Female,Indonesian,582-647-6224,2712
+630,Lewiss Qualtro,2/14/1975,Male,Micronesian,255-165-9912,71
+631,Fredrika Wasielewicz,2/19/1999,Female,Creek,233-570-8622,1687
+632,Margret Marzelle,5/29/1953,Female,Creek,743-106-1360,14
+633,Dilly Riddle,10/23/1985,Male,Vietnamese,298-671-7759,6
+634,Bobbee Philippsohn,11/23/1961,Female,Peruvian,806-665-4884,6112
+635,Nikolos Bertelsen,3/18/1932,Male,Osage,603-300-1781,2806
+636,Keelby Blackborough,10/27/1960,Male,Cheyenne,530-697-0204,1534
+637,Puff Atty,9/9/1994,Male,Eskimo,753-706-7429,3765
+638,Rea O'Grada,6/10/1952,Female,Salvadoran,485-100-9915,526
+639,Aurea Davidovitz,10/22/1976,Female,Seminole,332-988-3689,88733
+640,Basil Bodd,8/16/1953,Male,Yaqui,256-865-2580,00
+641,Phaedra Ormesher,6/25/1934,Female,Chilean,893-772-7642,7097
+642,Danita Baish,7/28/1999,Female,Aleut,702-954-0089,3197
+643,Seline Wenzel,1/21/1972,Female,Menominee,162-206-5863,80891
+644,Sisely Trigg,3/9/1926,Female,Hmong,600-810-5381,94
+645,Clive Muslim,9/27/1950,Male,Lumbee,833-604-2144,4
+646,Avivah Staining,5/14/1946,Female,Vietnamese,924-866-0168,4
+647,Jorge Jenner,9/8/1919,Male,Eskimo,833-455-6569,567
+648,Nikki Richard,8/3/1996,Female,Menominee,732-508-8855,5
+649,Dunc Janik,12/2/1941,Male,Honduran,612-322-4680,62421
+650,Idelle Bowell,11/26/1979,Female,Pueblo,754-180-0142,3158
+651,Jodie Bugs,1/26/1997,Male,Guamanian,583-348-9648,14
+652,Viola Ballsdon,10/1/1978,Female,Menominee,375-917-2570,4
+653,Hailey Eubank,1/26/1986,Male,Tohono O'Odham,316-415-8085,75605
+654,Andrea Fontelles,11/12/1935,Female,Aleut,257-199-3267,1
+655,Broderick Kinforth,7/23/1998,Male,Comanche,332-688-8561,785
+656,Zaccaria Wace,11/30/1932,Male,Melanesian,479-787-1446,8
+657,Mavis Hartless,1/22/1989,Female,Pakistani,762-259-4809,474
+658,Hazel Elvin,1/17/1983,Female,Guatemalan,817-693-0743,9493
+659,Brittni Kempster,3/11/1981,Female,Ottawa,728-641-5404,89329
+660,Sybil Stennet,3/19/1949,Female,Polynesian,842-971-9539,6751
+661,Roma Lambertini,5/25/1925,Male,Micronesian,935-539-8541,48
+662,Barnabas Corryer,2/19/1960,Male,Kiowa,761-425-2125,57711
+663,Davey Ricold,2/3/1927,Male,Hmong,133-593-5254,79440
+664,Land Lamborn,2/28/1923,Male,Chinese,229-272-7352,3332
+665,Giovanna Pischoff,8/20/1949,Female,Aleut,237-681-8023,2
+666,Susan Heinsius,11/17/1959,Female,Black or African American,277-964-2938,63
+667,Dela Elder,1/22/1982,Female,Latin American Indian,305-978-4148,9795
+668,Standford Vint,4/6/1988,Male,Navajo,268-314-4903,35462
+669,Zachery Vasnetsov,7/16/2001,Male,Colville,927-691-6591,3
+670,Yurik Lafontaine,5/26/2002,Male,Asian,394-255-5398,80870
+671,Gonzalo Galsworthy,10/20/1954,Male,Dominican (Dominican Republic),467-436-6086,96652
+672,Skyler Gamell,6/25/1953,Male,Central American,237-210-9325,11
+673,Tine Magor,4/13/1951,Female,Tohono O'Odham,905-629-1027,5328
+674,Nike Baudone,5/28/1984,Female,Chamorro,770-777-9550,723
+675,Fremont Seldner,12/25/1945,Male,Crow,214-819-1979,1
+676,Lazare Puddephatt,12/31/1930,Male,Argentinian,236-229-9382,3
+677,Luci Wallicker,3/19/1951,Female,Fijian,146-156-7228,47
+678,Halsy Blachford,3/14/1924,Male,Alaskan Athabascan,668-607-5183,52495
+679,Rois Matevosian,11/29/1946,Female,Shoshone,604-683-8037,328
+680,Anastasia Fraser,5/23/1968,Female,Indonesian,871-145-5815,8176
+681,Francklyn Burnham,4/5/1994,Male,Pakistani,359-248-8476,1
+682,Corbie Lanbertoni,5/16/1949,Male,Argentinian,712-788-2117,3
+683,Ellery Marrington,7/28/1995,Male,Samoan,247-623-8879,4788
+684,Raphael Ekell,1/4/1974,Male,Nicaraguan,972-975-4390,581
+685,Averil Cardenas,8/17/1957,Male,Salvadoran,333-537-5985,4
+686,Gertrudis Clew,4/25/1941,Female,Cherokee,576-648-3838,815
+687,Keriann Scrauniage,11/28/1948,Female,Yakama,195-230-3759,9
+688,Meriel Digan,8/15/1984,Female,Guamanian,382-825-1714,64
+689,Milicent Heppenspall,5/18/1963,Female,Chinese,839-214-7920,5016
+690,Mariquilla Elliot,1/21/1988,Female,Nicaraguan,980-927-0622,9622
+691,Martie Klarzynski,11/16/1997,Female,Taiwanese,216-404-9890,8
+692,Lacy Elliss,7/29/1933,Female,Puerto Rican,808-629-1111,744
+693,Sindee Larkworthy,10/8/1925,Female,Ottawa,795-804-5103,90
+694,Caron Fraanchyonok,8/25/1952,Female,Colville,758-685-5830,950
+695,Giles McDonnell,9/26/1968,Male,Ecuadorian,592-799-9653,1096
+696,Matelda Knuckles,3/13/1920,Female,Sioux,579-303-7551,9
+697,Panchito Duce,1/29/2002,Male,Filipino,690-185-8852,89707
+698,Brook Daile,11/11/1934,Male,Houma,626-809-2240,7
+699,Loleta Casebourne,6/11/1999,Female,Cambodian,904-474-9670,4
+700,Bibbie Connock,9/30/1942,Female,Guatemalan,550-253-2113,0002
+701,Cora Templeman,8/7/1918,Female,Guamanian,380-260-2065,6668
+702,Belva Greener,3/3/1949,Female,Potawatomi,720-144-5880,1
+703,Roxi Charer,2/24/1983,Female,Aleut,902-834-1952,5484
+704,Orazio Garnham,9/6/1921,Male,Chamorro,205-796-4200,7156
+705,Nollie Leman,9/22/1942,Female,Colombian,302-158-1886,43
+706,Homer Given,4/1/1965,Male,Dominican (Dominican Republic),216-891-0603,55
+707,Austina Rickword,2/27/1979,Female,Korean,891-199-7439,15
+708,Jolynn Kira,3/13/1919,Female,Alaskan Athabascan,159-386-6535,9
+709,Tim Meechan,12/7/1938,Male,Honduran,622-910-4948,005
+710,Merle Cheng,10/2/1953,Male,Uruguayan,758-389-0196,71425
+711,Ker Divver,1/3/1956,Male,Alaska Native,397-768-0043,84
+712,Tabbie MacPaik,10/20/1975,Male,Nicaraguan,116-213-1982,4948
+713,Alaster Rushman,5/16/1978,Male,Cambodian,182-757-5904,08721
+714,Rafaellle Abramovici,8/13/1990,Male,Shoshone,311-793-1758,3
+715,Edvard Shilvock,3/5/1920,Male,Blackfeet,246-372-6513,74
+716,Moses Boulden,1/22/1960,Male,Houma,436-525-0793,36802
+717,Andrei Whitaker,10/4/1944,Female,Lumbee,623-562-2932,01
+718,Burtie Staves,1/26/1991,Male,Paiute,945-852-7662,22
+719,Bethena Wyley,2/18/1946,Female,Ottawa,731-774-7401,42784
+720,Hermon Worgan,11/23/1940,Male,Vietnamese,919-729-7264,061
+721,Tamarra Hayselden,12/21/1998,Female,Colville,309-691-2302,360
+722,Ezmeralda Tumility,1/14/1954,Female,Polynesian,821-450-9512,89240
+723,Lula Beauchamp,6/20/1973,Female,Houma,661-872-1881,448
+724,Mallissa Stoeck,2/15/1920,Female,Central American,180-709-6993,6885
+725,Danna Crichmer,8/13/1970,Female,Alaska Native,784-748-8194,7835
+726,Cilka Dalbey,12/28/1997,Female,Japanese,276-889-6775,74467
+727,Slade Trowel,2/1/1934,Male,Asian Indian,489-295-9842,12734
+728,Eveline Wloch,12/24/1932,Female,Ecuadorian,349-347-6132,6
+729,Algernon Coatts,2/8/1948,Male,Central American,280-913-2346,1
+730,Allina Domenicone,2/27/1990,Female,Filipino,721-501-6799,15
+731,Tedman Perch,8/2/1988,Male,Guamanian,249-817-1651,7469
+732,Sissie Zack,5/4/1952,Female,Asian,890-220-2664,882
+733,Graehme Boecke,2/18/1990,Male,Costa Rican,931-989-8051,7
+734,Broddie Balcers,12/20/1968,Male,Pakistani,927-666-1688,508
+735,Johannes Belfit,11/28/1923,Male,Delaware,475-739-3473,9
+736,Angy Fowley,6/7/1983,Female,Aleut,733-578-2157,8975
+737,Ulrika Jedryka,9/19/1936,Female,Blackfeet,273-791-7171,80
+738,Ashia Neenan,8/28/1957,Female,Tohono O'Odham,297-393-8265,281
+739,Gaylord Purrier,12/30/1943,Male,Guamanian,100-428-9368,55167
+740,Heather Caldron,1/1/1926,Female,Bangladeshi,160-141-6494,59
+741,Blondell Billham,1/11/1985,Female,Spaniard,635-705-9747,9
+742,Rochelle Roebottom,3/9/1984,Female,Sri Lankan,122-879-3038,3411
+743,Constance Dibbert,7/27/1962,Female,Iroquois,959-453-5265,051
+744,Shepperd Maun,9/20/1923,Male,Potawatomi,479-314-4500,330
+745,Berton Gauld,4/17/1942,Male,Hmong,420-685-0444,3343
+746,Zacharias Amberson,5/4/1935,Male,Cherokee,378-206-4865,2
+747,Malynda Horley,6/11/1967,Female,Asian Indian,568-833-8342,037
+748,Fraze Righy,9/23/1944,Male,Micronesian,319-257-7715,8362
+749,Herbie McMichan,6/17/1951,Male,Native Hawaiian,375-588-1045,0786
+750,Herschel Hernik,9/6/1987,Male,Menominee,731-733-0583,703
+751,Travus Gadson,5/29/1920,Male,Taiwanese,626-908-1454,396
+752,Kingsly Jansson,4/22/1980,Male,Hmong,581-720-0168,0051
+753,Ruthie Dewsnap,12/31/1991,Female,Ecuadorian,303-423-7696,3359
+754,Axel Hendricks,1/24/1975,Male,Potawatomi,278-201-6295,26005
+755,Danika Faussett,1/14/1957,Female,Samoan,251-145-9468,5
+756,Korie Bramwell,6/3/1971,Female,Filipino,566-804-8398,5
+757,Weidar Ellicott,6/23/1975,Male,Indonesian,582-893-3881,0
+758,Dalton Humphrey,10/3/1976,Male,Navajo,765-595-9358,1433
+759,Onfroi Selborne,7/28/1943,Male,Samoan,175-983-4526,3
+760,Montague Chatwood,3/1/1966,Male,Mexican,246-595-7451,33486
+761,Deeanne Stonehewer,11/13/2001,Female,Spaniard,950-977-3735,6537
+762,Kyle Denyer,9/27/1979,Male,Vietnamese,139-909-7780,7782
+763,Bartolemo Exer,7/13/1951,Male,Blackfeet,293-277-0888,08
+764,Garnet Carlesso,1/17/1968,Female,Navajo,438-585-3822,428
+765,Laurianne Fenton,4/6/1977,Female,Cuban,458-460-3286,78019
+766,Artus Ipgrave,4/26/1953,Male,Mexican,958-500-5379,0528
+767,Skyler Spellacy,10/28/1947,Male,Yaqui,100-487-4867,7
+768,Kylie Hubach,1/17/1956,Female,Guamanian,775-491-2829,3216
+769,Westbrooke Gwilliams,4/9/1945,Male,Indonesian,596-414-0353,3947
+770,Oren Ingledow,3/2/1932,Male,Asian,704-424-3312,06
+771,Franz Borrell,3/10/1932,Male,Cheyenne,212-929-9945,09
+772,Meagan Matchell,10/15/1987,Female,Asian,977-937-6925,50491
+773,Nessi Quigg,12/17/1942,Female,Cambodian,191-461-0732,43
+774,Kelley Hanscombe,8/2/1918,Male,Mexican,988-489-7214,2
+775,Kristyn McLaughlin,6/14/1992,Female,Mexican,939-512-6736,77302
+776,Rubie Ruos,6/26/1968,Female,Chilean,552-909-9699,3814
+777,Beckie Tunny,5/23/1981,Female,American Indian and Alaska Native (AIAN),738-634-0564,56788
+778,Maurise Frankema,11/17/1997,Female,Guamanian,912-957-0117,11
+779,Etan Scutchings,12/2/1964,Male,Mexican,406-265-0707,2478
+780,Leon Cardnell,3/11/1981,Male,Filipino,429-779-8419,50099
+781,Christie Peck,6/7/1926,Female,Honduran,983-638-5624,84956
+782,Elenore Lumsdall,4/6/1996,Female,Honduran,859-650-9401,86776
+783,Romeo Josefer,8/30/1976,Male,Sri Lankan,839-130-6337,6195
+784,Brewster Geraud,11/3/1989,Male,Spaniard,321-678-8677,13
+785,Cheryl Washbrook,3/7/1975,Female,Peruvian,243-388-3371,750
+786,Libby Mintoff,11/18/1981,Female,Malaysian,355-866-4578,6899
+787,Lauralee Sorro,3/23/1993,Female,Navajo,106-891-9225,84928
+788,Travers Naden,3/30/1962,Male,Alaskan Athabascan,526-381-0381,7913
+789,Ardella Leile,6/12/1964,Female,American Indian and Alaska Native (AIAN),241-252-2582,1433
+790,Dahlia Bruniges,2/26/1942,Female,Chamorro,540-297-3776,47
+791,Kissiah Rothchild,5/25/1948,Female,Black or African American,989-973-7720,4
+792,Matelda Brandom,4/21/1985,Female,Comanche,601-723-2692,6135
+793,Rheta Faro,11/24/1964,Female,Indonesian,714-118-6915,99
+794,Matilde Yurasov,5/19/1989,Female,Alaskan Athabascan,896-957-1738,3
+795,Aron Chifney,6/23/1938,Male,Korean,136-538-5880,3489
+796,Chevy Rocco,11/21/1989,Male,Crow,618-695-7697,08
+797,Tally Cohrs,1/30/1922,Male,Creek,416-580-1992,29839
+798,Maureene Cogdon,10/11/1942,Female,Spaniard,470-551-7131,988
+799,Eleonora Duly,5/30/1955,Female,Japanese,699-465-7104,0
+800,Roman Dumper,2/29/1920,Male,Ute,273-536-1994,2
+801,Sebastian Rome,2/4/1981,Male,Yaqui,364-291-0298,18
+802,Wildon Brackstone,11/2/1924,Male,Malaysian,389-876-0242,5
+803,Doyle Harrington,9/15/1982,Male,Shoshone,156-417-0450,06
+804,Zachariah Trendle,7/12/1945,Male,Houma,768-500-4601,39
+805,Larry Morratt,3/2/1983,Male,Ecuadorian,409-627-6299,79
+806,Magda Kubiczek,8/26/1936,Female,Chippewa,987-235-5695,86
+807,Brigham Stert,2/22/1939,Male,Cheyenne,177-802-3093,946
+808,Lola Fulger,6/22/1998,Female,Chickasaw,876-160-0663,588
+809,Tiffie Beards,11/24/1998,Female,Bangladeshi,675-641-6033,05638
+810,Gunther Scamal,1/21/1971,Male,Guatemalan,701-951-5142,4
+811,Johnathon Arnaez,1/23/1959,Male,Uruguayan,238-769-9862,09525
+812,Frasco Adamek,11/30/1937,Male,Asian Indian,925-237-8289,919
+813,Pip Bethune,8/12/1949,Male,Central American,921-500-7114,563
+814,Nert Dyson,8/9/1942,Female,Menominee,290-319-5890,5
+815,Vincenz Beveridge,11/16/1953,Male,Eskimo,989-317-6523,48
+816,Betteanne Gleadhall,7/27/1926,Female,Panamanian,805-554-7097,1357
+817,Tessa Bowsher,7/7/1994,Female,Pueblo,734-483-6853,57
+818,Brian Ottey,8/31/1971,Male,Navajo,405-876-7502,39282
+819,Jaquenette Leyton,8/31/1942,Female,Puget Sound Salish,137-752-5254,455
+820,Harriot Collyns,10/11/1933,Female,Central American,490-123-4581,0854
+821,Seth Kimmerling,4/29/1976,Male,Alaskan Athabascan,583-467-7975,8066
+822,Maxwell Blankenship,12/11/1945,Male,Cuban,521-453-3115,33
+823,Peirce Iddison,2/2/1978,Male,Kiowa,904-535-0526,48
+824,Shana Filip,2/12/1927,Female,Yaqui,507-374-7755,71989
+825,Millard Andrews,8/13/1928,Male,Spaniard,678-127-6547,8
+826,Bianca Agass,3/20/2001,Female,Cherokee,597-793-7753,49457
+827,Rochella Blankley,4/12/1968,Female,Thai,989-551-0019,59152
+828,Tiffi Connochie,1/6/1987,Female,Ecuadorian,207-777-8107,4565
+829,Steffi Antoni,8/29/1937,Female,Alaska Native,998-145-5957,7340
+830,Doro Jindrak,7/25/1974,Female,Chippewa,688-178-5635,8
+831,Dalenna Phinnis,1/20/1992,Female,Houma,272-691-4568,5
+832,Morey Peyes,7/2/1967,Male,Delaware,462-916-1584,34
+833,Fiona McNevin,11/23/1992,Female,Malaysian,150-142-3210,83
+834,Libbie Tomasik,6/19/1934,Female,Ottawa,276-473-7538,98
+835,Benson Dawson,9/28/1945,Male,Chamorro,176-800-9546,87
+836,Courtenay Knighton,5/1/1924,Female,Yaqui,576-970-2938,3778
+837,Judah Dallman,9/17/1922,Male,Cambodian,459-601-7638,933
+838,Amaleta Crab,5/31/1952,Female,Uruguayan,736-214-1221,39279
+839,Peta Edmand,5/3/1942,Female,Chilean,564-890-3407,42026
+840,Jarrid Axtens,2/17/1978,Male,Potawatomi,474-209-9321,45
+841,Rog Benjamin,3/17/1967,Male,Tlingit-Haida,448-172-6125,892
+842,Sibel Gayter,6/12/1946,Female,Thai,255-836-4342,6165
+843,Andrei Yushachkov,6/6/1934,Female,Bolivian,502-836-7277,09
+844,Vince Gaynsford,7/5/1989,Male,Micronesian,609-477-1887,47
+845,Kara Garthside,9/9/1945,Female,Blackfeet,370-249-4950,230
+846,Joana Boyda,10/20/1971,Female,Samoan,656-150-3698,47552
+847,Vanny Humpherson,12/2/1923,Female,Seminole,456-401-9953,59
+848,Decca Mallebone,5/12/1945,Male,Aleut,499-102-6383,599
+849,Galvin Rallings,3/28/2001,Male,Paraguayan,940-390-7838,1
+850,Leslie Wyvill,5/29/1932,Female,Tongan,701-290-0228,4
+851,Karola Bradwell,11/7/1951,Female,Sioux,495-159-2413,1
+852,Jose Giametti,6/15/1934,Male,Chilean,145-900-8662,2
+853,Shelly Quiddington,5/4/1983,Female,Yuman,242-564-9728,6048
+854,Justinn Roffe,7/15/1979,Female,Argentinian,860-161-1662,188
+855,Mirelle Callender,7/20/1929,Female,Creek,992-525-0765,53
+856,Kaspar Northing,3/24/1938,Male,Chamorro,694-433-0006,25
+857,Clyde Vinter,1/4/1967,Male,Guamanian,743-294-1779,31368
+858,Carmelle McEnhill,4/19/1941,Female,Colombian,128-896-1244,43686
+859,Pepe Ulyet,4/16/1946,Male,Bolivian,880-793-3855,5006
+860,Corrie Dyne,1/30/1934,Female,Ottawa,991-533-7054,403
+861,Rodie Auston,12/6/1957,Female,Hmong,539-861-2394,646
+862,Ingaborg O'Growgane,5/28/1952,Female,Costa Rican,978-325-5893,68941
+863,Cherry Mattiessen,8/13/1930,Female,Colville,693-249-4557,95
+864,Jeniece Quartly,4/22/1960,Female,Guamanian,281-989-5719,00890
+865,Paige Cardinale,2/2/1932,Female,Kiowa,671-406-1445,29
+866,Rubia Moorey,3/1/1968,Female,Filipino,582-587-5690,8392
+867,Malchy Camings,5/14/1941,Male,Tohono O'Odham,244-516-2381,57559
+868,Vanya Delos,4/11/1999,Male,Chamorro,726-655-7482,84453
+869,Darwin Late,11/1/1975,Male,Iroquois,986-850-8707,427
+870,Josephine Chape,8/2/1943,Female,Chinese,137-328-5958,128
+871,Gaelan Gilder,5/18/1983,Male,Bolivian,273-412-4390,0
+872,Jayson Muffitt,7/25/1963,Male,Puerto Rican,270-589-0515,1
+873,Lenna Androck,12/3/1947,Female,Black or African American,894-358-8731,21051
+874,Jarvis Yaneev,6/30/1960,Male,Paraguayan,833-445-4792,780
+875,Frances Altofts,2/23/1934,Female,Cherokee,578-605-2705,33112
+876,Cherry Stranaghan,1/15/1926,Female,Tlingit-Haida,257-737-9485,95529
+877,Adria Corzor,12/18/1941,Female,Yuman,406-572-9937,5
+878,Decca Blazic,6/2/1969,Male,Panamanian,154-226-6965,04
+879,Pauly Southers,5/28/1999,Male,Bolivian,525-520-1289,67
+880,Jemmy Daniell,4/22/1938,Female,Melanesian,996-233-5082,74
+881,Mayer Semmens,11/30/1966,Male,Taiwanese,371-374-3556,7
+882,Franz Senescall,4/23/1971,Male,Cree,863-562-8760,2
+883,Benyamin Leebetter,5/20/1972,Male,Iroquois,668-470-1799,2
+884,Lorne Milthorpe,12/9/1975,Female,Hmong,554-880-4363,368
+885,Dalis Spur,2/22/1929,Male,American Indian and Alaska Native (AIAN),692-880-7444,265
+886,Auria Aizlewood,3/25/1924,Female,Seminole,449-194-2695,82
+887,Ernest Shirlaw,6/18/1918,Male,Ute,523-374-7064,03937
+888,Demetrius Foulds,3/31/1973,Male,Osage,883-968-7531,813
+889,Bamby Propper,8/27/1990,Female,Nicaraguan,496-468-3980,2
+890,Katlin Pallesen,8/8/1999,Female,Iroquois,227-147-2889,230
+891,Lillian Dottrell,5/25/1980,Female,Chippewa,585-715-1474,3
+892,Vail Pray,6/7/1984,Male,Choctaw,263-411-7317,287
+893,Lynnet Fisby,12/17/1989,Female,Venezuelan,830-510-9065,021
+894,Libbie Buttress,5/1/1943,Female,White,497-170-5448,25
+895,Karil Dawby,3/24/1933,Female,Navajo,517-602-8448,02633
+896,Krystyna Pohl,7/6/1931,Female,Sri Lankan,356-471-9809,78
+897,Hartwell Sambrok,11/4/1930,Male,Vietnamese,690-897-8384,0
+898,Marv Drinkeld,1/17/1965,Male,Chinese,258-455-6199,80
+899,Flossie Andreev,4/1/1974,Female,Samoan,879-259-9715,406
+900,Ottilie Mockford,11/8/1970,Female,Choctaw,918-756-9742,447
+901,Denni Storrie,5/27/1926,Female,Mexican,955-557-3306,7102
+902,Aldous Stansell,6/4/1992,Male,Puget Sound Salish,981-763-7593,063
+903,Deina Danilov,9/5/1989,Female,Ute,572-156-8578,8444
+904,Beckie Norrey,1/16/1997,Female,Asian,652-626-8098,4
+905,Carena McGeever,10/14/1942,Female,Crow,701-719-8463,739
+906,Philippine Waskett,5/2/1924,Female,Pima,628-121-1042,030
+907,Sophia Hopewell,9/29/1923,Female,White,652-969-2473,8818
+908,Verine Kuna,11/10/1965,Female,Argentinian,932-682-4517,01
+909,Rik Gradly,3/27/1987,Male,Chippewa,430-116-8070,28017
+910,Anabal Siemianowicz,7/25/1964,Female,Asian,841-323-3500,2
+911,Isis Bamber,2/13/1924,Female,Navajo,478-290-4533,07800
+912,Nobe Farndell,8/15/1920,Male,Yakama,790-594-3557,1
+913,Rubi Puig,9/30/1966,Female,Malaysian,516-632-1784,310
+914,Farr Leatherbarrow,10/20/1980,Male,Panamanian,269-593-4388,1
+915,Kirstin Surmeyers,3/15/1925,Female,Bolivian,993-655-3269,9
+916,Gavra Lazenbury,3/17/1926,Female,Puget Sound Salish,868-233-7387,3
+917,Luce Ottewell,12/12/1966,Female,Spaniard,567-799-3058,43502
+918,Merry Whiten,7/26/1968,Male,Chamorro,500-302-8009,02
+919,Flossy Aslam,6/5/1997,Female,Choctaw,645-119-0395,7264
+920,Beau Boulder,2/6/1959,Male,Cree,489-773-1448,6
+921,Eberhard Millott,10/3/1962,Male,Spaniard,611-231-5450,579
+922,Rebekkah O'Hallagan,2/10/1997,Female,Osage,644-978-6800,2
+923,Marna MacKenney,3/18/2002,Female,Laotian,754-915-0683,1830
+924,Carolann Giggs,7/4/1955,Female,Colville,491-863-9054,310
+925,Stephine Gallon,3/20/1929,Female,Puget Sound Salish,552-494-0577,8571
+926,Derrik Patshull,12/18/1954,Male,Eskimo,595-983-6012,65
+927,Lotte Burker,3/10/1975,Female,Spaniard,285-213-6541,5
+928,Rafaellle Jesson,2/12/1985,Male,Spaniard,531-129-5928,99
+929,Lydon Madison,11/28/1968,Male,Native Hawaiian,796-974-8518,40413
+930,Claudio Haggata,1/31/1999,Male,Alaska Native,935-145-5085,64
+931,Wrennie Dedmam,12/27/1944,Female,Creek,233-663-0075,42
+932,Shepard Nusche,9/26/1969,Male,American Indian,849-392-6330,8
+933,Mara Lathbury,3/29/1922,Female,Yakama,279-731-2078,30
+934,Lev Extill,2/17/1921,Male,Spaniard,612-341-0292,581
+935,Sebastiano Vinter,9/2/1925,Male,Sri Lankan,247-355-5174,19497
+936,Dorrie Pitherick,9/15/1938,Female,Comanche,771-490-3025,44
+937,Phedra Mordan,9/23/1935,Female,Comanche,571-597-3575,2
+938,Becka Tomanek,4/24/1921,Female,Chinese,476-861-1093,86
+939,Merridie Bernetti,2/16/1991,Female,Panamanian,385-884-1968,9
+940,Esra Coyte,5/16/1998,Male,Alaska Native,542-555-1325,723
+941,Dory Challicombe,8/21/1966,Male,Pakistani,111-758-8205,2035
+942,Korry Swains,3/3/1991,Female,Colombian,344-231-5030,7
+943,Melinde Gercke,5/21/1950,Female,Cambodian,624-743-0209,37461
+944,Warner Davidge,5/5/1986,Male,Tlingit-Haida,803-146-8593,615
+945,Bryon Waumsley,4/24/1981,Male,White,161-634-6499,870
+946,Raoul Jayme,12/13/1927,Male,Colville,151-882-7992,3
+947,Letti Bockin,3/14/1984,Female,Pueblo,823-604-3936,7
+948,Cosmo MacCaughen,4/20/1991,Male,Asian Indian,880-358-6023,84
+949,Noah Paybody,2/5/1980,Male,Indonesian,286-247-7671,7809
+950,Corena Eskrick,5/20/1935,Female,Guatemalan,478-223-0470,0
+951,Cristal Dumbrall,11/13/1981,Female,Delaware,573-839-6782,42403
+952,Earle Downie,9/18/1940,Male,Hmong,296-978-5280,63
+953,Devonne Garth,10/20/1953,Female,Puerto Rican,214-778-6977,055
+954,Brucie Fitton,12/12/1928,Male,Colombian,832-517-4569,6
+955,Sayres Van der Daal,3/18/1967,Male,American Indian,278-347-2950,891
+956,Aurelea Amey,10/30/1966,Female,Delaware,324-903-7648,8
+957,Ansell Straine,4/21/1950,Male,Colombian,694-495-3826,1441
+958,Tess Silverlock,4/24/1934,Female,Pakistani,170-870-0851,827
+959,Cal Knightly,5/6/1936,Female,Puerto Rican,637-160-6032,17
+960,Dosi Deniset,3/8/1966,Female,Venezuelan,546-589-5118,2124
+961,Marianna Deverall,4/6/1970,Female,Blackfeet,369-179-6209,32
+962,Eugene Jepensen,7/19/1980,Male,Chinese,651-703-1800,8
+963,Willabella Overy,3/26/1964,Female,Seminole,169-503-6435,1549
+964,Elden Duffrie,7/24/1965,Male,Samoan,788-250-1822,47052
+965,Markus Slader,4/19/1996,Male,American Indian,337-335-1416,42
+966,Huntlee Colbertson,4/1/1933,Male,Sri Lankan,735-723-3024,56
+967,Gizela Reddihough,8/2/1990,Female,Native Hawaiian and Other Pacific Islander (NHPI),479-328-1749,2694
+968,Codie Flew,1/20/1953,Male,Hmong,975-958-9456,581
+969,Hattie Jelks,12/19/1923,Female,Paiute,481-353-3024,68
+970,Geneva Matejic,12/21/1992,Female,Bangladeshi,540-169-4862,5
+971,Bonita Tuite,7/27/1936,Female,Tongan,840-280-4856,4303
+972,Loy Simcoe,6/2/1974,Male,Creek,240-412-7698,11
+973,Thorin Mulholland,11/9/1974,Male,Bolivian,392-601-0608,89
+974,Dottie Wooler,12/4/1926,Female,Eskimo,267-847-1439,33
+975,Lilla Pyke,9/8/1960,Female,Crow,226-670-7336,05895
+976,Dallon Larkworthy,11/20/1928,Male,Salvadoran,168-597-8311,9
+977,Caryn Freeth,8/14/1928,Female,Mexican,606-159-9844,8
+978,Odell Chisman,9/14/1967,Male,Sioux,109-838-9772,20
+979,Andi Bartalucci,12/12/1931,Female,White,705-914-6066,456
+980,Pieter Dabbes,8/30/1956,Male,Crow,439-349-2803,5
+981,Gannon Cranston,9/7/1961,Male,Houma,835-779-6423,7828
+982,Langston Scamadin,6/10/1976,Male,Hmong,599-561-6940,279
+983,Burlie Maltby,3/27/1930,Male,American Indian,346-608-4521,4168
+984,Waiter Hutfield,4/8/1933,Male,Micronesian,715-399-3551,99
+985,Constantina Okey,3/5/1948,Female,Bangladeshi,909-237-5618,5
+986,George Mc Ilwrick,10/9/1925,Female,Choctaw,933-593-9786,93227
+987,Niven Lomb,2/29/1972,Male,Alaska Native,153-556-9766,3152
+988,Melinda Stoodale,9/3/1949,Female,Korean,806-520-9849,90
+989,Aurea Pedrollo,3/15/1927,Female,Choctaw,434-864-7279,82437
+990,Arly Freeth,11/3/1962,Female,Tlingit-Haida,732-466-2399,0
+991,Nickey Ebbers,8/1/1949,Male,Bangladeshi,715-609-4777,8634
+992,Lionello Klimaszewski,4/17/1988,Male,Filipino,834-741-5359,1059
+993,Frasier Dykins,6/30/1967,Male,Nicaraguan,230-625-4502,1931
+994,Chip Molan,8/14/1922,Male,Paraguayan,719-308-9357,9016
+995,Garvin Glazier,12/12/1963,Male,Chamorro,771-787-2100,42
+996,Alexa Osment,1/14/1961,Female,Pueblo,678-318-6050,8355
+997,Davie Aizikov,11/18/1974,Male,Peruvian,526-271-0649,83
+998,Lutero Kytley,11/25/1953,Male,Chippewa,781-300-8580,9
+999,Fran Anthona,7/15/1940,Male,Polynesian,930-422-1738,2662
+1000,Janeta Churms,11/14/1925,Female,Yuman,118-884-4142,26
