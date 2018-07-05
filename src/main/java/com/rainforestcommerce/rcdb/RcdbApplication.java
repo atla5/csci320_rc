@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import com.rainforestcommerce.rcdb.views.View;
+
 public class RcdbApplication {
 
 	private Connection connection;
@@ -16,6 +18,7 @@ public class RcdbApplication {
 			Class.forName("org.h2.Driver");
 			rcdb.connection = DriverManager.getConnection("jdbc:h2:~/test", "sa","");
 			System.out.println("connection established");
+			View.launch();
 		} catch(ClassNotFoundException cnf){
 			System.err.println("Error with h2 configuration. 'org.h2.Driver' not found.");
 			cnf.printStackTrace();
