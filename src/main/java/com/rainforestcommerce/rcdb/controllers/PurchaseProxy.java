@@ -31,6 +31,7 @@ public class PurchaseProxy {
         ResultSet rs = statement.executeQuery();
         boolean canPurchase = (rs.getFloat("total_price") > 0);
         //I'm waiting for a store inventory to check whether the item is purchasable.
+        //This will be based on checking whether each of the products in the purchase are held in the store inventory of the current store.
         conn.close();
         return true; //Change when we have a store inventory
 	}
