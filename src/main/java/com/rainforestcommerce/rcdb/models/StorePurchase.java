@@ -29,7 +29,12 @@ public class StorePurchase {
         this.storeId = storeId;
         this.accountNumber = accountNumber;
     }
-
+    
+    // Used to create a purchase from the view side of the application
+    public StorePurchase(int storeId) {
+    	this.storeId = storeId;
+    }
+ 
     public void setDateOfPurchase(Date dateOfPurchase) {
         this.dateOfPurchase = dateOfPurchase;
     }
