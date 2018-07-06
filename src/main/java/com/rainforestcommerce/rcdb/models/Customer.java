@@ -24,6 +24,14 @@ public class Customer {
         //this.purchase_points = Integer.parseInt(data.get(6));
     }
 
+    public Customer(Long accountNumber, String customerName, Date birthDate, boolean isMale, String phone) {
+        this.accountNumber = accountNumber;
+        this.customerName = customerName;
+        this.birthDate = birthDate;
+        this.isMale = isMale;
+        this.phone = phone;
+    }
+
     public long getAccountNumber() {
         return accountNumber;
     }
