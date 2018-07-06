@@ -8,16 +8,14 @@ import java.util.ArrayList;
 
 import java.sql.*;
 
-import org.h2.jdbcx.JdbcConnectionPool;
-
 public class PurchaseProxy {
 
 	public static void purchaseProducts(ProductPurchase purchase) throws SQLException{
         Connection conn = ConnectionProxy.cp.getConnection();
-	    PreparedStatement statement = conn.prepareStatement("INSERT INTO ProductPurchases (PurchaseId, ProductId, Unit_Price, Quantity) VALUES (?, ?, ?, ?)");
+	    PreparedStatement statement = conn.prepareStatement("INSERT INTO ProductPurchases (purchaseId, productId, overallPrice, quantity) VALUES (?, ?, ?, ?)");
 	    statement.setString(1, Long.toString(purchase.getPurchaseId()));
 	    statement.setString(2, Long.toString(purchase.getProductId()));
-	    statement.setString(3, Long.toString(purchase.getUnit_Price()));
+	    statement.setString(3, Float.toString(purchase.getOverallPrice()));
         statement.setString(4, Long.toString(purchase.getQuantity()));
         statement.execute();
         conn.close();

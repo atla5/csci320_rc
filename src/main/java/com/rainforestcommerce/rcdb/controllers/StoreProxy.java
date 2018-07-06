@@ -1,6 +1,6 @@
 package com.rainforestcommerce.rcdb.controllers;
 
-import com.rainforestcommerce.rcdb.models.ShipmentRequest;
+//import com.rainforestcommerce.rcdb.models.ShipmentRequest;
 
 import com.rainforestcommerce.rcdb.models.ProductPurchase;
 
@@ -11,8 +11,6 @@ import com.rainforestcommerce.rcdb.models.Store;
 import java.util.ArrayList;
 
 import java.sql.*;
-
-import org.h2.jdbcx.JdbcConnectionPool;
 
 public class StoreProxy {
 	public static ArrayList<Store> getStores() throws SQLException{
@@ -26,11 +24,11 @@ public class StoreProxy {
 					rs.getString("name"),
 					rs.getDate("openingTime"),
 					rs.getDate("closingTime"),
-					rs.getString("city"),
-					rs.getString("state"),
-					rs.getString("street"),
-					rs.getString("zip"),
-					rs.getString("number")
+					rs.getString("address.city"),
+					rs.getString("address.state"),
+					rs.getString("address.street"),
+					rs.getString("address.zipcode"),
+					rs.getString("address.number")
 			));
 		}
 		conn.close();
@@ -47,7 +45,7 @@ public class StoreProxy {
 			purchases.add(new ProductPurchase(
 					rs.getLong("purchaseId"),
 					rs.getLong("productId"),
-					rs.getInt("unit_price"),
+					rs.getInt("OverallPrice"),
 					rs.getInt("quantity")
 			));
 		}
@@ -55,7 +53,7 @@ public class StoreProxy {
 		return purchases;
 	}
 
-	public static ArrayList<ShipmentRequest> getShipmentsForStore(Store store) throws SQLException{
+	/*public static ArrayList<ShipmentRequest> getShipmentsForStore(Store store) throws SQLException{
 		Connection conn = ConnectionProxy.cp.getConnection();
 		PreparedStatement statement = conn.prepareStatement("SELECT * FROM ShipmentRequest WHERE storeID = ?");
 		statement.setString(1, Long.toString(store.getStoreId()));
@@ -65,13 +63,13 @@ public class StoreProxy {
 			shipments.add(new ShipmentRequest(
 					rs.getLong("purchaseId"),
 					rs.getLong("productId"),
-					rs.getInt("unit_price"),
+					rs.getInt("OverallPrice"),
 					rs.getInt("quantity")
 			));
 		}
 		conn.close();
 		return shipments;
-	}
+	}*/
 
 	public static ArrayList<Product> getProductsForStore(Store store) throws SQLException{
 		Connection conn = ConnectionProxy.cp.getConnection();

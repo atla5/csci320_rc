@@ -6,8 +6,6 @@ import java.util.ArrayList;
 
 import java.sql.*;
 
-import org.h2.jdbcx.JdbcConnectionPool;
-
 public class CustomerProxy {
 	public static ArrayList<Customer> getCustomers() throws SQLException{
 		Connection conn = ConnectionProxy.cp.getConnection();
