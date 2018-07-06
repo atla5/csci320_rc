@@ -14,11 +14,11 @@ public class CustomerProxy {
 		ArrayList<Customer> customers = null;
 		while(rs.next()){
 			customers.add(new Customer(
-					rs.getLong("accountNumber"),
-					rs.getString("customerName"),
-					rs.getDate("birthDate"),
-					rs.getBoolean("isMale"),
-					rs.getString("phone")
+					rs.getLong("account_number"),
+					rs.getString("cust_name"),
+					rs.getDate("birth_date"),
+					rs.getBoolean("is_male"),
+					rs.getString("phone_number")
 			));
 		}
 		conn.close();
