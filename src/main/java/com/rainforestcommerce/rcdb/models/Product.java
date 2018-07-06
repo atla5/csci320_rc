@@ -15,6 +15,13 @@ public class Product {
         this.brand = data.get(3);
     }
 
+    public Product(Long upcCode, String productName, int weight, String brand){
+        this.upcCode = upcCode;
+        this.productName = productName;
+        this.weight = weight;
+        this.brand = brand;
+    }
+
     public long getUpcCode() {
         return upcCode;
     }

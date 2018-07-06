@@ -27,6 +27,14 @@ public class Store {
         this.address = new Address(number, street, city, state, zip);
     }
 
+    public Store(Long storeId, String name, Date openingTime, Date closingTime, String city, String state, String zip, String street, String number) {
+        this.storeId = storeId;
+        this.name = name;
+        this.openingTime = openingTime;
+        this.closingTime = closingTime;
+        this.address = new Address(number, street, city, state, zip);
+    }
+
     public Store(long storeId){
         this.storeId = storeId;
     }
