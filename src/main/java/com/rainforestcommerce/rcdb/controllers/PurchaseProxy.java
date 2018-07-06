@@ -26,7 +26,7 @@ public class PurchaseProxy {
 
 	public static boolean purchasable(ProductPurchase purchase) throws SQLException{
         Connection conn = ConnectionProxy.connect();
-        PreparedStatement statement = conn.prepareStatement("SELECT * FROM Purchase WHERE ID = ?");
+        PreparedStatement statement = conn.prepareStatement("SELECT * FROM Purchase WHERE purchase_id = ?");
         statement.setString(1, Long.toString(purchase.getPurchaseId()));
         ResultSet rs = statement.executeQuery();
         boolean canPurchase = (rs.getFloat("total_price") > 0);
