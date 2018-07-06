@@ -11,7 +11,7 @@ import java.sql.*;
 public class ShipmentRequestProxy {
 
 	public static ArrayList<Product> getProductsForShipment(ShipmentRequest shipment) throws SQLException{
-		Connection conn = ConnectionProxy.cp.getConnection();
+		Connection conn = ConnectionProxy.connect();
 		PreparedStatement statement = conn.prepareStatement("SELECT * FROM Product WHERE ID = ?");
 		statement.setString(1, shipment.p_ID);
 		ResultSet rs = statement.executeQuery();
@@ -29,8 +29,8 @@ public class ShipmentRequestProxy {
 	}
 
 	public static void requestShipment(ShipmentRequest shipment) throws SQLException{
-        Connection conn = ConnectionProxy.cp.getConnection();
-        PreparedStatement statement = conn.prepareStatement("INSERT INTO ShipmentRequests (PurchaseId, ProductId, Unit_Price, Quantity) VALUES (?, ?, ?, ?)");
+        Connection conn = ConnectionProxy.connect();
+        PreparedStatement statement = conn.prepareStatement("INSERT INTO ShipmentRequest (PurchaseId, ProductId, Unit_Price, Quantity) VALUES (?, ?, ?, ?)");
         statement.setString(1, Long.toString(shipment.getPurchaseId()));
         statement.setString(2, Long.toString(shipment.getProductId()));
         statement.setString(3, Long.toString(shipment.getUnit_Price()));

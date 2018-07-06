@@ -10,7 +10,7 @@ import java.sql.*;
 
 public class VendorProxy {
 	public static ArrayList<Vendor> getVendors() throws SQLException{
-        Connection conn = ConnectionProxy.cp.getConnection();
+        Connection conn = ConnectionProxy.connect();
         String statement = "SELECT * FROM Vendors";
         ResultSet rs = conn.createStatement().executeQuery(statement);
         ArrayList<Vendor> vendors = null;
@@ -27,7 +27,7 @@ public class VendorProxy {
 	}
 
 	public static ArrayList<ShipmentRequest> getShipmentsForVendor(Vendor vendor) throws SQLException{
-        Connection conn = ConnectionProxy.cp.getConnection();
+        Connection conn = ConnectionProxy.connect();
         PreparedStatement statement = conn.prepareStatement("SELECT * FROM ShipmentRequest WHERE vendorID = ?");
         statement.setString(1, vendor.getID());
         ResultSet rs = statement.executeQuery();

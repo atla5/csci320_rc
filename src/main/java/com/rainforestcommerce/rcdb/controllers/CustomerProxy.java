@@ -8,7 +8,7 @@ import java.sql.*;
 
 public class CustomerProxy {
 	public static ArrayList<Customer> getCustomers() throws SQLException{
-		Connection conn = ConnectionProxy.cp.getConnection();
+		Connection conn = ConnectionProxy.connect();
 		String statement = "SELECT * FROM Customer";
 		ResultSet rs = conn.createStatement().executeQuery(statement);
 		ArrayList<Customer> customers = null;

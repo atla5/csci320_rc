@@ -11,8 +11,8 @@ import java.sql.*;
 public class PurchaseProxy {
 
 	public static void purchaseProducts(ProductPurchase purchase) throws SQLException{
-        Connection conn = ConnectionProxy.cp.getConnection();
-	    PreparedStatement statement = conn.prepareStatement("INSERT INTO ProductPurchases (purchaseId, productId, overallPrice, quantity) VALUES (?, ?, ?, ?)");
+        Connection conn = ConnectionProxy.connect();
+	    PreparedStatement statement = conn.prepareStatement("INSERT INTO ProductPurchase (purchaseId, productId, overallPrice, quantity) VALUES (?, ?, ?, ?)");
 	    statement.setString(1, Long.toString(purchase.getPurchaseId()));
 	    statement.setString(2, Long.toString(purchase.getProductId()));
 	    statement.setString(3, Float.toString(purchase.getOverallPrice()));
@@ -22,7 +22,7 @@ public class PurchaseProxy {
 	}
 
 	public static boolean purchasable(ProductPurchase purchase) throws SQLException{
-        Connection conn = ConnectionProxy.cp.getConnection();
+        Connection conn = ConnectionProxy.connect();
         PreparedStatement statement = conn.prepareStatement("SELECT * FROM ProductPurchase WHERE ID = ?");
         statement.setString(1, Long.toString(purchase.getPurchaseId()));
         ResultSet rs = statement.executeQuery();
@@ -32,8 +32,8 @@ public class PurchaseProxy {
 	}
 
 	public static ArrayList<Product> getProductsForPurchase(ProductPurchase purchase) throws SQLException{
-        Connection conn = ConnectionProxy.cp.getConnection();
-        PreparedStatement statement = conn.prepareStatement("SELECT * FROM Products WHERE ID = ?");
+        Connection conn = ConnectionProxy.connect();
+        PreparedStatement statement = conn.prepareStatement("SELECT * FROM Product WHERE ID = ?");
         statement.setString(1, Long.toString(purchase.getProductId()));
         ResultSet rs = statement.executeQuery();
         ArrayList<Product> products = null;
