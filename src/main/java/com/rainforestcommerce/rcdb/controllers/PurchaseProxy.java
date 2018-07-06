@@ -30,9 +30,9 @@ public class PurchaseProxy {
         statement.setString(1, Long.toString(purchase.getPurchaseId()));
         ResultSet rs = statement.executeQuery();
         boolean canPurchase = (rs.getFloat("total_price") > 0);
-        //I'm not sure what defines whether it's purchasable, but this looks good as anything.
+        //I'm waiting for a store inventory to check whether the item is purchasable.
         conn.close();
-        return canPurchase;
+        return true; //Change when we have a store inventory
 	}
 
 	public static ArrayList<Product> getProductsForPurchase(ProductPurchase purchase) throws SQLException{

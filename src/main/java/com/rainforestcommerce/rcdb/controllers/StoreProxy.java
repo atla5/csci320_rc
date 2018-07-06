@@ -70,10 +70,10 @@ public class StoreProxy {
 		return shipments;
 	}*/
 
-	public static ArrayList<Product> getProductsForStore(Store store) throws SQLException{
+	public static ArrayList<Product> getProductsForStore(Store store) throws SQLException{ //Function will change once store inventory is added
 		Connection conn = ConnectionProxy.connect();
-		PreparedStatement statement = conn.prepareStatement("SELECT * FROM Product INNER JOIN Brand ON Product.brand_id = Brand.brand_id WHERE store_id = ?");
-		statement.setString(1, Long.toString(store.getStoreId()));
+		PreparedStatement statement = conn.prepareStatement("SELECT * FROM Product INNER JOIN Brand ON Product.brand_id = Brand.brand_id");
+		//statement.setString(1, Long.toString(store.getStoreId()));
 		ResultSet rs = statement.executeQuery();
 		ArrayList<Product> products = null;
 		while(rs.next()){
@@ -88,11 +88,11 @@ public class StoreProxy {
 		return products;
 	}
 
-	public static ArrayList<Product> searchProducts(Store store, String search) throws SQLException{
+	public static ArrayList<Product> searchProducts(Store store, String search) throws SQLException{ //Function will change once store inventory is added
 		Connection conn = ConnectionProxy.connect();
-		PreparedStatement statement = conn.prepareStatement("SELECT * FROM Product INNER JOIN Brand ON Product.brand_id = Brand.brand_id WHERE storeId = ? AND CHARINDEX(?, name) > 0");
-		statement.setString(1, Long.toString(store.getStoreId()));
-		statement.setString(2, search);
+		PreparedStatement statement = conn.prepareStatement("SELECT * FROM Product INNER JOIN Brand ON Product.brand_id = Brand.brand_id WHERE CHARINDEX(?, name) > 0");
+		//statement.setString(1, Long.toString(store.getStoreId()));
+		statement.setString(1, search);
 		ResultSet rs = statement.executeQuery();
 		ArrayList<Product> products = null;
 		while(rs.next()){
