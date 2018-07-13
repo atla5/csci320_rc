@@ -11,6 +11,7 @@ public class ActivityManager {
 		CUSTOMERS,
 		PRODUCTS,
 		CART,
+		STORE_SELECTION,
 		;
 	}
 	
@@ -30,7 +31,8 @@ public class ActivityManager {
 			case PRODUCTS:
 				stage.getScene().setRoot(StoreViewController.getView());
 				break;
-
+			case STORE_SELECTION:
+				stage.getScene().setRoot(StoreSelectionViewController.getView());
 		}
 	}
 	
