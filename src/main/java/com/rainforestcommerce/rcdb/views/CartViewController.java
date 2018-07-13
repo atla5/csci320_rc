@@ -71,6 +71,7 @@ public class CartViewController {
  				Integer quantity = getQuantity();
  				if (quantity != null) {
  					SessionData.shoppingCart.products.put(selectedProduct.getProductId(), new ProductQuantityPrice(selectedProduct.getProductId(), SessionData.store.inventory.get(selectedProduct.getProductId()).getUnitPrice(), quantity));
+ 					initialize();
  				}
  			});
  			return row;
