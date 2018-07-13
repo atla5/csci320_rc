@@ -1,5 +1,6 @@
 package com.rainforestcommerce.rcdb.views;
 
+import com.rainforestcommerce.rcdb.models.Store;
 import com.rainforestcommerce.rcdb.models.StorePurchase;
 
 /**
@@ -9,6 +10,6 @@ import com.rainforestcommerce.rcdb.models.StorePurchase;
  */
 public class SessionData {
 	public static StorePurchase shoppingCart = null;
-	public static int storeId;
+	public static Store store;
 	public static long userId;
 }
