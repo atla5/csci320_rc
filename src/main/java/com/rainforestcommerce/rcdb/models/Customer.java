@@ -13,6 +13,8 @@ public class Customer {
     private Date birthDate;
     private boolean isMale;
     private String phone;
+    private int points= 100000;
+    // points are a test value for now to make sure the view populates the table correctly
 
     public Customer(List<String> data) throws ParseException{
         this.accountNumber = Long.parseLong(data.get(0));
@@ -66,5 +68,13 @@ public class Customer {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public int getPoints(){
+        return this.points;
+    }
+
+    public void setPoints(Long points){
+        this.points+=points;
     }
 }

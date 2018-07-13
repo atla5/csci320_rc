@@ -62,6 +62,7 @@ public class CustomerViewController {
 		// Configure the columns to accept the correct properties of Customer
 		nameColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("custName"));
 		dobColumn.setCellValueFactory(new PropertyValueFactory<Customer, Date>("birthDate"));
+		pointsColumn.setCellValueFactory(new PropertyValueFactory<Customer,Integer>("Points"));
 		
 		// Configure the click action for each row in the table
 		customer_table.setRowFactory(rf -> {

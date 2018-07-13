@@ -18,7 +18,7 @@
         <columns>
           <TableColumn id="name" editable="false" minWidth="200.0" prefWidth="200.0" text="Name" />
             <TableColumn id="dob" minWidth="200.0" prefWidth="-1.0" text="Date of Birth" />
-            <TableColumn id="points" minWidth="200.0" prefWidth="206.40008544921875" text="Shopping Points" />
+            <TableColumn id="Points" minWidth="200.0" prefWidth="206.40008544921875" text="Shopping Points" />
         </columns>
       </TableView>
    </children>
