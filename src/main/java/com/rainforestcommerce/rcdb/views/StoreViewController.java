@@ -78,6 +78,8 @@ public class StoreViewController {
  			}
  		);
 
+ 		// TEST CODE - remove
+ 		
         ObservableList<Product> products = FXCollections.observableArrayList(
                 new Product(Arrays.asList(new String[] {"1", "Product1", "400", "true"} )),
                 new Product(Arrays.asList(new String[] {"2", "Product2", "345534", "true"} ))

@@ -1,13 +1,18 @@
 package com.rainforestcommerce.rcdb.views;
 
 import java.io.IOException;
+import java.util.Optional;
 
+import com.rainforestcommerce.rcdb.models.Product;
 import com.rainforestcommerce.rcdb.models.ProductQuantityPrice;
+import com.rainforestcommerce.rcdb.models.StorePurchase;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 
@@ -27,7 +32,7 @@ public class CartViewController {
 	
 	// The table node which is injected by FXMLLoader
 	@FXML
-	private TableView item_table;
+	private TableView<ProductQuantityPrice> item_table;
 	
 	/**
 	 * Sets up the item table to properly display items.
@@ -46,7 +51,34 @@ public class CartViewController {
 		// nameColumn.setCellValueFactory(new PropertyValueFactory<ProductPurchase, String>("name"));
 		priceColumn.setCellValueFactory(new PropertyValueFactory<ProductQuantityPrice, Float>("overallPrice"));
 		quantityColumn.setCellValueFactory(new PropertyValueFactory<ProductQuantityPrice, Integer>("quantity"));
+		
+		 // Configure the click action for each row in the table
+ 		item_table.setRowFactory(rf -> {
+ 			TableRow<ProductQuantityPrice> row = new TableRow<>();
+ 			row.setOnMouseClicked(event -> {
+ 				ProductQuantityPrice selectedProduct = row.getItem();
+ 				Integer quantity = getQuantity();
+ 				if (quantity != null) {
+ 					SessionData.shoppingCart.products.put(selectedProduct.getProductId(), new ProductQuantityPrice(selectedProduct.getProductId(), SessionData.store.inventory.get(selectedProduct.getProductId()).getUnitPrice(), quantity));
+ 				}
+ 			});
+ 			return row;
+ 			}
+ 		);
 	}
+	
+	 private Integer getQuantity() {
+	    	TextInputDialog dialog = new TextInputDialog();
+	    	dialog.setTitle("Quantity Selection");
+	    	dialog.setHeaderText("Please enter the item quantity to purchase");
+	    	dialog.setContentText("Quantity");
+	    	Optional<String> result = dialog.showAndWait();
+	    	try {
+	    		return Integer.parseInt(result.orElse(null));
+	    	} catch (NumberFormatException e) {
+	    		return null;
+	    	}
+	    }
 	
 	/**
 	 * Returns the root node of the view.
