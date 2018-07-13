@@ -10,6 +10,7 @@ import org.h2.result.RowFactory;
 import org.h2.value.Value;
 
 import com.rainforestcommerce.rcdb.models.Customer;
+import com.rainforestcommerce.rcdb.views.ActivityManager.Activity;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -69,6 +70,7 @@ public class CustomerViewController {
 			row.setOnMouseClicked(event -> {
 				Customer customer = row.getItem();
 				SessionData.userId = customer.getAccountNumber();
+				ActivityManager.start(Activity.STORE_SELECTION);
 			});
 			return row;
 			}

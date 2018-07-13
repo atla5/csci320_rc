@@ -29,11 +29,13 @@ public class StorePurchase {
         this.purchaseId = purchaseId;
         this.storeId = storeId;
         this.accountNumber = accountNumber;
+        this.products = new HashMap<>();
     }
     
     // Used to create a purchase from the view side of the application
     public StorePurchase(long storeId) {
     	this.storeId = storeId;
+    	this.products = new HashMap<>();
     }
  
     public void setDateOfPurchase(Date dateOfPurchase) {

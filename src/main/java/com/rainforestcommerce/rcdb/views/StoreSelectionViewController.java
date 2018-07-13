@@ -1,5 +1,8 @@
 package com.rainforestcommerce.rcdb.views;
+import com.rainforestcommerce.rcdb.models.ProductQuantityPrice;
 import com.rainforestcommerce.rcdb.models.Store;
+import com.rainforestcommerce.rcdb.views.ActivityManager.Activity;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -12,6 +15,7 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  * The controller for the Store Selection View.
@@ -58,6 +62,7 @@ public class StoreSelectionViewController {
                     row.setOnMouseClicked(event -> {
                         Store store = row.getItem();
                         SessionData.store = store;
+                        ActivityManager.start(Activity.PRODUCTS);
                     });
                     return row;
                 }
@@ -66,9 +71,14 @@ public class StoreSelectionViewController {
         // TEST CODE - remove when DB access is implemented
         try {
             ObservableList<Store> stores = FXCollections.observableArrayList(
-                    new Store(Arrays.asList(new String[] {"1", "name", "8:00", "23:59", null, null, null, null, null} )),
-                    new Store(Arrays.asList(new String[] {"2", "name 2", "8:00", "23:59", null, null, null, null, null} ))
+                    new Store(Arrays.asList(new String[] {"1", "Happy Foods Store", "8:00", "23:59", null, null, null, null, null} )),
+                    new Store(Arrays.asList(new String[] {"2", "Diabetes 'R Us", "8:00", "23:59", null, null, null, null, null} ))
             );
+            for (Store store : stores) {
+            	store.inventory = new HashMap<>();
+            	store.inventory.put((long)1, new ProductQuantityPrice(1, 12, 14));
+            	store.inventory.put((long)2, new ProductQuantityPrice(2, 5, 14));
+            }
             store_table.setItems(stores);
         } catch (ParseException e) {
             e.printStackTrace();

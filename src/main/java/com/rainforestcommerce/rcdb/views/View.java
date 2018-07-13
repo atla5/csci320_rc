@@ -14,7 +14,7 @@ public class View extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		ActivityManager.setStage(primaryStage);
-		ActivityManager.start(Activity.STORE_SELECTION);
+		ActivityManager.start(Activity.START_SCREEN);
 		primaryStage.show();
 	}
     

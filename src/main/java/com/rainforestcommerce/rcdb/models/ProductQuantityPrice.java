@@ -50,6 +50,6 @@ public class ProductQuantityPrice {
     }
     
     public float getUnitPrice() {
-    	return this.getUnitPrice();
+    	return this.unit_price;
     }
 }

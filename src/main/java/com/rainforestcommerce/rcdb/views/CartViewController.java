@@ -1,12 +1,15 @@
 package com.rainforestcommerce.rcdb.views;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Optional;
 
 import com.rainforestcommerce.rcdb.models.Product;
 import com.rainforestcommerce.rcdb.models.ProductQuantityPrice;
 import com.rainforestcommerce.rcdb.models.StorePurchase;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TableColumn;
@@ -39,6 +42,14 @@ public class CartViewController {
 	 * This method is called automatically by FXMLLoader.
 	 */
 	public void initialize() {
+		// Populate the list with the items in the shopping cart
+		try {
+			ObservableList<ProductQuantityPrice> products = FXCollections.observableArrayList(SessionData.shoppingCart.products.values());
+			item_table.setItems(products);
+		} catch (NullPointerException e) {
+			e.printStackTrace();
+		}
+        
 		// Get the table columns
 		TableColumn<ProductQuantityPrice, String> nameColumn = (TableColumn<ProductQuantityPrice, String>) item_table.getColumns().get(0);
 		TableColumn<ProductQuantityPrice, String> sizeColumn = (TableColumn<ProductQuantityPrice, String>) item_table.getColumns().get(1);
@@ -65,7 +76,7 @@ public class CartViewController {
  			return row;
  			}
  		);
-	}
+ 	}
 	
 	 private Integer getQuantity() {
 	    	TextInputDialog dialog = new TextInputDialog();

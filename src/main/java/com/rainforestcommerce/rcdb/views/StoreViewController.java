@@ -50,13 +50,12 @@ public class StoreViewController {
         }
     }
 
-    public void initialize(){
+    public void initialize() {
         TableColumn<Product, String> product = (TableColumn<Product,String>) product_table.getColumns().get(0);
         TableColumn<Product, Integer>  weight = (TableColumn<Product,Integer>) product_table.getColumns().get(1);
         TableColumn<Product, Integer> size_column = (TableColumn<Product,Integer>) product_table.getColumns().get(2);
         TableColumn<Product, String>  brand_column = (TableColumn<Product,String>) product_table.getColumns().get(3);
         TableColumn<Product, String> price_column = (TableColumn<Product,String>) product_table.getColumns().get(4);
-        TableColumn<Product, Integer> quantity_column = (TableColumn<Product,Integer>) product_table.getColumns().get(5);
 
         product.setCellValueFactory(new PropertyValueFactory<Product, String>("ProductName"));
         weight.setCellValueFactory(new PropertyValueFactory<Product, Integer>("Weight"));
@@ -81,8 +80,8 @@ public class StoreViewController {
  		// TEST CODE - remove
  		
         ObservableList<Product> products = FXCollections.observableArrayList(
-                new Product(Arrays.asList(new String[] {"1", "Product1", "400", "true"} )),
-                new Product(Arrays.asList(new String[] {"2", "Product2", "345534", "true"} ))
+                new Product(Arrays.asList(new String[] {"1", "Beans", "400", "Lucky Foods"} )),
+                new Product(Arrays.asList(new String[] {"2", "Rice", "345534", "Cheap Chow"} ))
         );
         product_table.setItems(products);
 
