@@ -28,7 +28,7 @@ public class ActivityManager {
 				stage.getScene().setRoot(CartViewController.getView());
 				break;
 			case PRODUCTS:
-				stage.getScene().setRoot(OnlineStoreViewController.getView());
+				stage.getScene().setRoot(StoreViewController.getView());
 				break;
 
 		}

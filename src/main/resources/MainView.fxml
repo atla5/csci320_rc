@@ -13,7 +13,7 @@
             <Font name="Trebuchet MS Bold" size="29.0" />
          </font>
       </Text>
-      <Button id="customer_button" mnemonicParsing="false" onMousePressed="#handleCustomerButtonPress" prefHeight="76.0" prefWidth="272.0" text="Customer">
+      <Button id="customer_button" mnemonicParsing="false" onMouseClicked="#handleCustomerButtonPress" prefHeight="76.0" prefWidth="272.0" text="Customer">
          <font>
             <Font name="Trebuchet MS" size="24.0" />
          </font>

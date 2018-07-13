@@ -3,6 +3,7 @@ package com.rainforestcommerce.rcdb.models;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 public class StorePurchase {
@@ -13,7 +14,7 @@ public class StorePurchase {
     private long storeId;
     private long accountNumber;
     private boolean online;
-    private List<Long> productPurchases;
+    public HashMap<Long, ProductQuantityPrice> products;
 
     public StorePurchase(List<String> data) throws ParseException{
         this.purchaseId = Long.parseLong(data.get(0));
@@ -31,7 +32,7 @@ public class StorePurchase {
     }
     
     // Used to create a purchase from the view side of the application
-    public StorePurchase(int storeId) {
+    public StorePurchase(long storeId) {
     	this.storeId = storeId;
     }
  
@@ -43,8 +44,8 @@ public class StorePurchase {
         this.online = online;
     }
 
-    public void setProductPurchases(List<Long> productPurchases) {
-        this.productPurchases = productPurchases;
+    public void setProductPurchases(HashMap<Long, ProductQuantityPrice> products) {
+        this.products = products;
     }
 
     public long getPurchaseId() {

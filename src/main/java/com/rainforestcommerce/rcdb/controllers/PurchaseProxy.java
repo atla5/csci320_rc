@@ -2,7 +2,7 @@ package com.rainforestcommerce.rcdb.controllers;
 
 import com.rainforestcommerce.rcdb.models.StorePurchase;
 
-import com.rainforestcommerce.rcdb.models.ProductPurchase;
+import com.rainforestcommerce.rcdb.models.ProductQuantityPrice;
 
 import com.rainforestcommerce.rcdb.models.Product;
 
@@ -16,7 +16,7 @@ public class PurchaseProxy {
 
     private static final Logger LOGGER = Logger.getLogger( PurchaseProxy.class.getName() );
 
-	public static void purchaseProducts(StorePurchase storep, ProductPurchase productp){
+	public static void purchaseProducts(StorePurchase storep, ProductQuantityPrice productp){
 	    try {
             Connection conn = ConnectionProxy.connect();
             PreparedStatement statement = conn.prepareStatement("INSERT INTO Purchase (purchase_id, date, total_price, store_id, account_number) VALUES (?, ?, ?, ?, ?)");
@@ -32,7 +32,7 @@ public class PurchaseProxy {
         }
 	}
 
-	public static boolean purchasable(ProductPurchase purchase){
+	public static boolean purchasable(ProductQuantityPrice purchase){
 	    try {
             Connection conn = ConnectionProxy.connect();
             PreparedStatement statement = conn.prepareStatement("SELECT * FROM Purchase WHERE purchase_id = ?");
@@ -48,7 +48,7 @@ public class PurchaseProxy {
         return true; //Change when we have a store inventory
 	}
 
-	public static ArrayList<Product> getProductsForPurchase(ProductPurchase purchase){
+	public static ArrayList<Product> getProductsForPurchase(ProductQuantityPrice purchase){
         ArrayList<Product> products = null;
 	    try {
             Connection conn = ConnectionProxy.connect();

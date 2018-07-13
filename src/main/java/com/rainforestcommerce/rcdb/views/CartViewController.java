@@ -2,7 +2,7 @@ package com.rainforestcommerce.rcdb.views;
 
 import java.io.IOException;
 
-import com.rainforestcommerce.rcdb.models.ProductPurchase;
+import com.rainforestcommerce.rcdb.models.ProductQuantityPrice;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,17 +35,17 @@ public class CartViewController {
 	 */
 	public void initialize() {
 		// Get the table columns
-		TableColumn<ProductPurchase, String> nameColumn = (TableColumn<ProductPurchase, String>) item_table.getColumns().get(0);
-		TableColumn<ProductPurchase, String> sizeColumn = (TableColumn<ProductPurchase, String>) item_table.getColumns().get(1);
-		TableColumn<ProductPurchase, String> brandColumn = (TableColumn<ProductPurchase, String>) item_table.getColumns().get(2);
-		TableColumn<ProductPurchase, Float> priceColumn = (TableColumn<ProductPurchase, Float>) item_table.getColumns().get(3);
-		TableColumn<ProductPurchase, Integer> quantityColumn = (TableColumn<ProductPurchase, Integer>) item_table.getColumns().get(4);
+		TableColumn<ProductQuantityPrice, String> nameColumn = (TableColumn<ProductQuantityPrice, String>) item_table.getColumns().get(0);
+		TableColumn<ProductQuantityPrice, String> sizeColumn = (TableColumn<ProductQuantityPrice, String>) item_table.getColumns().get(1);
+		TableColumn<ProductQuantityPrice, String> brandColumn = (TableColumn<ProductQuantityPrice, String>) item_table.getColumns().get(2);
+		TableColumn<ProductQuantityPrice, Float> priceColumn = (TableColumn<ProductQuantityPrice, Float>) item_table.getColumns().get(3);
+		TableColumn<ProductQuantityPrice, Integer> quantityColumn = (TableColumn<ProductQuantityPrice, Integer>) item_table.getColumns().get(4);
 		
 		// Configure the columns to accept the correct properties of ProductPurchase
 		// TODO: ProductPurchase must provide access to the item's name, size, and brand before those columns can be set
 		// nameColumn.setCellValueFactory(new PropertyValueFactory<ProductPurchase, String>("name"));
-		priceColumn.setCellValueFactory(new PropertyValueFactory<ProductPurchase, Float>("overallPrice"));
-		quantityColumn.setCellValueFactory(new PropertyValueFactory<ProductPurchase, Integer>("quantity"));
+		priceColumn.setCellValueFactory(new PropertyValueFactory<ProductQuantityPrice, Float>("overallPrice"));
+		quantityColumn.setCellValueFactory(new PropertyValueFactory<ProductQuantityPrice, Integer>("quantity"));
 	}
 	
 	/**
