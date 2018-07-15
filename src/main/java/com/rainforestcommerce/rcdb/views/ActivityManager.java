@@ -16,6 +16,15 @@ public class ActivityManager {
 		;
 	}
 	
+	public enum User {
+		CUSTOMER,
+		VENDOR,
+		STORE_MANAGER,
+		;
+	}
+	
+	public static User user;
+	
 	public static Stage stage;
 	
 	public static void start(Activity activity) {
