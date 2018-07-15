@@ -73,7 +73,15 @@ public class StoreSelectionViewController {
                     row.setOnMouseClicked(event -> {
                         Store store = row.getItem();
                         SessionData.store = store;
-                        ActivityManager.start(Activity.PRODUCTS);
+                        switch (ActivityManager.user) {
+                        case CUSTOMER:
+                        	ActivityManager.start(Activity.PRODUCTS);
+                        	break;
+                        case STORE_MANAGER:
+                        	ActivityManager.start(Activity.STORE_MANAGEMENT);
+                        	break;
+                        }
+                        
                     });
                     return row;
                 }

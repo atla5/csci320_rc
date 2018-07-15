@@ -32,12 +32,6 @@ public class CartViewController {
 	private TableView<ProductQuantityPrice> item_table;
 	
 	@FXML
-	private Button store_btn;
-	
-	@FXML
-	private Button logout_btn;
-	
-	@FXML
 	private Text total;
 	
 	@FXML

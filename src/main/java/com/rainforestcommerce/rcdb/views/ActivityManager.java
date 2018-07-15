@@ -13,6 +13,8 @@ public class ActivityManager {
 		CART,
 		STORE_SELECTION,
 		VENDOR_SELECTION,
+		STORE_MANAGEMENT,
+		VENDOR_SHIPMENT_DETAILS,
 		;
 	}
 	
@@ -46,6 +48,12 @@ public class ActivityManager {
 				break;
 			case VENDOR_SELECTION:
 				stage.getScene().setRoot(SelectVendorViewController.getView());
+				break;
+			case STORE_MANAGEMENT:
+				stage.getScene().setRoot(StoreManagementController.getView());
+				break;
+			case VENDOR_SHIPMENT_DETAILS:
+				stage.getScene().setRoot(VendorShipmentDetailsViewController.getView());
 				break;
 		}
 	}

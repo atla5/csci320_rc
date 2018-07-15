@@ -22,6 +22,7 @@ import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -42,7 +43,7 @@ public class StoreViewController {
     private TableView<ProductQuantityPrice> product_table;
     
     @FXML
-	private Button logout_btn;
+    private Text title;
     
     @FXML
     protected void handleCartButtonPress(MouseEvent event) {
@@ -84,6 +85,8 @@ public class StoreViewController {
  			return row;
  			}
  		);
+ 		
+ 		title.setText(SessionData.store.getName());
     }
     
     private Integer getQuantity() {
