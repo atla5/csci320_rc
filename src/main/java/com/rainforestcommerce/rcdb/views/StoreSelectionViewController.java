@@ -1,4 +1,5 @@
 package com.rainforestcommerce.rcdb.views;
+import com.rainforestcommerce.rcdb.models.Product;
 import com.rainforestcommerce.rcdb.models.ProductQuantityPrice;
 import com.rainforestcommerce.rcdb.models.Store;
 import com.rainforestcommerce.rcdb.views.ActivityManager.Activity;
@@ -7,10 +8,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.text.ParseException;
@@ -43,6 +46,14 @@ public class StoreSelectionViewController {
     // The table node which is injected by FXMLLoader
     @FXML
     private TableView<Store> store_table;
+    
+    @FXML
+	private Button logout_btn;
+    
+    @FXML
+    protected void handleLogoutButtonPress(MouseEvent event) {
+    	ActivityManager.start(Activity.START_SCREEN);
+    }
 
     /**
      * Sets up the Customer table to properly display Customer objects.
@@ -76,8 +87,8 @@ public class StoreSelectionViewController {
             );
             for (Store store : stores) {
             	store.inventory = new HashMap<>();
-            	store.inventory.put((long)1, new ProductQuantityPrice(1, 12, 14));
-            	store.inventory.put((long)2, new ProductQuantityPrice(2, 5, 14));
+            	store.inventory.put((long)1, new ProductQuantityPrice(12, 14, new Product((long)1, "Beans", "Large", "Happy Legumes Co")));
+            	store.inventory.put((long)2, new ProductQuantityPrice(5, 14, new Product((long)2, "Rice", "Single Grain", "Rice Is Nice Inc")));
             }
             store_table.setItems(stores);
         } catch (ParseException e) {

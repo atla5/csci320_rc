@@ -7,17 +7,16 @@ package com.rainforestcommerce.rcdb.models;
  * @author Graham
  *
  */
-public class ProductQuantityPrice {
+public class ProductQuantityPrice extends Product {
 
     private long purchaseId;
-    private long productId;
     private float unit_price;
     private int quantity;
 
 
-    public ProductQuantityPrice(long purchaseId, long productId, int unit_price, int quantity){
-        this.purchaseId = purchaseId;
-        this.productId = productId;
+    public ProductQuantityPrice(long purchaseId, long productId, int unit_price, int quantity, Product product){
+        super(product.upcCode, product.productName, product.size, product.brand);
+    	this.purchaseId = purchaseId;
         this.unit_price = unit_price;
         this.quantity = quantity;
     }
@@ -27,18 +26,14 @@ public class ProductQuantityPrice {
      * @param unit_price
      * @param quantity
      */
-    public ProductQuantityPrice(long productId, float unit_price, int quantity) {
-        this.productId = productId;
+    public ProductQuantityPrice(float unit_price, int quantity, Product product) {
+    	super(product.upcCode, product.productName, product.size, product.brand);
         this.unit_price = unit_price;
         this.quantity = quantity;
     }
 
     public long getPurchaseId() {
         return purchaseId;
-    }
-
-    public long getProductId() {
-        return productId;
     }
 
     public float getOverallPrice(){

@@ -53,13 +53,13 @@ public class PurchaseProxy {
 	    try {
             Connection conn = ConnectionProxy.connect();
             PreparedStatement statement = conn.prepareStatement("SELECT * FROM Product INNER JOIN Brand ON Product.brand_id = Brand.brand_id WHERE upc_code = ?");
-            statement.setString(1, Long.toString(purchase.getProductId()));
+            statement.setString(1, Long.toString(purchase.getUpcCode()));
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 products.add(new Product(
                         rs.getLong("upc_code"),
                         rs.getString("product_name"),
-                        rs.getInt("weight"),
+                        rs.getString("weight"),
                         rs.getString("brand_name")
                 ));
             }

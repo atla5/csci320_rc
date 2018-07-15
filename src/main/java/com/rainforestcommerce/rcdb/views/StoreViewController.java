@@ -14,6 +14,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -29,8 +30,19 @@ public class StoreViewController {
 
     private static VBox view;
 
+    static {
+        try {
+            view = FXMLLoader.load(CustomerViewController.class.getResource("/StoreView.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
     @FXML
-    private TableView<Product> product_table;
+    private TableView<ProductQuantityPrice> product_table;
+    
+    @FXML
+	private Button logout_btn;
     
     @FXML
     protected void handleCartButtonPress(MouseEvent event) {
@@ -42,49 +54,36 @@ public class StoreViewController {
     	ActivityManager.start(Activity.START_SCREEN);
     }
 
-    static {
-        try {
-            view = FXMLLoader.load(CustomerViewController.class.getResource("/StoreView.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     public void initialize() {
-        TableColumn<Product, String> product = (TableColumn<Product,String>) product_table.getColumns().get(0);
-        TableColumn<Product, Integer>  weight = (TableColumn<Product,Integer>) product_table.getColumns().get(1);
-        TableColumn<Product, Integer> size_column = (TableColumn<Product,Integer>) product_table.getColumns().get(2);
-        TableColumn<Product, String>  brand_column = (TableColumn<Product,String>) product_table.getColumns().get(3);
-        TableColumn<Product, String> price_column = (TableColumn<Product,String>) product_table.getColumns().get(4);
+    	// Populate the product table with the items in the store's inventory
+    	product_table.setItems(FXCollections.observableArrayList(SessionData.store.inventory.values()));
+    	// Create the shopping cart if needed
+    	if (SessionData.shoppingCart == null) {
+			SessionData.shoppingCart = new StorePurchase(SessionData.store.getStoreId());
+		}
+        TableColumn<ProductQuantityPrice, String> product = (TableColumn<ProductQuantityPrice, String>) product_table.getColumns().get(0);
+        TableColumn<ProductQuantityPrice, String> size_column = (TableColumn<ProductQuantityPrice,String>) product_table.getColumns().get(1);
+        TableColumn<ProductQuantityPrice, String>  brand_column = (TableColumn<ProductQuantityPrice,String>) product_table.getColumns().get(2);
+        TableColumn<ProductQuantityPrice, String> price_column = (TableColumn<ProductQuantityPrice,String>) product_table.getColumns().get(3);
 
-        product.setCellValueFactory(new PropertyValueFactory<Product, String>("ProductName"));
-        weight.setCellValueFactory(new PropertyValueFactory<Product, Integer>("Weight"));
+        product.setCellValueFactory(new PropertyValueFactory<ProductQuantityPrice, String>("ProductName"));
+        size_column.setCellValueFactory(new PropertyValueFactory<ProductQuantityPrice, String>("Size"));
+        brand_column.setCellValueFactory(new PropertyValueFactory<ProductQuantityPrice, String>("Brand"));
+        price_column.setCellValueFactory(new PropertyValueFactory<ProductQuantityPrice, String>("UnitPrice"));
         
         // Configure the click action for each row in the table
  		product_table.setRowFactory(rf -> {
- 			TableRow<Product> row = new TableRow<>();
+ 			TableRow<ProductQuantityPrice> row = new TableRow<>();
  			row.setOnMouseClicked(event -> {
- 				Product selectedProduct = row.getItem();
- 				if (SessionData.shoppingCart == null) {
- 					SessionData.shoppingCart = new StorePurchase(SessionData.store.getStoreId());
- 				}
+ 				ProductQuantityPrice selectedProduct = row.getItem();
  				Integer quantity = getQuantity();
  				if (quantity != null) {
- 					SessionData.shoppingCart.products.put(selectedProduct.getUpcCode(), new ProductQuantityPrice(selectedProduct.getUpcCode(), SessionData.store.inventory.get(selectedProduct.getUpcCode()).getUnitPrice(), quantity));
+ 					SessionData.shoppingCart.products.put(selectedProduct.getUpcCode(), new ProductQuantityPrice(SessionData.store.inventory.get(selectedProduct.getUpcCode()).getUnitPrice(), quantity, selectedProduct));
  				}
  			});
  			return row;
  			}
  		);
-
- 		// TEST CODE - remove
- 		
-        ObservableList<Product> products = FXCollections.observableArrayList(
-                new Product(Arrays.asList(new String[] {"1", "Beans", "400", "Lucky Foods"} )),
-                new Product(Arrays.asList(new String[] {"2", "Rice", "345534", "Cheap Chow"} ))
-        );
-        product_table.setItems(products);
-
     }
     
     private Integer getQuantity() {

@@ -19,7 +19,8 @@
                   <Font name="Trebuchet MS Bold" size="29.0" />
                </font>
             </Text>
-            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="Logout" StackPane.alignment="CENTER_RIGHT" />
+            <Button fx:id="logout_btn" alignment="CENTER_RIGHT" mnemonicParsing="false" onMouseClicked="#handleLogoutButtonPress" text="Logout" StackPane.alignment="CENTER_RIGHT" />
+            <Button fx:id="store_btn" mnemonicParsing="false" onMouseClicked="#handleStoreButtonPress" text="Store" StackPane.alignment="CENTER_LEFT" />
          </children>
       </StackPane>
       <TableView fx:id="item_table" prefHeight="508.0" prefWidth="600.0">
@@ -36,12 +37,12 @@
             <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="479.0" spacing="10.0" HBox.hgrow="NEVER">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Price" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="\$1000000000" />
+                  <Text fx:id="total" strokeType="OUTSIDE" strokeWidth="0.0" text="\$1000000000" />
                </children>
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button alignment="CENTER" mnemonicParsing="false" text="Checkout" />
+                  <Button fx:id="checkout_btn" alignment="CENTER" mnemonicParsing="false" text="Checkout" />
                </children>
             </HBox>
          </children>

@@ -3,22 +3,22 @@ package com.rainforestcommerce.rcdb.models;
 import java.util.List;
 
 public class Product {
-    private long upcCode;
-    private String productName;
-    private int weight;
-    private String brand;
+    protected long upcCode;
+    protected String productName;
+    protected String size;
+    protected String brand;
 
     public Product(List<String> data){
         this.upcCode = Long.parseLong(data.get(0));
         this.productName = data.get(1);
-        this.weight = Integer.parseInt(data.get(2));
+        this.size = data.get(2);
         this.brand = data.get(3);
     }
 
-    public Product(Long upcCode, String productName, int weight, String brand){
+    public Product(Long upcCode, String productName, String size, String brand){
         this.upcCode = upcCode;
         this.productName = productName;
-        this.weight = weight;
+        this.size = size;
         this.brand = brand;
     }
 
@@ -38,12 +38,12 @@ public class Product {
         this.productName = product_name;
     }
 
-    public int getWeight() {
-        return weight;
+    public String getSize() {
+        return size;
     }
 
-    public void setWeight(int weight) {
-        this.weight = weight;
+    public void setSize(String size) {
+        this.size = size;
     }
 
     public String getBrand() {

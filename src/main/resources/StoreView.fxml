@@ -18,16 +18,15 @@
                   <Font name="Trebuchet MS Bold" size="29.0" />
                </font>
             </Text>
-            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="Logout" StackPane.alignment="CENTER_RIGHT" />
+            <Button id="logout_btn" alignment="CENTER_RIGHT" mnemonicParsing="false" onMouseClicked="#handleLogoutButtonPress" text="Logout" StackPane.alignment="CENTER_RIGHT" />
          </children>
       </StackPane>
       <TableView fx:id="product_table" prefHeight="508.0" prefWidth="600.0">
          <columns>
-            <TableColumn id="product" editable="false" minWidth="120.0" prefWidth="120.0" text="Item" />
-            <TableColumn id="size" minWidth="120.0" prefWidth="120.0" text="Weight" />
-            <TableColumn id="size" minWidth="120.0" prefWidth="120.0" text="Size" />
-            <TableColumn id="size" minWidth="120.0" prefWidth="120.0" text="Brand" />
-            <TableColumn id="brand" minWidth="120.0" prefWidth="120.0" text="Price" />
+            <TableColumn id="product" editable="false" minWidth="150.0" prefWidth="150.0" text="Item" />
+            <TableColumn id="size" minWidth="150.0" prefWidth="150.0" text="Size" />
+            <TableColumn id="size" minWidth="150.0" prefWidth="150.0" text="Brand" />
+            <TableColumn id="brand" minWidth="150.0" prefWidth="150.0" text="Price" />
          </columns>
       </TableView>
       <Button mnemonicParsing="false" onMouseClicked="#handleCartButtonPress" text="Cart" />

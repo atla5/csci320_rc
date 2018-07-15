@@ -18,7 +18,7 @@
                   <Font name="Trebuchet MS Bold" size="29.0" />
                </font>
             </Text>
-            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="Logout" StackPane.alignment="CENTER_RIGHT" />
+            <Button id="logout_btn" alignment="CENTER_RIGHT" mnemonicParsing="false" onMouseClicked="#handleLogoutButtonPress" text="Logout" StackPane.alignment="CENTER_RIGHT" />
          </children>
       </StackPane>
       <TableView fx:id="store_table" prefHeight="508.0" prefWidth="600.0">
