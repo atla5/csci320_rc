@@ -1,5 +1,7 @@
 package com.rainforestcommerce.rcdb.views;
 import com.rainforestcommerce.rcdb.models.Shipment;
+import com.rainforestcommerce.rcdb.views.ActivityManager.Activity;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -51,6 +53,7 @@ public class V_ShipmentsRequestViewController {
                     row.setOnMouseClicked(event -> {
                         Shipment shipment = row.getItem();
                         SessionData.shipment = shipment;
+                        ActivityManager.start(Activity.VENDOR_SHIPMENT_DETAILS);
                     });
                     return row;
                 }

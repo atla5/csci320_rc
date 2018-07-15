@@ -21,7 +21,7 @@
                </font>
             </Text>
             <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="Logout" StackPane.alignment="CENTER_RIGHT" />
-            <Button mnemonicParsing="false" text="&lt;- Vendor" StackPane.alignment="CENTER_LEFT" />
+            <Button mnemonicParsing="false" onMouseClicked="#handleVendorButtonClicked" text="&lt;- Vendor" StackPane.alignment="CENTER_LEFT" />
          </children>
       </StackPane>
       <TableView fx:id="item_table" prefHeight="508.0" prefWidth="600.0">

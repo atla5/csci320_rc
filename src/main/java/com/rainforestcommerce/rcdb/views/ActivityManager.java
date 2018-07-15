@@ -55,6 +55,7 @@ public class ActivityManager {
 				break;
 			case VENDOR_SHIPMENT_DETAILS:
 				stage.getScene().setRoot(VendorShipmentDetailsViewController.getView());
+				break;
 			case VENDOR_SHIPMENT:
 				stage.getScene().setRoot(V_ShipmentsRequestViewController.getView());
 				break;
