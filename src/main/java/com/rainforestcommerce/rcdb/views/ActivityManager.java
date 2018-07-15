@@ -15,6 +15,7 @@ public class ActivityManager {
 		VENDOR_SELECTION,
 		STORE_MANAGEMENT,
 		VENDOR_SHIPMENT_DETAILS,
+		VENDOR_SHIPMENT,
 		;
 	}
 	
@@ -54,6 +55,8 @@ public class ActivityManager {
 				break;
 			case VENDOR_SHIPMENT_DETAILS:
 				stage.getScene().setRoot(VendorShipmentDetailsViewController.getView());
+			case VENDOR_SHIPMENT:
+				stage.getScene().setRoot(V_ShipmentsRequestViewController.getView());
 				break;
 		}
 	}
