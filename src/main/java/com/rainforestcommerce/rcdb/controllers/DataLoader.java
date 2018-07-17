@@ -62,10 +62,10 @@ public class DataLoader {
         for(String[] data : csvData){
             String customerId = data[0];
             String customerName = data[1];
-            String birthDate = data[2];
+            String birthDate = data[2]; //TODO update to real Date
             boolean isMale = data[3].equalsIgnoreCase("male");
-            String ethnicity = data[4];
-            String phone = data[5];
+            String ethnicity = data[4]; //TODO  set ethnicity values
+            String phone = data[5]; //TODO use 'like' in phone number check with digits-only
             int purchasePoints = Integer.parseInt(data[6]);
 
             values = String.format("(%s, '%s', '%s', %b, '%s', '%s', %d)",
@@ -80,8 +80,8 @@ public class DataLoader {
         for(String[] data : csvData){
             String storeId = data[0];
             String storeName = data[1];
-            String openingTime = data[2];
-            String closingTime = data[3];
+            String openingTime = data[2]; //TODO: update to real Date
+            String closingTime = data[3]; //TODO: update to real Date and add time comparison check
             String addrCity = data[4];
             String addrState = data[5];
             String addrZip = data[6];
@@ -100,9 +100,9 @@ public class DataLoader {
         String values;
         Random random = new Random();
         for(String[] data : csvData){
-            String storeId = "" + random.nextInt(1000);
-            String productId = "" + random.nextInt(150);;
-            float unitPrice = Integer.parseInt(data[2])/(100*1.0f);
+            String storeId = "" + random.nextInt(1000); //TODO: resolve errors in sample data
+            String productId = "" + random.nextInt(150); //TODO: resolve errors in sample data
+            float unitPrice = Integer.parseInt(data[2])/(100*1.0f); //TODO: determine fate of this variable
             int quantity = Integer.parseInt(data[3]);
 
             values = String.format("(%s, %s, %s, %d)", storeId, productId, unitPrice, quantity);
@@ -118,10 +118,10 @@ public class DataLoader {
             String purchaseId = data[0];
             String datePurchased = data[1];
             String storeId = data[3];
-            int customerId = random.nextInt(150);
-            String productId = "" + random.nextInt(150);
+            int customerId = random.nextInt(150); //TODO: resolve errors in sample data
+            String productId = "" + random.nextInt(150); //TODO: resolve errors in sample data
             boolean online = data[5].equalsIgnoreCase("true");
-            int quantity = random.nextInt(8);
+            int quantity = random.nextInt(8); //TODO: resolve errors in sample data
 
             values = String.format("(%s, %s, %s, '%s', %b)", purchaseId, storeId, customerId, datePurchased, online);
             insertValuesIntoTable(values, "store_purchases");
