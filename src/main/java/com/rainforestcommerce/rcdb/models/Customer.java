@@ -1,4 +1,4 @@
-	package com.rainforestcommerce.rcdb.models;
+package com.rainforestcommerce.rcdb.models;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -24,7 +24,7 @@ public class Customer {
         //this.purchase_points = Integer.parseInt(data.get(6));
     }
 
-    public Customer(Long accountNumber, String customerName, Date birthDate, boolean isMale, String phone) {
+    public Customer(long accountNumber, String customerName, Date birthDate, boolean isMale, String phone){
         this.accountNumber = accountNumber;
         this.customerName = customerName;
         this.birthDate = birthDate;
