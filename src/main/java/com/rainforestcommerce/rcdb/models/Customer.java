@@ -12,16 +12,18 @@ public class Customer {
     private String customerName;
     private Date birthDate;
     private boolean isMale;
+    private String ethnicity;
     private String phone;
+    private int purchasePoints;
 
     public Customer(List<String> data) throws ParseException{
         this.accountNumber = Long.parseLong(data.get(0));
         this.customerName = data.get(1);
         this.birthDate = sdf.parse(data.get(2));
         this.isMale = "male".equalsIgnoreCase(data.get(3));
-        //this.ethnicity = data.get(4);
+        this.ethnicity = data.get(4);
         this.phone = (data.get(5)).replaceAll("\\D+","");
-        //this.purchase_points = Integer.parseInt(data.get(6));
+        this.purchasePoints = Integer.parseInt(data.get(6));
     }
 
     public Customer(long accountNumber, String customerName, Date birthDate, boolean isMale, String phone){
@@ -66,5 +68,21 @@ public class Customer {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getEthnicity() {
+        return ethnicity;
+    }
+
+    public void setEthnicity(String ethnicity) {
+        this.ethnicity = ethnicity;
+    }
+
+    public int getPurchasePoints() {
+        return purchasePoints;
+    }
+
+    public void setPurchasePoints(int purchase_points) {
+        this.purchasePoints = purchase_points;
     }
 }

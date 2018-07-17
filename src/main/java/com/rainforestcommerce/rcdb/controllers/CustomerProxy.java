@@ -1,6 +1,7 @@
 package com.rainforestcommerce.rcdb.controllers;
 
 import com.rainforestcommerce.rcdb.models.Customer;
+import static com.rainforestcommerce.rcdb.controllers.DataLoader.insertValuesIntoTable;
 
 import java.util.ArrayList;
 
@@ -32,5 +33,12 @@ public class CustomerProxy {
 			LOGGER.log( Level.SEVERE, ex.toString(), ex );
 		}
 		return customers;
+	}
+
+	public static boolean insertNewCustomer(Customer customer){
+		String values = String.format("(%s, '%s', '%s', %b, '%s', '%s', %d)",
+				customer.getAccountNumber(), customer.getCustName(), customer.getBirthDate().toString(),
+				customer.isIsMale(), customer.getEthnicity(), customer.getPhone(), customer.getPurchasePoints());
+		return insertValuesIntoTable(values, "customers");
 	}
 }

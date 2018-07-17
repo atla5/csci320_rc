@@ -14,6 +14,8 @@ import java.sql.*;
 
 import java.util.logging.*;
 
+import static com.rainforestcommerce.rcdb.controllers.DataLoader.insertValuesIntoTable;
+
 public class StoreProxy {
 
     private static final Logger LOGGER = Logger.getLogger( StoreProxy.class.getName() );
@@ -130,5 +132,17 @@ public class StoreProxy {
             LOGGER.log(Level.SEVERE, ex.toString(), ex );
         }
 		return products;
+	}
+
+	public static boolean insertNewStore(Store store){
+		String values = String.format("(%s, '%s', '%s', '%s', %s)",
+			store.getStoreId(), store.getName(), store.getOpeningTime().toString(), store.getClosingTime().toString(), store.getAddress().toValues()
+		);
+		return insertValuesIntoTable(values, "stores");
+	}
+
+	public static boolean insertNewInventoryItemIntoStore(Store store, Product product, float unitPrice, int quantity){
+		String values = String.format("(%s, %s, %f, %d)", store.getStoreId(), product.getUpcCode(), unitPrice, quantity);
+		return insertValuesIntoTable(values, "store_inventory");
 	}
 }

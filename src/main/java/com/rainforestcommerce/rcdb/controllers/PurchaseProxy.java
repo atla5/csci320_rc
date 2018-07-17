@@ -1,16 +1,14 @@
 package com.rainforestcommerce.rcdb.controllers;
 
 import com.rainforestcommerce.rcdb.models.StorePurchase;
-
 import com.rainforestcommerce.rcdb.models.ProductPurchase;
-
 import com.rainforestcommerce.rcdb.models.Product;
+import static com.rainforestcommerce.rcdb.controllers.DataLoader.insertValuesIntoTable;
 
 import java.util.ArrayList;
-
 import java.sql.*;
-
 import java.util.logging.*;
+
 
 public class PurchaseProxy {
 
@@ -69,4 +67,17 @@ public class PurchaseProxy {
         }
         return products;
 	}
+
+	public static boolean insertNewStorePurchase(StorePurchase storePurchase){
+        String values = String.format("(%s, %s, %s, '%s', %b)",
+                storePurchase.getPurchaseId(), storePurchase.getStoreId(), storePurchase.getAccountNumber(),
+                storePurchase.getDateOfPurchase(), storePurchase.isOnline());
+        return insertValuesIntoTable(values, "store_purchases");
+    }
+
+    public static boolean insertNewProductPurchase(ProductPurchase productPurchase){
+	    String values = String.format("(%s, %s, %d)", productPurchase.getPurchaseId(), productPurchase.getProductId(), productPurchase.getQuantity());
+        return insertValuesIntoTable(values, "product_purchases");
+    }
+
 }

@@ -16,6 +16,8 @@ public class Address {
         this.zipcode = zipcode;
     }
 
+    public String toValues() { return String.format("%s, '%s', '%s', '%s', '%s'", number, street, city, state, zipcode); }
+
     @Override
     public String toString(){
         return String.format("%s %s %s, %s %s", number, street, city, state, zipcode);
