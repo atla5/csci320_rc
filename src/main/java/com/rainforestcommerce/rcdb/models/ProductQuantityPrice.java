@@ -20,6 +20,7 @@ public class ProductQuantityPrice extends Product {
         this.unit_price = unit_price;
         this.quantity = quantity;
     }
+    
     /**
      * Used to create a ProductPurchase from the View.
      * @param productId
