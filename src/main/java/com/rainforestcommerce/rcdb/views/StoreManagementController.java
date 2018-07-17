@@ -53,7 +53,7 @@ public class StoreManagementController {
 	 */
 	public static VBox getView() {
 		try {
-			return FXMLLoader.load(CartViewController.class.getResource("/StoreManagementView.fxml"));
+			return FXMLLoader.load(StoreManagementController.class.getResource("/StoreManagementView.fxml"));
 		} catch (IOException e) {
 			e.printStackTrace();
 			return null;
