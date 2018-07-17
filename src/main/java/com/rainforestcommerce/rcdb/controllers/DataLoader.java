@@ -1,23 +1,45 @@
-package com.rainforestcommerce.rcdb;
+package com.rainforestcommerce.rcdb.controllers;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class DataLoader {
+    public static String GENERIC_INSERT_STATEMENT = "INSERT into %s VALUES %s;";
+
     private static String dataDirectory = "/Users/aidan/projects/school/csci-320/src/main/resources/sample_data";
-    private static String GENERIC_INSERT_STATEMENT = "INSERT into %s VALUES %s;";
+    private static boolean RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION = false;
 
     public static void main(String[] args){
-        //loadProducts();
-        //loadCustomers();
-        //loadStores();
-        //loadInventory();
-        //loadPurchases(); // store and product purchases
+        loadProducts();
+        loadCustomers();
+        loadStores();
+        loadInventory();
+        loadPurchases(); // store and product purchases
         System.exit(0);
+    }
+
+    public static boolean insertValuesIntoTable(String values, String tableName){
+        String insertCommand = String.format(GENERIC_INSERT_STATEMENT, tableName, values);
+        System.out.println(insertCommand);
+        try{
+            if(!RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION){ return false; }
+            Connection conn = ConnectionProxy.connect();
+            PreparedStatement statement = conn.prepareStatement(insertCommand);
+            statement.executeUpdate();
+            return true;
+        }catch(SQLException sqle){
+            String firstValue = values.substring(1, values.indexOf(','));
+            System.err.println(String.format("Exception loading new item '%s' into table '%s'", firstValue, tableName));
+            sqle.printStackTrace();
+            return false;
+        }
     }
 
     private static void loadProducts(){
@@ -29,9 +51,8 @@ public class DataLoader {
             String weight = data[2];
             String brand = data[3];
 
-            values = String.format("(%s, '%s', %s, '%s')",
-                                    upcCode, productName, weight, brand);
-            System.out.println(String.format(GENERIC_INSERT_STATEMENT, "products", values));
+            values = String.format("(%s, '%s', %s, '%s')", upcCode, productName, weight, brand);
+            insertValuesIntoTable(values, "products");
         }
     }
 
@@ -49,7 +70,7 @@ public class DataLoader {
 
             values = String.format("(%s, '%s', '%s', %b, '%s', '%s', %d)",
                     customerId, customerName, birthDate, isMale, ethnicity, phone, purchasePoints);
-            System.out.println(String.format(GENERIC_INSERT_STATEMENT, "customers", values));
+            insertValuesIntoTable(values, "customers");
         }
     }
 
@@ -70,7 +91,7 @@ public class DataLoader {
             values = String.format("(%s, '%s', '%s', '%s', %s, '%s', '%s', '%s', '%s')",
                     storeId, storeName, openingTime, closingTime, addrNum, addrStreet, addrCity, addrState, addrZip
             );
-            System.out.println(String.format(GENERIC_INSERT_STATEMENT, "stores", values));
+            insertValuesIntoTable(values, "stores");
         }
     }
 
@@ -85,7 +106,7 @@ public class DataLoader {
             int quantity = Integer.parseInt(data[3]);
 
             values = String.format("(%s, %s, %s, %d)", storeId, productId, unitPrice, quantity);
-            System.out.println(String.format(GENERIC_INSERT_STATEMENT, "store_inventory", values));
+            insertValuesIntoTable(values, "store_inventory");
         }
     }
 
@@ -103,9 +124,9 @@ public class DataLoader {
             int quantity = random.nextInt(8);
 
             values = String.format("(%s, %s, %s, '%s', %b)", purchaseId, storeId, customerId, datePurchased, online);
-            System.out.println(String.format(GENERIC_INSERT_STATEMENT, "store_purchases", values));
+            insertValuesIntoTable(values, "store_purchases");
             values = String.format("(%s, %s, %d)", purchaseId, productId, quantity);
-            System.out.println(String.format(GENERIC_INSERT_STATEMENT, "product_purchases", values));
+            insertValuesIntoTable(values, "product_purchases");
         }
     }
 
