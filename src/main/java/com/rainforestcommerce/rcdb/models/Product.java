@@ -8,13 +8,6 @@ public class Product {
     protected String size;
     protected String brand;
 
-    public Product(List<String> data){
-        this.upcCode = Long.parseLong(data.get(0));
-        this.productName = data.get(1);
-        this.size = data.get(2);
-        this.brand = data.get(3);
-    }
-
     public Product(Long upcCode, String productName, String size, String brand){
         this.upcCode = upcCode;
         this.productName = productName;

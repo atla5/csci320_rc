@@ -16,15 +16,6 @@ public class StorePurchase {
     private boolean online;
     public HashMap<Long, ProductQuantityPrice> products;
 
-    public StorePurchase(List<String> data) throws ParseException{
-        this.purchaseId = Long.parseLong(data.get(0));
-        this.dateOfPurchase = sdf.parse(data.get(1));
-        this.storeId = Long.parseLong(data.get(3).replaceAll("\\D+",""));
-        this.accountNumber = Long.parseLong(data.get(4).replaceAll("\\D+",""));
-        this.online = "true".equalsIgnoreCase(data.get(5));
-        //this.productPurchases = Long.parseLong(data.get(6));
-    }
-
     public StorePurchase(long purchaseId, long storeId, long accountNumber){
         this.purchaseId = purchaseId;
         this.storeId = storeId;

@@ -21,9 +21,7 @@ public class Customer {
         this.customerName = data.get(1);
         this.birthDate = sdf.parse(data.get(2));
         this.isMale = "male".equalsIgnoreCase(data.get(3));
-        //this.ethnicity = data.get(4);
         this.phone = (data.get(5)).replaceAll("\\D+","");
-        //this.purchase_points = Integer.parseInt(data.get(6));
     }
 
     public Customer(Long accountNumber, String customerName, Date birthDate, boolean isMale, String phone) {
