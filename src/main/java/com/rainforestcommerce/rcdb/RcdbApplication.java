@@ -1,15 +1,15 @@
 package com.rainforestcommerce.rcdb;
 import com.rainforestcommerce.rcdb.controllers.ConnectionProxy;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+//import java.sql.Connection;
+//import java.sql.DriverManager;
+//import java.sql.SQLException;
 
 import com.rainforestcommerce.rcdb.views.View;
 
 public class RcdbApplication {
 
-	private Connection connection;
+	//private Connection connection;
 
 	public static void main(String[] args) {
 
