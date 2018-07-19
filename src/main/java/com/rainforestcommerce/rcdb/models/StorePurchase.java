@@ -3,6 +3,7 @@ package com.rainforestcommerce.rcdb.models;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 public class StorePurchase {
@@ -13,26 +14,19 @@ public class StorePurchase {
     private long storeId;
     private long accountNumber;
     private boolean online;
-    private List<Long> productPurchases;
-
-    public StorePurchase(List<String> data) throws ParseException{
-        this.purchaseId = Long.parseLong(data.get(0));
-        this.dateOfPurchase = sdf.parse(data.get(1));
-        this.storeId = Long.parseLong(data.get(3).replaceAll("\\D+",""));
-        this.accountNumber = Long.parseLong(data.get(4).replaceAll("\\D+",""));
-        this.online = "true".equalsIgnoreCase(data.get(5));
-        //this.productPurchases = Long.parseLong(data.get(6));
-    }
+    public HashMap<Long, ProductQuantityPrice> products;
 
     public StorePurchase(long purchaseId, long storeId, long accountNumber){
         this.purchaseId = purchaseId;
         this.storeId = storeId;
         this.accountNumber = accountNumber;
+        this.products = new HashMap<>();
     }
     
     // Used to create a purchase from the view side of the application
-    public StorePurchase(int storeId) {
+    public StorePurchase(long storeId) {
     	this.storeId = storeId;
+    	this.products = new HashMap<>();
     }
  
     public void setDateOfPurchase(Date dateOfPurchase) {
@@ -43,8 +37,8 @@ public class StorePurchase {
         this.online = online;
     }
 
-    public void setProductPurchases(List<Long> productPurchases) {
-        this.productPurchases = productPurchases;
+    public void setProductPurchases(HashMap<Long, ProductQuantityPrice> products) {
+        this.products = products;
     }
 
     public long getPurchaseId() {

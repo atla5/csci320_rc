@@ -10,6 +10,7 @@ import org.h2.result.RowFactory;
 import org.h2.value.Value;
 
 import com.rainforestcommerce.rcdb.models.Customer;
+import com.rainforestcommerce.rcdb.views.ActivityManager.Activity;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -62,6 +63,7 @@ public class CustomerViewController {
 		// Configure the columns to accept the correct properties of Customer
 		nameColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("custName"));
 		dobColumn.setCellValueFactory(new PropertyValueFactory<Customer, Date>("birthDate"));
+		pointsColumn.setCellValueFactory(new PropertyValueFactory<Customer,Integer>("Points"));
 		
 		// Configure the click action for each row in the table
 		customer_table.setRowFactory(rf -> {
@@ -69,6 +71,7 @@ public class CustomerViewController {
 			row.setOnMouseClicked(event -> {
 				Customer customer = row.getItem();
 				SessionData.userId = customer.getAccountNumber();
+				ActivityManager.start(Activity.STORE_SELECTION);
 			});
 			return row;
 			}

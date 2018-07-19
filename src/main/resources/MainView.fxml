@@ -13,17 +13,17 @@
             <Font name="Trebuchet MS Bold" size="29.0" />
          </font>
       </Text>
-      <Button id="customer_button" mnemonicParsing="false" onMousePressed="#handleCustomerButtonPress" prefHeight="76.0" prefWidth="272.0" text="Customer">
+      <Button id="customer_button" mnemonicParsing="false" onMouseClicked="#handleCustomerButtonPress" prefHeight="76.0" prefWidth="272.0" text="Customer">
          <font>
             <Font name="Trebuchet MS" size="24.0" />
          </font>
       </Button>
-      <Button id="store_manager_button" mnemonicParsing="false" prefHeight="76.0" prefWidth="272.0" text="Store Manager">
+      <Button id="store_manager_button" mnemonicParsing="false" onMouseClicked="#handleStoreMgmtButtonPress" prefHeight="76.0" prefWidth="272.0" text="Store Manager">
          <font>
             <Font name="Trebuchet MS" size="24.0" />
          </font>
       </Button>
-      <Button id="vendor_button" mnemonicParsing="false" prefHeight="76.0" prefWidth="272.0" text="Vendor">
+      <Button id="vendor_button" mnemonicParsing="false" onMouseClicked="#handleVendorButtonPress" prefHeight="76.0" prefWidth="272.0" text="Vendor">
          <font>
             <Font name="Trebuchet MS" size="24.0" />
          </font>

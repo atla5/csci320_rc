@@ -100,7 +100,7 @@ public class StoreProxy {
                 products.add(new Product(
                         rs.getLong("upc_code"),
                         rs.getString("product_name"),
-                        rs.getInt("weight"),
+                        rs.getString("weight"),
                         rs.getString("brand_name")
                 ));
             }
@@ -123,7 +123,7 @@ public class StoreProxy {
                 products.add(new Product(
                         rs.getLong("upc_code"),
                         rs.getString("product_name"),
-                        rs.getInt("weight"),
+                        rs.getString("weight"),
                         rs.getString("brand_name")
                 ));
             }

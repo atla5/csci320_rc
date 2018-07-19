@@ -11,8 +11,22 @@ public class ActivityManager {
 		CUSTOMERS,
 		PRODUCTS,
 		CART,
+		STORE_SELECTION,
+		VENDOR_SELECTION,
+		STORE_MANAGEMENT,
+		VENDOR_SHIPMENT_DETAILS,
+		VENDOR_SHIPMENT,
 		;
 	}
+	
+	public enum User {
+		CUSTOMER,
+		VENDOR,
+		STORE_MANAGER,
+		;
+	}
+	
+	public static User user;
 	
 	public static Stage stage;
 	
@@ -28,9 +42,23 @@ public class ActivityManager {
 				stage.getScene().setRoot(CartViewController.getView());
 				break;
 			case PRODUCTS:
-				stage.getScene().setRoot(OnlineStoreViewController.getView());
+				stage.getScene().setRoot(StoreViewController.getView());
 				break;
-
+			case STORE_SELECTION:
+				stage.getScene().setRoot(StoreSelectionViewController.getView());
+				break;
+			case VENDOR_SELECTION:
+				stage.getScene().setRoot(SelectVendorViewController.getView());
+				break;
+			case STORE_MANAGEMENT:
+				stage.getScene().setRoot(StoreManagementController.getView());
+				break;
+			case VENDOR_SHIPMENT_DETAILS:
+				stage.getScene().setRoot(VendorShipmentDetailsViewController.getView());
+				break;
+			case VENDOR_SHIPMENT:
+				stage.getScene().setRoot(V_ShipmentsRequestViewController.getView());
+				break;
 		}
 	}
 	

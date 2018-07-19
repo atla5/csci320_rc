@@ -3,6 +3,7 @@ package com.rainforestcommerce.rcdb.views;
 import java.io.IOException;
 
 import com.rainforestcommerce.rcdb.views.ActivityManager.Activity;
+import com.rainforestcommerce.rcdb.views.ActivityManager.User;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,7 +27,20 @@ public class MainViewController {
 	
 	@FXML
 	protected void handleCustomerButtonPress(MouseEvent event) {
+		ActivityManager.user = User.CUSTOMER;
 		ActivityManager.start(Activity.CUSTOMERS);
+	}
+	
+	@FXML
+	protected void handleVendorButtonPress(MouseEvent event) {
+		ActivityManager.user = User.VENDOR;
+		ActivityManager.start(Activity.VENDOR_SELECTION);
+	}
+	
+	@FXML
+	protected void handleStoreMgmtButtonPress(MouseEvent event) {
+		ActivityManager.user = User.STORE_MANAGER;
+		ActivityManager.start(Activity.STORE_SELECTION);
 	}
 
 }
