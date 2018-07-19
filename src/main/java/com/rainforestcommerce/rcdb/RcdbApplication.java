@@ -1,5 +1,9 @@
 package com.rainforestcommerce.rcdb;
+import java.util.ArrayList;
+
 import com.rainforestcommerce.rcdb.controllers.ConnectionProxy;
+import com.rainforestcommerce.rcdb.controllers.StoreProxy;
+import com.rainforestcommerce.rcdb.models.Store;
 
 //import java.sql.Connection;
 //import java.sql.DriverManager;
@@ -7,7 +11,15 @@ import com.rainforestcommerce.rcdb.controllers.ConnectionProxy;
 
 import com.rainforestcommerce.rcdb.views.View;
 
-public class RcdbApplication {
+import javafx.stage.Stage;
+
+public class RcdbApplication extends View {
+	
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		super.start(primaryStage);
+		
+	}
 
 	//private Connection connection;
 
@@ -19,7 +31,12 @@ public class RcdbApplication {
 		//Class.forName("org.h2.Driver");
 		ConnectionProxy.startConnection();
 		System.out.println("connection established");
-		View.launch();
+		//StoreProxy.createStores();
+	    ArrayList<Store> stores = StoreProxy.getStores();
+	    for (Store store : stores) {
+	    	System.out.println(store.getName());
+	    }
+	    launch();
 		/*} catch(ClassNotFoundException cnf){
 			System.err.println("Error with h2 configuration. 'org.h2.Driver' not found.");
 			cnf.printStackTrace();
