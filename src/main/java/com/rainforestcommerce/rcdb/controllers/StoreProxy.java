@@ -21,7 +21,7 @@ public class StoreProxy {
     private static final Logger LOGGER = Logger.getLogger( StoreProxy.class.getName() );
 
     public static ArrayList<Store> getStores(){
-        ArrayList<Store> stores = new ArrayList<>();
+        ArrayList<Store> stores = new ArrayList<Store>();
          try{
              Connection conn = ConnectionProxy.connect();
              String statement = "SELECT * FROM Store";
@@ -47,7 +47,7 @@ public class StoreProxy {
      }
 
 	public static ArrayList<StorePurchase> getPurchasesForStore(Store store){
-        ArrayList<StorePurchase> purchases = null;
+        ArrayList<StorePurchase> purchases = new ArrayList<StorePurchase>();
 	    try{
 		    Connection conn = ConnectionProxy.connect();
 		    PreparedStatement statement = conn.prepareStatement("SELECT * FROM Purchase WHERE store_id = ?");
@@ -67,8 +67,8 @@ public class StoreProxy {
         return purchases;
 	}
 
-	/*public static ArrayList<ShipmentRequest> getShipmentsForStore(Store store){
-        ArrayList<ShipmentRequest> shipments = null;
+	/*public static ArrayList<Shipment> getShipmentsForStore(Store store){
+        ArrayList<Shipment> shipments = new ArrayList<Shipment>;
 	    try {
             Connection conn = ConnectionProxy.cp.getConnection();
             PreparedStatement statement = conn.prepareStatement("SELECT * FROM Shipment WHERE store_id = ?");
@@ -90,7 +90,7 @@ public class StoreProxy {
 	}*/
 
 	public static ArrayList<Product> getProductsForStore(Store store){ //Function will change once store inventory is added
-        ArrayList<Product> products = null;
+        ArrayList<Product> products = new ArrayList<Product>();
 	    try {
             Connection conn = ConnectionProxy.connect();
             PreparedStatement statement = conn.prepareStatement("SELECT * FROM Product INNER JOIN Brand ON Product.brand_id = Brand.brand_id");
@@ -100,7 +100,7 @@ public class StoreProxy {
                 products.add(new Product(
                         rs.getLong("upc_code"),
                         rs.getString("product_name"),
-                        rs.getString("weight"),
+                        rs.getString("size"),
                         rs.getString("brand_name")
                 ));
             }
@@ -112,7 +112,7 @@ public class StoreProxy {
 	}
 
 	public static ArrayList<Product> searchProducts(Store store, String search){ //Function will change once store inventory is added
-        ArrayList<Product> products = null;
+        ArrayList<Product> products = new ArrayList<Product>();
 	    try {
             Connection conn = ConnectionProxy.connect();
             PreparedStatement statement = conn.prepareStatement("SELECT * FROM Product INNER JOIN Brand ON Product.brand_id = Brand.brand_id WHERE CHARINDEX(?, name) > 0");
@@ -123,7 +123,7 @@ public class StoreProxy {
                 products.add(new Product(
                         rs.getLong("upc_code"),
                         rs.getString("product_name"),
-                        rs.getString("weight"),
+                        rs.getString("size"),
                         rs.getString("brand_name")
                 ));
             }
@@ -135,18 +135,18 @@ public class StoreProxy {
 	}
 
 	public static boolean insertNewStore(Store store){
-		String values = String.format("(%s, '%s', '%s', '%s', %s)",
+		String values = String.format("(%d, '%s', '%s', '%s', %s)",
 			store.getStoreId(), store.getName(), store.getOpeningTime().toString(), store.getClosingTime().toString(), store.getAddress().toValues()
 		);
 		return insertValuesIntoTable(values, "stores");
 	}
 
 	public static boolean insertNewInventoryItemIntoStore(Store store, Product product, float unitPrice, int quantity){
-		String values = String.format("(%s, %s, %f, %d)", store.getStoreId(), product.getUpcCode(), unitPrice, quantity);
+		String values = String.format("(%d, %d, %f, %d)", store.getStoreId(), product.getUpcCode(), unitPrice, quantity);
 		return insertValuesIntoTable(values, "store_inventory");
 	}
 	
-	 public static void createStores() {
+	 public static void createStores() { //Testing Function
 	       try{
 	           Connection conn = ConnectionProxy.connect();
 	           String statement = "CREATE TABLE Store ( store_id long, store_name varchar(255) NOT NULL, opening_time TIME, closing_time TIME, addr_num int, addr_street varchar(255), addr_city varchar(255), addr_state varchar(255), addr_zipcode int )";

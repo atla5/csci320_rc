@@ -22,7 +22,7 @@ public class DataLoader {
         loadStores();
         loadInventory();
         loadPurchases(); // store and product purchases
-        System.exit(0);
+        //System.exit(0);
     }
 
     public static boolean insertValuesIntoTable(String values, String tableName){

@@ -9,12 +9,18 @@ public class Vendor {
 
     public HashMap<Integer,Shipment> shipments;
     private String name;
+    private long ID;
 
-    public Vendor(Integer ID, String name){
+    public Vendor(long ID, String name){
         this.name = name;
+        this.ID = ID;
     }
 
     public String getName() {
         return name;
+    }
+
+    public long getId() {
+        return ID;
     }
 }

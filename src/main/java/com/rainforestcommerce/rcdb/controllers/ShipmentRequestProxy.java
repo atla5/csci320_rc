@@ -1,6 +1,6 @@
-/*package com.rainforestcommerce.rcdb.controllers;
+package com.rainforestcommerce.rcdb.controllers;
 
-import com.rainforestcommerce.rcdb.models.ShipmentRequest;
+import com.rainforestcommerce.rcdb.models.Shipment;
 
 import com.rainforestcommerce.rcdb.models.Product;
 
@@ -10,22 +10,24 @@ import java.sql.*;
 
 import java.util.logging.*;
 
+import com.rainforestcommerce.rcdb.controllers.DataLoader;
+
 public class ShipmentRequestProxy {
 
 	private static final Logger LOGGER = Logger.getLogger( ShipmentRequestProxy.class.getName() );
 
-	public static ArrayList<Product> getProductsForShipment(ShipmentRequest shipment){
-        ArrayList<Product> products = null;
+	public static ArrayList<Product> getProductsForShipment(Shipment shipment){
+        ArrayList<Product> products = new ArrayList<Product>();
 	    try {
             Connection conn = ConnectionProxy.connect();
-            PreparedStatement statement = conn.prepareStatement("SELECT * FROM Product WHERE ID = ?");
-            statement.setString(1, shipment.p_ID);
+            PreparedStatement statement = conn.prepareStatement("SELECT * FROM Product INNER JOIN Shipment_contents ON Product.product_id = Shipment_contents.product_id WHERE shipment_id = ?");
+            statement.setString(1, Long.toString(shipment.getID()));
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 products.add(new Product(
                         rs.getLong("upcCode"),
                         rs.getString("productName"),
-                        rs.getInt("weight"),
+                        rs.getString("size"),
                         rs.getString("brand")
                 ));
             }
@@ -36,18 +38,12 @@ public class ShipmentRequestProxy {
 		return products;
 	}
 
-	public static void requestShipment(ShipmentRequest shipment){
-	    try {
-            Connection conn = ConnectionProxy.connect();
-            PreparedStatement statement = conn.prepareStatement("INSERT INTO ShipmentRequest (PurchaseId, ProductId, Unit_Price, Quantity) VALUES (?, ?, ?, ?)");
-            statement.setString(1, Long.toString(shipment.getPurchaseId()));
-            statement.setString(2, Long.toString(shipment.getProductId()));
-            statement.setString(3, Long.toString(shipment.getUnit_Price()));
-            statement.setString(4, Long.toString(shipment.getQuantity()));
-            statement.execute();
-            conn.close();
-        } catch(SQLException ex){
-            LOGGER.log( Level.SEVERE, ex.toString(), ex );
-        }
+	public static void requestShipment(Shipment shipment){
+	    insertNewShipment(shipment);
 	}
-}*/
+
+    public static boolean insertNewShipment(Shipment shipment){
+        String values = String.format("(%d, '%s', '%s')", shipment.getID(), shipment.getStore(), shipment.getRequestDate().toString());
+        return DataLoader.insertValuesIntoTable(values, "Shipments");
+    }
+}
