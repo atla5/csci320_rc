@@ -15,19 +15,8 @@ public class PurchaseProxy {
     private static final Logger LOGGER = Logger.getLogger( PurchaseProxy.class.getName() );
 
 	public static void purchaseProducts(StorePurchase storep, ProductPurchase productp){
-	    try {
-            Connection conn = ConnectionProxy.connect();
-            PreparedStatement statement = conn.prepareStatement("INSERT INTO Purchase (purchase_id, date, total_price, store_id, account_number) VALUES (?, ?, ?, ?, ?)");
-            statement.setString(1, Long.toString(storep.getPurchaseId()));
-            statement.setString(2, storep.getDateOfPurchase().toString());
-            statement.setString(3, Float.toString(productp.getOverallPrice()));
-            statement.setString(4, Long.toString(storep.getStoreId()));
-            statement.setString(5, Long.toString(storep.getAccountNumber()));
-            statement.execute();
-            conn.close();
-        } catch(SQLException ex){
-            LOGGER.log( Level.SEVERE, ex.toString(), ex );
-        }
+	    insertNewProductPurchase(productp);
+	    insertNewStorePurchase(storep);
 	}
 
 	public static boolean purchasable(ProductPurchase purchase){
