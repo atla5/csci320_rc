@@ -10,8 +10,11 @@ public class ConnectionProxy {
 
 	private static final Logger LOGGER = Logger.getLogger( ConnectionProxy.class.getName() );
 
-	private static JdbcConnectionPool cp = JdbcConnectionPool.create(
-			"jdbc:h2:~/test", "sa", "password");
+	private static JdbcConnectionPool cp;
+
+	public static void startConnection(){
+		cp = JdbcConnectionPool.create("jdbc:h2:~/test;AUTO_SERVER=TRUE", "sa", "password");
+	}
 
 	public static Connection connect(){
 		Connection conn = null;
