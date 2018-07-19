@@ -1,6 +1,7 @@
 package com.rainforestcommerce.rcdb.views;
 
 import java.io.IOException;
+import java.net.URL;
 
 import com.rainforestcommerce.rcdb.models.ProductQuantityPrice;
 import com.rainforestcommerce.rcdb.views.ActivityManager.Activity;
@@ -19,7 +20,18 @@ import javafx.scene.text.Text;
  * The controller for the Store Management view.
  */
 public class StoreManagementController {
-	
+
+	private static VBox view;
+
+	static {
+		try {
+			view = FXMLLoader.load(StoreSelectionViewController.class.getResource("/StoreManagementView.fxml"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+
 	@FXML
 	private Text title;
 	

@@ -20,7 +20,7 @@
                   <Font name="Trebuchet MS Bold" size="29.0" />
                </font>
             </Text>
-            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="Logout" StackPane.alignment="CENTER_RIGHT" />
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onMouseClicked="#handleLogoutButtonClicked" text="Logout" StackPane.alignment="CENTER_RIGHT" />
             <Button mnemonicParsing="false" onMouseClicked="#handleVendorButtonClicked" text="&lt;- Vendor" StackPane.alignment="CENTER_LEFT" />
          </children>
       </StackPane>

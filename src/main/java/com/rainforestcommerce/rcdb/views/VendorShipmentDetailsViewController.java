@@ -25,6 +25,9 @@ public class VendorShipmentDetailsViewController {
 	protected void handleVendorButtonClicked(MouseEvent event) {
 		ActivityManager.start(Activity.VENDOR_SHIPMENT);
 	}
+
+	@FXML
+	protected void handleLogoutButtonClicked(MouseEvent event){ActivityManager.start(Activity.START_SCREEN);}
 	
 	public static VBox getView() {
 		try {

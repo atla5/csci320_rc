@@ -9,6 +9,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.util.Date;
@@ -88,5 +89,9 @@ public class SelectVendorViewController {
     public static VBox getView() {
         return view;
     }
+
+
+    @FXML
+    protected void handleLogoutButtonClicked(MouseEvent event){ActivityManager.start(ActivityManager.Activity.START_SCREEN);}
 
 }

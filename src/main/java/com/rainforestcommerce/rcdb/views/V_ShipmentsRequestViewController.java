@@ -10,6 +10,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.util.Date;
@@ -76,5 +77,8 @@ public class V_ShipmentsRequestViewController {
             return null;
         }
     }
+
+    @FXML
+    protected void handleLogoutButtonClicked(MouseEvent event){ActivityManager.start(Activity.START_SCREEN);}
 
 }
