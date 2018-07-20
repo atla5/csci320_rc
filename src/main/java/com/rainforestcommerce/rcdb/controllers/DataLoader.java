@@ -9,14 +9,19 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.logging.*;
 
 public class DataLoader {
+
+    private static final Logger LOGGER = Logger.getLogger( StoreProxy.class.getName() );
+
     public static String GENERIC_INSERT_STATEMENT = "INSERT into %s VALUES %s;";
 
-    private static String dataDirectory = "/Users/aidan/projects/school/csci-320/src/main/resources/sample_data";
+    private static String dataDirectory = "./src/main/resources/sample_data";
     private static boolean RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION = false;
 
     public static void main(String[] args){
+        createTables();
         loadProducts();
         loadCustomers();
         loadStores();
@@ -34,10 +39,11 @@ public class DataLoader {
             PreparedStatement statement = conn.prepareStatement(insertCommand);
             statement.executeUpdate();
             return true;
-        }catch(SQLException sqle){
-            String firstValue = values.substring(1, values.indexOf(','));
-            System.err.println(String.format("Exception loading new item '%s' into table '%s'", firstValue, tableName));
-            sqle.printStackTrace();
+        }catch(SQLException ex){
+            LOGGER.log( Level.SEVERE, ex.toString(), ex );
+            //String firstValue = values.substring(1, values.indexOf(','));
+            //System.err.println(String.format("Exception loading new item '%s' into table '%s'", firstValue, tableName));
+            //sqle.printStackTrace();
             return false;
         }
     }
@@ -143,12 +149,14 @@ public class DataLoader {
                 toReturn.add(sanitizeStringForSql(line).split(","));
             }
         }catch(Exception exception){
+            LOGGER.log( Level.SEVERE, exception.toString(), exception );
             System.err.println(String.format("Error reading filename %s", filename));
             exception.printStackTrace();
         }finally{
             try {
                 if (br != null) { br.close(); }
             }catch(IOException ioe){
+                LOGGER.log( Level.SEVERE, ioe.toString(), ioe );
                 ioe.printStackTrace();
             }
         }
@@ -165,5 +173,16 @@ public class DataLoader {
             for (String token : toPrint) { printString += token + "\t"; }
         }
         return printString;
+    }
+
+    private static void createTables(){
+        try{
+            Connection conn = ConnectionProxy.connect();
+            String statement = "CREATE TABLE product ( upc_code LONG PRIMARY KEY, product_name VARCHAR(255) NOT NULL, weight INT, brand_name VARCHAR(255)); CREATE TABLE stores ( store_id LONG PRIMARY KEY, store_name VARCHAR(255) NOT NULL, opening_time TIME, closing_time TIME, addr_num INT, addr_street VARCHAR(255), addr_city VARCHAR(255), addr_state VARCHAR(255), addr_zipcode INT, check(closing_time > opening_time));CREATE TABLE store_inventory(store_id LONG, product_id LONG, unit_price DECIMAL(15,2), quantity INT PRIMARY KEY (store_id, product_id), FOREIGN KEY (store_id) REFERENCES stores(store_id), FOREIGN KEY (product_id) REFERENCES products(upc_code), check(unit_price >= 0), check(quantity >= 0)); CREATE TABLE customers (account_number LONG PRIMARY KEY, cust_name VARCHAR(100), birth_date DATETIME, male BOOLEAN, ethnicity VARCHAR(20), phone_number INT, accumulated_points INT, check(birth_date > 1900), check(birth_date < 2016), check(accumulated_points >= 0), ); CREATE TABLE store_purchases (purchase_id LONG PRIMARY KEY, store_id LONG, account_number LONG, date DATE NOT NULL, total_price DECIMAL(15,2) NOT NULL, online BOOLEAN NOT NULL, FOREIGN KEY (store_id) REFERENCES stores(store_id), FOREIGN KEY (account_number) REFERENCES customers(account_number), check(date <= CURDATE()), check(total_price > 0)); CREATE TABLE product_purchases (purchase_id IDENTITY, product_id IDENTITY, quantity INT(255) NOT NULL, PRIMARY KEY (purchase_id, product_id), FOREIGN KEY (purchase_id) REFERENCES store_purchases(purchase_id), FOREIGN KEY (product_id) REFERENCES (product_id), check(quantity > 0)); CREATE TABLE shipments (shipment_id LONG PRIMARY KEY, store_id LONG NOT NULL, vendor_id LONG NOT NULL, order_date DATE, arrival_date DATE, FOREIGN KEY (store_id) REFERENCES store(store_id), FOREIGN KEY (vendor_id)  REFERENCES vendor(vendor_id), check(arrival_date >= order_date)); CREATE TABLE shipment_contents(shipment_id LONG, product_id LONG, quantity INT, PRIMARY KEY (shipment_id, product_id)FOREIGN KEY (shipment_id) REFERENCES shipments(shipment_id), FOREIGN KEY (product_id) REFERENCES products(upc_code), check(quantity >=0)); CREATE TABLE vendor(vendor_id LONG PRIMARY KEY, vendor_name VARCHAR(255) NOT NULL, addr_num INT, addr_street VARCHAR(255), addr_city VARCHAR(255), addr_state VARCHAR(255), addr_zipcode INT, ); CREATE TABLE vendor_distribution(vendor_id LONG, product_id LONG, unit_price DECIMAL(15,2), PRIMARY KEY( vendor_id, product_id), FOREIGN KEY (vendor_id) REFERENCES vendors(vendor_id), FOREIGN KEY (product_id) REFERENCES products(upc_code), check(unit_price >= 0));";
+            conn.createStatement().execute(statement);
+            conn.close();
+        } catch(Exception ex){
+            LOGGER.log( Level.SEVERE, ex.toString(), ex );
+        }
     }
 }

@@ -1,6 +1,6 @@
 package com.rainforestcommerce.rcdb.controllers;
 
-//import com.rainforestcommerce.rcdb.models.ShipmentRequest;
+import com.rainforestcommerce.rcdb.models.Shipment;
 
 import com.rainforestcommerce.rcdb.models.StorePurchase;
 
@@ -13,8 +13,6 @@ import java.util.ArrayList;
 import java.sql.*;
 
 import java.util.logging.*;
-
-import static com.rainforestcommerce.rcdb.controllers.DataLoader.insertValuesIntoTable;
 
 public class StoreProxy {
 
@@ -67,18 +65,17 @@ public class StoreProxy {
         return purchases;
 	}
 
-	/*public static ArrayList<Shipment> getShipmentsForStore(Store store){
-        ArrayList<Shipment> shipments = new ArrayList<Shipment>;
+	public static ArrayList<Shipment> getShipmentsForStore(Store store){
+        ArrayList<Shipment> shipments = new ArrayList<Shipment>();
 	    try {
-            Connection conn = ConnectionProxy.cp.getConnection();
-            PreparedStatement statement = conn.prepareStatement("SELECT * FROM Shipment WHERE store_id = ?");
+            Connection conn = ConnectionProxy.connect();
+            PreparedStatement statement = conn.prepareStatement("SELECT * FROM Shipment INNER JOIN Store ON Shipments.store_id = Store.store_id WHERE store_id = ?");
             statement.setString(1, Long.toString(store.getStoreId()));
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                shipments.add(new ShipmentRequest(
+                shipments.add(new Shipment(
                         rs.getLong("shipment_id"),
-                        rs.getLong("store_id"),
-                        rs.getLong("vendor_id"),
+                        rs.getString("store_name"),
                         rs.getDate("order_date")
                 ));
             }
@@ -87,7 +84,7 @@ public class StoreProxy {
             LOGGER.log( Level.SEVERE, ex.toString(), ex );
         }
 		return shipments;
-	}*/
+	}
 
 	public static ArrayList<Product> getProductsForStore(Store store){ //Function will change once store inventory is added
         ArrayList<Product> products = new ArrayList<Product>();
@@ -138,12 +135,12 @@ public class StoreProxy {
 		String values = String.format("(%d, '%s', '%s', '%s', %s)",
 			store.getStoreId(), store.getName(), store.getOpeningTime().toString(), store.getClosingTime().toString(), store.getAddress().toValues()
 		);
-		return insertValuesIntoTable(values, "stores");
+		return DataLoader.insertValuesIntoTable(values, "stores");
 	}
 
 	public static boolean insertNewInventoryItemIntoStore(Store store, Product product, float unitPrice, int quantity){
 		String values = String.format("(%d, %d, %f, %d)", store.getStoreId(), product.getUpcCode(), unitPrice, quantity);
-		return insertValuesIntoTable(values, "store_inventory");
+		return DataLoader.insertValuesIntoTable(values, "store_inventory");
 	}
 	
 	 public static void createStores() { //Testing Function

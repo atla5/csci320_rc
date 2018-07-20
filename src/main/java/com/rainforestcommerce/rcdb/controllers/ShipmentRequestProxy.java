@@ -10,8 +10,6 @@ import java.sql.*;
 
 import java.util.logging.*;
 
-import com.rainforestcommerce.rcdb.controllers.DataLoader;
-
 public class ShipmentRequestProxy {
 
 	private static final Logger LOGGER = Logger.getLogger( ShipmentRequestProxy.class.getName() );

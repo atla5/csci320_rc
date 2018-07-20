@@ -3,7 +3,6 @@ package com.rainforestcommerce.rcdb.controllers;
 import com.rainforestcommerce.rcdb.models.StorePurchase;
 import com.rainforestcommerce.rcdb.models.ProductQuantityPrice;
 import com.rainforestcommerce.rcdb.models.Product;
-import static com.rainforestcommerce.rcdb.controllers.DataLoader.insertValuesIntoTable;
 
 import java.util.ArrayList;
 import java.sql.*;
@@ -60,12 +59,12 @@ public class PurchaseProxy {
         String values = String.format("(%d, %d, %d, '%s', %b)",
                 storePurchase.getPurchaseId(), storePurchase.getStoreId(), storePurchase.getAccountNumber(),
                 storePurchase.getDateOfPurchase(), storePurchase.isOnline());
-        return insertValuesIntoTable(values, "store_purchases");
+        return DataLoader.insertValuesIntoTable(values, "store_purchases");
     }
 
     public static boolean insertNewProductPurchase(ProductQuantityPrice productPurchase){
 	    String values = String.format("(%d, %d, %d)", productPurchase.getPurchaseId(), productPurchase.getUpcCode(), productPurchase.getQuantity());
-        return insertValuesIntoTable(values, "product_purchases");
+        return DataLoader.insertValuesIntoTable(values, "product_purchases");
     }
 
 }
