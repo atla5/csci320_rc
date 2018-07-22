@@ -22,8 +22,9 @@ public class CustomerProxy {
 				customers.add(new Customer(
 						rs.getLong("account_number"),
 						rs.getString("cust_name"),
-						rs.getDate("birth_date"),
-						rs.getBoolean("is_male"),
+						//rs.getDate("birth_date"),
+						rs.getString("birth_date"),
+						rs.getBoolean("male"),
 						rs.getString("phone_number")
 				));
 			}
