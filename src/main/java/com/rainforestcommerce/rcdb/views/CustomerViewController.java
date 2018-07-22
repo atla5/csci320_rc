@@ -74,10 +74,10 @@ public class CustomerViewController {
 			}
 		);
 		
-		//customer_table.setItems(FXCollections.observableArrayList(CustomerProxy.getCustomers()));
+		customer_table.setItems(FXCollections.observableArrayList(CustomerProxy.getCustomers()));
 		
 		// TEST CODE - remove when DB access is implemented
-		try {
+		/*try {
 			ObservableList<Customer> customers = FXCollections.observableArrayList(
 				new Customer(Arrays.asList(new String[] {"1", "Graham", "08/03/1993", "true", "whatever", "1234567890"} )),
 				new Customer(Arrays.asList(new String[] {"2", "Abdul", "09/19/1996", "true", "whatever", "1234567890"} ))
@@ -85,7 +85,7 @@ public class CustomerViewController {
 			customer_table.setItems(customers);
 		} catch (ParseException e) {
 			e.printStackTrace();
-		}
+		}*/
 		// End test code
 	}
 	

@@ -11,7 +11,7 @@ public class RcdbApplication extends View {
 
 		ConnectionProxy.startConnection();
 		System.out.println("connection established");
-		DataLoader.main(null);
+		//DataLoader.main(null);
 
 	    
 	    // Start the view
