@@ -1,4 +1,5 @@
 package com.rainforestcommerce.rcdb.views;
+import com.rainforestcommerce.rcdb.controllers.VendorProxy;
 import com.rainforestcommerce.rcdb.models.Shipment;
 import com.rainforestcommerce.rcdb.models.Vendor;
 import javafx.collections.FXCollections;
@@ -67,10 +68,7 @@ public class SelectVendorViewController {
         );
 
         // TEST CODE - remove when DB access is implemented
-            ObservableList<Vendor> vendors = FXCollections.observableArrayList(
-                    new Vendor(1,"Abdul"),
-                    new Vendor(2,"Graham")
-            );
+            ObservableList<Vendor> vendors = FXCollections.observableArrayList(VendorProxy.getVendors());
 
             /*for (Vendor vendor: vendors){
                 vendor.shipments= new HashMap<>();

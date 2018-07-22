@@ -1,4 +1,5 @@
 package com.rainforestcommerce.rcdb.views;
+import com.rainforestcommerce.rcdb.controllers.StoreProxy;
 import com.rainforestcommerce.rcdb.models.*;
 import com.rainforestcommerce.rcdb.views.ActivityManager.Activity;
 
@@ -87,30 +88,11 @@ public class StoreSelectionViewController {
         );
 
         // TEST CODE - remove when DB access is implemented
-        try {
-            ObservableList<Store> stores = FXCollections.observableArrayList(
-                    new Store(Arrays.asList(new String[] {"1", "Happy Foods Store", "8:00", "23:59", null, "1", null, "2", null} )),
-                    new Store(Arrays.asList(new String[] {"2", "Diabetes 'R Us", "8:00", "23:59", null, "2", null, "1", null} ))
-            );
-            for (Store store : stores) {
-            	store.inventory = new HashMap<>();
-            	store.inventory.put((long)1, new ProductQuantityPrice(12, 14, new Product((long)1, "Beans", "Large", "Happy Legumes Co")));
-            	store.inventory.put((long)2, new ProductQuantityPrice(5, 14, new Product((long)2, "Rice", "Single Grain", "Rice Is Nice Inc")));
+        ObservableList<Store> stores = FXCollections.observableArrayList(StoreProxy.getStores());
+        System.out.println(stores);
 
-            	store.purchase = new HashMap<>();
-            	store.purchase.put((long)1,new StorePurchase(1,1,1));
-            	store.purchase.put((long)2,new StorePurchase(2,2,3));
 
-            	store.shipment = new HashMap<>();
-            	store.shipment.put((long)1,new Shipment(1,store.getName(),new Date(2017,9,19)));
-                store.shipment.put((long)2,new Shipment(2,store.getName(),new Date(2018,4,1)));
 
-            }
-            store_table.setItems(stores);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        // End test code
     }
 
     /**
