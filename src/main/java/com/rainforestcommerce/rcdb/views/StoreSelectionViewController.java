@@ -1,7 +1,5 @@
 package com.rainforestcommerce.rcdb.views;
-import com.rainforestcommerce.rcdb.models.Product;
-import com.rainforestcommerce.rcdb.models.ProductQuantityPrice;
-import com.rainforestcommerce.rcdb.models.Store;
+import com.rainforestcommerce.rcdb.models.*;
 import com.rainforestcommerce.rcdb.views.ActivityManager.Activity;
 
 import javafx.collections.FXCollections;
@@ -18,6 +16,7 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 
 /**
@@ -97,6 +96,15 @@ public class StoreSelectionViewController {
             	store.inventory = new HashMap<>();
             	store.inventory.put((long)1, new ProductQuantityPrice(12, 14, new Product((long)1, "Beans", "Large", "Happy Legumes Co")));
             	store.inventory.put((long)2, new ProductQuantityPrice(5, 14, new Product((long)2, "Rice", "Single Grain", "Rice Is Nice Inc")));
+
+            	store.purchase = new HashMap<>();
+            	store.purchase.put((long)1,new StorePurchase(1,1,1));
+            	store.purchase.put((long)2,new StorePurchase(2,2,3));
+
+            	store.shipment = new HashMap<>();
+            	store.shipment.put((long)1,new Shipment(1,store.getName(),new Date(2017,9,19),"Graham",3000,new Date(2017,10,1)));
+                store.shipment.put((long)2,new Shipment(2,store.getName(),new Date(2018,4,1),"Abdul",1500,new Date(2018,4,5)));
+
             }
             store_table.setItems(stores);
         } catch (ParseException e) {

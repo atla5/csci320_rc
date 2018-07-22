@@ -15,6 +15,10 @@ public class Store {
     private Date closingTime;
     private Address address;
     public HashMap<Long, ProductQuantityPrice> inventory;
+    public HashMap<Long, StorePurchase> purchase;
+    public HashMap<Long, Shipment> shipment;
+
+
 
     public Store(List<String> data) throws ParseException{
         this.storeId = Long.parseLong(data.get(0));
