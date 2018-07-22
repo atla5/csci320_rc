@@ -21,13 +21,13 @@ public class Store {
         this.closingTime = stf.parse(data.get(3));
         String city = data.get(4);
         String state = data.get(5);
-        String zip = data.get(5);
+        int zip = Integer.parseInt(data.get(5));
         String street = data.get(6);
-        String number = data.get(7);
+        int number = Integer.parseInt(data.get(7));
         this.address = new Address(number, street, city, state, zip);
     }
 
-    public Store(Long storeId, String name, Date openingTime, Date closingTime, String city, String state, String zip, String street, String number) {
+    public Store(Long storeId, String name, Date openingTime, Date closingTime, String city, String state, int zip, String street, int number) {
         this.storeId = storeId;
         this.name = name;
         this.openingTime = openingTime;

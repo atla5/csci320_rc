@@ -20,31 +20,31 @@ public class StoreProxy {
 
     private static final Logger LOGGER = Logger.getLogger( StoreProxy.class.getName() );
 
-	public static ArrayList<Store> getStores(){
-        ArrayList<Store> stores = null;
-	    try{
-		    Connection conn = ConnectionProxy.connect();
-		    String statement = "SELECT * FROM Store";
-		    ResultSet rs = conn.createStatement().executeQuery(statement);
-		    while(rs.next()){
-		    	stores.add(new Store(
-					rs.getLong("store_id"),
-					rs.getString("store_name"),
-					rs.getDate("opening_time"),
-					rs.getDate("closing_time"),
-					rs.getString("addr_city"),
-					rs.getString("addr_state"),
-					rs.getString("addr_street"),
-					rs.getString("addr_zipcode"),
-					rs.getString("addr_number")
-	    		));
-	    	}
-	    	conn.close();
-        } catch(SQLException ex){
+    public static ArrayList<Store> getStores(){
+        ArrayList<Store> stores = new ArrayList<>();
+         try{
+             Connection conn = ConnectionProxy.connect();
+             String statement = "SELECT * FROM Store";
+             ResultSet rs = conn.createStatement().executeQuery(statement);
+             while(rs.next()){
+                 stores.add(new Store(
+                     rs.getLong("store_id"),
+                     rs.getString("store_name"),
+                     rs.getTime("opening_time"),
+                     rs.getTime("closing_time"),
+                     rs.getString("addr_city"),
+                     rs.getString("addr_state"),
+                     rs.getInt("addr_zipcode"),
+                     rs.getString("addr_street"),
+                     rs.getInt("addr_num")
+                 ));
+             }
+             conn.close();
+        } catch(Exception ex){
             LOGGER.log( Level.SEVERE, ex.toString(), ex );
         }
         return stores;
-	}
+     }
 
 	public static ArrayList<StorePurchase> getPurchasesForStore(Store store){
         ArrayList<StorePurchase> purchases = null;
@@ -145,4 +145,17 @@ public class StoreProxy {
 		String values = String.format("(%s, %s, %f, %d)", store.getStoreId(), product.getUpcCode(), unitPrice, quantity);
 		return insertValuesIntoTable(values, "store_inventory");
 	}
+	
+	 public static void createStores() {
+	       try{
+	           Connection conn = ConnectionProxy.connect();
+	           String statement = "CREATE TABLE Store ( store_id long, store_name varchar(255) NOT NULL, opening_time TIME, closing_time TIME, addr_num int, addr_street varchar(255), addr_city varchar(255), addr_state varchar(255), addr_zipcode int )";
+	           conn.createStatement().execute(statement);
+	           String statement2 = "INSERT INTO Store (store_id, store_name, opening_time, closing_time, addr_num, addr_street, addr_state, addr_city, addr_zipcode) VALUES (12, 'applesauce', '10:34:09', '09:43:08', 96, 'average drive', 'Texas', 'Austin', 98765)";
+	           conn.createStatement().execute(statement2);
+	           conn.close();
+	       } catch(Exception ex){
+	           LOGGER.log( Level.SEVERE, ex.toString(), ex );
+	       }
+	   }
 }

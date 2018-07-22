@@ -4,11 +4,11 @@ public class Address {
 
     private String city;
     private String state;
-    private String zipcode;
+    private int zipcode;
     private String street;
-    private String number;
+    private int number;
 
-    public Address(String number, String street, String city, String state, String zipcode){
+    public Address(int number, String street, String city, String state, int zipcode){
         this.number = number;
         this.street = street;
         this.city = city;
