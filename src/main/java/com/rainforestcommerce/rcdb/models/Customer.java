@@ -25,10 +25,16 @@ public class Customer {
         this.phone = (data.get(5)).replaceAll("\\D+","");
     }
 
-    public Customer(long accountNumber, String customerName, Date birthDate, boolean isMale, String phone){
+    public Customer(long accountNumber, String customerName, String birthDate, boolean isMale, String phone){
         this.accountNumber = accountNumber;
         this.customerName = customerName;
-        this.birthDate = birthDate;
+        //this.birthDate = birthDate;
+        try {
+            this.birthDate = sdf.parse(birthDate);
+        } catch(ParseException pe){
+            pe.printStackTrace();
+            System.exit(1);
+        }
         this.isMale = isMale;
         this.phone = phone;
     }
