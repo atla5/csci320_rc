@@ -3,6 +3,8 @@ package com.rainforestcommerce.rcdb.controllers;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -13,15 +15,18 @@ import java.util.Random;
 public class DataLoader {
     public static String GENERIC_INSERT_STATEMENT = "INSERT into %s VALUES %s;";
 
-    private static String dataDirectory = "/Users/aidan/projects/school/csci-320/src/main/resources/sample_data";
+    private static String dataDirectory = "/src/main/resources/sample_data";
     private static boolean RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION = false;
 
     public static void main(String[] args){
-        loadProducts();
-        loadCustomers();
-        loadStores();
-        loadInventory();
-        loadPurchases(); // store and product purchases
+        //reset the data directory to update `dataDirectory` to its absolute path
+        dataDirectory = Paths.get("").toAbsolutePath().toString()+dataDirectory;
+//        loadProducts();
+//        loadCustomers();
+//        loadStores();
+//        loadInventory();
+//        loadPurchases(); // store and product purchases
+        System.out.println(dataDirectory);
         System.exit(0);
     }
 
