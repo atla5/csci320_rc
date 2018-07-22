@@ -3,9 +3,7 @@ package com.rainforestcommerce.rcdb.controllers;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -184,5 +182,18 @@ public class DataLoader {
         } catch(Exception ex){
             LOGGER.log( Level.SEVERE, ex.toString(), ex );
         }
+    }
+
+    public static boolean notExisting(){
+        boolean result = true;
+        try{
+            Connection conn = ConnectionProxy.connect();
+            ResultSet rs = conn.getMetaData().getTables(null, null, "Products", null);
+            result = !rs.next();
+            conn.close();
+        } catch(Exception ex){
+            LOGGER.log( Level.SEVERE, ex.toString(), ex );
+        }
+        return result;
     }
 }
