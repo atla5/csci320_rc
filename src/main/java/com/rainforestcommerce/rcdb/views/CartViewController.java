@@ -79,11 +79,8 @@ public class CartViewController {
  			}
  		);
  		
- 		float totalCost = 0;
- 		for (ProductQuantityPrice product : SessionData.shoppingCart.products.values()) {
- 			totalCost += product.getOverallPrice();
- 		}
- 		total.setText("$" + String.valueOf(totalCost));
+ 	
+ 		total.setText("$" + String.valueOf(SessionData.shoppingCart.getCost()));
  	}
 	
 	 private Integer getQuantity() {

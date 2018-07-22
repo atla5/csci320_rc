@@ -5,10 +5,6 @@ import java.text.ParseException;
 import java.util.Arrays;
 import java.util.Date;
 
-import org.h2.result.Row;
-import org.h2.result.RowFactory;
-import org.h2.value.Value;
-
 import com.rainforestcommerce.rcdb.controllers.CustomerProxy;
 import com.rainforestcommerce.rcdb.models.Customer;
 import com.rainforestcommerce.rcdb.views.ActivityManager.Activity;
@@ -78,7 +74,7 @@ public class CustomerViewController {
 			}
 		);
 		
-		customer_table.setItems(FXCollections.observableArrayList(CustomerProxy.getCustomers()));
+		//customer_table.setItems(FXCollections.observableArrayList(CustomerProxy.getCustomers()));
 		
 		// TEST CODE - remove when DB access is implemented
 		try {

@@ -89,8 +89,8 @@ public class StoreSelectionViewController {
         // TEST CODE - remove when DB access is implemented
         try {
             ObservableList<Store> stores = FXCollections.observableArrayList(
-                    new Store(Arrays.asList(new String[] {"1", "Happy Foods Store", "8:00", "23:59", null, null, null, null, null} )),
-                    new Store(Arrays.asList(new String[] {"2", "Diabetes 'R Us", "8:00", "23:59", null, null, null, null, null} ))
+                    new Store(Arrays.asList(new String[] {"1", "Happy Foods Store", "8:00", "23:59", null, "1", null, "2", null} )),
+                    new Store(Arrays.asList(new String[] {"2", "Diabetes 'R Us", "8:00", "23:59", null, "2", null, "1", null} ))
             );
             for (Store store : stores) {
             	store.inventory = new HashMap<>();
@@ -102,8 +102,8 @@ public class StoreSelectionViewController {
             	store.purchase.put((long)2,new StorePurchase(2,2,3));
 
             	store.shipment = new HashMap<>();
-            	//store.shipment.put((long)1,new Shipment(1,store.getName(),new Date(2017,9,19),"Graham",3000,new Date(2017,10,1)));
-                //store.shipment.put((long)2,new Shipment(2,store.getName(),new Date(2018,4,1),"Abdul",1500,new Date(2018,4,5)));
+            	store.shipment.put((long)1,new Shipment(1,store.getName(),new Date(2017,9,19)));
+                store.shipment.put((long)2,new Shipment(2,store.getName(),new Date(2018,4,1)));
 
             }
             store_table.setItems(stores);
