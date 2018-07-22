@@ -126,10 +126,10 @@ public class DataLoader {
             String storeId = data[3];
             int customerId = random.nextInt(150); //TODO: resolve errors in sample data
             String productId = "" + random.nextInt(150); //TODO: resolve errors in sample data
-            boolean online = data[5].equalsIgnoreCase("true");
+            boolean online_store = data[5].equalsIgnoreCase("true");
             int quantity = random.nextInt(8); //TODO: resolve errors in sample data
 
-            values = String.format("(%s, %s, %s, '%s', %b)", purchaseId, storeId, customerId, datePurchased, online);
+            values = String.format("(%s, %s, %s, '%s', %b)", purchaseId, storeId, customerId, datePurchased, online_store);
             insertValuesIntoTable(values, "store_purchases");
             values = String.format("(%s, %s, %d)", purchaseId, productId, quantity);
             insertValuesIntoTable(values, "product_purchases");
