@@ -10,11 +10,18 @@ public class Shipment {
     Integer id;
     String store;
     Date requestDate;
+    Date arrivalDate;
+    Integer cost;
+    String vendorName;
 
-    public Shipment(Integer ID, String store, Date requestDate){
+    public Shipment(Integer ID, String store, Date requestDate, String vendorName, Integer cost, Date arrivalDate){
         this.id = ID;
         this.store = store;
         this.requestDate = requestDate;
+        this.vendorName = vendorName;
+        this.cost = cost;
+        this.arrivalDate = arrivalDate;
+
     }
 
     public Integer getID() {
@@ -27,5 +34,19 @@ public class Shipment {
 
     public Date getRequestDate() {
         return requestDate;
+    }
+
+    public void setArrivalDate(Date arrivalDate){
+        this.arrivalDate = arrivalDate;
+    }
+
+    public Date getArrivalDate() {return arrivalDate;}
+
+    public Integer getCost() {
+        return cost;
+    }
+
+    public String getVendorName(){
+        return vendorName;
     }
 }

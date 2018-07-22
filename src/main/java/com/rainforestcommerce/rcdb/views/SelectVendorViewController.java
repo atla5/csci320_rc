@@ -9,6 +9,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.util.Date;
@@ -73,8 +74,9 @@ public class SelectVendorViewController {
 
             for (Vendor vendor: vendors){
                 vendor.shipments= new HashMap<>();
-                vendor.shipments.put(1, new Shipment(1,"Store 1", new Date(2018,7,7)));
-                vendor.shipments.put(2, new Shipment(2, "Store 2", new Date(2018,4,3)));
+                vendor.shipments.put(1,new Shipment(1,"store 1",new Date(2017,9,19),"Graham",3000,new Date(2017,10,1)));
+                vendor.shipments.put(2,new Shipment(2,"store 2",new Date(2018,4,1),"Abdul",1500,new Date(2018,4,5)));
+
             }
             vendor_table.setItems(vendors);
 
@@ -88,5 +90,9 @@ public class SelectVendorViewController {
     public static VBox getView() {
         return view;
     }
+
+
+    @FXML
+    protected void handleLogoutButtonClicked(MouseEvent event){ActivityManager.start(ActivityManager.Activity.START_SCREEN);}
 
 }

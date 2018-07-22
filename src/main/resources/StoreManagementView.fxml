@@ -27,19 +27,19 @@
         <tabs>
           <Tab text="Shipments">
                <content>
-                  <TableView fx:id="product_table1" prefHeight="508.0" prefWidth="600.0">
+                  <TableView fx:id="shipment_table" prefHeight="508.0" prefWidth="600.0">
                      <columns>
-                        <TableColumn id="product" editable="false" minWidth="150.0" prefWidth="150.0" text="Shipment ID" />
-                        <TableColumn id="product" editable="false" minWidth="150.0" prefWidth="150.0" text="Vendor" />
-                        <TableColumn id="size" minWidth="150.0" prefWidth="150.0" text="Arrival Date" />
-                        <TableColumn id="brand" minWidth="148.0" prefWidth="148.0" text="Price" />
+                        <TableColumn id="shipment_id" editable="false" minWidth="150.0" prefWidth="150.0" text="Shipment ID" />
+                        <TableColumn id="vendor_name" editable="false" minWidth="150.0" prefWidth="150.0" text="Vendor" />
+                        <TableColumn id="arrival_date" minWidth="150.0" prefWidth="150.0" text="Arrival Date" />
+                        <TableColumn id="price" minWidth="148.0" prefWidth="148.0" text="Price" />
                      </columns>
                   </TableView>
                </content>
           </Tab>
           <Tab text="Purchases">
                <content>
-                  <TableView fx:id="product_table11" prefHeight="508.0" prefWidth="600.0">
+                  <TableView fx:id="purchase_table" prefHeight="508.0" prefWidth="600.0">
                      <columns>
                         <TableColumn id="product" editable="false" minWidth="200.0" prefWidth="200.0" text="Purchase" />
                         <TableColumn id="size" minWidth="200.0" prefWidth="200.0" text="Customer" />
