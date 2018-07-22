@@ -87,12 +87,7 @@ public class StoreSelectionViewController {
                 }
         );
 
-        // TEST CODE - remove when DB access is implemented
-        ObservableList<Store> stores = FXCollections.observableArrayList(StoreProxy.getStores());
-        System.out.println(stores);
-
-
-
+        store_table.setItems(FXCollections.observableArrayList(StoreProxy.getStores()));
     }
 
     /**
