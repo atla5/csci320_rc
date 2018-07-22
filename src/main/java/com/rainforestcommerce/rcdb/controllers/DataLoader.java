@@ -11,9 +11,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.logging.Logger;
 
 public class DataLoader {
     public static String GENERIC_INSERT_STATEMENT = "INSERT into %s VALUES %s;";
+    private static final Logger LOGGER = Logger.getLogger( DataLoader.class.getName() );
 
     private static String dataDirectory = "/src/main/resources/sample_data";
     private static boolean RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION = false;
@@ -26,13 +28,12 @@ public class DataLoader {
 //        loadStores();
 //        loadInventory();
 //        loadPurchases(); // store and product purchases
-        System.out.println(dataDirectory);
         System.exit(0);
     }
 
     public static boolean insertValuesIntoTable(String values, String tableName){
         String insertCommand = String.format(GENERIC_INSERT_STATEMENT, tableName, values);
-        System.out.println(insertCommand);
+        LOGGER.info(insertCommand);
         try{
             if(!RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION){ return false; }
             Connection conn = ConnectionProxy.connect();
@@ -41,7 +42,7 @@ public class DataLoader {
             return true;
         }catch(SQLException sqle){
             String firstValue = values.substring(1, values.indexOf(','));
-            System.err.println(String.format("Exception loading new item '%s' into table '%s'", firstValue, tableName));
+            LOGGER.severe(String.format("Exception loading new item '%s' into table '%s'", firstValue, tableName));
             sqle.printStackTrace();
             return false;
         }
@@ -148,7 +149,7 @@ public class DataLoader {
                 toReturn.add(sanitizeStringForSql(line).split(","));
             }
         }catch(Exception exception){
-            System.err.println(String.format("Error reading filename %s", filename));
+            LOGGER.severe(String.format("Error reading filename %s", filename));
             exception.printStackTrace();
         }finally{
             try {
