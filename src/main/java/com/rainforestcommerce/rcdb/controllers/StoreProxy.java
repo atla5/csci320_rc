@@ -28,8 +28,10 @@ public class StoreProxy {
                  stores.add(new Store(
                      rs.getLong("store_id"),
                      rs.getString("store_name"),
-                     rs.getTime("opening_time"),
-                     rs.getTime("closing_time"),
+                     //rs.getTime("opening_time"),
+                     //rs.getTime("closing_time"),
+                     rs.getString("opening_time"),
+                     rs.getString("closing_time"),
                      rs.getString("addr_city"),
                      rs.getString("addr_state"),
                      rs.getInt("addr_zipcode"),
