@@ -15,8 +15,6 @@ public class StorePurchase {
     private long accountNumber;
     private boolean online;
     public HashMap<Long, ProductQuantityPrice> products;
-    public int cost = 300;
-    //encapsulation needs to be changed. Set as public for display purposes.
 
     public StorePurchase(long purchaseId, long storeId, long accountNumber){
         this.purchaseId = purchaseId;
@@ -59,8 +57,12 @@ public class StorePurchase {
         return accountNumber;
     }
 
-    public int getCost() {
-        return cost;
+    public float getCost() {
+        float total = 0;
+        for (ProductQuantityPrice item : products.values()) {
+        	total += item.getOverallPrice();
+        }
+        return total;
     }
 
     public boolean isOnline() {
