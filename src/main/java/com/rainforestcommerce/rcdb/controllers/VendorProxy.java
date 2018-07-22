@@ -1,8 +1,8 @@
-/*package com.rainforestcommerce.rcdb.controllers;
+package com.rainforestcommerce.rcdb.controllers;
 
 import com.rainforestcommerce.rcdb.models.Vendor;
 
-import com.rainforestcommerce.rcdb.models.ShipmentRequest;
+import com.rainforestcommerce.rcdb.models.Shipment;
 
 import java.util.ArrayList;
 
@@ -15,17 +15,15 @@ public class VendorProxy {
 	private static final Logger LOGGER = Logger.getLogger( VendorProxy.class.getName() );
 
 	public static ArrayList<Vendor> getVendors(){
-        ArrayList<Vendor> vendors = null;
+        ArrayList<Vendor> vendors = new ArrayList<Vendor>();
 	    try {
             Connection conn = ConnectionProxy.connect();
-            String statement = "SELECT * FROM Vendors";
+            String statement = "SELECT * FROM Vendor";
             ResultSet rs = conn.createStatement().executeQuery(statement);
             while (rs.next()) {
                 vendors.add(new Vendor(
-                        rs.getLong("storeId"),
-                        rs.getString("name"),
-                        rs.getDate("openingTime"),
-                        rs.getDate("closingTime")
+                        rs.getLong("vendor_id"),
+                        rs.getString("vendor_name")
                 ));
             }
             conn.close();
@@ -35,19 +33,18 @@ public class VendorProxy {
         return vendors;
 	}
 
-	public static ArrayList<ShipmentRequest> getShipmentsForVendor(Vendor vendor){
-        ArrayList<ShipmentRequest> shipments = null;
+	public static ArrayList<Shipment> getShipmentsForVendor(Vendor vendor){
+        ArrayList<Shipment> shipments = new ArrayList<Shipment>();
 	    try {
             Connection conn = ConnectionProxy.connect();
-            PreparedStatement statement = conn.prepareStatement("SELECT * FROM ShipmentRequest WHERE vendorID = ?");
-            statement.setString(1, vendor.getID());
+            PreparedStatement statement = conn.prepareStatement("SELECT * FROM Shipments INNER JOIN Store ON Shipments.store_id = Store.store_id WHERE vendor_id = ?");
+            statement.setString(1, Long.toString(vendor.getId()));
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                shipments.add(new ShipmentRequest(
-                        rs.getLong("upcCode"),
-                        rs.getString("productName"),
-                        rs.getInt("weight"),
-                        rs.getString("brand")
+                shipments.add(new Shipment(
+                        rs.getInt("shipment_id"),
+                        rs.getString("store_name"),
+                        rs.getDate("order_date")
                 ));
             }
             conn.close();
@@ -56,4 +53,9 @@ public class VendorProxy {
         }
         return shipments;
 	}
-}*/
+
+    public static boolean insertNewVendor(Vendor vendor){
+        String values = String.format("(%d, '%s')", vendor.getId(), vendor.getName());
+        return DataLoader.insertValuesIntoTable(values, "Vendor");
+    }
+}

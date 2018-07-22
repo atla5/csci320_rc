@@ -102,8 +102,8 @@ public class StoreSelectionViewController {
             	store.purchase.put((long)2,new StorePurchase(2,2,3));
 
             	store.shipment = new HashMap<>();
-            	store.shipment.put((long)1,new Shipment(1,store.getName(),new Date(2017,9,19),"Graham",3000,new Date(2017,10,1)));
-                store.shipment.put((long)2,new Shipment(2,store.getName(),new Date(2018,4,1),"Abdul",1500,new Date(2018,4,5)));
+            	//store.shipment.put((long)1,new Shipment(1,store.getName(),new Date(2017,9,19),"Graham",3000,new Date(2017,10,1)));
+                //store.shipment.put((long)2,new Shipment(2,store.getName(),new Date(2018,4,1),"Abdul",1500,new Date(2018,4,5)));
 
             }
             store_table.setItems(stores);

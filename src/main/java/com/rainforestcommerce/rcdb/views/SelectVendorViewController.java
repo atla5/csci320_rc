@@ -72,12 +72,12 @@ public class SelectVendorViewController {
                     new Vendor(2,"Graham")
             );
 
-            for (Vendor vendor: vendors){
+            /*for (Vendor vendor: vendors){
                 vendor.shipments= new HashMap<>();
                 vendor.shipments.put(1,new Shipment(1,"store 1",new Date(2017,9,19),"Graham",3000,new Date(2017,10,1)));
                 vendor.shipments.put(2,new Shipment(2,"store 2",new Date(2018,4,1),"Abdul",1500,new Date(2018,4,5)));
 
-            }
+            }*/
             vendor_table.setItems(vendors);
 
         // End test code

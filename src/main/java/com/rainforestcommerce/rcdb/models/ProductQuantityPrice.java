@@ -14,7 +14,7 @@ public class ProductQuantityPrice extends Product {
     private int quantity;
 
 
-    public ProductQuantityPrice(long purchaseId, long productId, int unit_price, int quantity, Product product){
+    public ProductQuantityPrice(long purchaseId, int unit_price, int quantity, Product product){
         super(product.upcCode, product.productName, product.size, product.brand);
     	this.purchaseId = purchaseId;
         this.unit_price = unit_price;
@@ -23,7 +23,7 @@ public class ProductQuantityPrice extends Product {
     
     /**
      * Used to create a ProductPurchase from the View.
-     * @param productId
+     * @param product
      * @param unit_price
      * @param quantity
      */
