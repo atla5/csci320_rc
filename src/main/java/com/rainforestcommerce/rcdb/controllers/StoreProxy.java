@@ -1,12 +1,6 @@
 package com.rainforestcommerce.rcdb.controllers;
 
-import com.rainforestcommerce.rcdb.models.Shipment;
-
-import com.rainforestcommerce.rcdb.models.StorePurchase;
-
-import com.rainforestcommerce.rcdb.models.Product;
-
-import com.rainforestcommerce.rcdb.models.Store;
+import com.rainforestcommerce.rcdb.models.*;
 
 import java.util.ArrayList;
 
@@ -22,22 +16,31 @@ public class StoreProxy {
         ArrayList<Store> stores = new ArrayList<Store>();
          try{
              Connection conn = ConnectionProxy.connect();
-             String statement = "SELECT * FROM Stores";
+             String statement = "SELECT * FROM Stores INNER JOIN Store_inventory ON Store.store_id = Store_inventory.store_id INNER JOIN Product ON Product.upc_code = Store_inventory.product_id";
              ResultSet rs = conn.createStatement().executeQuery(statement);
+             Store placeholder = null;
              while(rs.next()){
-                 stores.add(new Store(
-                     rs.getLong("store_id"),
-                     rs.getString("store_name"),
-                     //rs.getTime("opening_time"),
-                     //rs.getTime("closing_time"),
-                     rs.getString("opening_time"),
-                     rs.getString("closing_time"),
-                     rs.getString("addr_city"),
-                     rs.getString("addr_state"),
-                     rs.getInt("addr_zipcode"),
-                     rs.getString("addr_street"),
-                     rs.getInt("addr_num")
-                 ));
+                 if(placeholder != null && placeholder.getStoreId() != rs.getLong("store_id")){
+                     stores.add(placeholder);
+                     placeholder = null;
+                 }
+                 if(placeholder == null){
+                     placeholder = new Store(
+                             rs.getLong("store_id"),
+                             rs.getString("store_name"),
+                             //rs.getTime("opening_time"),
+                             //rs.getTime("closing_time"),
+                             rs.getString("opening_time"),
+                             rs.getString("closing_time"),
+                             rs.getString("addr_city"),
+                             rs.getString("addr_state"),
+                             rs.getInt("addr_zipcode"),
+                             rs.getString("addr_street"),
+                             rs.getInt("addr_num")
+                     );
+                 }
+                 ProductQuantityPrice pqp = new ProductQuantityPrice(rs.getLong("unit_price"), rs.getInt("quantity"), new Product(rs.getLong("product_id"), rs.getString("product_name"), rs.getString("weight"), rs.getString("brand_name")));
+                 placeholder.inventory.put(pqp.getUpcCode(), pqp);
              }
              conn.close();
         } catch(Exception ex){
@@ -71,7 +74,7 @@ public class StoreProxy {
         ArrayList<Shipment> shipments = new ArrayList<Shipment>();
 	    try {
             Connection conn = ConnectionProxy.connect();
-            PreparedStatement statement = conn.prepareStatement("SELECT * FROM Shipment INNER JOIN Stores ON Shipments.store_id = Store.store_id WHERE store_id = ?");
+            PreparedStatement statement = conn.prepareStatement("SELECT * FROM Shipment INNER JOIN Stores ON Shipments.store_id = Stores.store_id WHERE store_id = ?");
             statement.setString(1, Long.toString(store.getStoreId()));
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
