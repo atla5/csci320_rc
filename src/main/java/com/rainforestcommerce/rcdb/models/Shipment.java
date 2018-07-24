@@ -1,11 +1,14 @@
 package com.rainforestcommerce.rcdb.models;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
  * Created by aaa10 on 7/15/2018.
  */
 public class Shipment {
+    private static SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 
     long id;
     String store;
@@ -14,10 +17,14 @@ public class Shipment {
     Integer cost;
     String vendorName;
 
-    public Shipment(long ID, String store, Date requestDate){
+    public Shipment(long ID, String store, String requestDate){
         this.id = ID;
         this.store = store;
-        this.requestDate = requestDate;
+        try {
+            this.requestDate = sdf.parse(requestDate);
+        } catch(ParseException pe){
+            System.exit(1);
+        }
         this.vendorName = vendorName;
         this.cost = cost;
         this.arrivalDate = arrivalDate;
