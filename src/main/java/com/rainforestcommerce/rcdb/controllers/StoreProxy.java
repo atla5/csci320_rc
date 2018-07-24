@@ -81,7 +81,7 @@ public class StoreProxy {
                      placeholder3 = new Shipment(
                              rs.getLong("shipment_id"),
                              rs.getString("store_name"),
-                             rs.getDate("order_date")
+                             rs.getString("order_date")
                      );
                  }
                  while(placeholder3 != null && places.get(place) != rs.getLong("store_id")){
@@ -127,7 +127,7 @@ public class StoreProxy {
                 shipments.add(new Shipment(
                         rs.getLong("shipment_id"),
                         rs.getString("store_name"),
-                        rs.getDate("order_date")
+                        rs.getString("order_date")
                 ));
             }
             conn.close();
