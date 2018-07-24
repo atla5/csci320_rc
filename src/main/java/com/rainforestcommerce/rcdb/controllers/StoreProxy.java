@@ -61,7 +61,7 @@ public class StoreProxy {
                              rs.getLong("account_number")
                      );
                  }
-                 while(placeholder2 != null && places.get(place) != rs.getLong("store_id")){
+                 while(placeholder2 != null && place < places.size() && places.get(place) != rs.getLong("store_id")){
                      place++;
                  }
                  ProductQuantityPrice pqp = new ProductQuantityPrice(rs.getLong("purchase_id"), rs.getInt("unit_price"), rs.getInt("quantity"), new Product(rs.getLong("upc_code"), rs.getString("product_name"), rs.getString("weight"), rs.getString("brand_name")));
@@ -87,10 +87,10 @@ public class StoreProxy {
                              rs.getString("order_date")
                      );
                  }
-                 while(placeholder3 != null && places.get(place) != rs.getLong("store_id")){
+                 while(placeholder3 != null && place < places.size() && places.get(place) != rs.getLong("store_id")){
                      place++;
                  }
-                 if(place > places.size()){
+                 if(place >= places.size()){
                      break;
                  }
              }
