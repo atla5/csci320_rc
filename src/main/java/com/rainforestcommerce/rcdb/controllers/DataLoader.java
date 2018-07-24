@@ -28,6 +28,8 @@ public class DataLoader {
 //        loadStores();
 //        loadInventory();
 //        loadPurchases(); // store and product purchases
+//        loadVendors();
+//        loadShipments();
         System.exit(0);
     }
 
@@ -135,6 +137,58 @@ public class DataLoader {
             insertValuesIntoTable(values, "product_purchases");
         }
     }
+
+    private static void loadVendors(){
+        List<String[]> csvData = readCsvIntoListOfStringArrays("Vendor.csv");
+        String values;
+        Random random = new Random();
+        for(String[] data : csvData) {
+            String vendor_id = data[0];
+            String addr_number = data[1];
+            String addr_street = data[2];
+            String addr_city = data[3];
+            String addr_state = data[4];
+            String addr_zipcode = data[5];
+
+            values = String.format("(%s, %s, '%s', '%s', '%s', %s)", vendor_id, addr_number, addr_street, addr_city, addr_state, addr_zipcode);
+            insertValuesIntoTable(values, "vendors");
+
+            // each vendor distributes 10 items
+            int product_id; String unit_price;
+            for(int i=0; i<10; i++){
+                product_id = random.nextInt(151);
+                unit_price = random.nextInt(5) + "." + random.nextInt(99);
+                values = String.format("(%s, %s, %s)", vendor_id, product_id, unit_price);
+                insertValuesIntoTable(values, "vendor_distributions");
+            }
+        }
+    }
+
+    private static void loadShipments(){
+        List<String[]> csvData = readCsvIntoListOfStringArrays("Shipment.csv");
+        String values;
+        Random random = new Random();
+
+        for(String[] data : csvData){
+            String shipment_id = data[0];
+            String store_id = data[1];
+            String vendor_id = data[2];
+            String order_date = data[3]; //TODO change to real date
+            String arrival_date = data[4]; //TODO change to real data
+            values = (String.format("(%s, %s, %s, '%s', '%s')", shipment_id, store_id, vendor_id, order_date, arrival_date));
+            insertValuesIntoTable(values, "shipments");
+
+            // each shipment contains 5 products
+            int product_id, quantity;
+            for(int i=0; i<5; i++) {
+                product_id = random.nextInt(151);
+                quantity = random.nextInt(350);
+                values = (String.format("(%s, %d, %d)", shipment_id, product_id, quantity));
+                insertValuesIntoTable(values, "shipment_contents");
+            }
+        }
+    }
+
 
     private static List<String[]> readCsvIntoListOfStringArrays(String filename){
         List<String[]> toReturn = new ArrayList<>();
