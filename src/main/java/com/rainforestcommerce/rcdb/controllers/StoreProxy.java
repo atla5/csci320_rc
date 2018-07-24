@@ -42,6 +42,17 @@ public class StoreProxy {
                  ProductQuantityPrice pqp = new ProductQuantityPrice(rs.getLong("unit_price"), rs.getInt("quantity"), new Product(rs.getLong("product_id"), rs.getString("product_name"), rs.getString("weight"), rs.getString("brand_name")));
                  placeholder.inventory.put(pqp.getUpcCode(), pqp);
              }
+
+             /*statement = "SELECT * FROM Stores INNER JOIN store_purchases ON Store.store_id = store_purchases.store_id";
+             rs = conn.createStatement().executeQuery(statement);
+             placeholder = null;
+             int place = 0;
+             while(rs.next()){
+                 stores.get(place).purchase.put(sp.getPurchaseId(), sp);
+                 place++;
+                 StorePurchase sp = new StorePurchase(rs.getLong("purchase_id"), rs.getLong("store_id"), rs.getLong("account_number"));
+                 sp.products.put(sp.getPurchaseId(), sp);
+             }*/
              conn.close();
         } catch(Exception ex){
             LOGGER.log( Level.SEVERE, ex.toString(), ex );
