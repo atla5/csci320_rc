@@ -14,9 +14,9 @@ public class Store {
     private Date openingTime;
     private Date closingTime;
     private Address address;
-    public HashMap<Long, ProductQuantityPrice> inventory;
-    public HashMap<Long, StorePurchase> purchase;
-    public HashMap<Long, Shipment> shipment;
+    public HashMap<Long, ProductQuantityPrice> inventory = new HashMap<>();
+    public HashMap<Long, StorePurchase> purchase = new HashMap<>();
+    public HashMap<Long, Shipment> shipment = new HashMap<>();
 
 
 

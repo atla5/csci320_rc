@@ -16,7 +16,7 @@ public class StoreProxy {
         ArrayList<Store> stores = new ArrayList<Store>();
          try{
              Connection conn = ConnectionProxy.connect();
-             String statement = "SELECT * FROM Stores INNER JOIN Store_inventory ON Store.store_id = Store_inventory.store_id INNER JOIN Product ON Product.upc_code = Store_inventory.product_id ORDER BY store_id";
+             String statement = "SELECT * FROM Stores INNER JOIN Store_inventory ON Stores.store_id = Store_inventory.store_id INNER JOIN Products ON Products.upc_code = Store_inventory.product_id ORDER BY store_id";
              ResultSet rs = conn.createStatement().executeQuery(statement);
              ArrayList<Long> places = new ArrayList<Long>();
              Store placeholder = null;
@@ -45,7 +45,7 @@ public class StoreProxy {
                  placeholder.inventory.put(pqp.getUpcCode(), pqp);
              }
 
-             statement = "SELECT * FROM Stores INNER JOIN store_purchases ON Store.store_id = store_purchases.store_id INNER JOIN product_purchase ON product_purchase.purchase_id = store_purchases.purchase_id ORDER BY store_id";
+             statement = "SELECT * FROM Stores INNER JOIN store_purchases ON Stores.store_id = store_purchases.store_id INNER JOIN product_purchases ON product_purchases.purchase_id = store_purchases.purchase_id ORDER BY store_id";
              rs = conn.createStatement().executeQuery(statement);
              StorePurchase placeholder2 = null;
              int place = 0;
@@ -141,7 +141,7 @@ public class StoreProxy {
         ArrayList<Product> products = new ArrayList<Product>();
 	    try {
             Connection conn = ConnectionProxy.connect();
-            PreparedStatement statement = conn.prepareStatement("SELECT * FROM Product INNER JOIN Brand ON Product.brand_id = Brand.brand_id");
+            PreparedStatement statement = conn.prepareStatement("SELECT * FROM Products INNER JOIN Brand ON Products.brand_id = Brand.brand_id");
             //statement.setString(1, Long.toString(store.getStoreId()));
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
