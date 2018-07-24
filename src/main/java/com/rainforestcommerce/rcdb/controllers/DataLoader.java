@@ -35,7 +35,7 @@ public class DataLoader {
 
     public static boolean insertValuesIntoTable(String values, String tableName){
         String insertCommand = String.format(GENERIC_INSERT_STATEMENT, tableName, values);
-        System.out.println(insertCommand);
+        LOGGER.info(insertCommand);
         try{
             if(!RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION){ return false; }
             Connection conn = ConnectionProxy.connect();
