@@ -21,6 +21,12 @@ public class DataLoader {
     private static boolean RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION = false;
 
     public static void main(String[] args){
+        loadData();
+        LOGGER.info(getTableCreationScriptPath());
+        System.exit(0);
+    }
+
+    public static void loadData(){
         //reset the data directory to update `dataDirectory` to its absolute path
         dataDirectory = Paths.get("").toAbsolutePath().toString()+dataDirectory;
 //        loadProducts();
@@ -28,7 +34,6 @@ public class DataLoader {
 //        loadStores();
 //        loadInventory();
 //        loadPurchases(); // store and product purchases
-        System.exit(0);
     }
 
     public static boolean insertValuesIntoTable(String values, String tableName){
@@ -171,5 +176,9 @@ public class DataLoader {
             for (String token : toPrint) { printString += token + "\t"; }
         }
         return printString;
+    }
+
+    public static String getTableCreationScriptPath(){
+        return Paths.get("").toAbsolutePath().toString()+"/src/main/resources/create_tables.sql";
     }
 }
