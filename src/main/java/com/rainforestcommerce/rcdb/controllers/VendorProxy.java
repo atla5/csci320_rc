@@ -18,7 +18,7 @@ public class VendorProxy {
         ArrayList<Vendor> vendors = new ArrayList<Vendor>();
 	    try {
             Connection conn = ConnectionProxy.connect();
-            String statement = "SELECT * FROM Vendor";
+            String statement = "SELECT * FROM Vendors";
             ResultSet rs = conn.createStatement().executeQuery(statement);
             while (rs.next()) {
                 vendors.add(new Vendor(
