@@ -55,10 +55,17 @@ public class PurchaseProxy {
         return products;
 	}
 
+	public static void makePurchase(StorePurchase storePurchase){
+	    insertNewStorePurchase(storePurchase);
+	    for(int i = 0; i < storePurchase.products.size(); i++){
+	        insertNewProductPurchase(storePurchase.products.get(i));
+        }
+    }
+
 	public static boolean insertNewStorePurchase(StorePurchase storePurchase){
         String values = String.format("(%d, %d, %d, '%s', %b)",
                 storePurchase.getPurchaseId(), storePurchase.getStoreId(), storePurchase.getAccountNumber(),
-                storePurchase.getDateOfPurchase(), storePurchase.isOnline());
+                storePurchase.getDateOfPurchase().toString(), storePurchase.isOnline());
         return DataLoader.insertValuesIntoTable(values, "store_purchases");
     }
 
