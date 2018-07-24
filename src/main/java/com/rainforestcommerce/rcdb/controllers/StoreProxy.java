@@ -16,12 +16,14 @@ public class StoreProxy {
         ArrayList<Store> stores = new ArrayList<Store>();
          try{
              Connection conn = ConnectionProxy.connect();
-             String statement = "SELECT * FROM Stores INNER JOIN Store_inventory ON Store.store_id = Store_inventory.store_id INNER JOIN Product ON Product.upc_code = Store_inventory.product_id";
+             String statement = "SELECT * FROM Stores INNER JOIN Store_inventory ON Store.store_id = Store_inventory.store_id INNER JOIN Product ON Product.upc_code = Store_inventory.product_id ORDER BY store_id";
              ResultSet rs = conn.createStatement().executeQuery(statement);
+             ArrayList<Long> places = new ArrayList<Long>();
              Store placeholder = null;
              while(rs.next()){
                  if(placeholder != null && placeholder.getStoreId() != rs.getLong("store_id")){
                      stores.add(placeholder);
+                     places.add(placeholder.getStoreId());
                      placeholder = null;
                  }
                  if(placeholder == null){
@@ -43,16 +45,49 @@ public class StoreProxy {
                  placeholder.inventory.put(pqp.getUpcCode(), pqp);
              }
 
-             /*statement = "SELECT * FROM Stores INNER JOIN store_purchases ON Store.store_id = store_purchases.store_id";
+             statement = "SELECT * FROM Stores INNER JOIN store_purchases ON Store.store_id = store_purchases.store_id INNER JOIN product_purchase ON product_purchase.purchase_id = store_purchases.purchase_id ORDER BY store_id";
              rs = conn.createStatement().executeQuery(statement);
-             placeholder = null;
+             StorePurchase placeholder2 = null;
              int place = 0;
              while(rs.next()){
-                 stores.get(place).purchase.put(sp.getPurchaseId(), sp);
-                 place++;
-                 StorePurchase sp = new StorePurchase(rs.getLong("purchase_id"), rs.getLong("store_id"), rs.getLong("account_number"));
-                 sp.products.put(sp.getPurchaseId(), sp);
-             }*/
+                 if(placeholder2 != null && placeholder2.getStoreId() != rs.getLong("store_id")){
+                     stores.get(place).purchase.put(placeholder2.getPurchaseId(), placeholder2);
+                     placeholder2 = null;
+                 }
+                 if(placeholder2 == null){
+                     placeholder2 = new StorePurchase(
+                             rs.getLong("purchase_id"),
+                             rs.getLong("store_id"),
+                             rs.getLong("account_number")
+                     );
+                 }
+                 while(placeholder2 != null && places.get(place) != rs.getLong("store_id")){
+                     place++;
+                 }
+                 ProductQuantityPrice pqp = new ProductQuantityPrice(rs.getLong("purchase_id"), rs.getInt("unit_price"), rs.getInt("quantity"), new Product(rs.getLong("upc_code"), rs.getString("product_name"), rs.getString("weight"), rs.getString("brand_name")));
+                 placeholder2.products.put(pqp.getPurchaseId(), pqp);
+             }
+
+             statement = "SELECT * FROM Stores INNER JOIN shipments ON Stores.store_id = shipments.store_id ORDER BY store_id";
+             rs = conn.createStatement().executeQuery(statement);
+             Shipment placeholder3 = null;
+             place = 0;
+             while(rs.next()){
+                 if(placeholder3 != null && placeholder3.getID() != rs.getLong("shipment_id")){
+                     stores.get(place).shipment.put(placeholder3.getID(), placeholder3);
+                     placeholder3 = null;
+                 }
+                 if(placeholder3 == null){
+                     placeholder3 = new Shipment(
+                             rs.getLong("shipment_id"),
+                             rs.getString("store_name"),
+                             rs.getDate("order_date")
+                     );
+                 }
+                 while(placeholder3 != null && places.get(place) != rs.getLong("store_id")){
+                     place++;
+                 }
+             }
              conn.close();
         } catch(Exception ex){
             LOGGER.log( Level.SEVERE, ex.toString(), ex );
