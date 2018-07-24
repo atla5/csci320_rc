@@ -66,6 +66,9 @@ public class StoreProxy {
                  }
                  ProductQuantityPrice pqp = new ProductQuantityPrice(rs.getLong("purchase_id"), rs.getInt("unit_price"), rs.getInt("quantity"), new Product(rs.getLong("upc_code"), rs.getString("product_name"), rs.getString("weight"), rs.getString("brand_name")));
                  placeholder2.products.put(pqp.getPurchaseId(), pqp);
+                 if(place > places.size()){
+                     break;
+                 }
              }
 
              statement = "SELECT * FROM Stores INNER JOIN shipments ON Stores.store_id = shipments.store_id ORDER BY store_id";
@@ -86,6 +89,9 @@ public class StoreProxy {
                  }
                  while(placeholder3 != null && places.get(place) != rs.getLong("store_id")){
                      place++;
+                 }
+                 if(place > places.size()){
+                     break;
                  }
              }
              conn.close();
