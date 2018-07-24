@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.omg.CORBA.INITIALIZE;
 
+import com.rainforestcommerce.rcdb.controllers.PurchaseProxy;
 import com.rainforestcommerce.rcdb.models.Product;
 import com.rainforestcommerce.rcdb.models.ProductQuantityPrice;
 import com.rainforestcommerce.rcdb.models.StorePurchase;
@@ -43,6 +44,13 @@ public class CartViewController {
 	protected void handleLogoutButtonPress(MouseEvent event) {
 		ActivityManager.start(Activity.START_SCREEN);
 	}
+	
+	@FXML
+	protected void handleCheckoutButtonPress(MouseEvent event) {
+		PurchaseProxy.insertNewStorePurchase(SessionData.shoppingCart);
+		ActivityManager.start(Activity.STORE_SELECTION);
+	}
+	
 	/**
 	 * Sets up the item table to properly display items.
 	 * This method is called automatically by FXMLLoader.

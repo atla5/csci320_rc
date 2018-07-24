@@ -42,7 +42,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="checkout_btn" alignment="CENTER" mnemonicParsing="false" text="Checkout" />
+                  <Button fx:id="checkout_btn" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#handleCheckoutButtonPress" text="Checkout" />
                </children>
             </HBox>
          </children>
