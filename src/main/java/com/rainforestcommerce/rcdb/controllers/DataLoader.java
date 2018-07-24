@@ -3,18 +3,23 @@ package com.rainforestcommerce.rcdb.controllers;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.logging.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class DataLoader {
 
     private static final Logger LOGGER = Logger.getLogger( StoreProxy.class.getName() );
 
     public static String GENERIC_INSERT_STATEMENT = "INSERT into %s VALUES %s;";
-
     private static String dataDirectory = "./src/main/resources/sample_data";
     private static boolean RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION = false;
 
@@ -30,18 +35,17 @@ public class DataLoader {
 
     public static boolean insertValuesIntoTable(String values, String tableName){
         String insertCommand = String.format(GENERIC_INSERT_STATEMENT, tableName, values);
-        System.out.println(insertCommand);
+        LOGGER.info(insertCommand);
         try{
             if(!RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION){ return false; }
             Connection conn = ConnectionProxy.connect();
             PreparedStatement statement = conn.prepareStatement(insertCommand);
             statement.executeUpdate();
             return true;
-        }catch(SQLException ex){
-            LOGGER.log( Level.SEVERE, ex.toString(), ex );
-            //String firstValue = values.substring(1, values.indexOf(','));
-            //System.err.println(String.format("Exception loading new item '%s' into table '%s'", firstValue, tableName));
-            //sqle.printStackTrace();
+        }catch(SQLException sqle){
+            String firstValue = values.substring(1, values.indexOf(','));
+            LOGGER.severe(String.format("Exception loading new item '%s' into table '%s'", firstValue, tableName));
+            sqle.printStackTrace();
             return false;
         }
     }
@@ -133,6 +137,58 @@ public class DataLoader {
             insertValuesIntoTable(values, "product_purchases");
         }
     }
+
+    private static void loadVendors(){
+        List<String[]> csvData = readCsvIntoListOfStringArrays("Vendor.csv");
+        String values;
+        Random random = new Random();
+        for(String[] data : csvData) {
+            String vendor_id = data[0];
+            String addr_number = data[1];
+            String addr_street = data[2];
+            String addr_city = data[3];
+            String addr_state = data[4];
+            String addr_zipcode = data[5];
+
+            values = String.format("(%s, %s, '%s', '%s', '%s', %s)", vendor_id, addr_number, addr_street, addr_city, addr_state, addr_zipcode);
+            insertValuesIntoTable(values, "vendors");
+
+            // each vendor distributes 10 items
+            int product_id; String unit_price;
+            for(int i=0; i<10; i++){
+                product_id = random.nextInt(151);
+                unit_price = random.nextInt(5) + "." + random.nextInt(99);
+                values = String.format("(%s, %s, %s)", vendor_id, product_id, unit_price);
+                insertValuesIntoTable(values, "vendor_distributions");
+            }
+        }
+    }
+
+    private static void loadShipments(){
+        List<String[]> csvData = readCsvIntoListOfStringArrays("Shipment.csv");
+        String values;
+        Random random = new Random();
+
+        for(String[] data : csvData){
+            String shipment_id = data[0];
+            String store_id = data[1];
+            String vendor_id = data[2];
+            String order_date = data[3]; //TODO change to real date
+            String arrival_date = data[4]; //TODO change to real data
+            values = (String.format("(%s, %s, %s, '%s', '%s')", shipment_id, store_id, vendor_id, order_date, arrival_date));
+            insertValuesIntoTable(values, "shipments");
+
+            // each shipment contains 5 products
+            int product_id, quantity;
+            for(int i=0; i<5; i++) {
+                product_id = random.nextInt(151);
+                quantity = random.nextInt(350);
+                values = (String.format("(%s, %d, %d)", shipment_id, product_id, quantity));
+                insertValuesIntoTable(values, "shipment_contents");
+            }
+        }
+    }
+
 
     private static List<String[]> readCsvIntoListOfStringArrays(String filename){
         List<String[]> toReturn = new ArrayList<>();
