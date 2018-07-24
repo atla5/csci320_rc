@@ -45,7 +45,7 @@ public class StoreProxy {
                  placeholder.inventory.put(pqp.getUpcCode(), pqp);
              }
 
-             statement = "SELECT * FROM Stores INNER JOIN store_purchases ON Stores.store_id = store_purchases.store_id INNER JOIN product_purchases ON product_purchases.purchase_id = store_purchases.purchase_id ORDER BY store_id";
+             statement = "SELECT * FROM Stores INNER JOIN store_purchases ON Stores.store_id = store_purchases.store_id INNER JOIN product_purchases ON product_purchases.purchase_id = store_purchases.purchase_id INNER JOIN store_inventory ON product_purchases.product_id = store_inventory.product_id AND Stores.store_id = store_inventory.store_id ORDER BY store_id";
              rs = conn.createStatement().executeQuery(statement);
              StorePurchase placeholder2 = null;
              int place = 0;
