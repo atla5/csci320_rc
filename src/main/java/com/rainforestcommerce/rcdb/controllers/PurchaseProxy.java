@@ -57,8 +57,8 @@ public class PurchaseProxy {
 
 	public static void makePurchase(StorePurchase storePurchase){
 	    insertNewStorePurchase(storePurchase);
-	    for(int i = 0; i < storePurchase.products.size(); i++){
-	        insertNewProductPurchase(storePurchase.products.get(i));
+        for (ProductQuantityPrice item : storePurchase.products.values()) {
+            insertNewProductPurchase(item);
         }
     }
 
