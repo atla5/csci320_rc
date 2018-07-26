@@ -56,10 +56,21 @@ public class PurchaseProxy {
 	}
 
 	public static void makePurchase(StorePurchase storePurchase){
-	    insertNewStorePurchase(storePurchase);
-        for (ProductQuantityPrice item : storePurchase.products.values()) {
-            insertNewProductPurchase(item);
+        try {
+            Connection conn = ConnectionProxy.connect();
+            for (ProductQuantityPrice item : storePurchase.products.values()) {
+                PreparedStatement statement = conn.prepareStatement("UPDATE store_inventory SET quantity = quantity - ? WHERE store_id = ? AND product_id = ?");
+                statement.setString(1, Long.toString(item.getQuantity()));
+                statement.setString(2, Long.toString(storePurchase.getStoreId()));
+                statement.setString(3, Long.toString(item.getUpcCode()));
+                statement.execute();
+                insertNewProductPurchase(item);
+            }
+            conn.close();
+        } catch(SQLException ex){
+            LOGGER.log( Level.SEVERE, ex.toString(), ex );
         }
+        insertNewStorePurchase(storePurchase);
     }
 
 	public static boolean insertNewStorePurchase(StorePurchase storePurchase){
