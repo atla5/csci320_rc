@@ -27,6 +27,7 @@ public class StorePurchase {
     public StorePurchase(long storeId) {
     	this.storeId = storeId;
     	this.products = new HashMap<>();
+    	this.setDateOfPurchase(new Date());
     }
  
     public void setDateOfPurchase(Date dateOfPurchase) {

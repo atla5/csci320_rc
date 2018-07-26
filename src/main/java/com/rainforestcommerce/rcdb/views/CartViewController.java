@@ -49,7 +49,7 @@ public class CartViewController {
 	
 	@FXML
 	protected void handleCheckoutButtonPress(MouseEvent event) {
-		PurchaseProxy.insertNewStorePurchase(SessionData.shoppingCart);
+		PurchaseProxy.makePurchase(SessionData.shoppingCart);
 		ActivityManager.start(Activity.STORE_SELECTION);
 	}
 	
