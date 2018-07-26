@@ -14,11 +14,13 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
@@ -28,16 +30,6 @@ import javafx.stage.Stage;
 
 
 public class StoreViewController {
-
-    private static VBox view;
-
-    static {
-        try {
-            view = FXMLLoader.load(CustomerViewController.class.getResource("/StoreView.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
     
     @FXML
     private TableView<ProductQuantityPrice> product_table;
@@ -58,7 +50,7 @@ public class StoreViewController {
     public void initialize() {
     	// Populate the product table with the items in the store's inventory
     	product_table.setItems(FXCollections.observableArrayList(SessionData.store.inventory.values()));
-    	// Create the shopping cart if needed
+        // Create the shopping cart if needed
     	if (SessionData.shoppingCart == null) {
 			SessionData.shoppingCart = new StorePurchase(SessionData.store.getStoreId());
 		}
@@ -77,7 +69,7 @@ public class StoreViewController {
  			TableRow<ProductQuantityPrice> row = new TableRow<>();
  			row.setOnMouseClicked(event -> {
  				ProductQuantityPrice selectedProduct = row.getItem();
- 				Integer quantity = getQuantity();
+ 				Integer quantity = getQuantity(selectedProduct);
  				if (quantity != null) {
  					SessionData.shoppingCart.products.put(selectedProduct.getUpcCode(), new ProductQuantityPrice(SessionData.store.inventory.get(selectedProduct.getUpcCode()).getUnitPrice(), quantity, selectedProduct));
  				}
@@ -89,14 +81,23 @@ public class StoreViewController {
  		title.setText(SessionData.store.getName());
     }
     
-    private Integer getQuantity() {
+    private Integer getQuantity(ProductQuantityPrice product) {
     	TextInputDialog dialog = new TextInputDialog();
     	dialog.setTitle("Quantity Selection");
     	dialog.setHeaderText("Please enter the item quantity to purchase");
     	dialog.setContentText("Quantity");
     	Optional<String> result = dialog.showAndWait();
     	try {
-    		return Integer.parseInt(result.orElse(null));
+    		Integer quantity = Integer.parseInt(result.orElse(null));
+    		if ((quantity != null) && quantity > product.getQuantity()) {
+    			Alert warning = new Alert(AlertType.ERROR);
+    			warning.setHeaderText("Woah there!");
+    			warning.setContentText("The maximum number of this product which can be purchased from this store is " + product.getQuantity() + ".");
+    			warning.showAndWait();
+    			return null;
+    		} else {
+    			return quantity;
+    		}
     	} catch (NumberFormatException e) {
     		return null;
     	}
@@ -104,6 +105,11 @@ public class StoreViewController {
 
 
     public static VBox getView() {
-        return view;
+    	try {
+            return FXMLLoader.load(CustomerViewController.class.getResource("/StoreView.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

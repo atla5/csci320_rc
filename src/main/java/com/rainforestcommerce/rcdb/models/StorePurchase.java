@@ -1,5 +1,7 @@
 package com.rainforestcommerce.rcdb.models;
 
+import org.omg.CORBA.PUBLIC_MEMBER;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -68,6 +70,15 @@ public class StorePurchase {
 
     public boolean isOnline() {
         return online;
+    }
+
+    public int getPurchasePoints(){
+        int total = 0;
+        for (ProductQuantityPrice product: products.values()){
+            total+= product.getQuantity();
+        }
+        return total;
+
     }
     
 }

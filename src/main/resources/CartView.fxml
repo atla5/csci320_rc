@@ -38,6 +38,8 @@
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Price" />
                   <Text fx:id="total" strokeType="OUTSIDE" strokeWidth="0.0" text="\$1000000000" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Purchase Points:" />
+                  <Text fx:id="purchase_points" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
