@@ -50,7 +50,7 @@ public class StoreViewController {
     public void initialize() {
     	// Populate the product table with the items in the store's inventory
     	product_table.setItems(FXCollections.observableArrayList(SessionData.store.inventory.values()));
-    	// Create the shopping cart if needed
+        // Create the shopping cart if needed
     	if (SessionData.shoppingCart == null) {
 			SessionData.shoppingCart = new StorePurchase(SessionData.store.getStoreId());
 		}

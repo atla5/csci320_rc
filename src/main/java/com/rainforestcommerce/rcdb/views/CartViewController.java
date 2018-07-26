@@ -36,6 +36,9 @@ public class CartViewController {
 	
 	@FXML
 	private Text total;
+
+	@FXML
+	private Text purchase_points;
 	
 	@FXML
 	protected void handleStoreButtonPress(MouseEvent event) {
@@ -91,6 +94,8 @@ public class CartViewController {
  		
  	
  		total.setText("$" + String.valueOf(SessionData.shoppingCart.getCost()));
+ 		purchase_points.setText(String.valueOf(SessionData.shoppingCart.getPurchasePoints()));
+
  	}
 	
 	 private Integer getQuantity(ProductQuantityPrice product) {
