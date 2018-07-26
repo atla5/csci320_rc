@@ -68,6 +68,7 @@ CREATE TABLE product_purchases (
 
 CREATE TABLE vendors (
   vendor_id LONG PRIMARY KEY,
+  vendor_name VARCHAR(255) NOT NULL,
   addr_num INT,
   addr_street VARCHAR(255),
   addr_city VARCHAR(255),
