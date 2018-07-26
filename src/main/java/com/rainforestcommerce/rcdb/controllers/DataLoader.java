@@ -18,18 +18,21 @@ public class DataLoader {
     private static final Logger LOGGER = Logger.getLogger( DataLoader.class.getName() );
 
     private static String dataDirectory = "/src/main/resources/sample_data";
-    private static boolean RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION = false;
+    private static final boolean RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION = false;
+    private static final boolean RUN_LOADERS_ON_STARTUP = false;
 
     public static void main(String[] args){
         //reset the data directory to update `dataDirectory` to its absolute path
         dataDirectory = Paths.get("").toAbsolutePath().toString()+dataDirectory;
-//        loadProducts();
-//        loadCustomers();
-//        loadStores();
-//        loadInventory();
-//        loadPurchases(); // store and product purchases
-//        loadVendors();
-//        loadShipments();
+        if(RUN_LOADERS_ON_STARTUP) {
+            loadProducts();
+            loadCustomers();
+            loadStores();
+            loadInventory();
+            loadPurchases(); // store and product purchases
+            loadVendors();
+            loadShipments();
+        }
         System.exit(0);
     }
 
