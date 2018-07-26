@@ -144,13 +144,14 @@ public class DataLoader {
         Random random = new Random();
         for(String[] data : csvData) {
             String vendor_id = data[0];
-            String addr_number = data[1];
-            String addr_street = data[2];
-            String addr_city = data[3];
-            String addr_state = data[4];
-            String addr_zipcode = data[5];
+            String vendor_name = data[1];
+            String addr_number = data[2];
+            String addr_street = data[3];
+            String addr_city = data[4];
+            String addr_state = data[5];
+            String addr_zipcode = data[6];
 
-            values = String.format("(%s, %s, '%s', '%s', '%s', %s)", vendor_id, addr_number, addr_street, addr_city, addr_state, addr_zipcode);
+            values = String.format("(%s, '%s', %s, '%s', '%s', '%s', %s)", vendor_id, vendor_name, addr_number, addr_street, addr_city, addr_state, addr_zipcode);
             insertValuesIntoTable(values, "vendors");
 
             // each vendor distributes 10 items
