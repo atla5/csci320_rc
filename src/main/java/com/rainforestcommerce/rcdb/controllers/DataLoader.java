@@ -3,7 +3,6 @@ package com.rainforestcommerce.rcdb.controllers;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,21 +15,30 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DataLoader {
+    private static String GENERIC_INSERT_STATEMENT = "INSERT into %s VALUES %s;";
+    private static final Logger LOGGER = Logger.getLogger( DataLoader.class.getName() );
 
-    private static final Logger LOGGER = Logger.getLogger( StoreProxy.class.getName() );
-
-    public static String GENERIC_INSERT_STATEMENT = "INSERT into %s VALUES %s;";
-    private static String dataDirectory = "./src/main/resources/sample_data";
-    private static boolean RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION = false;
+    private static String DATA_DIRECTORY = "/src/main/resources/sample_data";
+    private static final boolean RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION = false;
+    private static final boolean CREATE_TABLES_ON_LOAD = false;
+    private static final boolean RUN_LOADERS_ON_STARTUP = false;
 
     public static void main(String[] args){
-        createTables();
-        loadProducts();
-        loadCustomers();
-        loadStores();
-        loadInventory();
-        loadPurchases(); // store and product purchases
-        //System.exit(0);
+        //reset the data directory to update `dataDirectory` to its absolute path
+        DATA_DIRECTORY = Paths.get("").toAbsolutePath().toString()+DATA_DIRECTORY;
+        if(RUN_LOADERS_ON_STARTUP) {
+            loadProducts();
+            loadCustomers();
+            loadStores();
+            loadInventory();
+            loadPurchases(); // store and product purchases
+            loadVendors();
+            loadShipments();
+        }
+        if(CREATE_TABLES_ON_LOAD){
+            createTables();
+        }
+        System.exit(0);
     }
 
     public static boolean insertValuesIntoTable(String values, String tableName){
@@ -144,13 +152,14 @@ public class DataLoader {
         Random random = new Random();
         for(String[] data : csvData) {
             String vendor_id = data[0];
-            String addr_number = data[1];
-            String addr_street = data[2];
-            String addr_city = data[3];
-            String addr_state = data[4];
-            String addr_zipcode = data[5];
+            String vendor_name = data[1];
+            String addr_number = data[2];
+            String addr_street = data[3];
+            String addr_city = data[4];
+            String addr_state = data[5];
+            String addr_zipcode = data[6];
 
-            values = String.format("(%s, %s, '%s', '%s', '%s', %s)", vendor_id, addr_number, addr_street, addr_city, addr_state, addr_zipcode);
+            values = String.format("(%s, '%s', %s, '%s', '%s', '%s', %s)", vendor_id, vendor_name, addr_number, addr_street, addr_city, addr_state, addr_zipcode);
             insertValuesIntoTable(values, "vendors");
 
             // each vendor distributes 10 items
@@ -195,7 +204,7 @@ public class DataLoader {
         BufferedReader br = null;
 
         try{
-            br = new BufferedReader(new FileReader(dataDirectory+"/"+filename));
+            br = new BufferedReader(new FileReader(DATA_DIRECTORY+"/"+filename));
             String line; boolean isHeaderLine = true;
             while((line = br.readLine()) != null){
                 if(isHeaderLine){ isHeaderLine = false; continue; }
@@ -203,14 +212,13 @@ public class DataLoader {
                 toReturn.add(sanitizeStringForSql(line).split(","));
             }
         }catch(Exception exception){
-            LOGGER.log( Level.SEVERE, exception.toString(), exception );
-            System.err.println(String.format("Error reading filename %s", filename));
+            LOGGER.severe(String.format("Error reading filename %s", filename));
             exception.printStackTrace();
         }finally{
             try {
                 if (br != null) { br.close(); }
             }catch(IOException ioe){
-                LOGGER.log( Level.SEVERE, ioe.toString(), ioe );
+                LOGGER.severe("IOException reached while reading CSV file " + filename);
                 ioe.printStackTrace();
             }
         }
@@ -232,7 +240,103 @@ public class DataLoader {
     private static void createTables(){
         try{
             Connection conn = ConnectionProxy.connect();
-            String statement = "CREATE TABLE product ( upc_code BIGINT PRIMARY KEY, product_name VARCHAR(255) NOT NULL, weight INT, brand_name VARCHAR(255)); CREATE TABLE stores ( store_id BIGINT PRIMARY KEY, store_name VARCHAR(255) NOT NULL, opening_time TIME, closing_time TIME, addr_num INT, addr_street VARCHAR(255), addr_city VARCHAR(255), addr_state VARCHAR(255), addr_zipcode INT, check(closing_time > opening_time));CREATE TABLE store_inventory(store_id BIGINT, product_id BIGINT, unit_price DECIMAL(15,2), quantity INT PRIMARY KEY (store_id, product_id), FOREIGN KEY (store_id) REFERENCES stores(store_id), FOREIGN KEY (product_id) REFERENCES products(upc_code), check(unit_price >= 0), check(quantity >= 0)); CREATE TABLE customers (account_number BIGINT PRIMARY KEY, cust_name VARCHAR(100), birth_date DATETIME, male BOOLEAN, ethnicity VARCHAR(20), phone_number INT, accumulated_points INT, check(birth_date > 1900), check(birth_date < 2016), check(accumulated_points >= 0), ); CREATE TABLE store_purchases (purchase_id BIGINT PRIMARY KEY, store_id BIGINT, account_number BIGINT, date DATE NOT NULL, total_price DECIMAL(15,2) NOT NULL, online BOOLEAN NOT NULL, FOREIGN KEY (store_id) REFERENCES stores(store_id), FOREIGN KEY (account_number) REFERENCES customers(account_number), check(date <= CURDATE()), check(total_price > 0)); CREATE TABLE product_purchases (purchase_id IDENTITY, product_id IDENTITY, quantity INT(255) NOT NULL, PRIMARY KEY (purchase_id, product_id), FOREIGN KEY (purchase_id) REFERENCES store_purchases(purchase_id), FOREIGN KEY (product_id) REFERENCES (product_id), check(quantity > 0)); CREATE TABLE shipments (shipment_id BIGINT PRIMARY KEY, store_id BIGINT NOT NULL, vendor_id BIGINT NOT NULL, order_date DATE, arrival_date DATE, FOREIGN KEY (store_id) REFERENCES store(store_id), FOREIGN KEY (vendor_id)  REFERENCES vendor(vendor_id), check(arrival_date >= order_date)); CREATE TABLE shipment_contents(shipment_id BIGINT, product_id BIGINT, quantity INT, PRIMARY KEY (shipment_id, product_id)FOREIGN KEY (shipment_id) REFERENCES shipments(shipment_id), FOREIGN KEY (product_id) REFERENCES products(upc_code), check(quantity >=0)); CREATE TABLE vendor(vendor_id BIGINT PRIMARY KEY, vendor_name VARCHAR(255) NOT NULL, addr_num INT, addr_street VARCHAR(255), addr_city VARCHAR(255), addr_state VARCHAR(255), addr_zipcode INT, ); CREATE TABLE vendor_distribution(vendor_id BIGINT, product_id BIGINT, unit_price DECIMAL(15,2), PRIMARY KEY( vendor_id, product_id), FOREIGN KEY (vendor_id) REFERENCES vendors(vendor_id), FOREIGN KEY (product_id) REFERENCES products(upc_code), check(unit_price >= 0));";
+            String statement =
+                "CREATE TABLE product ( " +
+                    "upc_code BIGINT PRIMARY KEY, " +
+                    "product_name VARCHAR(255) NOT NULL, " +
+                    "weight INT, brand_name VARCHAR(255)" +
+                "); " +
+                "CREATE TABLE stores ( " +
+                    "store_id BIGINT PRIMARY KEY," +
+                    "store_name VARCHAR(255) NOT NULL, " +
+                    "opening_time TIME, " +
+                    "closing_time TIME, " +
+                    "addr_num INT, " +
+                    "addr_street VARCHAR(255), " +
+                    "addr_city VARCHAR(255), " +
+                    "addr_state VARCHAR(255), " +
+                    "addr_zipcode INT, " +
+                    "check(closing_time > opening_time)" +
+                ");" +
+                "CREATE TABLE store_inventory(" +
+                    "store_id BIGINT, " +
+                    "product_id BIGINT, " +
+                    "unit_price DECIMAL(15,2), " +
+                    "quantity INT PRIMARY KEY (store_id, product_id), " +
+                    "FOREIGN KEY (store_id) REFERENCES stores(store_id), " +
+                    "FOREIGN KEY (product_id) REFERENCES products(upc_code), " +
+                    "check(unit_price >= 0), check(quantity >= 0)" +
+                "); " +
+                "CREATE TABLE customers (" +
+                    "account_number BIGINT PRIMARY KEY, " +
+                    "cust_name VARCHAR(100), " +
+                    "birth_date DATETIME, " +
+                    "male BOOLEAN, " +
+                    "ethnicity VARCHAR(20), " +
+                    "phone_number INT, " +
+                    "accumulated_points INT, " +
+                    "check(birth_date > 1900), " +
+                    "check(birth_date < 2016), " +
+                    "check(accumulated_points >= 0) " +
+                "); " +
+                "CREATE TABLE store_purchases (" +
+                    "purchase_id BIGINT PRIMARY KEY, " +
+                    "store_id BIGINT, " +
+                    "account_number BIGINT, " +
+                    "date DATE NOT NULL, " +
+                    "total_price DECIMAL(15,2) NOT NULL, " +
+                    "online BOOLEAN NOT NULL, " +
+                    "FOREIGN KEY (store_id) REFERENCES stores(store_id), " +
+                    "FOREIGN KEY (account_number) REFERENCES customers(account_number), " +
+                    "check(date <= CURDATE()), " +
+                    "check(total_price > 0)" +
+                "); " +
+                "CREATE TABLE product_purchases (" +
+                    "purchase_id IDENTITY, " +
+                    "product_id IDENTITY, " +
+                    "quantity INT(255) NOT NULL, " +
+                    "PRIMARY KEY (purchase_id, product_id), " +
+                    "FOREIGN KEY (purchase_id) REFERENCES store_purchases(purchase_id), " +
+                    "FOREIGN KEY (product_id) REFERENCES (product_id), " +
+                    "check(quantity > 0)" +
+                "); " +
+                "CREATE TABLE shipments (" +
+                    "shipment_id BIGINT PRIMARY KEY, " +
+                    "store_id BIGINT NOT NULL, " +
+                    "vendor_id BIGINT NOT NULL, " +
+                    "order_date DATE, " +
+                    "arrival_date DATE, " +
+                    "FOREIGN KEY (store_id) REFERENCES store(store_id), " +
+                    "FOREIGN KEY (vendor_id) REFERENCES vendor(vendor_id), " +
+                    "check(arrival_date >= order_date)" +
+                "); " +
+                "CREATE TABLE shipment_contents(" +
+                    "shipment_id BIGINT, " +
+                    "product_id BIGINT, " +
+                    "quantity INT, " +
+                    "PRIMARY KEY (shipment_id, product_id)," +
+                    "FOREIGN KEY (shipment_id) REFERENCES shipments(shipment_id), " +
+                    "FOREIGN KEY (product_id) REFERENCES products(upc_code), " +
+                    "check(quantity >=0)" +
+                "); " +
+                "CREATE TABLE vendor(" +
+                    "vendor_id BIGINT PRIMARY KEY, " +
+                    "vendor_name VARCHAR(255) NOT NULL, " +
+                    "addr_num INT, " +
+                    "addr_street VARCHAR(255), " +
+                    "addr_city VARCHAR(255), " +
+                    "addr_state VARCHAR(255), " +
+                    "addr_zipcode INT" +
+                "); " +
+                "CREATE TABLE vendor_distribution(" +
+                    "vendor_id BIGINT, " +
+                    "product_id BIGINT, " +
+                    "unit_price DECIMAL(15,2), " +
+                    "PRIMARY KEY(vendor_id, product_id), " +
+                    "FOREIGN KEY (vendor_id) REFERENCES vendors(vendor_id), " +
+                    "FOREIGN KEY (product_id) REFERENCES products(upc_code), " +
+                    "check(unit_price >= 0)" +
+                ");";
             conn.createStatement().execute(statement);
             conn.close();
         } catch(Exception ex){
