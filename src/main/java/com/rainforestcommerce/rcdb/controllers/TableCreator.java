@@ -48,7 +48,8 @@ public class TableCreator {
                     "store_id BIGINT, " +
                     "product_id BIGINT, " +
                     "unit_price DECIMAL(15,2), " +
-                    "quantity INT PRIMARY KEY (store_id, product_id), " +
+                    "quantity INT, " +
+                    "PRIMARY KEY(store_id, product_id), " +
                     "FOREIGN KEY (store_id) REFERENCES stores(store_id), " +
                     "FOREIGN KEY (product_id) REFERENCES products(upc_code), " +
                     "check(unit_price >= 0), check(quantity >= 0)" +
