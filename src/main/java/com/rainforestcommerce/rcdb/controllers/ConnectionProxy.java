@@ -13,7 +13,7 @@ public class ConnectionProxy {
 	private static JdbcConnectionPool cp;
 
 	public static void startConnection(){
-		cp = JdbcConnectionPool.create("jdbc:h2:~/test;AUTO_SERVER=TRUE", "sa", "password");
+		cp = JdbcConnectionPool.create("jdbc:h2:~/test;AUTO_SERVER=TRUE", "sa", "");
 	}
 
 	public static Connection connect(){

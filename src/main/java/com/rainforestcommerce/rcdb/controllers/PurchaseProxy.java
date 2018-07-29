@@ -1,9 +1,8 @@
 package com.rainforestcommerce.rcdb.controllers;
 
 import com.rainforestcommerce.rcdb.models.StorePurchase;
-import com.rainforestcommerce.rcdb.models.ProductPurchase;
+import com.rainforestcommerce.rcdb.models.ProductQuantityPrice;
 import com.rainforestcommerce.rcdb.models.Product;
-import static com.rainforestcommerce.rcdb.controllers.DataLoader.insertValuesIntoTable;
 
 import java.util.ArrayList;
 import java.sql.*;
@@ -14,12 +13,11 @@ public class PurchaseProxy {
 
     private static final Logger LOGGER = Logger.getLogger( PurchaseProxy.class.getName() );
 
-	public static void purchaseProducts(StorePurchase storep, ProductPurchase productp){
-	    insertNewProductPurchase(productp);
+	public static void purchaseProducts(StorePurchase storep){
 	    insertNewStorePurchase(storep);
 	}
 
-	public static boolean purchasable(ProductPurchase purchase){
+	public static boolean purchasable(ProductQuantityPrice purchase){
 	    try {
             Connection conn = ConnectionProxy.connect();
             PreparedStatement statement = conn.prepareStatement("SELECT * FROM Purchase WHERE purchase_id = ?");
@@ -35,18 +33,18 @@ public class PurchaseProxy {
         return true; //Change when we have a store inventory
 	}
 
-	public static ArrayList<Product> getProductsForPurchase(ProductPurchase purchase){
-        ArrayList<Product> products = null;
+	public static ArrayList<Product> getProductsForPurchase(ProductQuantityPrice purchase){
+        ArrayList<Product> products = new ArrayList<Product>();
 	    try {
             Connection conn = ConnectionProxy.connect();
             PreparedStatement statement = conn.prepareStatement("SELECT * FROM Product INNER JOIN Brand ON Product.brand_id = Brand.brand_id WHERE upc_code = ?");
-            statement.setString(1, Long.toString(purchase.getProductId()));
+            statement.setString(1, Long.toString(purchase.getUpcCode()));
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 products.add(new Product(
                         rs.getLong("upc_code"),
                         rs.getString("product_name"),
-                        rs.getInt("weight"),
+                        rs.getString("size"),
                         rs.getString("brand_name")
                 ));
             }
@@ -57,16 +55,34 @@ public class PurchaseProxy {
         return products;
 	}
 
-	public static boolean insertNewStorePurchase(StorePurchase storePurchase){
-        String values = String.format("(%s, %s, %s, '%s', %b)",
-                storePurchase.getPurchaseId(), storePurchase.getStoreId(), storePurchase.getAccountNumber(),
-                storePurchase.getDateOfPurchase(), storePurchase.isOnline());
-        return insertValuesIntoTable(values, "store_purchases");
+	public static void makePurchase(StorePurchase storePurchase){
+        try {
+            Connection conn = ConnectionProxy.connect();
+            for (ProductQuantityPrice item : storePurchase.products.values()) {
+                PreparedStatement statement = conn.prepareStatement("UPDATE store_inventory SET quantity = quantity - ? WHERE store_id = ? AND product_id = ?");
+                statement.setString(1, Long.toString(item.getQuantity()));
+                statement.setString(2, Long.toString(storePurchase.getStoreId()));
+                statement.setString(3, Long.toString(item.getUpcCode()));
+                statement.execute();
+                insertNewProductPurchase(item);
+            }
+            conn.close();
+        } catch(SQLException ex){
+            LOGGER.log( Level.SEVERE, ex.toString(), ex );
+        }
+        insertNewStorePurchase(storePurchase);
     }
 
-    public static boolean insertNewProductPurchase(ProductPurchase productPurchase){
-	    String values = String.format("(%s, %s, %d)", productPurchase.getPurchaseId(), productPurchase.getProductId(), productPurchase.getQuantity());
-        return insertValuesIntoTable(values, "product_purchases");
+	public static boolean insertNewStorePurchase(StorePurchase storePurchase){
+        String values = String.format("(%d, %d, %d, '%s', %b)",
+                storePurchase.getPurchaseId(), storePurchase.getStoreId(), storePurchase.getAccountNumber(),
+                storePurchase.getDateOfPurchase().toString(), storePurchase.isOnline());
+        return DataLoader.insertValuesIntoTable(values, "store_purchases");
+    }
+
+    public static boolean insertNewProductPurchase(ProductQuantityPrice productPurchase){
+	    String values = String.format("(%d, %d, %d)", productPurchase.getPurchaseId(), productPurchase.getUpcCode(), productPurchase.getQuantity());
+        return DataLoader.insertValuesIntoTable(values, "product_purchases");
     }
 
 }
