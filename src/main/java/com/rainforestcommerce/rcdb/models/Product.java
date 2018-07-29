@@ -1,6 +1,5 @@
 package com.rainforestcommerce.rcdb.models;
 
-import java.util.List;
 
 public class Product {
     protected long upcCode;

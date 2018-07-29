@@ -2,6 +2,7 @@ package com.rainforestcommerce.rcdb.controllers;
 
 import com.rainforestcommerce.rcdb.models.StorePurchase;
 import com.rainforestcommerce.rcdb.models.ProductQuantityPrice;
+import com.rainforestcommerce.rcdb.models.Customer;
 import com.rainforestcommerce.rcdb.models.Product;
 
 import java.util.ArrayList;
@@ -15,22 +16,6 @@ public class PurchaseProxy {
 
 	public static void purchaseProducts(StorePurchase storep){
 	    insertNewStorePurchase(storep);
-	}
-
-	public static boolean purchasable(ProductQuantityPrice purchase){
-	    try {
-            Connection conn = ConnectionProxy.connect();
-            PreparedStatement statement = conn.prepareStatement("SELECT * FROM Purchase WHERE purchase_id = ?");
-            statement.setString(1, Long.toString(purchase.getPurchaseId()));
-            ResultSet rs = statement.executeQuery();
-            boolean canPurchase = (rs.getFloat("total_price") > 0);
-            //I'm waiting for a store inventory to check whether the item is purchasable.
-            //This will be based on checking whether each of the products in the purchase are held in the store inventory of the current store.
-            conn.close();
-        } catch(SQLException ex){
-            LOGGER.log( Level.SEVERE, ex.toString(), ex );
-        }
-        return true; //Change when we have a store inventory
 	}
 
 	public static ArrayList<Product> getProductsForPurchase(ProductQuantityPrice purchase){
@@ -103,6 +88,25 @@ public class PurchaseProxy {
 		}
     	long[] count = {0,0};
 		return count;
+    }
+    
+    public static long getPointsForCustomer(Customer customer) {
+    	String command = "select sum(quantity) from (product_purchases inner join store_purchases on product_purchases.purchase_id = store_purchases.purchase_id) where account_number = " + customer.getAccountNumber();
+    	try {
+    		Connection connection = ConnectionProxy.connect();
+    		if (connection != null) {
+    			ResultSet results = connection.prepareStatement(command).executeQuery();
+    			if (results.next()) {
+    				long result = results.getLong("sum(quantity)");
+    				connection.close();
+    				return result;
+    			}
+    		}
+    		connection.close();
+		} catch (SQLException ex) {
+			LOGGER.log( Level.SEVERE, ex.toString(), ex );
+		}
+    	return 0;
     }
 
 }
