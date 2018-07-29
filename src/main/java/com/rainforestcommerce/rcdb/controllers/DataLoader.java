@@ -6,12 +6,10 @@ import java.io.IOException;
 import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static com.rainforestcommerce.rcdb.RcdbApplication.RESOURCES_DIRECTORY;
@@ -19,7 +17,7 @@ import static com.rainforestcommerce.rcdb.RcdbApplication.RESOURCES_DIRECTORY;
 public class DataLoader {
     private static final Logger logger = Logger.getLogger( DataLoader.class.getName() );
 
-    private static final boolean RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION = false;
+    public static boolean RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION = false;
 
     public static void main(String[] args){
         loadData();

@@ -1,5 +1,6 @@
 package com.rainforestcommerce.rcdb;
 
+import com.rainforestcommerce.rcdb.controllers.DataLoader;
 import com.rainforestcommerce.rcdb.controllers.TableCreator;
 import com.rainforestcommerce.rcdb.views.View;
 import com.rainforestcommerce.rcdb.controllers.ConnectionProxy;
@@ -12,14 +13,17 @@ import static com.rainforestcommerce.rcdb.controllers.TableCreator.createTables;
 
 public class RcdbApplication extends View {
 	private static final Logger logger = Logger.getLogger( RcdbApplication.class.getName() );
+	private static final boolean LAUNCH_UI_ON_STARTUP = false;
+
 	public static String RESOURCES_DIRECTORY = "/src/main/resources";
 
-	private static final boolean CREATE_TABLES_ON_STARTUP = false;
-	private static final boolean RUN_LOADERS_ON_STARTUP = false;
-	private static final boolean LAUNCH_UI_ON_STARTUP = false;
-	private static final boolean DROP_ALL_TABLES_ON_CLOSE = false;
+	private static final Boolean COMPLETELY_RESET_DB_EACH_RUN = null;
+	private static boolean CREATE_TABLES_ON_STARTUP = false;
+	private static boolean RUN_LOADERS_ON_STARTUP = false;
+	private static boolean DROP_ALL_TABLES_ON_CLOSE = false;
 	
 	public static void main(String[] args) {
+		optionallyOverrideSettings();
 
 		ConnectionProxy.startConnection();
 		logger.info("initial connection established");
@@ -41,6 +45,16 @@ public class RcdbApplication extends View {
 	    // Start the view
 		if(LAUNCH_UI_ON_STARTUP) {
 			launch();
+		}
+	}
+
+	private static void optionallyOverrideSettings(){
+		if(COMPLETELY_RESET_DB_EACH_RUN != null && COMPLETELY_RESET_DB_EACH_RUN){
+			CREATE_TABLES_ON_STARTUP = true;
+			RUN_LOADERS_ON_STARTUP = true;
+			DROP_ALL_TABLES_ON_CLOSE = true;
+			DataLoader.RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION = true;
+			TableCreator.RUN_CREATIONS_AGAINST_REAL_DB_CONNECTION = true;
 		}
 	}
 

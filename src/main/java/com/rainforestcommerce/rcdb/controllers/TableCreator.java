@@ -12,8 +12,9 @@ import static com.rainforestcommerce.rcdb.RcdbApplication.RESOURCES_DIRECTORY;
 
 public class TableCreator {
     private static final Logger logger = Logger.getLogger( TableCreator.class.getName() );
-    private static final boolean RUN_CREATIONS_AGAINST_REAL_DB_CONNECTION = false;
     private static final boolean DROP_AFTER_CREATING_IN_MAIN = false;
+
+    public static boolean RUN_CREATIONS_AGAINST_REAL_DB_CONNECTION = false;
 
     public static void main(String[] args){
         createTables();
@@ -149,7 +150,7 @@ public class TableCreator {
             logger.info(dropTableCommand);
             try{
                 PreparedStatement statement = conn.prepareStatement(dropTableCommand);
-                statement.executeUpdate();
+                statement.execute();
             }catch(SQLException sqle){
                 logger.warning("ERROR dropping table '" + tableName);
                 sqle.printStackTrace();
