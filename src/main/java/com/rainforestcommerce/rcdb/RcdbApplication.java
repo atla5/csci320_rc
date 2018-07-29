@@ -1,17 +1,18 @@
 package com.rainforestcommerce.rcdb;
 
-import com.rainforestcommerce.rcdb.controllers.DataLoader;
 import com.rainforestcommerce.rcdb.views.View;
 import com.rainforestcommerce.rcdb.controllers.ConnectionProxy;
 
 import static com.rainforestcommerce.rcdb.controllers.DataLoader.loadData;
-import static com.rainforestcommerce.rcdb.controllers.DataLoader.createTables;
+import static com.rainforestcommerce.rcdb.controllers.TableCreator.createTables;
 
 
 public class RcdbApplication extends View {
+	public static String RESOURCES_DIRECTORY = "/src/main/resources";
 
 	private static final boolean CREATE_TABLES_ON_STARTUP = false;
 	private static final boolean RUN_LOADERS_ON_STARTUP = false;
+	private static final boolean LAUNCH_UI_ON_STARTUP = false;
 	
 	public static void main(String[] args) {
 
@@ -33,7 +34,9 @@ public class RcdbApplication extends View {
 		}
 	    
 	    // Start the view
-	    launch();
+		if(LAUNCH_UI_ON_STARTUP) {
+			launch();
+		}
 	}
 
 }
