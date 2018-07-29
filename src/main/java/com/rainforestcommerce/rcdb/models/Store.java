@@ -3,6 +3,7 @@ package com.rainforestcommerce.rcdb.models;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 public class Store {
@@ -13,6 +14,11 @@ public class Store {
     private Date openingTime;
     private Date closingTime;
     private Address address;
+    public HashMap<Long, ProductQuantityPrice> inventory = new HashMap<>();
+    public HashMap<Long, StorePurchase> purchase = new HashMap<>();
+    public HashMap<Long, Shipment> shipment = new HashMap<>();
+
+
 
     public Store(List<String> data) throws ParseException{
         this.storeId = Long.parseLong(data.get(0));
@@ -27,11 +33,18 @@ public class Store {
         this.address = new Address(number, street, city, state, zip);
     }
 
-    public Store(Long storeId, String name, Date openingTime, Date closingTime, String city, String state, int zip, String street, int number) {
+    public Store(Long storeId, String name, String openingTime, String closingTime, String city, String state, int zip, String street, int number) {
         this.storeId = storeId;
         this.name = name;
-        this.openingTime = openingTime;
-        this.closingTime = closingTime;
+        //this.openingTime = openingTime;
+        //this.closingTime = closingTime;
+        try{
+            this.openingTime = stf.parse(openingTime);
+            this.closingTime = stf.parse(closingTime);
+        } catch (ParseException pe){
+            pe.printStackTrace();
+            System.exit(1);
+        }
         this.address = new Address(number, street, city, state, zip);
     }
 

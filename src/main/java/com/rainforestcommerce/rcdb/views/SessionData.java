@@ -1,6 +1,6 @@
 package com.rainforestcommerce.rcdb.views;
 
-import com.rainforestcommerce.rcdb.models.StorePurchase;
+import com.rainforestcommerce.rcdb.models.*;
 
 /**
  * Provides access to session variables like current user, 
@@ -9,6 +9,9 @@ import com.rainforestcommerce.rcdb.models.StorePurchase;
  */
 public class SessionData {
 	public static StorePurchase shoppingCart = null;
-	public static int storeId;
+	public static Store store;
 	public static long userId;
+	public static Vendor vendor;
+	public static ProductQuantityPrice productQuantityPrice;
+	public static Shipment shipment;
 }

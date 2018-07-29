@@ -5,11 +5,9 @@ import java.text.ParseException;
 import java.util.Arrays;
 import java.util.Date;
 
-import org.h2.result.Row;
-import org.h2.result.RowFactory;
-import org.h2.value.Value;
-
+import com.rainforestcommerce.rcdb.controllers.CustomerProxy;
 import com.rainforestcommerce.rcdb.models.Customer;
+import com.rainforestcommerce.rcdb.views.ActivityManager.Activity;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -32,18 +30,6 @@ import javafx.scene.layout.VBox;
  */
 public class CustomerViewController {
 	
-	// The root node of the view
-	private static VBox view;
-	
-	// Loads the view FXML
-	static {
-		try {
-			view = FXMLLoader.load(CustomerViewController.class.getResource("/CustomerView.fxml"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
 	// The table node which is injected by FXMLLoader
 	@FXML
 	private TableView<Customer> customer_table;
@@ -62,6 +48,7 @@ public class CustomerViewController {
 		// Configure the columns to accept the correct properties of Customer
 		nameColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("custName"));
 		dobColumn.setCellValueFactory(new PropertyValueFactory<Customer, Date>("birthDate"));
+		pointsColumn.setCellValueFactory(new PropertyValueFactory<Customer,Integer>("Points"));
 		
 		// Configure the click action for each row in the table
 		customer_table.setRowFactory(rf -> {
@@ -69,22 +56,13 @@ public class CustomerViewController {
 			row.setOnMouseClicked(event -> {
 				Customer customer = row.getItem();
 				SessionData.userId = customer.getAccountNumber();
+				ActivityManager.start(Activity.STORE_SELECTION);
 			});
 			return row;
 			}
 		);
 		
-		// TEST CODE - remove when DB access is implemented
-		try {
-			ObservableList<Customer> customers = FXCollections.observableArrayList(
-				new Customer(Arrays.asList(new String[] {"1", "Graham", "08/03/1993", "true", "whatever", "1234567890"} )),
-				new Customer(Arrays.asList(new String[] {"2", "Abdul", "09/19/1996", "true", "whatever", "1234567890"} ))
-			);
-			customer_table.setItems(customers);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		// End test code
+		customer_table.setItems(FXCollections.observableArrayList(CustomerProxy.getCustomers()));
 	}
 	
 	/**
@@ -92,7 +70,12 @@ public class CustomerViewController {
 	 * @return : The root node.
 	 */
 	public static VBox getView() {
-		return view;
+		try {
+			return FXMLLoader.load(CustomerViewController.class.getResource("/CustomerView.fxml"));
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }
