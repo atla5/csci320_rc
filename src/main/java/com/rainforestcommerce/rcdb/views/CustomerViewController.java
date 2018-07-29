@@ -1,8 +1,6 @@
 package com.rainforestcommerce.rcdb.views;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.util.Arrays;
 import java.util.Date;
 
 import com.rainforestcommerce.rcdb.controllers.CustomerProxy;
@@ -10,7 +8,6 @@ import com.rainforestcommerce.rcdb.models.Customer;
 import com.rainforestcommerce.rcdb.views.ActivityManager.Activity;
 
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TableColumn;

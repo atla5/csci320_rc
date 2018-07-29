@@ -19,15 +19,13 @@ public class CustomerProxy {
 			String statement = "SELECT * FROM Customers";
 			ResultSet rs = conn.createStatement().executeQuery(statement);
 			while (rs.next()) {
-				customers.add(new Customer(
+				Customer customer = new Customer(
 						rs.getLong("account_number"),
 						rs.getString("cust_name"),
-						rs.getInt("points"),
-						//rs.getDate("birth_date"),
-						rs.getString("birth_date"),
-						rs.getBoolean("male"),
 						rs.getString("phone_number")
-				));
+				);
+				customer.setPoints(PurchaseProxy.getPointsForCustomer(customer));
+				customers.add(customer);
 			}
 			conn.close();
 		} catch(SQLException ex){
@@ -38,8 +36,7 @@ public class CustomerProxy {
 
 	public static boolean insertNewCustomer(Customer customer){
 		String values = String.format("(%d, '%s', '%s', %b, '%s', %d)",
-				customer.getAccountNumber(), customer.getCustName(), customer.getBirthDate().toString(),
-				customer.isIsMale(), customer.getPhone(), customer.getPoints());
+				customer.getAccountNumber(), customer.getCustName(), customer.getPhone());
 		return DataLoader.insertValuesIntoTable(values, "customers");
 	}
 }
