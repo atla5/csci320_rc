@@ -14,7 +14,7 @@ public class Customer {
     private boolean isMale;
     private String ethnicity;
     private String phone;
-    private int points= 100000;
+    private int points = 0;
     // points are a test value for now to make sure the view populates the table correctly
 
     public Customer(List<String> data) throws ParseException{

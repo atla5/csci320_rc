@@ -30,18 +30,6 @@ import javafx.scene.layout.VBox;
  */
 public class CustomerViewController {
 	
-	// The root node of the view
-	private static VBox view;
-	
-	// Loads the view FXML
-	static {
-		try {
-			view = FXMLLoader.load(CustomerViewController.class.getResource("/CustomerView.fxml"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
 	// The table node which is injected by FXMLLoader
 	@FXML
 	private TableView<Customer> customer_table;
@@ -75,18 +63,6 @@ public class CustomerViewController {
 		);
 		
 		customer_table.setItems(FXCollections.observableArrayList(CustomerProxy.getCustomers()));
-		
-		// TEST CODE - remove when DB access is implemented
-		/*try {
-			ObservableList<Customer> customers = FXCollections.observableArrayList(
-				new Customer(Arrays.asList(new String[] {"1", "Graham", "08/03/1993", "true", "whatever", "1234567890"} )),
-				new Customer(Arrays.asList(new String[] {"2", "Abdul", "09/19/1996", "true", "whatever", "1234567890"} ))
-			);
-			customer_table.setItems(customers);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}*/
-		// End test code
 	}
 	
 	/**
@@ -94,7 +70,12 @@ public class CustomerViewController {
 	 * @return : The root node.
 	 */
 	public static VBox getView() {
-		return view;
+		try {
+			return FXMLLoader.load(CustomerViewController.class.getResource("/CustomerView.fxml"));
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }
