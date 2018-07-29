@@ -20,6 +20,13 @@ CREATE TABLE stores (
     addr_zipcode INT
 );
 
+CREATE TABLE products (
+    upc_code LONG PRIMARY KEY,
+    product_name VARCHAR(255) NOT NULL,
+    weight INT,
+    brand_name VARCHAR(255)
+);
+
 CREATE TABLE store_inventory (
     store_id LONG,
     product_id LONG,
@@ -31,13 +38,6 @@ CREATE TABLE store_inventory (
     FOREIGN KEY (product_id) REFERENCES products(upc_code),
     check(unit_price >= 0),
     check(quantity >= 0)
-);
-
-CREATE TABLE products (
-    upc_code LONG PRIMARY KEY,
-    product_name VARCHAR(255) NOT NULL,
-    weight INT,
-    brand_name VARCHAR(255)
 );
 
 CREATE TABLE store_purchases (
