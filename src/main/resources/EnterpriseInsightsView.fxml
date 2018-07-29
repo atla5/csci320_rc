@@ -57,12 +57,12 @@
                <content>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TableView prefHeight="200.0" prefWidth="300.0">
+                        <TableView fx:id="storeTable" prefHeight="200.0" prefWidth="300.0">
                           <columns>
                             <TableColumn prefWidth="300.0" text="Store" />
                           </columns>
                         </TableView>
-                        <TableView prefHeight="200.0" prefWidth="300.0">
+                        <TableView fx:id="productTable3" prefHeight="200.0" prefWidth="300.0">
                           <columns>
                             <TableColumn prefWidth="150.0" text="Product Name" />
                             <TableColumn prefWidth="150.0" text="Number Sold" />
