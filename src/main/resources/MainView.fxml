@@ -28,6 +28,11 @@
             <Font name="Trebuchet MS" size="24.0" />
          </font>
       </Button>
+      <Button id="vendor_button" mnemonicParsing="false" onMouseClicked="#handleCEOButtonPress" prefHeight="76.0" prefWidth="272.0" text="CEO">
+         <font>
+            <Font name="Trebuchet MS" size="24.0" />
+         </font>
+      </Button>
    </children>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

@@ -16,6 +16,7 @@ public class ActivityManager {
 		STORE_MANAGEMENT,
 		VENDOR_SHIPMENT_DETAILS,
 		VENDOR_SHIPMENT,
+		INSIGHTS
 		;
 	}
 	
@@ -23,6 +24,7 @@ public class ActivityManager {
 		CUSTOMER,
 		VENDOR,
 		STORE_MANAGER,
+		CEO
 		;
 	}
 	
@@ -59,6 +61,8 @@ public class ActivityManager {
 			case VENDOR_SHIPMENT:
 				stage.getScene().setRoot(V_ShipmentsRequestViewController.getView());
 				break;
+			case INSIGHTS:
+				stage.getScene().setRoot(EnterpriseInsightsViewController.getView());
 		}
 	}
 	

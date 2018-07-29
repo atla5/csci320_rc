@@ -42,5 +42,11 @@ public class MainViewController {
 		ActivityManager.user = User.STORE_MANAGER;
 		ActivityManager.start(Activity.STORE_SELECTION);
 	}
+	
+	@FXML
+	protected void handleCEOButtonPress(MouseEvent event) {
+		ActivityManager.user = User.CEO;
+		ActivityManager.start(Activity.INSIGHTS);
+	}
 
 }
