@@ -22,7 +22,7 @@ public class CustomerProxy {
 				customers.add(new Customer(
 						rs.getLong("account_number"),
 						rs.getString("cust_name"),
-						rs.getInt("points"),
+						0,
 						//rs.getDate("birth_date"),
 						rs.getString("birth_date"),
 						rs.getBoolean("male"),

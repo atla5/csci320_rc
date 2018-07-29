@@ -84,5 +84,25 @@ public class PurchaseProxy {
 	    String values = String.format("(%d, %d, %d)", productPurchase.getPurchaseId(), productPurchase.getUpcCode(), productPurchase.getQuantity());
         return DataLoader.insertValuesIntoTable(values, "product_purchases");
     }
+    
+    public static long[] getPurchaseStatsForProduct(Product product) {
+    	String command = "SELECT COUNT(quantity) AS quantity_purchased, COUNT(DISTINCT(account_number)) AS distinct_purchasers FROM product_purchases inner join store_purchases on store_id WHERE product_id=" + product.getUpcCode() + ";";
+    	try {
+    		Connection connection = ConnectionProxy.connect();
+    		if (connection != null) {
+				ResultSet results = connection.prepareStatement(command).executeQuery();
+				if (results.next()) {
+					long[] count = {results.getLong("quantity_purchased"), results.getLong("distinct_purchasers")};
+					connection.close();
+					return count;
+				}
+				connection.close();
+    		}
+		} catch (SQLException ex) {
+			LOGGER.log( Level.SEVERE, ex.toString(), ex );
+		}
+    	long[] count = {0,0};
+		return count;
+    }
 
 }
