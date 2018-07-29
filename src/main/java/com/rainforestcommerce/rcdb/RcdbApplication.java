@@ -1,5 +1,6 @@
 package com.rainforestcommerce.rcdb;
 
+import com.rainforestcommerce.rcdb.controllers.TableCreator;
 import com.rainforestcommerce.rcdb.views.View;
 import com.rainforestcommerce.rcdb.controllers.ConnectionProxy;
 
@@ -16,6 +17,7 @@ public class RcdbApplication extends View {
 	private static final boolean CREATE_TABLES_ON_STARTUP = false;
 	private static final boolean RUN_LOADERS_ON_STARTUP = false;
 	private static final boolean LAUNCH_UI_ON_STARTUP = false;
+	private static final boolean DROP_ALL_TABLES_ON_CLOSE = false;
 	
 	public static void main(String[] args) {
 
@@ -39,6 +41,15 @@ public class RcdbApplication extends View {
 	    // Start the view
 		if(LAUNCH_UI_ON_STARTUP) {
 			launch();
+		}
+	}
+
+	@Override
+	public void stop(){
+		logger.info("Exiting application...");
+		if(DROP_ALL_TABLES_ON_CLOSE) {
+			logger.info("Dropping all tables in the database");
+			TableCreator.dropAllTables();
 		}
 	}
 

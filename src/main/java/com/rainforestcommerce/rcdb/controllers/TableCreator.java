@@ -2,7 +2,9 @@ package com.rainforestcommerce.rcdb.controllers;
 
 import java.nio.file.Paths;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -11,9 +13,13 @@ import static com.rainforestcommerce.rcdb.RcdbApplication.RESOURCES_DIRECTORY;
 public class TableCreator {
     private static final Logger logger = Logger.getLogger( TableCreator.class.getName() );
     private static final boolean RUN_CREATIONS_AGAINST_REAL_DB_CONNECTION = false;
+    private static final boolean DROP_AFTER_CREATING_IN_MAIN = false;
 
     public static void main(String[] args){
         createTables();
+        if(DROP_AFTER_CREATING_IN_MAIN) {
+            dropAllTables(); // to check whether tables were created to start with, run in debug mode and add a breakpoint to this line
+        }
     }
 
     public static boolean createTables(){
@@ -128,6 +134,30 @@ public class TableCreator {
             logger.severe("ERROR creating tables: " + ex.getMessage());
             ex.printStackTrace();
             return false;
+        }
+    }
+
+    public static void dropAllTables(){
+        String[] tables = { "products", "customers",
+                "stores", "store_inventory", "store_purchases","product_purchases",
+                "vendors","vendor_distributions","shipments","shipment_contents"
+        };
+        Connection conn = ConnectionProxy.connect();
+        for(String tableName : tables){
+            String dropTableCommand = "DROP TABLE " + tableName + ";";
+            logger.info(dropTableCommand);
+            try{
+                PreparedStatement statement = conn.prepareStatement(dropTableCommand);
+                statement.executeUpdate();
+            }catch(SQLException sqle){
+                logger.warning("ERROR dropping table '" + tableName);
+                sqle.printStackTrace();
+            }
+        }
+        try{ conn.close(); }
+        catch(SQLException sqle){
+            logger.severe("ERROR closing connection used to drop tables");
+            sqle.printStackTrace();
         }
     }
 
