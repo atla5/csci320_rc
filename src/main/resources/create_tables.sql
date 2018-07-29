@@ -1,14 +1,10 @@
 CREATE TABLE customers (
     account_number LONG PRIMARY KEY,
     cust_name VARCHAR(100) NOT NULL,
-    birth_date VARCHAR(10) NOT NULL,
-    male BOOLEAN default TRUE,
-    ethnicity VARCHAR(125),
     phone_number VARCHAR(12),
     accumulated_points INT,
 
     check(accumulated_points >= 0),
-    check(LENGTH(birth_date) >= 8),
     check(LENGTH(phone_number) >= 8)
 );
 
@@ -23,6 +19,7 @@ CREATE TABLE stores (
     addr_state VARCHAR(255),
     addr_zipcode INT
 );
+
 CREATE TABLE store_inventory (
     store_id LONG,
     product_id LONG,
@@ -47,12 +44,10 @@ CREATE TABLE store_purchases (
     purchase_id LONG PRIMARY KEY,
     store_id LONG NOT NULL,
     account_number LONG NOT NULL,
-    date_purchased VARCHAR(10) NOT NULL,
     online BOOLEAN NOT NULL,
 
     FOREIGN KEY (store_id) REFERENCES stores(store_id),
-    FOREIGN KEY (account_number) REFERENCES customers(account_number),
-    check(LENGTH(date_purchased) >= 8)
+    FOREIGN KEY (account_number) REFERENCES customers(account_number)
 );
 
 CREATE TABLE product_purchases (
@@ -89,8 +84,6 @@ CREATE TABLE shipments (
    shipment_id LONG PRIMARY KEY,
    store_id LONG,
    vendor_id LONG,
-   order_date VARCHAR(10),
-   arrival_date VARCHAR(10),
 
    FOREIGN KEY (store_id) REFERENCES stores(store_id),
    FOREIGN KEY (vendor_id)  REFERENCES vendors(vendor_id)
