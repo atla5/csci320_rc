@@ -51,6 +51,7 @@ public class RcdbApplication extends View {
 			logger.info("Dropping all tables in the database");
 			TableCreator.dropAllTables();
 		}
+		ConnectionProxy.endConnection();
 	}
 
 }
