@@ -18,7 +18,7 @@ public class DataLoader {
     private static final Logger logger = Logger.getLogger( DataLoader.class.getName() );
     private static final Random random = new Random();
 
-    public static boolean RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION = true;
+    public static boolean RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION = false;
 
     public static void main(String[] args){
         if(RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION) {
@@ -41,12 +41,13 @@ public class DataLoader {
         return true;
     }
 
-    public static boolean insertValuesIntoTable(String values, String tableName) throws SQLException{
+    public static boolean insertValuesIntoTable(String values, String tableName){
         String insertCommand = String.format("INSERT into %s VALUES %s;", tableName, values);
         //logger.info(insertCommand);
-        Connection conn = ConnectionProxy.connect();
+        Connection conn = null;
         try{
-            if(!RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION){ return false; }
+            if(!RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION){ return true; }
+            conn = ConnectionProxy.connect();
             PreparedStatement statement = conn.prepareStatement(insertCommand);
             statement.executeUpdate();
         }catch(SQLException sqle){
@@ -56,7 +57,7 @@ public class DataLoader {
             return false;
         }finally{
             try {
-                conn.close();
+                if(conn != null){ conn.close(); }
             }catch(SQLException sqle){
                 logger.warning("unable to close connection used to: " + insertCommand);
                 return false;
@@ -77,10 +78,11 @@ public class DataLoader {
             String brand = data[3];
 
             values = String.format("(%s, '%s', %s, '%s')", upcCode, productName, weight, brand);
-            try { insertValuesIntoTable(values, "products"); }
-            catch(SQLException sqlException){ numErrantLines++; }
+            if(!insertValuesIntoTable(values, "products")){
+                numErrantLines++;
+            }
         }
-        logger.info("Number of errant lines in PRODUCTS: " + numErrantLines );
+        if(numErrantLines > 0){ logger.warning("Number of errant lines in PRODUCTS: " + numErrantLines );}
     }
 
     private static void loadCustomers(){
@@ -95,10 +97,11 @@ public class DataLoader {
             int purchasePoints = Integer.parseInt(data[3]);
 
             values = String.format("(%s, '%s', '%s', %d)", customerId, customerName, phone, purchasePoints);
-            try { insertValuesIntoTable(values, "customers"); }
-            catch(SQLException sqlException){ numErrantLines++; }
+            if(!insertValuesIntoTable(values, "customers")){
+                numErrantLines++;
+            }
         }
-        logger.info("Number of errant lines in CUSTOMERS: " + numErrantLines );
+        if(numErrantLines > 0){ logger.warning("Number of errant lines in CUSTOMERS: " + numErrantLines );}
     }
 
     private static void loadStores(){
@@ -117,10 +120,11 @@ public class DataLoader {
             values = String.format("(%s, '%s', '%s', '%s', '%s', '%s')",
                     storeId, storeName, addrLine1, addrCity, addrState, addrZip
             );
-            try{ insertValuesIntoTable(values, "stores"); }
-            catch(SQLException sqle){ numErrantLines++; }
+            if(!insertValuesIntoTable(values, "stores")){
+                numErrantLines++;
+            }
         }
-        logger.info("Number of errant lines in STORE: " + numErrantLines );
+        if(numErrantLines > 0){ logger.warning("Number of errant lines in STORE: " + numErrantLines );}
     }
 
     private static void loadInventory(){
@@ -135,10 +139,11 @@ public class DataLoader {
             int quantity = Integer.parseInt(data[3]);
 
             values = String.format("(%s, %s, %s, %d)", storeId, productId, unitPrice, quantity);
-            try{ insertValuesIntoTable(values, "store_inventory"); }
-            catch(SQLException sqle){ numErrantLines++; }
+            if(!insertValuesIntoTable(values, "store_inventory")){
+                numErrantLines++;
+            }
         }
-        logger.info("Number of errant lines in INVENTORY: " + numErrantLines );
+        if(numErrantLines > 0){ logger.warning("Number of errant lines in INVENTORY: " + numErrantLines );}
     }
 
     private static void loadPurchases(){
@@ -153,10 +158,11 @@ public class DataLoader {
             boolean online_store = data[4].equalsIgnoreCase("true");
 
             values = String.format("(%s, %s, %s, %s, %b)", purchaseId, storeId, customerId, totalPrice, online_store);
-            try{ insertValuesIntoTable(values, "store_purchases"); }
-            catch(SQLException sql){ numErrantLines++; }
+            if(!insertValuesIntoTable(values, "store_purchases")){
+                numErrantLines++;
+            }
         }
-        logger.info("Number of errant lines in STORE_PURCHASE: " + numErrantLines );
+        if(numErrantLines > 0){ logger.warning("Number of errant lines in STORE_PURCHASE: " + numErrantLines );}
 
         csvData.clear(); numErrantLines = 0;
         csvData = readCsvIntoListOfStringArrays("Product_Purchase.csv");
@@ -166,10 +172,11 @@ public class DataLoader {
             int purchase_id = Integer.parseInt(data[1]);
             int quantity = Integer.parseInt(data[2]);
             values = String.format("(%s, %s, %s)", product_id, purchase_id, quantity);
-            try{ insertValuesIntoTable(values, "product_purchases"); }
-            catch(SQLException sqle){ numErrantLines++; }
+            if(!insertValuesIntoTable(values, "product_purchases")){
+                numErrantLines++;
+            }
         }
-        logger.info("Number of errant lines in PRODUCT_PURCHASE: " + numErrantLines );
+        if(numErrantLines > 0){ logger.warning("Number of errant lines in PRODUCT_PURCHASE: " + numErrantLines );}
     }
 
     private static void loadVendors(){
@@ -186,10 +193,11 @@ public class DataLoader {
             addrZip = data[5];
 
             values = String.format("(%s, '%s', '%s', '%s', '%s', %s)", vendorId, vendorName, addrLine1, addrCity, addrState, addrZip);
-            try{ insertValuesIntoTable(values, "vendors"); }
-            catch(SQLException sqle){ numErrantLines++; }
+            if( !insertValuesIntoTable(values, "vendors")){
+                numErrantLines++;
+            }
         }
-        logger.info("Number of errant lines in VENDOR: " + numErrantLines );
+        if(numErrantLines > 0){ logger.warning("Number of errant lines in VENDOR: " + numErrantLines );}
 
         csvData.clear(); numErrantLines = 0;
         csvData = readCsvIntoListOfStringArrays("Vendor_Distribution.csv");
@@ -201,10 +209,11 @@ public class DataLoader {
             unitPrice = Integer.parseInt(data[2])*(1.00f/100);
 
             values = String.format("(%s, %s, %f)", vendorId, productId, unitPrice);
-            try{insertValuesIntoTable(values, "vendor_distributions");}
-            catch(SQLException sqle){ numErrantLines++; }
+            if(!insertValuesIntoTable(values, "vendor_distributions")){
+                numErrantLines++;
+            }
         }
-        logger.info("Number of errant lines in VENDOR_DISTRIBUTION: " + numErrantLines );
+        if(numErrantLines > 0){ logger.warning("Number of errant lines in VENDOR_DISTRIBUTION: " + numErrantLines );}
     }
 
     private static void loadShipments(){
@@ -217,8 +226,9 @@ public class DataLoader {
             String store_id = data[1];
             String vendor_id = data[2];
             values = (String.format("(%s, %s, %s)", shipment_id, store_id, vendor_id));
-            try{ insertValuesIntoTable(values, "shipments"); }
-            catch(SQLException sqle){ numErrantLines++; }
+            if(!insertValuesIntoTable(values, "shipments")){
+                numErrantLines++;
+            }
 
             // each shipment contains 10 products
             int product_id, quantity;
@@ -226,11 +236,12 @@ public class DataLoader {
                 product_id = random.nextInt(1000);
                 quantity = random.nextInt(250);
                 values = (String.format("(%s, %d, %d)", shipment_id, product_id, quantity));
-                try{ insertValuesIntoTable(values, "shipment_contents"); }
-                catch(SQLException sqle){ numErrantLines++; }
+                if(!insertValuesIntoTable(values, "shipment_contents")){
+                    numErrantLines++;
+                }
             }
         }
-        logger.info("Number of errant lines in SHIPMENT: " + numErrantLines );
+        if(numErrantLines > 0){ logger.warning("Number of errant lines in SHIPMENT: " + numErrantLines );}
     }
 
 
@@ -244,7 +255,6 @@ public class DataLoader {
             String line; boolean isHeaderLine = true;
             while((line = br.readLine()) != null){
                 if(isHeaderLine){ isHeaderLine = false; continue; }
-
                 toReturn.add(sanitizeStringForSql(line).split(","));
             }
         }catch(Exception exception){
