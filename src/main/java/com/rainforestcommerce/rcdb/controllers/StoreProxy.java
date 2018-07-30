@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import java.sql.*;
 
+import java.util.HashMap;
 import java.util.logging.*;
 
 public class StoreProxy {
@@ -105,16 +106,38 @@ public class StoreProxy {
         ArrayList<StorePurchase> purchases = new ArrayList<StorePurchase>();
 	    try{
 		    Connection conn = ConnectionProxy.connect();
-		    PreparedStatement statement = conn.prepareStatement("SELECT * FROM Purchase WHERE store_id = ?");
-		    statement.setString(1, Long.toString(store.getStoreId()));
+		    PreparedStatement statement = conn.prepareStatement("SELECT * FROM store_purchases WHERE store_id = ?");
+            PreparedStatement statement2 = conn.prepareStatement("SELECT * FROM product_purchases INNER JOIN product ON product.product_id = product_purchase.product_id WHERE purchase_id = ?");
+            statement.setString(1, Long.toString(store.getStoreId()));
 		    ResultSet rs = statement.executeQuery();
+		    int place = 0;
 	    	while(rs.next()){
 		    	purchases.add(new StorePurchase(
 					rs.getLong("purchase_id"),
 					rs.getLong("store_id"),
 					rs.getLong("account_number")
 	    		));
-	    	}
+                statement2 = conn.prepareStatement("SELECT * FROM product_purchases INNER JOIN product ON product.product_id = product_purchase.product_id WHERE purchase_id = ?");
+                statement2.setString(1, Long.toString(rs.getLong("purchase_id")));
+                ResultSet rs2 = statement2.executeQuery();
+                HashMap<Long, ProductQuantityPrice> hmap = new HashMap<Long, ProductQuantityPrice>();
+                while(rs2.next()){
+                    hmap.put(rs.getLong("account_number"), new ProductQuantityPrice(
+                            rs.getLong("purchase_id"),
+                            rs.getInt("unit_price"),
+                            rs.getInt("quantity"),
+                            new Product(
+                                    rs.getLong("upc_code"),
+                                    rs.getString("product_name"),
+                                    rs.getString("weight"),
+                                    rs.getString("brand_name")
+                            )
+                    ));
+
+                }
+                purchases.get(place).products = hmap;
+                place++;
+            }
 		    conn.close();
         } catch(SQLException ex){
             LOGGER.log( Level.SEVERE, ex.toString(), ex );
@@ -126,7 +149,7 @@ public class StoreProxy {
         ArrayList<Shipment> shipments = new ArrayList<Shipment>();
 	    try {
             Connection conn = ConnectionProxy.connect();
-            PreparedStatement statement = conn.prepareStatement("SELECT * FROM Shipment INNER JOIN Stores ON Shipments.store_id = Stores.store_id WHERE store_id = ?");
+            PreparedStatement statement = conn.prepareStatement("SELECT * FROM Shipments WHERE store_id = ?");
             statement.setString(1, Long.toString(store.getStoreId()));
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
