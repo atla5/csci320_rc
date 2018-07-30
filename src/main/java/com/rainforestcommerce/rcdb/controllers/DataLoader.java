@@ -117,7 +117,8 @@ public class DataLoader {
             values = String.format("(%s, '%s', '%s', '%s', '%s', '%s')",
                     storeId, storeName, addrLine1, addrCity, addrState, addrZip
             );
-            insertValuesIntoTable(values, "stores");
+            try{ insertValuesIntoTable(values, "stores"); }
+            catch(SQLException sqle){ numErrantLines++; }
         }
         logger.info("Number of errant lines in STORE: " + numErrantLines );
     }
@@ -134,7 +135,8 @@ public class DataLoader {
             int quantity = Integer.parseInt(data[3]);
 
             values = String.format("(%s, %s, %s, %d)", storeId, productId, unitPrice, quantity);
-            insertValuesIntoTable(values, "store_inventory");
+            try{ insertValuesIntoTable(values, "store_inventory"); }
+            catch(SQLException sqle){ numErrantLines++; }
         }
         logger.info("Number of errant lines in INVENTORY: " + numErrantLines );
     }
@@ -151,7 +153,8 @@ public class DataLoader {
             boolean online_store = data[4].equalsIgnoreCase("true");
 
             values = String.format("(%s, %s, %s, %s, %b)", purchaseId, storeId, customerId, totalPrice, online_store);
-            insertValuesIntoTable(values, "store_purchases");
+            try{ insertValuesIntoTable(values, "store_purchases"); }
+            catch(SQLException sql){ numErrantLines++; }
         }
         logger.info("Number of errant lines in STORE_PURCHASE: " + numErrantLines );
 
@@ -163,7 +166,8 @@ public class DataLoader {
             int purchase_id = Integer.parseInt(data[1]);
             int quantity = Integer.parseInt(data[2]);
             values = String.format("(%s, %s, %s)", product_id, purchase_id, quantity);
-            insertValuesIntoTable(values, "product_purchases");
+            try{ insertValuesIntoTable(values, "product_purchases"); }
+            catch(SQLException sqle){ numErrantLines++; }
         }
         logger.info("Number of errant lines in PRODUCT_PURCHASE: " + numErrantLines );
     }
@@ -182,7 +186,8 @@ public class DataLoader {
             addrZip = data[5];
 
             values = String.format("(%s, '%s', '%s', '%s', '%s', %s)", vendorId, vendorName, addrLine1, addrCity, addrState, addrZip);
-            insertValuesIntoTable(values, "vendors");
+            try{ insertValuesIntoTable(values, "vendors"); }
+            catch(SQLException sqle){ numErrantLines++; }
         }
         logger.info("Number of errant lines in VENDOR: " + numErrantLines );
 
@@ -196,7 +201,8 @@ public class DataLoader {
             unitPrice = Integer.parseInt(data[2])*(1.00f/100);
 
             values = String.format("(%s, %s, %f)", vendorId, productId, unitPrice);
-            insertValuesIntoTable(values, "vendor_distributions");
+            try{insertValuesIntoTable(values, "vendor_distributions");}
+            catch(SQLException sqle){ numErrantLines++; }
         }
         logger.info("Number of errant lines in VENDOR_DISTRIBUTION: " + numErrantLines );
     }
@@ -211,7 +217,8 @@ public class DataLoader {
             String store_id = data[1];
             String vendor_id = data[2];
             values = (String.format("(%s, %s, %s)", shipment_id, store_id, vendor_id));
-            insertValuesIntoTable(values, "shipments");
+            try{ insertValuesIntoTable(values, "shipments"); }
+            catch(SQLException sqle){ numErrantLines++; }
 
             // each shipment contains 10 products
             int product_id, quantity;
@@ -219,7 +226,8 @@ public class DataLoader {
                 product_id = random.nextInt(1000);
                 quantity = random.nextInt(250);
                 values = (String.format("(%s, %d, %d)", shipment_id, product_id, quantity));
-                insertValuesIntoTable(values, "shipment_contents");
+                try{ insertValuesIntoTable(values, "shipment_contents"); }
+                catch(SQLException sqle){ numErrantLines++; }
             }
         }
         logger.info("Number of errant lines in SHIPMENT: " + numErrantLines );
