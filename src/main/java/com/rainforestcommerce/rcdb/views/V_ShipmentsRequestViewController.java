@@ -36,7 +36,7 @@ public class V_ShipmentsRequestViewController {
      * This method is called automatically by FXMLLoader.
      */
     public void initialize() {
-        request_table.setItems(FXCollections.observableArrayList(SessionData.vendor.shipments.values()));
+        request_table.setItems(FXCollections.observableArrayList(SessionData.vendor.shipments));
         // Get the table columns
         TableColumn<Shipment, Integer> ID_Column = (TableColumn<Shipment, Integer>) request_table.getColumns().get(0);
         TableColumn<Shipment, String> Store_Column = (TableColumn<Shipment, String>) request_table.getColumns().get(1);
