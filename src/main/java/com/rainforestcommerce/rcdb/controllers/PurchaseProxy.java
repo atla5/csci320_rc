@@ -109,4 +109,23 @@ public class PurchaseProxy {
     	return 0;
     }
 
+	public static long getNumPurchasesPerStore(Long store_id, Long product_id) {
+		String command = "select sum(quantity) from product_purchases inner join store_purchases on product_purchases.purchase_id = store_purchases.purchase_id where product_purchases.product_id = "+ product_id +" and store_purchases.store_id = "+ store_id;
+		try {
+			Connection connection = ConnectionProxy.connect();
+			if (connection != null) {
+				ResultSet results = connection.prepareStatement(command).executeQuery();
+				if (results.next()) {
+					long result = results.getLong("sum(quantity)");
+					connection.close();
+					return result;
+				}
+			}
+			connection.close();
+		} catch (SQLException ex) {
+			LOGGER.log( Level.SEVERE, ex.toString(), ex );
+		}
+		return 0;
+	}
+
 }

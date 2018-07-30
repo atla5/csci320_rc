@@ -6,10 +6,13 @@ import java.util.ArrayList;
 import com.rainforestcommerce.rcdb.controllers.ProductProxy;
 import com.rainforestcommerce.rcdb.controllers.PurchaseProxy;
 import com.rainforestcommerce.rcdb.models.Product;
+import com.rainforestcommerce.rcdb.controllers.StoreProxy;
 import com.rainforestcommerce.rcdb.models.ProductQuantityPrice;
 import com.rainforestcommerce.rcdb.models.Store;
 import com.rainforestcommerce.rcdb.views.ActivityManager.Activity;
 
+import javafx.beans.property.SimpleLongProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -18,10 +21,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
+
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
+import javafx.util.Callback;
 
 public class EnterpriseInsightsViewController {
 	
@@ -73,6 +77,42 @@ public class EnterpriseInsightsViewController {
 			});
 			return row;
 		});
+
+		TableColumn<Store, String> nameColumn = (TableColumn<Store, String>) storeTable.getColumns().get(0);
+		// get the table column for the Store name
+
+		nameColumn.setCellValueFactory(new PropertyValueFactory<Store,String>("Name"));
+		// set the store names to fill the rows of the table
+
+	 	storeTable.setItems(FXCollections.observableArrayList(StoreProxy.getStores()));
+		
+		storeTable.setRowFactory(rf -> {
+					TableRow<Store> row = new TableRow<>();
+
+					// set on click action to generate the products in a store and their purchase count
+					row.setOnMouseClicked(event -> {
+						Store store = row.getItem();
+
+						productTable3.setItems(FXCollections.observableArrayList(store.inventory.values()));
+
+						TableColumn<ProductQuantityPrice, String> product = (TableColumn<ProductQuantityPrice, String>) productTable3.getColumns().get(0);
+
+						TableColumn<ProductQuantityPrice, Long> numberPurchased = (TableColumn<ProductQuantityPrice, Long>) productTable3.getColumns().get(1);
+
+
+						product.setCellValueFactory(new PropertyValueFactory<ProductQuantityPrice, String>("ProductName"));
+						numberPurchased.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ProductQuantityPrice, Long>, ObservableValue<Long>>() {
+							@Override
+							public ObservableValue<Long> call(TableColumn.CellDataFeatures<ProductQuantityPrice, Long> param) {
+								return new SimpleLongProperty(PurchaseProxy.getNumPurchasesPerStore(store.getStoreId(),param.getValue().getUpcCode())).asObject();
+							}
+						});
+
+
+					});
+					return row;
+				}
+		);
 	}
 	
 	private void showResults() {
