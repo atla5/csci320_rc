@@ -18,13 +18,17 @@ public class DataLoader {
     private static final Logger logger = Logger.getLogger( DataLoader.class.getName() );
     private static final Random random = new Random();
 
-    public static boolean RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION = false;
+    public static boolean RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION = true;
 
     public static void main(String[] args){
         loadData();
     }
 
     public static boolean loadData(){
+        if(RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION) {
+            ConnectionProxy.startConnection();
+        }
+
         loadProducts();
         loadCustomers();
         loadStores();
