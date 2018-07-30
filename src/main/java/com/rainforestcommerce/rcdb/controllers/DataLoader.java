@@ -16,6 +16,7 @@ import static com.rainforestcommerce.rcdb.RcdbApplication.RESOURCES_DIRECTORY;
 
 public class DataLoader {
     private static final Logger logger = Logger.getLogger( DataLoader.class.getName() );
+    private static final Random random = new Random();
 
     public static boolean RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION = false;
 
@@ -24,7 +25,6 @@ public class DataLoader {
     }
 
     public static boolean loadData(){
-        //reset the data directory to update `dataDirectory` to its absolute path
         loadProducts();
         loadCustomers();
         loadStores();
@@ -72,14 +72,10 @@ public class DataLoader {
         for(String[] data : csvData){
             String customerId = data[0];
             String customerName = data[1];
-            String birthDate = data[2]; //TODO update to real Date
-            boolean isMale = data[3].equalsIgnoreCase("male");
-            String ethnicity = data[4]; //TODO  set ethnicity values
-            String phone = data[5]; //TODO use 'like' in phone number check with digits-only
-            int purchasePoints = Integer.parseInt(data[6]);
+            String phone = data[2];
+            int purchasePoints = Integer.parseInt(data[3]);
 
-            values = String.format("(%s, '%s', '%s', %b, '%s', '%s', %d)",
-                    customerId, customerName, birthDate, isMale, ethnicity, phone, purchasePoints);
+            values = String.format("(%s, '%s', '%s', %d)", customerId, customerName, phone, purchasePoints);
             insertValuesIntoTable(values, "customers");
         }
     }
@@ -90,16 +86,13 @@ public class DataLoader {
         for(String[] data : csvData){
             String storeId = data[0];
             String storeName = data[1];
-            String openingTime = data[2]; //TODO: update to real Date
-            String closingTime = data[3]; //TODO: update to real Date and add time comparison check
-            String addrCity = data[4];
-            String addrState = data[5];
-            String addrZip = data[6];
-            String addrStreet = data[7];
-            String addrNum = data[8];
+            String addrLine1 = data[2];
+            String addrCity = data[3];
+            String addrState = data[4];
+            String addrZip = data[5];
 
-            values = String.format("(%s, '%s', '%s', '%s', %s, '%s', '%s', '%s', '%s')",
-                    storeId, storeName, openingTime, closingTime, addrNum, addrStreet, addrCity, addrState, addrZip
+            values = String.format("(%s, '%s', '%s', '%s', '%s', '%s')",
+                    storeId, storeName, addrLine1, addrCity, addrState, addrZip
             );
             insertValuesIntoTable(values, "stores");
         }
@@ -108,11 +101,10 @@ public class DataLoader {
     private static void loadInventory(){
         List<String[]> csvData = readCsvIntoListOfStringArrays("Store_Inventory.csv");
         String values;
-        Random random = new Random();
         for(String[] data : csvData){
-            String storeId = "" + random.nextInt(1000); //TODO: resolve errors in sample data
-            String productId = "" + random.nextInt(150); //TODO: resolve errors in sample data
-            float unitPrice = Integer.parseInt(data[2])/(100*1.0f); //TODO: determine fate of this variable
+            String storeId = data[0];
+            String productId = data[1];
+            float unitPrice = Integer.parseInt(data[2])/(100*1.0f);
             int quantity = Integer.parseInt(data[3]);
 
             values = String.format("(%s, %s, %s, %d)", storeId, productId, unitPrice, quantity);
@@ -121,21 +113,26 @@ public class DataLoader {
     }
 
     private static void loadPurchases(){
-        List<String[]> csvData = readCsvIntoListOfStringArrays("Purchase.csv");
+        List<String[]> csvData = readCsvIntoListOfStringArrays("Store_Purchase.csv");
         String values;
-        Random random = new Random();
         for(String[] data : csvData){
             String purchaseId = data[0];
-            String datePurchased = data[1];
-            String storeId = data[3];
-            int customerId = random.nextInt(150); //TODO: resolve errors in sample data
-            String productId = "" + random.nextInt(150); //TODO: resolve errors in sample data
-            boolean online_store = data[5].equalsIgnoreCase("true");
-            int quantity = random.nextInt(8); //TODO: resolve errors in sample data
+            String storeId = data[1];
+            int customerId = random.nextInt(1000); //data[2] //TODO: resolve errors in sample data (phone vs account_number)
+            float totalPrice = Integer.parseInt(data[3])*(1.00f/100);
+            boolean online_store = data[4].equalsIgnoreCase("true");
 
-            values = String.format("(%s, %s, %s, '%s', %b)", purchaseId, storeId, customerId, datePurchased, online_store);
+            values = String.format("(%s, %s, %s, %s, %b)", purchaseId, storeId, customerId, totalPrice, online_store);
             insertValuesIntoTable(values, "store_purchases");
-            values = String.format("(%s, %s, %d)", purchaseId, productId, quantity);
+        }
+
+        csvData.clear();
+        csvData = readCsvIntoListOfStringArrays("Product_Purchase.csv");
+        for(String[] data : csvData){
+            int product_id = Integer.parseInt(data[0]);
+            int purchase_id = Integer.parseInt(data[1]);
+            int quantity = Integer.parseInt(data[2]);
+            values = String.format("(%s, %s, %s)", product_id, purchase_id, quantity);
             insertValuesIntoTable(values, "product_purchases");
         }
     }
@@ -143,49 +140,48 @@ public class DataLoader {
     private static void loadVendors(){
         List<String[]> csvData = readCsvIntoListOfStringArrays("Vendor.csv");
         String values;
-        Random random = new Random();
+        String vendorId, vendorName, addrLine1, addrCity, addrState, addrZip;
         for(String[] data : csvData) {
-            String vendor_id = data[0];
-            String vendor_name = data[1];
-            String addr_number = data[2];
-            String addr_street = data[3];
-            String addr_city = data[4];
-            String addr_state = data[5];
-            String addr_zipcode = data[6];
+            vendorId = data[0];
+            vendorName = data[1];
+            addrLine1 = data[2];
+            addrCity = data[3];
+            addrState = data[4];
+            addrZip = data[5];
 
-            values = String.format("(%s, '%s', %s, '%s', '%s', '%s', %s)", vendor_id, vendor_name, addr_number, addr_street, addr_city, addr_state, addr_zipcode);
+            values = String.format("(%s, '%s', '%s', '%s', '%s', %s)", vendorId, vendorName, addrLine1, addrCity, addrState, addrZip);
             insertValuesIntoTable(values, "vendors");
+        }
 
-            // each vendor distributes 10 items
-            int product_id; String unit_price;
-            for(int i=0; i<10; i++){
-                product_id = random.nextInt(151);
-                unit_price = random.nextInt(5) + "." + random.nextInt(99);
-                values = String.format("(%s, %s, %s)", vendor_id, product_id, unit_price);
-                insertValuesIntoTable(values, "vendor_distributions");
-            }
+        csvData.clear();
+        csvData = readCsvIntoListOfStringArrays("Vendor_Distribution.csv");
+        String productId; float unitPrice;
+        for(String[] data : csvData){
+            vendorId = data[0];
+            productId = data[1];
+            unitPrice = Integer.parseInt(data[2])*(1.00f/100);
+
+            values = String.format("(%s, %s, %f)", vendorId, productId, unitPrice);
+            insertValuesIntoTable(values, "vendor_distributions");
         }
     }
 
     private static void loadShipments(){
         List<String[]> csvData = readCsvIntoListOfStringArrays("Shipment.csv");
         String values;
-        Random random = new Random();
 
         for(String[] data : csvData){
             String shipment_id = data[0];
             String store_id = data[1];
             String vendor_id = data[2];
-            String order_date = data[3]; //TODO change to real date
-            String arrival_date = data[4]; //TODO change to real data
-            values = (String.format("(%s, %s, %s, '%s', '%s')", shipment_id, store_id, vendor_id, order_date, arrival_date));
+            values = (String.format("(%s, %s, %s)", shipment_id, store_id, vendor_id));
             insertValuesIntoTable(values, "shipments");
 
-            // each shipment contains 5 products
+            // each shipment contains 10 products
             int product_id, quantity;
-            for(int i=0; i<5; i++) {
-                product_id = random.nextInt(151);
-                quantity = random.nextInt(350);
+            for(int i=0; i<10; i++) {
+                product_id = random.nextInt(1000);
+                quantity = random.nextInt(250);
                 values = (String.format("(%s, %d, %d)", shipment_id, product_id, quantity));
                 insertValuesIntoTable(values, "shipment_contents");
             }
