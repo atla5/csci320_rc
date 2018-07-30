@@ -65,12 +65,10 @@ public class StoreManagementController {
 
 		TableColumn<Shipment, Integer> shipment_id = (TableColumn<Shipment, Integer>) shipment_table.getColumns().get(0);
 		TableColumn<Shipment, String> vendor_name = (TableColumn<Shipment,String>) shipment_table.getColumns().get(1);
-		TableColumn<Shipment, Date>  arrival_date = (TableColumn<Shipment,Date>) shipment_table.getColumns().get(2);
-		TableColumn<Shipment,Integer> price = (TableColumn<Shipment, Integer>) shipment_table.getColumns().get(3);
+		TableColumn<Shipment,Integer> price = (TableColumn<Shipment, Integer>) shipment_table.getColumns().get(2);
 
 		shipment_id.setCellValueFactory(new PropertyValueFactory<Shipment, Integer>("ID"));
 		vendor_name.setCellValueFactory(new PropertyValueFactory<Shipment, String>("VendorName"));
-		arrival_date.setCellValueFactory(new PropertyValueFactory<Shipment, Date>("ArrivalDate"));
 		price.setCellValueFactory(new PropertyValueFactory<Shipment, Integer>("Cost"));
 
 
