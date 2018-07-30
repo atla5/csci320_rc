@@ -36,17 +36,15 @@ public class V_ShipmentsRequestViewController {
      * This method is called automatically by FXMLLoader.
      */
     public void initialize() {
-        request_table.setItems(FXCollections.observableArrayList(SessionData.vendor.shipments.values()));
+        request_table.setItems(FXCollections.observableArrayList(SessionData.vendor.shipments));
         // Get the table columns
         TableColumn<Shipment, Integer> ID_Column = (TableColumn<Shipment, Integer>) request_table.getColumns().get(0);
         TableColumn<Shipment, String> Store_Column = (TableColumn<Shipment, String>) request_table.getColumns().get(1);
-        TableColumn<Shipment, Date> RequestDate_Column = (TableColumn<Shipment, Date>) request_table.getColumns().get(2);
-
+        
         // Configure the columns to accept the correct properties of Shipment
         ID_Column.setCellValueFactory(new PropertyValueFactory<Shipment, Integer>("ID"));
         Store_Column.setCellValueFactory(new PropertyValueFactory<Shipment, String>("Store"));
-        RequestDate_Column.setCellValueFactory(new PropertyValueFactory<Shipment, Date>("RequestDate"));
-
+        
 
         // Configure the click action for each row in the table
         request_table.setRowFactory(rf -> {

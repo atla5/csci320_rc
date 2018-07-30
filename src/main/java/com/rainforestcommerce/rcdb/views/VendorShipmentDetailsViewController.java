@@ -7,6 +7,7 @@ import com.rainforestcommerce.rcdb.views.ActivityManager.Activity;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
@@ -22,9 +23,15 @@ public class VendorShipmentDetailsViewController {
 	protected TableView<ProductQuantityPrice> item_table;
 	
 	@FXML
+	protected void handleShipItButtonClicked(MouseEvent event) {
+		// TODO: call shipment delivery function here
+	}
+	
+	@FXML
 	protected void handleVendorButtonClicked(MouseEvent event) {
 		ActivityManager.start(Activity.VENDOR_SHIPMENT);
 	}
+	
 
 	@FXML
 	protected void handleLogoutButtonClicked(MouseEvent event){ActivityManager.start(Activity.START_SCREEN);}

@@ -1,13 +1,13 @@
 package com.rainforestcommerce.rcdb.models;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
 /**
  * Created by aaa10 on 7/13/2018.
  */
 public class Vendor {
 
-    public HashMap<Integer,Shipment> shipments;
+    public ArrayList<Shipment> shipments;
     private String name;
     private long ID;
 

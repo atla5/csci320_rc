@@ -39,12 +39,10 @@ public class CustomerViewController {
 		
 		// Get the table columns
 		TableColumn<Customer, String> nameColumn = (TableColumn<Customer, String>) customer_table.getColumns().get(0);
-		TableColumn<Customer, Date> dobColumn = (TableColumn<Customer, Date>) customer_table.getColumns().get(1);
-		TableColumn<Customer, Integer> pointsColumn = (TableColumn<Customer, Integer>) customer_table.getColumns().get(2);
+		TableColumn<Customer, Integer> pointsColumn = (TableColumn<Customer, Integer>) customer_table.getColumns().get(1);
 		
 		// Configure the columns to accept the correct properties of Customer
 		nameColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("custName"));
-		dobColumn.setCellValueFactory(new PropertyValueFactory<Customer, Date>("birthDate"));
 		pointsColumn.setCellValueFactory(new PropertyValueFactory<Customer,Integer>("Points"));
 		
 		// Configure the click action for each row in the table

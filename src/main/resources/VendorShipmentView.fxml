@@ -23,9 +23,8 @@
       </StackPane>
       <TableView fx:id="request_table" prefHeight="508.0" prefWidth="600.0">
          <columns>
-            <TableColumn id="product" editable="false" minWidth="200.0" prefWidth="200.0" text="Shipment ID" />
-            <TableColumn id="size" minWidth="200.0" prefWidth="200.0" text="Request Date" />
-            <TableColumn id="brand" minWidth="200.0" prefWidth="200.0" text="Store" />
+            <TableColumn id="product" editable="false" minWidth="-1.0" prefWidth="300.0" text="Shipment ID" />
+            <TableColumn id="brand" minWidth="-1.0" prefWidth="300.0" text="Store" />
          </columns>
       </TableView>
    </children>
