@@ -4,14 +4,12 @@ package com.rainforestcommerce.rcdb.models;
 public class Product {
     protected long upcCode;
     protected String productName;
-    protected String size;
     protected String brand;
 
 
-    public Product(Long upcCode, String productName, String size, String brand){
+    public Product(Long upcCode, String productName, String brand){
         this.upcCode = upcCode;
         this.productName = productName;
-        this.size = size;
         this.brand = brand;
     }
 
@@ -29,14 +27,6 @@ public class Product {
 
     public void setProductName(String product_name) {
         this.productName = product_name;
-    }
-
-    public String getSize() {
-        return size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
     }
 
     public String getBrand() {

@@ -25,7 +25,6 @@ public class ShipmentRequestProxy {
                 products.add(new Product(
                         rs.getLong("upcCode"),
                         rs.getString("productName"),
-                        rs.getString("size"),
                         rs.getString("brand")
                 ));
             }

@@ -50,7 +50,7 @@ public class StoreProxy {
 	    try{
 		    Connection conn = ConnectionProxy.connect();
 		    PreparedStatement statement = conn.prepareStatement("SELECT * FROM store_purchases WHERE store_id = ?");
-            PreparedStatement statement2 = conn.prepareStatement("SELECT * FROM product_purchases INNER JOIN product ON product.product_id = product_purchase.product_id WHERE purchase_id = ?");
+            PreparedStatement statement2 = conn.prepareStatement("SELECT * FROM product_purchases INNER JOIN products ON products.upc_code = product_purchases.product_id WHERE purchase_id = ?");
             statement.setString(1, Long.toString(store.getStoreId()));
 		    ResultSet rs = statement.executeQuery();
 		    int place = 0;
@@ -60,7 +60,7 @@ public class StoreProxy {
 					rs.getLong("store_id"),
 					rs.getLong("account_number")
 	    		));
-                statement2 = conn.prepareStatement("SELECT * FROM product_purchases INNER JOIN product ON product.product_id = product_purchase.product_id WHERE purchase_id = ?");
+                statement2 = conn.prepareStatement("SELECT * FROM product_purchases INNER JOIN products ON products.upc_code = product_purchases.product_id WHERE purchase_id = ?");
                 statement2.setString(1, Long.toString(rs.getLong("purchase_id")));
                 ResultSet rs2 = statement2.executeQuery();
                 HashMap<Long, ProductQuantityPrice> hmap = new HashMap<Long, ProductQuantityPrice>();
@@ -72,7 +72,6 @@ public class StoreProxy {
                         new Product(
                             rs.getLong("upc_code"),
                             rs.getString("product_name"),
-                            rs.getString("weight"),
                             rs.getString("brand_name")
                         )
                     ));
@@ -123,7 +122,6 @@ public class StoreProxy {
                     new Product(
                         rs.getLong("upc_code"),
                         rs.getString("product_name"),
-                        rs.getString("size"),
                         rs.getString("brand_name")
                     )
                 ));
@@ -147,7 +145,6 @@ public class StoreProxy {
                 products.add(new Product(
                     rs.getLong("upc_code"),
                     rs.getString("product_name"),
-                    rs.getString("size"),
                     rs.getString("brand_name")
                 ));
             }
