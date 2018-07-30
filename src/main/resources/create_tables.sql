@@ -11,10 +11,7 @@ CREATE TABLE customers (
 CREATE TABLE stores (
     store_id LONG PRIMARY KEY,
     store_name VARCHAR(255) NOT NULL,
-    opening_time VARCHAR(5),
-    closing_time VARCHAR(5),
-    addr_num INT,
-    addr_street VARCHAR(255),
+    addr_line1 VARCHAR(255),
     addr_city VARCHAR(255),
     addr_state VARCHAR(255),
     addr_zipcode INT
@@ -64,8 +61,7 @@ CREATE TABLE product_purchases (
 CREATE TABLE vendors (
   vendor_id LONG PRIMARY KEY,
   vendor_name VARCHAR(255) NOT NULL,
-  addr_num INT,
-  addr_street VARCHAR(255),
+  addr_line1 VARCHAR(255),
   addr_city VARCHAR(255),
   addr_state VARCHAR(255),
   addr_zipcode VARCHAR(10)
