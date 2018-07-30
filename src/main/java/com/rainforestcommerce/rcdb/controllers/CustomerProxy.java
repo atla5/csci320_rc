@@ -35,8 +35,8 @@ public class CustomerProxy {
 	}
 
 	public static boolean insertNewCustomer(Customer customer){
-		String values = String.format("(%d, '%s', '%s', %b, '%s', %d)",
-				customer.getAccountNumber(), customer.getCustName(), customer.getPhone());
+		String values = String.format("(%d, '%s', '%s', %d)",
+				customer.getAccountNumber(), customer.getCustName(), customer.getPhone(), customer.getPoints());
 		return DataLoader.insertValuesIntoTable(values, "customers");
 	}
 }

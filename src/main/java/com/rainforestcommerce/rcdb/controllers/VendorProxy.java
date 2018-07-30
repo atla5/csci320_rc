@@ -15,7 +15,7 @@ public class VendorProxy {
 	private static final Logger LOGGER = Logger.getLogger( VendorProxy.class.getName() );
 
 	public static ArrayList<Vendor> getVendors(){
-        ArrayList<Vendor> vendors = new ArrayList<Vendor>();
+        ArrayList<Vendor> vendors = new ArrayList<>();
 	    try {
             Connection conn = ConnectionProxy.connect();
             String statement = "SELECT * FROM Vendors";
@@ -34,7 +34,7 @@ public class VendorProxy {
 	}
 
 	public static ArrayList<Shipment> getShipmentsForVendor(Vendor vendor){
-        ArrayList<Shipment> shipments = new ArrayList<Shipment>();
+        ArrayList<Shipment> shipments = new ArrayList<>();
 	    try {
             Connection conn = ConnectionProxy.connect();
             PreparedStatement statement = conn.prepareStatement("SELECT * FROM Shipments INNER JOIN Store ON Shipments.store_id = Store.store_id WHERE vendor_id = ?");
@@ -55,7 +55,10 @@ public class VendorProxy {
 	}
 
     public static boolean insertNewVendor(Vendor vendor){
-        String values = String.format("(%d, '%s')", vendor.getId(), vendor.getName());
-        return DataLoader.insertValuesIntoTable(values, "Vendor");
+        String valuesFragment = String.format("(%d, '%s'", vendor.getId(), vendor.getName());
+        if(vendor.getAddress() != null){
+            valuesFragment += ", " + vendor.getAddress().toValues();
+        }
+        return DataLoader.insertValuesIntoTable(valuesFragment+")", "Vendor");
     }
 }

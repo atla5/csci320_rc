@@ -36,10 +36,6 @@ public class ShipmentRequestProxy {
 		return products;
 	}
 
-	public static void requestShipment(Shipment shipment){
-	    insertNewShipment(shipment);
-	}
-
     public static boolean insertNewShipment(Shipment shipment){
         String values = String.format("(%d, '%s', '%s')", shipment.getID(), shipment.getStore(), shipment.getRequestDate().toString());
         return DataLoader.insertValuesIntoTable(values, "Shipments");

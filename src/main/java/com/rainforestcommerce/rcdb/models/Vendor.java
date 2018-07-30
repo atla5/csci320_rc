@@ -9,10 +9,12 @@ public class Vendor {
 
     public HashMap<Integer,Shipment> shipments;
     private String name;
+    private Address address;
     private long ID;
 
     public Vendor(long ID, String name){
         this.name = name;
+        this.address = null;
         this.ID = ID;
     }
 
@@ -22,5 +24,9 @@ public class Vendor {
 
     public long getId() {
         return ID;
+    }
+
+    public Address getAddress() {
+        return address;
     }
 }

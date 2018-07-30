@@ -59,14 +59,16 @@ public class PurchaseProxy {
     }
 
 	public static boolean insertNewStorePurchase(StorePurchase storePurchase){
-        String values = String.format("(%d, %d, %d, '%s', %b)",
-                storePurchase.getPurchaseId(), storePurchase.getStoreId(), storePurchase.getAccountNumber(),
-                storePurchase.getDateOfPurchase().toString(), storePurchase.isOnline());
+        String values = String.format("(%d, %d, %d, %b)",
+			storePurchase.getPurchaseId(), storePurchase.getStoreId(), storePurchase.getAccountNumber(), storePurchase.isOnline()
+		);
         return DataLoader.insertValuesIntoTable(values, "store_purchases");
     }
 
     public static boolean insertNewProductPurchase(ProductQuantityPrice productPurchase){
-	    String values = String.format("(%d, %d, %d)", productPurchase.getPurchaseId(), productPurchase.getUpcCode(), productPurchase.getQuantity());
+	    String values = String.format("(%d, %d, %d)",
+			productPurchase.getPurchaseId(), productPurchase.getUpcCode(), productPurchase.getQuantity()
+		);
         return DataLoader.insertValuesIntoTable(values, "product_purchases");
     }
     

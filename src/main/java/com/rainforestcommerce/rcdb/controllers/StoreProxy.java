@@ -30,15 +30,11 @@ public class StoreProxy {
                      placeholder = new Store(
                              rs.getLong("store_id"),
                              rs.getString("store_name"),
-                             //rs.getTime("opening_time"),
-                             //rs.getTime("closing_time"),
-                             rs.getString("opening_time"),
-                             rs.getString("closing_time"),
+                             rs.getInt("addr_num"),
+                             rs.getString("addr_street"),
                              rs.getString("addr_city"),
                              rs.getString("addr_state"),
-                             rs.getInt("addr_zipcode"),
-                             rs.getString("addr_street"),
-                             rs.getInt("addr_num")
+                             rs.getInt("addr_zipcode")
                      );
                  }
                  ProductQuantityPrice pqp = new ProductQuantityPrice(rs.getLong("unit_price"), rs.getInt("quantity"), new Product(rs.getLong("product_id"), rs.getString("product_name"), rs.getString("weight"), rs.getString("brand_name")));
@@ -189,8 +185,8 @@ public class StoreProxy {
 	}
 
 	public static boolean insertNewStore(Store store){
-		String values = String.format("(%d, '%s', '%s', '%s', %s)",
-			store.getStoreId(), store.getName(), store.getOpeningTime().toString(), store.getClosingTime().toString(), store.getAddress().toValues()
+		String values = String.format("(%d, '%s', '%s')",
+			store.getStoreId(), store.getName(), store.getAddress().toValues()
 		);
 		return DataLoader.insertValuesIntoTable(values, "stores");
 	}
