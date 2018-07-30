@@ -33,11 +33,10 @@ public class TableCreator {
 
     public static boolean createTables(){
         String createTablesSqlPathString = Paths.get("").toAbsolutePath().toString()+ RESOURCES_DIRECTORY + "/create_tables.sql";
-        logger.info(createTablesSqlPathString);
+        logger.info("Creating tables using following script: " + createTablesSqlPathString + " ...");
         try{
             Path createTablesSqlPath = Paths.get(createTablesSqlPathString);
             String statement = new String(Files.readAllBytes(createTablesSqlPath));
-            System.out.println(statement);
             if(RUN_SQL_AGAINST_REAL_DB_CONNECTION) {
                 Connection conn = ConnectionProxy.connect();
                 conn.createStatement().execute(statement);
@@ -57,9 +56,10 @@ public class TableCreator {
                 "vendors","vendor_distributions","shipments","shipment_contents"
         };
         Connection conn = ConnectionProxy.connect();
+        logger.info("dropping tables...");
         for(String tableName : tables){
             String dropTableCommand = "DROP TABLE " + tableName + ";";
-            logger.info(dropTableCommand);
+            //logger.info(dropTableCommand);
             if(!RUN_SQL_AGAINST_REAL_DB_CONNECTION){
                 continue;
             }
@@ -67,7 +67,7 @@ public class TableCreator {
                 PreparedStatement statement = conn.prepareStatement(dropTableCommand);
                 statement.execute();
             }catch(SQLException sqle){
-                logger.warning("ERROR dropping table '" + tableName);
+                logger.warning("ERROR dropping table '" + tableName + "'!");
                 sqle.printStackTrace();
             }
         }
@@ -76,18 +76,5 @@ public class TableCreator {
             logger.severe("ERROR closing connection used to drop tables");
             sqle.printStackTrace();
         }
-    }
-
-    private static boolean notExisting(){
-        boolean result = true;
-        try{
-            Connection conn = ConnectionProxy.connect();
-            ResultSet rs = conn.getMetaData().getTables(null, null, "Products", null);
-            result = !rs.next();
-            conn.close();
-        } catch(Exception ex){
-            logger.log( Level.SEVERE, ex.toString(), ex );
-        }
-        return result;
     }
 }
