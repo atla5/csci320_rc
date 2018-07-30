@@ -14,7 +14,7 @@ public class ProductQuantityPrice extends Product {
     private int quantity;
 
 
-    public ProductQuantityPrice(long purchaseId, int unit_price, int quantity, Product product){
+    public ProductQuantityPrice(long purchaseId, float unit_price, int quantity, Product product){
         super(product.upcCode, product.productName, product.brand);
     	this.purchaseId = purchaseId;
         this.unit_price = unit_price;
