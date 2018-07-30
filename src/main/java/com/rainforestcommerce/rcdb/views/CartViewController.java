@@ -82,10 +82,14 @@ public class CartViewController {
  			TableRow<ProductQuantityPrice> row = new TableRow<>();
  			row.setOnMouseClicked(event -> {
  				ProductQuantityPrice selectedProduct = row.getItem();
- 				Integer quantity = getQuantity(SessionData.store.inventory.get(selectedProduct.getUpcCode()));
- 				if (quantity != null) {
- 					SessionData.shoppingCart.products.put(selectedProduct.getUpcCode(), new ProductQuantityPrice(SessionData.store.inventory.get(selectedProduct.getUpcCode()).getUnitPrice(), quantity, selectedProduct));
- 					initialize();
+ 				// Get the version from the store's inventory so we know how many can be purchased
+ 				ProductQuantityPrice originalProduct = SessionData.store.inventory.stream().filter(p -> p.getUpcCode() == selectedProduct.getUpcCode()).findFirst().orElse(null);
+ 				if (originalProduct != null) {
+	 				Integer quantity = getQuantity(originalProduct);
+	 				if (quantity != null) {
+	 					SessionData.shoppingCart.products.put(selectedProduct.getUpcCode(), new ProductQuantityPrice(selectedProduct.getUnitPrice(), quantity, selectedProduct));
+	 					initialize();
+	 				}
  				}
  			});
  			return row;

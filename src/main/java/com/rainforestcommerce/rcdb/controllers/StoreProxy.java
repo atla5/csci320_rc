@@ -113,7 +113,7 @@ public class StoreProxy {
         ArrayList<ProductQuantityPrice> products = new ArrayList<ProductQuantityPrice>();
 	    try {
             Connection conn = ConnectionProxy.connect();
-            PreparedStatement statement = conn.prepareStatement("SELECT * FROM Store_inventory INNER JOIN product ON product.product_id = store_inventory.product_id WHERE store_id = ?");
+            PreparedStatement statement = conn.prepareStatement("SELECT * FROM Store_inventory INNER JOIN products ON products.upc_code = store_inventory.product_id WHERE store_id = ?");
             statement.setString(1, Long.toString(store.getStoreId()));
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
@@ -139,7 +139,7 @@ public class StoreProxy {
         ArrayList<Product> products = new ArrayList<Product>();
 	    try {
             Connection conn = ConnectionProxy.connect();
-            PreparedStatement statement = conn.prepareStatement("SELECT * FROM store_inventory INNER JOIN product ON store_inventory.product_id = product.product_id WHERE store_id = ? AND CHARINDEX(?, name) > 0");
+            PreparedStatement statement = conn.prepareStatement("SELECT * FROM store_inventory INNER JOIN products ON store_inventory.product_id = products.upc_code WHERE store_id = ? AND CHARINDEX(?, name) > 0");
             statement.setString(1, Long.toString(store.getStoreId()));
             statement.setString(2, search);
             ResultSet rs = statement.executeQuery();
