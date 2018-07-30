@@ -1,41 +1,30 @@
 package com.rainforestcommerce.rcdb.models;
 
-import org.omg.CORBA.PUBLIC_MEMBER;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 
 public class StorePurchase {
-    private static SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 
     private long purchaseId;
-    private Date dateOfPurchase;
     private long storeId;
     private long accountNumber;
     private boolean online;
     public HashMap<Long, ProductQuantityPrice> products;
 
-    public StorePurchase(long purchaseId, long storeId, long accountNumber){
+    public StorePurchase(long purchaseId, long storeId, long accountNumber, Boolean isOnline){
         this.purchaseId = purchaseId;
         this.storeId = storeId;
         this.accountNumber = accountNumber;
         this.products = new HashMap<>();
+        this.online = isOnline;
     }
     
     // Used to create a purchase from the view side of the application
     public StorePurchase(long storeId) {
     	this.storeId = storeId;
     	this.products = new HashMap<>();
-    	this.setDateOfPurchase(new Date());
     }
  
-    public void setDateOfPurchase(Date dateOfPurchase) {
-        this.dateOfPurchase = dateOfPurchase;
-    }
-
     public void setOnline(boolean online) {
         this.online = online;
     }
@@ -46,10 +35,6 @@ public class StorePurchase {
 
     public long getPurchaseId() {
         return purchaseId;
-    }
-
-    public Date getDateOfPurchase() {
-        return dateOfPurchase;
     }
 
     public long getStoreId() {

@@ -37,7 +37,7 @@ public class ShipmentRequestProxy {
 	}
 
     public static boolean insertNewShipment(Shipment shipment){
-        String values = String.format("(%d, '%s', '%s')", shipment.getID(), shipment.getStore(), shipment.getRequestDate().toString());
+        String values = String.format("(%d, '%s', '%s')", shipment.getID(), shipment.getStoreName(), shipment.getVendorName());
         return DataLoader.insertValuesIntoTable(values, "Shipments");
     }
 }

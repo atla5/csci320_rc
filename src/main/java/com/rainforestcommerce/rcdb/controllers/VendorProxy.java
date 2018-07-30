@@ -42,9 +42,9 @@ public class VendorProxy {
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 shipments.add(new Shipment(
-                        rs.getInt("shipment_id"),
-                        rs.getString("store_name"),
-                        rs.getString("order_date")
+                        rs.getLong("shipment_id"),
+                        rs.getLong("store_id"),
+                        rs.getLong("vendor_id")
                 ));
             }
             conn.close();
@@ -53,6 +53,21 @@ public class VendorProxy {
         }
         return shipments;
 	}
+
+	public static String getVendorNameByVendorId(long vendorId){
+	    String vendorName = "";
+	    try{
+	        Connection conn = ConnectionProxy.connect();
+	        PreparedStatement ps = conn.prepareStatement("SELECT vendor_name FROM vendors WHERE vender_id=?;");
+	        ps.setString(1, Long.toString(vendorId));
+	        ResultSet rs = ps.executeQuery();
+            vendorName = rs.getString("vendor_name");
+	        conn.close();
+        }catch(SQLException sqle){
+	        LOGGER.warning("could net get vendorNameById for vendorId: "+vendorId);
+        }
+        return vendorName;
+    }
 
     public static boolean insertNewVendor(Vendor vendor){
         String valuesFragment = String.format("(%d, '%s'", vendor.getId(), vendor.getName());
