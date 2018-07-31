@@ -14,7 +14,7 @@ public class ProductProxy {
 	private static final Logger LOGGER = Logger.getLogger( ProductProxy.class.getName() );
 
     public static boolean insertNewProduct(Product product){
-        String values = String.format("(%d, '%s', '%s', '%s')", product.getUpcCode(), product.getProductName(), product.getSize(), product.getBrand());
+        String values = String.format("(%d, '%s', '%s', '%s')", product.getUpcCode(), product.getProductName(), product.getBrand());
         return DataLoader.insertValuesIntoTable(values, "products");
     }
     
@@ -29,7 +29,6 @@ public class ProductProxy {
 	    		products.add(new Product(
 		                    results.getLong("upc_code"),
 		                    results.getString("product_name"),
-		                    "none",
 		                    results.getString("brand_name")));
 	    	}
 			connection.close();

@@ -29,7 +29,6 @@ public class PurchaseProxy {
                 products.add(new Product(
                         rs.getLong("upc_code"),
                         rs.getString("product_name"),
-                        rs.getString("size"),
                         rs.getString("brand_name")
                 ));
             }
