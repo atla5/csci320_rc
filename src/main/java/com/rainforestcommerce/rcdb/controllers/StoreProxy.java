@@ -128,7 +128,7 @@ public class StoreProxy {
 		return products;
 	}
 
-	public static ArrayList<Product> searchProducts(Store store, String search){ //Function will change once store inventory is added
+	public static ArrayList<Product> searchProducts(Store store, String search){
         ArrayList<Product> products = new ArrayList<Product>();
 	    try {
             Connection conn = ConnectionProxy.connect();

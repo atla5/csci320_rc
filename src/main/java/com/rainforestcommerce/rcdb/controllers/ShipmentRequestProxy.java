@@ -1,8 +1,12 @@
 package com.rainforestcommerce.rcdb.controllers;
 
+import com.rainforestcommerce.rcdb.models.ProductQuantityPrice;
+
 import com.rainforestcommerce.rcdb.models.Shipment;
 
 import com.rainforestcommerce.rcdb.models.Product;
+
+import com.rainforestcommerce.rcdb.models.Store;
 
 import java.util.ArrayList;
 
@@ -34,6 +38,22 @@ public class ShipmentRequestProxy {
         }
 		return products;
 	}
+
+	public static void recieveShipment(Shipment shipment, Store store){
+        try {
+            Connection conn = ConnectionProxy.connect();
+            for (ProductQuantityPrice item : shipment.contents) {
+                PreparedStatement statement = conn.prepareStatement("UPDATE store_inventory SET quantity = quantity + ? WHERE store_id = ? AND product_id = ?");
+                statement.setString(1, Long.toString(item.getQuantity()));
+                statement.setString(2, Long.toString(store.getStoreId()));
+                statement.setString(3, Long.toString(item.getUpcCode()));
+                statement.execute();
+            }
+            conn.close();
+        } catch(SQLException ex){
+            LOGGER.log( Level.SEVERE, ex.toString(), ex );
+        }
+    }
 
 	public static void requestShipment(Shipment shipment){
 	    insertNewShipment(shipment);

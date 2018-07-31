@@ -1,26 +1,19 @@
 package com.rainforestcommerce.rcdb.models;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
 
 /**
  * Created by aaa10 on 7/15/2018.
  */
 public class Shipment {
-    private static SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-
-    long id;
-    String store;
-    Integer cost;
-    String vendorName;
+    private long id;
+    private String store;
+    public ArrayList<ProductQuantityPrice> contents;
 
     public Shipment(long ID, String store){
         this.id = ID;
         this.store = store;
-        this.vendorName = vendorName;
-        this.cost = cost;
-
+        this.contents = new ArrayList<ProductQuantityPrice>();
     }
 
     public long getID() {
@@ -29,13 +22,5 @@ public class Shipment {
 
     public String getStore() {
         return store;
-    }
-
-    public Integer getCost() {
-        return cost;
-    }
-
-    public String getVendorName(){
-        return vendorName;
     }
 }
