@@ -50,7 +50,7 @@ public class StoreProxy {
 	    try{
 		    Connection conn = ConnectionProxy.connect();
 		    PreparedStatement statement = conn.prepareStatement("SELECT * FROM store_purchases WHERE store_id = ?");
-            PreparedStatement statement2 = conn.prepareStatement("SELECT * FROM product_purchases INNER JOIN products ON products.upc_code = product_purchases.product_id WHERE purchase_id = ?");
+            PreparedStatement statement2;
             statement.setString(1, Long.toString(store.getStoreId()));
 		    ResultSet rs = statement.executeQuery();
 		    int place = 0;
