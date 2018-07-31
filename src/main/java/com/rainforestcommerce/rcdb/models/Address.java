@@ -7,8 +7,8 @@ public class Address {
     private String addr_line1;
     private int zipcode;
 
-    public Address(int number, String street, String city, String state, int zipcode){
-        this.addr_line1 = number+" "+street;
+    public Address(String addr_line1, String city, String state, int zipcode){
+        this.addr_line1 = addr_line1;
         this.city = city;
         this.state = state;
         this.zipcode = zipcode;

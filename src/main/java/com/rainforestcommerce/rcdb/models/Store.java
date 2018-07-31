@@ -23,15 +23,14 @@ public class Store {
         String city = data.get(4);
         String state = data.get(5);
         int zip = Integer.parseInt(data.get(5));
-        String street = data.get(6);
-        int number = Integer.parseInt(data.get(7));
-        this.address = new Address(number, street, city, state, zip);
+        String addr_line1 = data.get(6);
+        this.address = new Address(addr_line1, city, state, zip);
     }
 
-    public Store(Long storeId, String name, String city, String state, int zip, String street, int number) {
+    public Store(Long storeId, String name, String city, String state, int zip, String addr_line) {
         this.storeId = storeId;
         this.name = name;
-        this.address = new Address(number, street, city, state, zip);
+        this.address = new Address(addr_line, city, state, zip);
     }
 
     public Store(long storeId){

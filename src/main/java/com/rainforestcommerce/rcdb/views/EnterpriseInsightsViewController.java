@@ -93,7 +93,7 @@ public class EnterpriseInsightsViewController {
 					row.setOnMouseClicked(event -> {
 						Store store = row.getItem();
 
-						productTable3.setItems(FXCollections.observableArrayList(store.inventory.values()));
+						productTable3.setItems(FXCollections.observableArrayList(store.inventory));
 
 						TableColumn<ProductQuantityPrice, String> product = (TableColumn<ProductQuantityPrice, String>) productTable3.getColumns().get(0);
 

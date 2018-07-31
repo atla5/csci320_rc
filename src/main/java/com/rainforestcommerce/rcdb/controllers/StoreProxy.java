@@ -26,8 +26,7 @@ public class StoreProxy {
                      rs.getString("addr_city"),
                      rs.getString("addr_state"),
                      rs.getInt("addr_zipcode"),
-                     rs.getString("addr_street"),
-                     rs.getInt("addr_num")
+                     rs.getString("addr_line1")
                  );
                  store.inventory = getInventoryForStore(store);
                  store.purchase = getPurchasesForStore(store);
