@@ -66,13 +66,13 @@ public class StoreProxy {
                 HashMap<Long, ProductQuantityPrice> hmap = new HashMap<Long, ProductQuantityPrice>();
                 while(rs2.next()){
                     hmap.put(rs.getLong("account_number"), new ProductQuantityPrice(
-                        rs.getLong("purchase_id"),
+                        rs2.getLong("purchase_id"),
                         0, //MOCK UNIT PRICE
-                        rs.getInt("quantity"),
+                        rs2.getInt("quantity"),
                         new Product(
-                            rs.getLong("upc_code"),
-                            rs.getString("product_name"),
-                            rs.getString("brand_name")
+                            rs2.getLong("upc_code"),
+                            rs2.getString("product_name"),
+                            rs2.getString("brand_name")
                         )
                     ));
 
