@@ -17,8 +17,9 @@ import static com.rainforestcommerce.rcdb.RcdbApplication.RESOURCES_DIRECTORY;
 public class DataLoader {
     private static final Logger logger = Logger.getLogger( DataLoader.class.getName() );
     private static final Random random = new Random();
+    private static final boolean LOG_EXCEPTION_DETAIL = false;
 
-    public static boolean RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION = false;
+    public static boolean RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION = true;
 
     public static void main(String[] args){
         if(RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION) {
@@ -31,6 +32,7 @@ public class DataLoader {
     }
 
     public static boolean loadData(){
+        logger.info("loading data into existing tables...");
         loadProducts();
         loadCustomers();
         loadStores();
@@ -38,12 +40,13 @@ public class DataLoader {
         loadPurchases();
         loadVendors();
         loadShipments();
+        logger.info("finished loading data.");
         return true;
     }
 
     public static boolean insertValuesIntoTable(String values, String tableName){
         String insertCommand = String.format("INSERT into %s VALUES %s;", tableName, values);
-        //logger.info(insertCommand);
+//        System.out.println(insertCommand);
         Connection conn = null;
         try{
             if(!RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION){ return true; }
@@ -51,9 +54,11 @@ public class DataLoader {
             PreparedStatement statement = conn.prepareStatement(insertCommand);
             statement.executeUpdate();
         }catch(SQLException sqle){
-            String firstValue = values.substring(1, values.indexOf(','));
-            logger.warning(String.format("Exception loading new item '%s' into table '%s'", firstValue, tableName));
-            sqle.printStackTrace();
+            if(LOG_EXCEPTION_DETAIL) {
+                String rowId = values.substring(1, values.indexOf(',')); //('____',*
+                logger.warning(String.format("Exception loading new item '%s' into table '%s'", rowId, tableName));
+                sqle.printStackTrace();
+            }
             return false;
         }finally{
             try {
@@ -67,8 +72,8 @@ public class DataLoader {
     }
 
     private static void loadProducts(){
-        List<String[]> csvData = readCsvIntoListOfStringArrays("Product.csv");
-        int numErrantLines = 0;
+        List<String[]> csvData = readTsvIntoListOfStringArrays("Product.txt");
+        int numErrantLines = 0; int counter=0;
         String values;
         for(String[] data : csvData){
             if(data.length != 4){ numErrantLines++; continue; }
@@ -81,14 +86,17 @@ public class DataLoader {
             if(!insertValuesIntoTable(values, "products")){
                 numErrantLines++;
             }
+            if(counter % 10_000 == 0){
+                System.out.print(".");
+            }counter++;
         }
-        if(numErrantLines > 0){ logger.warning("Number of errant lines in PRODUCTS: " + numErrantLines );}
+        if(numErrantLines > 0){ logger.warning("Number of errant lines in PRODUCTS: " + numErrantLines + "/" + counter);}
     }
 
     private static void loadCustomers(){
-        List<String[]> csvData = readCsvIntoListOfStringArrays("Customer.csv");
+        List<String[]> csvData = readTsvIntoListOfStringArrays("Customer.txt");
         String values;
-        int numErrantLines = 0;
+        int numErrantLines = 0; int counter=0;
         for(String[] data : csvData){
             if(data.length != 4){ numErrantLines++; continue; }
             String customerId = data[0];
@@ -100,13 +108,16 @@ public class DataLoader {
             if(!insertValuesIntoTable(values, "customers")){
                 numErrantLines++;
             }
+            if(counter % 10_000 == 0){
+                System.out.print(".");
+            }counter++;
         }
-        if(numErrantLines > 0){ logger.warning("Number of errant lines in CUSTOMERS: " + numErrantLines );}
+        if(numErrantLines > 0){ logger.warning("Number of errant lines in CUSTOMERS: " + numErrantLines + "/" + counter);}
     }
 
     private static void loadStores(){
-        List<String[]> csvData = readCsvIntoListOfStringArrays("Store.csv");
-        int numErrantLines = 0;
+        List<String[]> csvData = readTsvIntoListOfStringArrays("Store.txt");
+        int numErrantLines = 0; int counter=0;
         String values;
         for(String[] data : csvData){
             if(data.length != 6){ numErrantLines++; continue; }
@@ -123,13 +134,16 @@ public class DataLoader {
             if(!insertValuesIntoTable(values, "stores")){
                 numErrantLines++;
             }
+            if(counter % 10_000 == 0){
+                System.out.print(".");
+            }counter++;
         }
-        if(numErrantLines > 0){ logger.warning("Number of errant lines in STORE: " + numErrantLines );}
+        if(numErrantLines > 0){ logger.warning("Number of errant lines in STORE: " + numErrantLines + "/" + counter);}
     }
 
     private static void loadInventory(){
-        List<String[]> csvData = readCsvIntoListOfStringArrays("Store_Inventory.csv");
-        int numErrantLines = 0;
+        List<String[]> csvData = readTsvIntoListOfStringArrays("Store_Inventory.txt");
+        int numErrantLines = 0; int counter=0;
         String values;
         for(String[] data : csvData){
             if(data.length != 4){ numErrantLines++; continue; }
@@ -142,13 +156,17 @@ public class DataLoader {
             if(!insertValuesIntoTable(values, "store_inventory")){
                 numErrantLines++;
             }
+
+            if(counter % 10_000 == 0){
+                System.out.print(".");
+            }counter++;
         }
-        if(numErrantLines > 0){ logger.warning("Number of errant lines in INVENTORY: " + numErrantLines );}
+        if(numErrantLines > 0){ logger.warning("Number of errant lines in INVENTORY: " + numErrantLines + "/" + counter);}
     }
 
     private static void loadPurchases(){
-        List<String[]> csvData = readCsvIntoListOfStringArrays("Store_Purchase.csv");
-        String values; int numErrantLines = 0;
+        List<String[]> csvData = readTsvIntoListOfStringArrays("Store_Purchase.txt");
+        String values; int numErrantLines = 0; int counter=0;
         for(String[] data : csvData){
             if(data.length != 5){ numErrantLines++; continue; }
             String purchaseId = data[0];
@@ -161,11 +179,14 @@ public class DataLoader {
             if(!insertValuesIntoTable(values, "store_purchases")){
                 numErrantLines++;
             }
+            if(counter % 10_000 == 0){
+                System.out.print(".");
+            }counter++;
         }
-        if(numErrantLines > 0){ logger.warning("Number of errant lines in STORE_PURCHASE: " + numErrantLines );}
+        if(numErrantLines > 0){ logger.warning("Number of errant lines in STORE_PURCHASE: " + numErrantLines + "/" + counter);}
 
-        csvData.clear(); numErrantLines = 0;
-        csvData = readCsvIntoListOfStringArrays("Product_Purchase.csv");
+        csvData.clear(); numErrantLines = 0; counter = 0;
+        csvData = readTsvIntoListOfStringArrays("Product_Purchase.txt");
         for(String[] data : csvData){
             if(data.length != 3){ numErrantLines++; continue; }
             int product_id = Integer.parseInt(data[0]);
@@ -175,13 +196,16 @@ public class DataLoader {
             if(!insertValuesIntoTable(values, "product_purchases")){
                 numErrantLines++;
             }
+            if(counter % 10_000 == 0){
+                System.out.print(".");
+            }counter++;
         }
-        if(numErrantLines > 0){ logger.warning("Number of errant lines in PRODUCT_PURCHASE: " + numErrantLines );}
+        if(numErrantLines > 0){ logger.warning("Number of errant lines in PRODUCT_PURCHASE: " + numErrantLines + "/" + counter);}
     }
 
     private static void loadVendors(){
-        List<String[]> csvData = readCsvIntoListOfStringArrays("Vendor.csv");
-        String values; int numErrantLines = 0;
+        List<String[]> csvData = readTsvIntoListOfStringArrays("Vendor.txt");
+        String values; int numErrantLines = 0; int counter=0;
         String vendorId, vendorName, addrLine1, addrCity, addrState, addrZip;
         for(String[] data : csvData) {
             if(data.length != 6){ numErrantLines++; continue; }
@@ -196,11 +220,15 @@ public class DataLoader {
             if( !insertValuesIntoTable(values, "vendors")){
                 numErrantLines++;
             }
-        }
-        if(numErrantLines > 0){ logger.warning("Number of errant lines in VENDOR: " + numErrantLines );}
 
-        csvData.clear(); numErrantLines = 0;
-        csvData = readCsvIntoListOfStringArrays("Vendor_Distribution.csv");
+            if(counter % 10_000 == 0){
+                System.out.print(".");
+            }counter++;
+        }
+        if(numErrantLines > 0){ logger.warning("Number of errant lines in VENDOR: " + numErrantLines + "/" + counter);}
+
+        csvData.clear(); numErrantLines = 0; counter=0;
+        csvData = readTsvIntoListOfStringArrays("Vendor_Distribution.txt");
         String productId; float unitPrice;
         for(String[] data : csvData){
             if(data.length != 3){ numErrantLines++; continue; }
@@ -212,14 +240,17 @@ public class DataLoader {
             if(!insertValuesIntoTable(values, "vendor_distributions")){
                 numErrantLines++;
             }
+
+            if(counter % 10_000 == 0){
+                System.out.print(".");
+            }counter++;
         }
-        if(numErrantLines > 0){ logger.warning("Number of errant lines in VENDOR_DISTRIBUTION: " + numErrantLines );}
+        if(numErrantLines > 0){ logger.warning("Number of errant lines in VENDOR_DISTRIBUTION: " + numErrantLines + "/" + counter);}
     }
 
     private static void loadShipments(){
-        List<String[]> csvData = readCsvIntoListOfStringArrays("Shipment.csv");
-        String values; int numErrantLines = 0;
-
+        List<String[]> csvData = readTsvIntoListOfStringArrays("Shipment.txt");
+        String values; int numErrantLines = 0; int counter=0;
         for(String[] data : csvData){
             if(data.length != 3){ numErrantLines++; continue; }
             String shipment_id = data[0];
@@ -240,12 +271,15 @@ public class DataLoader {
                     numErrantLines++;
                 }
             }
+            if(counter % 10_000 == 0){
+                System.out.print(".");
+            }counter++;
         }
-        if(numErrantLines > 0){ logger.warning("Number of errant lines in SHIPMENT: " + numErrantLines );}
+        if(numErrantLines > 0){ logger.warning("Number of errant lines in SHIPMENT: " + numErrantLines + "/" + counter);}
     }
 
 
-    private static List<String[]> readCsvIntoListOfStringArrays(String filename){
+    private static List<String[]> readTsvIntoListOfStringArrays(String filename){
         List<String[]> toReturn = new ArrayList<>();
         BufferedReader br = null;
         String sampleDataDirectory = Paths.get("").toAbsolutePath().toString()+ RESOURCES_DIRECTORY + "/sample_data";
@@ -255,7 +289,7 @@ public class DataLoader {
             String line; boolean isHeaderLine = true;
             while((line = br.readLine()) != null){
                 if(isHeaderLine){ isHeaderLine = false; continue; }
-                toReturn.add(sanitizeStringForSql(line).split(","));
+                toReturn.add(sanitizeStringForSql(line).split("\t"));
             }
         }catch(Exception exception){
             logger.severe("Error reading filename " + filename);
