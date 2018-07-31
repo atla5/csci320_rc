@@ -18,18 +18,22 @@ public class ShipmentRequestProxy {
 
 	private static final Logger LOGGER = Logger.getLogger( ShipmentRequestProxy.class.getName() );
 
-	public static ArrayList<Product> getProductsForShipment(Shipment shipment){
-        ArrayList<Product> products = new ArrayList<Product>();
+	public static ArrayList<ProductQuantityPrice> getProductsForShipment(Shipment shipment){
+        ArrayList<ProductQuantityPrice> products = new ArrayList<ProductQuantityPrice>();
 	    try {
             Connection conn = ConnectionProxy.connect();
             PreparedStatement statement = conn.prepareStatement("SELECT * FROM Product INNER JOIN Shipment_contents ON Product.product_id = Shipment_contents.product_id WHERE shipment_id = ?");
             statement.setString(1, Long.toString(shipment.getID()));
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                products.add(new Product(
-                        rs.getLong("upcCode"),
-                        rs.getString("productName"),
-                        rs.getString("brand")
+                products.add(new ProductQuantityPrice(
+                        0, //MOCK UNIT PRICE
+                        rs.getInt("quantity"),
+                        new Product(
+                            rs.getLong("upcCode"),
+                            rs.getString("productName"),
+                            rs.getString("brand")
+                        )
                 ));
             }
             conn.close();

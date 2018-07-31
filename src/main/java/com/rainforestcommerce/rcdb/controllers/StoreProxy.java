@@ -91,10 +91,12 @@ public class StoreProxy {
             statement.setString(1, Long.toString(store.getStoreId()));
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                shipments.add(new Shipment(
+                Shipment shipment = new Shipment(
                     rs.getLong("shipment_id"),
                     rs.getString("store_name")
-                ));
+                );
+                shipment.contents = ShipmentRequestProxy.getProductsForShipment(shipment);
+                shipments.add(shipment);
             }
             conn.close();
         } catch(SQLException ex){
