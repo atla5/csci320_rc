@@ -102,9 +102,8 @@ public class DataLoader {
             String customerId = data[0];
             String customerName = data[1];
             String phone = data[2];
-            int purchasePoints = Integer.parseInt(data[3]);
 
-            values = String.format("(%s, '%s', '%s', %d)", customerId, customerName, phone, purchasePoints);
+            values = String.format("(%s, '%s', '%s')", customerId, customerName, phone);
             if(!insertValuesIntoTable(values, "customers")){
                 numErrantLines++;
             }
@@ -172,10 +171,9 @@ public class DataLoader {
             String purchaseId = data[0];
             String storeId = data[1];
             int customerId = random.nextInt(1000); //data[2] //TODO: resolve errors in sample data (phone vs account_number)
-            float totalPrice = Integer.parseInt(data[3])*(1.00f/100);
             boolean online_store = data[4].equalsIgnoreCase("true");
 
-            values = String.format("(%s, %s, %s, %s, %b)", purchaseId, storeId, customerId, totalPrice, online_store);
+            values = String.format("(%s, %s, %s, %b)", purchaseId, storeId, customerId, online_store);
             if(!insertValuesIntoTable(values, "store_purchases")){
                 numErrantLines++;
             }

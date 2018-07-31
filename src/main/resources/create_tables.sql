@@ -2,9 +2,7 @@ CREATE TABLE customers (
     account_number LONG PRIMARY KEY,
     cust_name VARCHAR(100) NOT NULL,
     phone_number VARCHAR(12),
-    accumulated_points INT,
 
-    check(accumulated_points >= 0),
     check(LENGTH(phone_number) >= 8)
 );
 CREATE INDEX customerIndex ON customers(account_number);
@@ -44,7 +42,6 @@ CREATE TABLE store_purchases (
     purchase_id LONG PRIMARY KEY,
     store_id LONG NOT NULL,
     account_number LONG NOT NULL,
-    total_price NUMERIC(15,2) NOT NULL,
     online_purchase BOOLEAN NOT NULL,
 
     FOREIGN KEY (store_id) REFERENCES stores(store_id),
