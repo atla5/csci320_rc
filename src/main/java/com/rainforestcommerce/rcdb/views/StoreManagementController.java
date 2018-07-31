@@ -48,7 +48,7 @@ public class StoreManagementController {
 	
 	public void initialize() {
 		// Populate the inventory table with the items in the store's inventory
-    	inventory_table.setItems(FXCollections.observableArrayList(SessionData.store.inventory.values()));
+    	inventory_table.setItems(FXCollections.observableArrayList(SessionData.store.inventory));
     	
         TableColumn<ProductQuantityPrice, String> product = (TableColumn<ProductQuantityPrice, String>) inventory_table.getColumns().get(0);
         TableColumn<ProductQuantityPrice, String> size_column = (TableColumn<ProductQuantityPrice,String>) inventory_table.getColumns().get(1);
@@ -61,7 +61,7 @@ public class StoreManagementController {
         brand_column.setCellValueFactory(new PropertyValueFactory<ProductQuantityPrice, String>("Brand"));
         price_column.setCellValueFactory(new PropertyValueFactory<ProductQuantityPrice, String>("UnitPrice"));
 
-		shipment_table.setItems(FXCollections.observableArrayList(SessionData.store.shipment.values()));
+		shipment_table.setItems(FXCollections.observableArrayList(SessionData.store.shipment));
 
 		TableColumn<Shipment, Integer> shipment_id = (TableColumn<Shipment, Integer>) shipment_table.getColumns().get(0);
 		TableColumn<Shipment, String> vendor_name = (TableColumn<Shipment,String>) shipment_table.getColumns().get(1);
@@ -73,16 +73,14 @@ public class StoreManagementController {
 
 
 		//Populate the purchases table with the purchase data
-		purchase_table.setItems(FXCollections.observableArrayList(SessionData.store.purchase.values()));
+		purchase_table.setItems(FXCollections.observableArrayList(SessionData.store.purchase));
 
-		TableColumn<StorePurchase,Long> purchase_id = (TableColumn<StorePurchase, Long>) purchase_table.getColumns().get(0);
-		TableColumn<StorePurchase,Long> customer_id = (TableColumn<StorePurchase, Long>) purchase_table.getColumns().get(1);
-		TableColumn<StorePurchase,Integer> purchase_cost = (TableColumn<StorePurchase, Integer>) purchase_table.getColumns().get(2);
-
-		purchase_id.setCellValueFactory(new PropertyValueFactory<StorePurchase, Long>("PurchaseId"));
-		customer_id.setCellValueFactory(new PropertyValueFactory<StorePurchase, Long>("AccountNumber"));
-		purchase_cost.setCellValueFactory(new PropertyValueFactory<StorePurchase, Integer>("Cost"));
-
+		TableColumn<StorePurchase,Long> customer_name = (TableColumn<StorePurchase, Long>) purchase_table.getColumns().get(0);
+		TableColumn<StorePurchase,Long> number_items = (TableColumn<StorePurchase, Long>) purchase_table.getColumns().get(1);
+		
+		customer_name.setCellValueFactory(new PropertyValueFactory<StorePurchase, Long>("CustomerName"));
+		number_items.setCellValueFactory(new PropertyValueFactory<StorePurchase, Long>("NumberOfItems"));
+		
 		title.setText(SessionData.store.getName());
 	}
 	

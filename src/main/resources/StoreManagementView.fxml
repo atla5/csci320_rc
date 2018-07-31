@@ -40,9 +40,8 @@
                <content>
                   <TableView fx:id="purchase_table" prefHeight="508.0" prefWidth="600.0">
                      <columns>
-                        <TableColumn id="product" editable="false" minWidth="200.0" prefWidth="200.0" text="Purchase" />
-                        <TableColumn id="size" minWidth="200.0" prefWidth="200.0" text="Customer" />
-                        <TableColumn id="brand" minWidth="200.0" prefWidth="200.0" text="Cost" />
+                        <TableColumn id="product" editable="false" minWidth="200.0" prefWidth="300.0" text="Customer" />
+                        <TableColumn id="size" minWidth="200.0" prefWidth="300.0" text="Number of Items" />
                      </columns>
                   </TableView>
                </content>

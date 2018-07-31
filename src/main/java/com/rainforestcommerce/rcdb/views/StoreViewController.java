@@ -50,7 +50,7 @@ public class StoreViewController {
 
     public void initialize() {
     	// Populate the product table with the items in the store's inventory
-    	product_table.setItems(FXCollections.observableArrayList(SessionData.store.inventory.values()));
+    	product_table.setItems(FXCollections.observableArrayList(SessionData.store.inventory));
         // Create the shopping cart if needed
     	if (SessionData.shoppingCart == null) {
 			SessionData.shoppingCart = new StorePurchase(SessionData.store.getStoreId());
@@ -72,7 +72,7 @@ public class StoreViewController {
  				ProductQuantityPrice selectedProduct = row.getItem();
  				Integer quantity = getQuantity(selectedProduct);
  				if (quantity != null) {
- 					SessionData.shoppingCart.products.put(selectedProduct.getUpcCode(), new ProductQuantityPrice(SessionData.store.inventory.get(selectedProduct.getUpcCode()).getUnitPrice(), quantity, selectedProduct));
+ 					SessionData.shoppingCart.products.put(selectedProduct.getUpcCode(), new ProductQuantityPrice(selectedProduct.getUnitPrice(), quantity, selectedProduct));
  				}
  			});
  			return row;
