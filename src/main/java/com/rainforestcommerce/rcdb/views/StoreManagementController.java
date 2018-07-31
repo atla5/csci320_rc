@@ -75,14 +75,12 @@ public class StoreManagementController {
 		//Populate the purchases table with the purchase data
 		purchase_table.setItems(FXCollections.observableArrayList(SessionData.store.purchase));
 
-		TableColumn<StorePurchase,Long> purchase_id = (TableColumn<StorePurchase, Long>) purchase_table.getColumns().get(0);
-		TableColumn<StorePurchase,Long> customer_id = (TableColumn<StorePurchase, Long>) purchase_table.getColumns().get(1);
-		TableColumn<StorePurchase,Integer> purchase_cost = (TableColumn<StorePurchase, Integer>) purchase_table.getColumns().get(2);
-
-		purchase_id.setCellValueFactory(new PropertyValueFactory<StorePurchase, Long>("PurchaseId"));
-		customer_id.setCellValueFactory(new PropertyValueFactory<StorePurchase, Long>("AccountNumber"));
-		purchase_cost.setCellValueFactory(new PropertyValueFactory<StorePurchase, Integer>("Cost"));
-
+		TableColumn<StorePurchase,Long> customer_name = (TableColumn<StorePurchase, Long>) purchase_table.getColumns().get(0);
+		TableColumn<StorePurchase,Long> number_items = (TableColumn<StorePurchase, Long>) purchase_table.getColumns().get(1);
+		
+		customer_name.setCellValueFactory(new PropertyValueFactory<StorePurchase, Long>("CustomerName"));
+		number_items.setCellValueFactory(new PropertyValueFactory<StorePurchase, Long>("NumberOfItems"));
+		
 		title.setText(SessionData.store.getName());
 	}
 	
