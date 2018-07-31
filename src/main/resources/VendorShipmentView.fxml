@@ -13,7 +13,7 @@
    <children>
       <StackPane prefHeight="150.0" prefWidth="200.0">
          <children>
-            <Text fill="#43a240" strokeType="OUTSIDE" strokeWidth="0.0" text="Vendor Name" textAlignment="CENTER" wrappingWidth="597.8297576904297">
+            <Text fx:id="title" fill="#43a240" strokeType="OUTSIDE" strokeWidth="0.0" text="Vendor Name" textAlignment="CENTER" wrappingWidth="597.8297576904297">
                <font>
                   <Font name="Trebuchet MS Bold" size="29.0" />
                </font>

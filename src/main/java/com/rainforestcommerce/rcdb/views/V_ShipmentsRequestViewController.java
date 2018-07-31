@@ -12,6 +12,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+
+import javax.xml.soap.Text;
 import java.io.IOException;
 import java.util.Date;
 
@@ -31,11 +33,15 @@ public class V_ShipmentsRequestViewController {
     @FXML
     private TableView<Shipment> request_table;
 
+    @FXML
+    private javafx.scene.text.Text title;
+
     /**
      * Sets up the Customer table to properly display Customer objects.
      * This method is called automatically by FXMLLoader.
      */
     public void initialize() {
+        title.setText(SessionData.vendor.getName());
         request_table.setItems(FXCollections.observableArrayList(SessionData.vendor.shipments));
         // Get the table columns
         TableColumn<Shipment, Integer> ID_Column = (TableColumn<Shipment, Integer>) request_table.getColumns().get(0);

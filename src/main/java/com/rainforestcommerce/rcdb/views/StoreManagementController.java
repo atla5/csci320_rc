@@ -22,7 +22,8 @@ import javafx.scene.text.Text;
 /**
  * The controller for the Store Management view.
  */
-public class StoreManagementController {
+public class
+StoreManagementController {
 
 	private static VBox view;
 
