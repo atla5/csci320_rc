@@ -49,7 +49,7 @@ public class StoreProxy {
         ArrayList<StorePurchase> purchases = new ArrayList<StorePurchase>();
 	    try{
 		    Connection conn = ConnectionProxy.connect();
-		    PreparedStatement statement = conn.prepareStatement("SELECT * FROM store_purchases WHERE store_id = ?");
+		    PreparedStatement statement = conn.prepareStatement("SELECT * FROM store_purchases INNER JOIN customers ON customers.account_number = store_purchases.account_number WHERE store_id = ?");
             PreparedStatement statement2;
             statement.setString(1, Long.toString(store.getStoreId()));
 		    ResultSet rs = statement.executeQuery();
@@ -58,7 +58,8 @@ public class StoreProxy {
 		    	purchases.add(new StorePurchase(
 					rs.getLong("purchase_id"),
 					rs.getLong("store_id"),
-					rs.getLong("account_number")
+					rs.getLong("account_number"),
+                    rs.getString("cust_name")
 	    		));
                 statement2 = conn.prepareStatement("SELECT * FROM product_purchases INNER JOIN products ON products.upc_code = product_purchases.product_id WHERE purchase_id = ?");
                 statement2.setString(1, Long.toString(rs.getLong("purchase_id")));

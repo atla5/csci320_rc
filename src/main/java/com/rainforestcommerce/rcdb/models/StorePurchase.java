@@ -16,12 +16,14 @@ public class StorePurchase {
     private long storeId;
     private long accountNumber;
     private boolean online;
+    private String customerName;
     public HashMap<Long, ProductQuantityPrice> products;
 
-    public StorePurchase(long purchaseId, long storeId, long accountNumber){
+    public StorePurchase(long purchaseId, long storeId, long accountNumber, String customerName){
         this.purchaseId = purchaseId;
         this.storeId = storeId;
         this.accountNumber = accountNumber;
+        this.customerName = customerName;
         this.products = new HashMap<>();
     }
     
@@ -58,6 +60,16 @@ public class StorePurchase {
 
     public long getAccountNumber() {
         return accountNumber;
+    }
+
+    public String getCustomerName(){ return customerName; }
+
+    public int getNumberOfItems(){
+        int tot = 0;
+        for(ProductQuantityPrice item : products.values()){
+            tot += item.getQuantity();
+        }
+        return tot;
     }
 
     public float getCost() {
