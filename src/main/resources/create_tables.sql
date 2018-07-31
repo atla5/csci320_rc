@@ -7,6 +7,7 @@ CREATE TABLE customers (
     check(accumulated_points >= 0),
     check(LENGTH(phone_number) >= 8)
 );
+CREATE INDEX customerIndex ON customers(account_number);
 
 CREATE TABLE stores (
     store_id LONG PRIMARY KEY,
@@ -16,6 +17,7 @@ CREATE TABLE stores (
     addr_state VARCHAR(255),
     addr_zipcode INT
 );
+CREATE INDEX storesIndex ON stores(store_id);
 
 CREATE TABLE products (
     upc_code LONG PRIMARY KEY,
@@ -23,6 +25,7 @@ CREATE TABLE products (
     weight INT,
     brand_name VARCHAR(255)
 );
+CREATE INDEX productsIndex ON products(upc_code);
 
 CREATE TABLE store_inventory (
     store_id LONG,
@@ -67,6 +70,7 @@ CREATE TABLE vendors (
   addr_state VARCHAR(255),
   addr_zipcode VARCHAR(10)
 );
+CREATE INDEX vendorIndex ON vendors(vendor_id);
 
 CREATE TABLE vendor_distributions (
   vendor_id LONG,
@@ -85,6 +89,7 @@ CREATE TABLE shipments (
    FOREIGN KEY (store_id) REFERENCES stores(store_id),
    FOREIGN KEY (vendor_id)  REFERENCES vendors(vendor_id)
 );
+CREATE INDEX shipmentsIndex ON shipments(shipment_id);
 
 CREATE TABLE shipment_contents (
   shipment_id LONG,
