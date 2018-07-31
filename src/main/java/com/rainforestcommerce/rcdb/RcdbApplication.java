@@ -21,7 +21,7 @@ public class RcdbApplication extends View {
 
 	public static String RESOURCES_DIRECTORY = "/src/main/resources";
 
-	public static final Boolean COMPLETELY_RESET_DB_EACH_RUN = false; //change to true when running for real
+	public static final Boolean RUN_AS_FINAL_SUBMISSION = true; //change to true when running for real
 	public  static boolean USE_TRANSIENT_PRODUCTION_DB = false;
 	private static final boolean LAUNCH_UI_ON_STARTUP = true;
 
@@ -73,8 +73,9 @@ public class RcdbApplication extends View {
 	}
 
 	private static void optionallyOverrideSettings(){
-		if(COMPLETELY_RESET_DB_EACH_RUN != null && COMPLETELY_RESET_DB_EACH_RUN){
-			USE_TRANSIENT_PRODUCTION_DB = false;
+		if(RUN_AS_FINAL_SUBMISSION != null && RUN_AS_FINAL_SUBMISSION){
+			USE_TRANSIENT_PRODUCTION_DB = true;
+			RESET_DB_THEN_EXIT = false;
 			RECREATE_TABLES_ON_STARTUP = true;
 			RUN_LOADERS_ON_STARTUP = true;
 			DROP_ALL_TABLES_ON_CLOSE = true;
