@@ -47,12 +47,14 @@ public class CartViewController {
 	
 	@FXML
 	protected void handleLogoutButtonPress(MouseEvent event) {
+		SessionData.shoppingCart = null;
 		ActivityManager.start(Activity.START_SCREEN);
 	}
 	
 	@FXML
 	protected void handleCheckoutButtonPress(MouseEvent event) {
 		PurchaseProxy.makePurchase(SessionData.shoppingCart);
+		SessionData.shoppingCart = null;
 		ActivityManager.start(Activity.STORE_SELECTION);
 	}
 	

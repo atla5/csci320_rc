@@ -44,6 +44,7 @@ public class StoreViewController {
     
     @FXML
     protected void handleLogoutButtonPress(MouseEvent event) {
+    	SessionData.shoppingCart = null;
     	ActivityManager.start(Activity.START_SCREEN);
     }
 
