@@ -20,9 +20,9 @@ public class RcdbApplication extends View {
 	private static final Logger logger = Logger.getLogger( RcdbApplication.class.getName() );
 
 	public static String RESOURCES_DIRECTORY = "/src/main/resources";
+	public static boolean USE_TRANSIENT_PRODUCTION_DB = false;
 
-	public static final Boolean RUN_AS_FINAL_SUBMISSION = true; //change to true when running for real
-	public  static boolean USE_TRANSIENT_PRODUCTION_DB = false;
+	private static final Boolean RUN_AS_FINAL_SUBMISSION = true; //change to true when running for real
 	private static final boolean LAUNCH_UI_ON_STARTUP = true;
 
 	private static boolean RESET_DB_THEN_EXIT = false;
@@ -60,12 +60,10 @@ public class RcdbApplication extends View {
 			logger.info("Table creation and population successful");
 		}
 		else{
-			logger.severe("Table creation failed. Exiting...");
+			logger.severe("Table creation failed! Exiting...");
 			System.exit(1);
 		}
 
-	    
-	    // Start the view
 		if(LAUNCH_UI_ON_STARTUP) {
 			logger.info("Launching UI...");
 			launch();
