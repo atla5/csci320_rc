@@ -53,13 +53,13 @@ StoreManagementController {
     	
         TableColumn<ProductQuantityPrice, String> product = (TableColumn<ProductQuantityPrice, String>) inventory_table.getColumns().get(0);
         TableColumn<ProductQuantityPrice, String> size_column = (TableColumn<ProductQuantityPrice,String>) inventory_table.getColumns().get(1);
-        TableColumn<ProductQuantityPrice, String>  brand_column = (TableColumn<ProductQuantityPrice,String>) inventory_table.getColumns().get(2);
+        TableColumn<ProductQuantityPrice, String>  quantity_column = (TableColumn<ProductQuantityPrice,String>) inventory_table.getColumns().get(2);
         TableColumn<ProductQuantityPrice, String> price_column = (TableColumn<ProductQuantityPrice,String>) inventory_table.getColumns().get(3);
 
 
         product.setCellValueFactory(new PropertyValueFactory<ProductQuantityPrice, String>("ProductName"));
         size_column.setCellValueFactory(new PropertyValueFactory<ProductQuantityPrice, String>("Size"));
-        brand_column.setCellValueFactory(new PropertyValueFactory<ProductQuantityPrice, String>("Brand"));
+        quantity_column.setCellValueFactory(new PropertyValueFactory<ProductQuantityPrice, String>("Quantity"));
         price_column.setCellValueFactory(new PropertyValueFactory<ProductQuantityPrice, String>("UnitPrice"));
 
 		shipment_table.setItems(FXCollections.observableArrayList(SessionData.store.shipment));

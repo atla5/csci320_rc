@@ -30,7 +30,7 @@ public class VendorShipmentDetailsViewController {
 	
 	@FXML
 	protected void handleShipItButtonClicked(MouseEvent event) {
-		ShipmentRequestProxy.recieveShipment(SessionData.shipment,SessionData.store);
+		ShipmentRequestProxy.recieveShipment(SessionData.shipment);
 	}
 	
 	@FXML

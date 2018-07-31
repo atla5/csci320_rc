@@ -22,17 +22,17 @@ public class ShipmentRequestProxy {
         ArrayList<ProductQuantityPrice> products = new ArrayList<ProductQuantityPrice>();
 	    try {
             Connection conn = ConnectionProxy.connect();
-            PreparedStatement statement = conn.prepareStatement("SELECT * FROM Shipment_contents INNER JOIN Products ON Products.upc_code = Shipment_contents.product_id INNER JOIN shipments ON shipments.shipment_id = shipment_contents.shipment_id INNER JOIN vendor_distributions ON vendor_distributions.vendor_id = shipments.vendor_id AND vendor_distributions.product_id = Products.upc_code WHERE shipment_id = ?");
+            PreparedStatement statement = conn.prepareStatement("SELECT * FROM Shipment_contents INNER JOIN Products ON Products.upc_code = Shipment_contents.product_id WHERE shipment_contents.shipment_id = ?");
             statement.setString(1, Long.toString(shipment.getID()));
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 products.add(new ProductQuantityPrice(
-                        rs.getFloat("unit_price"),
+                        0, //rs.getFloat("unit_price"),
                         rs.getInt("quantity"),
                         new Product(
-                            rs.getLong("upcCode"),
-                            rs.getString("productName"),
-                            rs.getString("brand")
+                            rs.getLong("upc_code"),
+                            rs.getString("product_name"),
+                            rs.getString("brand_name")
                         )
                 ));
             }
@@ -43,13 +43,13 @@ public class ShipmentRequestProxy {
 		return products;
 	}
 
-	public static void recieveShipment(Shipment shipment, Store store){
+	public static void recieveShipment(Shipment shipment){
         try {
             Connection conn = ConnectionProxy.connect();
             for (ProductQuantityPrice item : shipment.contents) {
-                PreparedStatement statement = conn.prepareStatement("UPDATE store_inventory SET quantity = quantity + ? WHERE store_id = ? AND product_id = ?");
+                PreparedStatement statement = conn.prepareStatement("UPDATE store_inventory SET quantity = quantity + ? WHERE store_id = SOME(SELECT store_id FROM stores WHERE store_name = ?) AND product_id = ?");
                 statement.setString(1, Long.toString(item.getQuantity()));
-                statement.setString(2, Long.toString(store.getStoreId()));
+                statement.setString(2, shipment.getStore());
                 statement.setString(3, Long.toString(item.getUpcCode()));
                 statement.execute();
             }
