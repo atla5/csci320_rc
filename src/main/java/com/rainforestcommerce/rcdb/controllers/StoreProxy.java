@@ -23,10 +23,6 @@ public class StoreProxy {
                  Store store = new Store(
                      rs.getLong("store_id"),
                      rs.getString("store_name"),
-                     //rs.getTime("opening_time"),
-                     //rs.getTime("closing_time"),
-                     rs.getString("opening_time"),
-                     rs.getString("closing_time"),
                      rs.getString("addr_city"),
                      rs.getString("addr_state"),
                      rs.getInt("addr_zipcode"),
@@ -98,8 +94,7 @@ public class StoreProxy {
             while (rs.next()) {
                 shipments.add(new Shipment(
                     rs.getLong("shipment_id"),
-                    rs.getString("store_name"),
-                    rs.getString("order_date")
+                    rs.getString("store_name")
                 ));
             }
             conn.close();
@@ -158,7 +153,7 @@ public class StoreProxy {
 
 	public static boolean insertNewStore(Store store){
 		String values = String.format("(%d, '%s', '%s', '%s', %s)",
-			store.getStoreId(), store.getName(), store.getOpeningTime().toString(), store.getClosingTime().toString(), store.getAddress().toValues()
+			store.getStoreId(), store.getName(), store.getAddress().toValues()
 		);
 		return DataLoader.insertValuesIntoTable(values, "stores");
 	}
