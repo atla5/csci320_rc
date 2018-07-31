@@ -5,6 +5,7 @@ import org.h2.jdbcx.JdbcConnectionPool;
 import java.sql.*;
 
 import java.util.logging.*;
+import static com.rainforestcommerce.rcdb.RcdbApplication.USE_TRANSIENT_PRODUCTION_DB;
 
 public class ConnectionProxy {
 
@@ -13,7 +14,9 @@ public class ConnectionProxy {
 	private static JdbcConnectionPool cp;
 
 	public static void startConnection(){
-		cp = JdbcConnectionPool.create("jdbc:h2:~/test;AUTO_SERVER=TRUE", "sa", "");
+		String dbName = USE_TRANSIENT_PRODUCTION_DB? "new" : "backup";
+		cp = JdbcConnectionPool.create("jdbc:h2:~/"+dbName+";AUTO_SERVER=TRUE", "sa", "");
+		LOGGER.info("initial connection established to: " + dbName);
 	}
 
 	public static Connection connect(){

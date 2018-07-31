@@ -5,9 +5,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static com.rainforestcommerce.rcdb.RcdbApplication.RESOURCES_DIRECTORY;
@@ -33,7 +31,7 @@ public class TableCreator {
 
     public static boolean createTables(){
         String createTablesSqlPathString = Paths.get("").toAbsolutePath().toString()+ RESOURCES_DIRECTORY + "/create_tables.sql";
-        logger.info("Creating tables using following script: " + createTablesSqlPathString + " ...");
+        logger.info("creating tables using following script: " + createTablesSqlPathString + " ...");
         try{
             Path createTablesSqlPath = Paths.get(createTablesSqlPathString);
             String statement = new String(Files.readAllBytes(createTablesSqlPath));
@@ -42,6 +40,7 @@ public class TableCreator {
                 conn.createStatement().execute(statement);
                 conn.close();
             }
+            logger.info("table creation successful.");
             return true;
         } catch(Exception ex){
             logger.severe("ERROR creating tables: " + ex.getMessage());
@@ -59,7 +58,6 @@ public class TableCreator {
         logger.info("dropping tables...");
         for(String tableName : tables){
             String dropTableCommand = "DROP TABLE " + tableName + ";";
-            //logger.info(dropTableCommand);
             if(!RUN_SQL_AGAINST_REAL_DB_CONNECTION){
                 continue;
             }
@@ -71,6 +69,7 @@ public class TableCreator {
                 sqle.printStackTrace();
             }
         }
+        logger.info("tables dropped successfully.");
         try{ conn.close(); }
         catch(SQLException sqle){
             logger.severe("ERROR closing connection used to drop tables");
