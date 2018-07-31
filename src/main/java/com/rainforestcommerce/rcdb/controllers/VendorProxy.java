@@ -43,10 +43,12 @@ public class VendorProxy {
             statement.setString(1, Long.toString(vendor.getId()));
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                shipments.add(new Shipment(
-                        rs.getInt("shipment_id"),
+                Shipment shipment = new Shipment(
+                        rs.getLong("shipment_id"),
                         rs.getString("store_name")
-                ));
+                );
+                shipment.contents = ShipmentRequestProxy.getProductsForShipment(shipment);
+                shipments.add(shipment);
             }
             conn.close();
         } catch(SQLException ex){

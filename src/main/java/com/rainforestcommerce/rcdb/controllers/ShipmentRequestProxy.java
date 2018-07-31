@@ -22,12 +22,12 @@ public class ShipmentRequestProxy {
         ArrayList<ProductQuantityPrice> products = new ArrayList<ProductQuantityPrice>();
 	    try {
             Connection conn = ConnectionProxy.connect();
-            PreparedStatement statement = conn.prepareStatement("SELECT * FROM Shipment_contents INNER JOIN Products ON Products.upc_code = Shipment_contents.product_id WHERE shipment_id = ?");
+            PreparedStatement statement = conn.prepareStatement("SELECT * FROM Shipment_contents INNER JOIN Products ON Products.upc_code = Shipment_contents.product_id INNER JOIN shipments ON shipments.shipment_id = shipment_contents.shipment_id INNER JOIN vendor_distributions ON vendor_distributions.vendor_id = shipments.vendor_id AND vendor_distributions.product_id = Products.upc_code WHERE shipment_id = ?");
             statement.setString(1, Long.toString(shipment.getID()));
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 products.add(new ProductQuantityPrice(
-                        0, //MOCK UNIT PRICE
+                        rs.getFloat("unit_price"),
                         rs.getInt("quantity"),
                         new Product(
                             rs.getLong("upcCode"),
