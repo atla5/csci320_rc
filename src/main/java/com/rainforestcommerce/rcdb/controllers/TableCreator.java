@@ -23,6 +23,7 @@ public class TableCreator {
 
         dropAllTables();
         createTables();
+        createTriggers();
 
         if(DROP_AFTER_CREATING_IN_MAIN){
             dropAllTables();
@@ -48,6 +49,8 @@ public class TableCreator {
             return false;
         }
     }
+
+    public static void createTriggers(){}
 
     public static void dropAllTables(){
         String[] tables = { "products", "customers",

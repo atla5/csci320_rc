@@ -12,8 +12,7 @@ import java.sql.SQLException;
 import java.util.logging.Logger;
 
 import static com.rainforestcommerce.rcdb.controllers.DataLoader.loadData;
-import static com.rainforestcommerce.rcdb.controllers.TableCreator.createTables;
-import static com.rainforestcommerce.rcdb.controllers.TableCreator.dropAllTables;
+import static com.rainforestcommerce.rcdb.controllers.TableCreator.*;
 
 
 public class RcdbApplication extends View {
@@ -47,6 +46,7 @@ public class RcdbApplication extends View {
 				logger.severe("ERROR creating tables. Exiting with error status...");
 				System.exit(1);
 			}
+			createTriggers();
 		}
 		if(RUN_LOADERS_ON_STARTUP) {
 			boolean loadDataSuccessful = loadData();
