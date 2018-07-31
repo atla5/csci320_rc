@@ -9,10 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class StorePurchase {
-    private static SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-
     private long purchaseId;
-    private Date dateOfPurchase;
     private long storeId;
     private long accountNumber;
     private boolean online;
@@ -29,11 +26,6 @@ public class StorePurchase {
     public StorePurchase(long storeId) {
     	this.storeId = storeId;
     	this.products = new HashMap<>();
-    	this.setDateOfPurchase(new Date());
-    }
- 
-    public void setDateOfPurchase(Date dateOfPurchase) {
-        this.dateOfPurchase = dateOfPurchase;
     }
 
     public void setOnline(boolean online) {
@@ -46,10 +38,6 @@ public class StorePurchase {
 
     public long getPurchaseId() {
         return purchaseId;
-    }
-
-    public Date getDateOfPurchase() {
-        return dateOfPurchase;
     }
 
     public long getStoreId() {

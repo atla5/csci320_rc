@@ -12,22 +12,14 @@ public class Shipment {
 
     long id;
     String store;
-    Date requestDate;
-    Date arrivalDate;
     Integer cost;
     String vendorName;
 
-    public Shipment(long ID, String store, String requestDate){
+    public Shipment(long ID, String store){
         this.id = ID;
         this.store = store;
-        try {
-            this.requestDate = sdf.parse(requestDate);
-        } catch(ParseException pe){
-            System.exit(1);
-        }
         this.vendorName = vendorName;
         this.cost = cost;
-        this.arrivalDate = arrivalDate;
 
     }
 
@@ -38,16 +30,6 @@ public class Shipment {
     public String getStore() {
         return store;
     }
-
-    public Date getRequestDate() {
-        return requestDate;
-    }
-
-    public void setArrivalDate(Date arrivalDate){
-        this.arrivalDate = arrivalDate;
-    }
-
-    public Date getArrivalDate() {return arrivalDate;}
 
     public Integer getCost() {
         return cost;

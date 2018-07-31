@@ -61,7 +61,7 @@ public class PurchaseProxy {
 	public static boolean insertNewStorePurchase(StorePurchase storePurchase){
         String values = String.format("(%d, %d, %d, '%s', %b)",
                 storePurchase.getPurchaseId(), storePurchase.getStoreId(), storePurchase.getAccountNumber(),
-                storePurchase.getDateOfPurchase().toString(), storePurchase.isOnline());
+                storePurchase.isOnline());
         return DataLoader.insertValuesIntoTable(values, "store_purchases");
     }
 

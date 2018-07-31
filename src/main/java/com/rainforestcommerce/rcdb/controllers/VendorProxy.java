@@ -45,8 +45,7 @@ public class VendorProxy {
             while (rs.next()) {
                 shipments.add(new Shipment(
                         rs.getInt("shipment_id"),
-                        rs.getString("store_name"),
-                        rs.getString("order_date")
+                        rs.getString("store_name")
                 ));
             }
             conn.close();
