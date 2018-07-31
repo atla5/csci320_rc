@@ -6,219 +6,299 @@ import java.io.IOException;
 import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class DataLoader {
-    private static String GENERIC_INSERT_STATEMENT = "INSERT into %s VALUES %s;";
-    private static final Logger LOGGER = Logger.getLogger( DataLoader.class.getName() );
+import static com.rainforestcommerce.rcdb.RcdbApplication.RESOURCES_DIRECTORY;
 
-    private static String DATA_DIRECTORY = "/src/main/resources/sample_data";
-    private static final boolean RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION = false;
-    private static final boolean CREATE_TABLES_ON_LOAD = false;
-    private static final boolean RUN_LOADERS_ON_STARTUP = false;
+public class DataLoader {
+    private static final Logger logger = Logger.getLogger( DataLoader.class.getName() );
+    private static final Random random = new Random();
+    private static final boolean LOG_EXCEPTION_DETAIL = false;
+
+    public static boolean RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION = true;
 
     public static void main(String[] args){
-        //reset the data directory to update `dataDirectory` to its absolute path
-        DATA_DIRECTORY = Paths.get("").toAbsolutePath().toString()+DATA_DIRECTORY;
-        if(RUN_LOADERS_ON_STARTUP) {
-            loadProducts();
-            loadCustomers();
-            loadStores();
-            loadInventory();
-            loadPurchases(); // store and product purchases
-            loadVendors();
-            loadShipments();
+        if(RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION) {
+            ConnectionProxy.startConnection();
+            TableCreator.dropAllTables();
+            TableCreator.createTables();
         }
-        if(CREATE_TABLES_ON_LOAD){
-            createTables();
-        }
-        System.exit(0);
+
+        loadData();
+    }
+
+    public static boolean loadData(){
+        logger.info("loading data into existing tables...");
+        loadProducts();
+        loadCustomers();
+        loadStores();
+        loadInventory();
+        loadPurchases();
+        loadVendors();
+        loadShipments();
+        logger.info("finished loading data.");
+        return true;
     }
 
     public static boolean insertValuesIntoTable(String values, String tableName){
-        String insertCommand = String.format(GENERIC_INSERT_STATEMENT, tableName, values);
-        LOGGER.info(insertCommand);
+        String insertCommand = String.format("INSERT into %s VALUES %s;", tableName, values);
+//        System.out.println(insertCommand);
+        Connection conn = null;
         try{
-            if(!RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION){ return false; }
-            Connection conn = ConnectionProxy.connect();
+            if(!RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION){ return true; }
+            conn = ConnectionProxy.connect();
             PreparedStatement statement = conn.prepareStatement(insertCommand);
             statement.executeUpdate();
-            return true;
         }catch(SQLException sqle){
-            String firstValue = values.substring(1, values.indexOf(','));
-            LOGGER.severe(String.format("Exception loading new item '%s' into table '%s'", firstValue, tableName));
-            sqle.printStackTrace();
+            if(LOG_EXCEPTION_DETAIL) {
+                String rowId = values.substring(1, values.indexOf(',')); //('____',*
+                logger.warning(String.format("Exception loading new item '%s' into table '%s'", rowId, tableName));
+                sqle.printStackTrace();
+            }
             return false;
+        }finally{
+            try {
+                if(conn != null){ conn.close(); }
+            }catch(SQLException sqle){
+                logger.warning("unable to close connection used to: " + insertCommand);
+                return false;
+            }
         }
+        return true;
     }
 
     private static void loadProducts(){
-        List<String[]> csvData = readCsvIntoListOfStringArrays("Product.csv");
+        List<String[]> csvData = readTsvIntoListOfStringArrays("Product.txt");
+        int numErrantLines = 0; int counter=0;
         String values;
         for(String[] data : csvData){
+            if(data.length != 4){ numErrantLines++; continue; }
             String upcCode = data[0];
             String productName = data[1];
             String weight = data[2];
             String brand = data[3];
 
             values = String.format("(%s, '%s', %s, '%s')", upcCode, productName, weight, brand);
-            insertValuesIntoTable(values, "products");
+            if(!insertValuesIntoTable(values, "products")){
+                numErrantLines++;
+            }
+            if(counter % 10_000 == 0){
+                System.out.print(".");
+            }counter++;
         }
+        if(numErrantLines > 0){ logger.warning("Number of errant lines in PRODUCTS: " + numErrantLines + "/" + counter);}
     }
 
     private static void loadCustomers(){
-        List<String[]> csvData = readCsvIntoListOfStringArrays("Customer.csv");
+        List<String[]> csvData = readTsvIntoListOfStringArrays("Customer.txt");
         String values;
+        int numErrantLines = 0; int counter=0;
         for(String[] data : csvData){
+            if(data.length != 4){ numErrantLines++; continue; }
             String customerId = data[0];
             String customerName = data[1];
-            String birthDate = data[2]; //TODO update to real Date
-            boolean isMale = data[3].equalsIgnoreCase("male");
-            String ethnicity = data[4]; //TODO  set ethnicity values
-            String phone = data[5]; //TODO use 'like' in phone number check with digits-only
-            int purchasePoints = Integer.parseInt(data[6]);
+            String phone = data[2];
+            int purchasePoints = Integer.parseInt(data[3]);
 
-            values = String.format("(%s, '%s', '%s', %b, '%s', '%s', %d)",
-                    customerId, customerName, birthDate, isMale, ethnicity, phone, purchasePoints);
-            insertValuesIntoTable(values, "customers");
+            values = String.format("(%s, '%s', '%s', %d)", customerId, customerName, phone, purchasePoints);
+            if(!insertValuesIntoTable(values, "customers")){
+                numErrantLines++;
+            }
+            if(counter % 10_000 == 0){
+                System.out.print(".");
+            }counter++;
         }
+        if(numErrantLines > 0){ logger.warning("Number of errant lines in CUSTOMERS: " + numErrantLines + "/" + counter);}
     }
 
     private static void loadStores(){
-        List<String[]> csvData = readCsvIntoListOfStringArrays("Store.csv");
+        List<String[]> csvData = readTsvIntoListOfStringArrays("Store.txt");
+        int numErrantLines = 0; int counter=0;
         String values;
         for(String[] data : csvData){
+            if(data.length != 6){ numErrantLines++; continue; }
             String storeId = data[0];
             String storeName = data[1];
-            String openingTime = data[2]; //TODO: update to real Date
-            String closingTime = data[3]; //TODO: update to real Date and add time comparison check
-            String addrCity = data[4];
-            String addrState = data[5];
-            String addrZip = data[6];
-            String addrStreet = data[7];
-            String addrNum = data[8];
+            String addrLine1 = data[2];
+            String addrCity = data[3];
+            String addrState = data[4];
+            String addrZip = data[5];
 
-            values = String.format("(%s, '%s', '%s', '%s', %s, '%s', '%s', '%s', '%s')",
-                    storeId, storeName, openingTime, closingTime, addrNum, addrStreet, addrCity, addrState, addrZip
+            values = String.format("(%s, '%s', '%s', '%s', '%s', '%s')",
+                    storeId, storeName, addrLine1, addrCity, addrState, addrZip
             );
-            insertValuesIntoTable(values, "stores");
+            if(!insertValuesIntoTable(values, "stores")){
+                numErrantLines++;
+            }
+            if(counter % 10_000 == 0){
+                System.out.print(".");
+            }counter++;
         }
+        if(numErrantLines > 0){ logger.warning("Number of errant lines in STORE: " + numErrantLines + "/" + counter);}
     }
 
     private static void loadInventory(){
-        List<String[]> csvData = readCsvIntoListOfStringArrays("Store_Inventory.csv");
+        List<String[]> csvData = readTsvIntoListOfStringArrays("Store_Inventory.txt");
+        int numErrantLines = 0; int counter=0;
         String values;
-        Random random = new Random();
         for(String[] data : csvData){
-            String storeId = "" + random.nextInt(1000); //TODO: resolve errors in sample data
-            String productId = "" + random.nextInt(150); //TODO: resolve errors in sample data
-            float unitPrice = Integer.parseInt(data[2])/(100*1.0f); //TODO: determine fate of this variable
+            if(data.length != 4){ numErrantLines++; continue; }
+            String storeId = data[0];
+            String productId = data[1];
+            float unitPrice = Integer.parseInt(data[2])/(100*1.0f);
             int quantity = Integer.parseInt(data[3]);
 
             values = String.format("(%s, %s, %s, %d)", storeId, productId, unitPrice, quantity);
-            insertValuesIntoTable(values, "store_inventory");
+            if(!insertValuesIntoTable(values, "store_inventory")){
+                numErrantLines++;
+            }
+
+            if(counter % 10_000 == 0){
+                System.out.print(".");
+            }counter++;
         }
+        if(numErrantLines > 0){ logger.warning("Number of errant lines in INVENTORY: " + numErrantLines + "/" + counter);}
     }
 
     private static void loadPurchases(){
-        List<String[]> csvData = readCsvIntoListOfStringArrays("Purchase.csv");
-        String values;
-        Random random = new Random();
+        List<String[]> csvData = readTsvIntoListOfStringArrays("Store_Purchase.txt");
+        String values; int numErrantLines = 0; int counter=0;
         for(String[] data : csvData){
+            if(data.length != 5){ numErrantLines++; continue; }
             String purchaseId = data[0];
-            String datePurchased = data[1];
-            String storeId = data[3];
-            int customerId = random.nextInt(150); //TODO: resolve errors in sample data
-            String productId = "" + random.nextInt(150); //TODO: resolve errors in sample data
-            boolean online_store = data[5].equalsIgnoreCase("true");
-            int quantity = random.nextInt(8); //TODO: resolve errors in sample data
+            String storeId = data[1];
+            int customerId = random.nextInt(1000); //data[2] //TODO: resolve errors in sample data (phone vs account_number)
+            float totalPrice = Integer.parseInt(data[3])*(1.00f/100);
+            boolean online_store = data[4].equalsIgnoreCase("true");
 
-            values = String.format("(%s, %s, %s, '%s', %b)", purchaseId, storeId, customerId, datePurchased, online_store);
-            insertValuesIntoTable(values, "store_purchases");
-            values = String.format("(%s, %s, %d)", purchaseId, productId, quantity);
-            insertValuesIntoTable(values, "product_purchases");
+            values = String.format("(%s, %s, %s, %s, %b)", purchaseId, storeId, customerId, totalPrice, online_store);
+            if(!insertValuesIntoTable(values, "store_purchases")){
+                numErrantLines++;
+            }
+            if(counter % 10_000 == 0){
+                System.out.print(".");
+            }counter++;
         }
+        if(numErrantLines > 0){ logger.warning("Number of errant lines in STORE_PURCHASE: " + numErrantLines + "/" + counter);}
+
+        csvData.clear(); numErrantLines = 0; counter = 0;
+        csvData = readTsvIntoListOfStringArrays("Product_Purchase.txt");
+        for(String[] data : csvData){
+            if(data.length != 3){ numErrantLines++; continue; }
+            int product_id = Integer.parseInt(data[0]);
+            int purchase_id = Integer.parseInt(data[1]);
+            int quantity = Integer.parseInt(data[2]);
+            values = String.format("(%s, %s, %s)", product_id, purchase_id, quantity);
+            if(!insertValuesIntoTable(values, "product_purchases")){
+                numErrantLines++;
+            }
+            if(counter % 10_000 == 0){
+                System.out.print(".");
+            }counter++;
+        }
+        if(numErrantLines > 0){ logger.warning("Number of errant lines in PRODUCT_PURCHASE: " + numErrantLines + "/" + counter);}
     }
 
     private static void loadVendors(){
-        List<String[]> csvData = readCsvIntoListOfStringArrays("Vendor.csv");
-        String values;
-        Random random = new Random();
+        List<String[]> csvData = readTsvIntoListOfStringArrays("Vendor.txt");
+        String values; int numErrantLines = 0; int counter=0;
+        String vendorId, vendorName, addrLine1, addrCity, addrState, addrZip;
         for(String[] data : csvData) {
-            String vendor_id = data[0];
-            String vendor_name = data[1];
-            String addr_number = data[2];
-            String addr_street = data[3];
-            String addr_city = data[4];
-            String addr_state = data[5];
-            String addr_zipcode = data[6];
+            if(data.length != 6){ numErrantLines++; continue; }
+            vendorId = data[0];
+            vendorName = data[1];
+            addrLine1 = data[2];
+            addrCity = data[3];
+            addrState = data[4];
+            addrZip = data[5];
 
-            values = String.format("(%s, '%s', %s, '%s', '%s', '%s', %s)", vendor_id, vendor_name, addr_number, addr_street, addr_city, addr_state, addr_zipcode);
-            insertValuesIntoTable(values, "vendors");
-
-            // each vendor distributes 10 items
-            int product_id; String unit_price;
-            for(int i=0; i<10; i++){
-                product_id = random.nextInt(151);
-                unit_price = random.nextInt(5) + "." + random.nextInt(99);
-                values = String.format("(%s, %s, %s)", vendor_id, product_id, unit_price);
-                insertValuesIntoTable(values, "vendor_distributions");
+            values = String.format("(%s, '%s', '%s', '%s', '%s', %s)", vendorId, vendorName, addrLine1, addrCity, addrState, addrZip);
+            if( !insertValuesIntoTable(values, "vendors")){
+                numErrantLines++;
             }
+
+            if(counter % 10_000 == 0){
+                System.out.print(".");
+            }counter++;
         }
+        if(numErrantLines > 0){ logger.warning("Number of errant lines in VENDOR: " + numErrantLines + "/" + counter);}
+
+        csvData.clear(); numErrantLines = 0; counter=0;
+        csvData = readTsvIntoListOfStringArrays("Vendor_Distribution.txt");
+        String productId; float unitPrice;
+        for(String[] data : csvData){
+            if(data.length != 3){ numErrantLines++; continue; }
+            vendorId = data[0];
+            productId = data[1];
+            unitPrice = Integer.parseInt(data[2])*(1.00f/100);
+
+            values = String.format("(%s, %s, %f)", vendorId, productId, unitPrice);
+            if(!insertValuesIntoTable(values, "vendor_distributions")){
+                numErrantLines++;
+            }
+
+            if(counter % 10_000 == 0){
+                System.out.print(".");
+            }counter++;
+        }
+        if(numErrantLines > 0){ logger.warning("Number of errant lines in VENDOR_DISTRIBUTION: " + numErrantLines + "/" + counter);}
     }
 
     private static void loadShipments(){
-        List<String[]> csvData = readCsvIntoListOfStringArrays("Shipment.csv");
-        String values;
-        Random random = new Random();
-
+        List<String[]> csvData = readTsvIntoListOfStringArrays("Shipment.txt");
+        String values; int numErrantLines = 0; int counter=0;
         for(String[] data : csvData){
+            if(data.length != 3){ numErrantLines++; continue; }
             String shipment_id = data[0];
             String store_id = data[1];
             String vendor_id = data[2];
-            String order_date = data[3]; //TODO change to real date
-            String arrival_date = data[4]; //TODO change to real data
-            values = (String.format("(%s, %s, %s, '%s', '%s')", shipment_id, store_id, vendor_id, order_date, arrival_date));
-            insertValuesIntoTable(values, "shipments");
-
-            // each shipment contains 5 products
-            int product_id, quantity;
-            for(int i=0; i<5; i++) {
-                product_id = random.nextInt(151);
-                quantity = random.nextInt(350);
-                values = (String.format("(%s, %d, %d)", shipment_id, product_id, quantity));
-                insertValuesIntoTable(values, "shipment_contents");
+            values = (String.format("(%s, %s, %s)", shipment_id, store_id, vendor_id));
+            if(!insertValuesIntoTable(values, "shipments")){
+                numErrantLines++;
             }
+
+            // each shipment contains 10 products
+            int product_id, quantity;
+            for(int i=0; i<10; i++) {
+                product_id = random.nextInt(1000);
+                quantity = random.nextInt(250);
+                values = (String.format("(%s, %d, %d)", shipment_id, product_id, quantity));
+                if(!insertValuesIntoTable(values, "shipment_contents")){
+                    numErrantLines++;
+                }
+            }
+            if(counter % 10_000 == 0){
+                System.out.print(".");
+            }counter++;
         }
+        if(numErrantLines > 0){ logger.warning("Number of errant lines in SHIPMENT: " + numErrantLines + "/" + counter);}
     }
 
 
-    private static List<String[]> readCsvIntoListOfStringArrays(String filename){
+    private static List<String[]> readTsvIntoListOfStringArrays(String filename){
         List<String[]> toReturn = new ArrayList<>();
         BufferedReader br = null;
+        String sampleDataDirectory = Paths.get("").toAbsolutePath().toString()+ RESOURCES_DIRECTORY + "/sample_data";
 
         try{
-            br = new BufferedReader(new FileReader(DATA_DIRECTORY+"/"+filename));
+            br = new BufferedReader(new FileReader(sampleDataDirectory +"/"+filename));
             String line; boolean isHeaderLine = true;
             while((line = br.readLine()) != null){
                 if(isHeaderLine){ isHeaderLine = false; continue; }
-
-                toReturn.add(sanitizeStringForSql(line).split(","));
+                toReturn.add(sanitizeStringForSql(line).split("\t"));
             }
         }catch(Exception exception){
-            LOGGER.severe(String.format("Error reading filename %s", filename));
+            logger.severe("Error reading filename " + filename);
             exception.printStackTrace();
         }finally{
             try {
                 if (br != null) { br.close(); }
             }catch(IOException ioe){
-                LOGGER.severe("IOException reached while reading CSV file " + filename);
+                logger.severe("IOException reached while closing buffer on filename " + filename);
                 ioe.printStackTrace();
             }
         }
@@ -227,133 +307,5 @@ public class DataLoader {
 
     private static String sanitizeStringForSql(String inputString){
         return inputString.replaceAll("'", "").replaceAll("-"," ").replaceAll("\"","");
-    }
-
-    private static String stringArrayToPrintString(String[] toPrint){
-        String printString = "";
-        if(toPrint != null && toPrint.length >= 0){
-            for (String token : toPrint) { printString += token + "\t"; }
-        }
-        return printString;
-    }
-
-    private static void createTables(){
-        try{
-            Connection conn = ConnectionProxy.connect();
-            String statement =
-                "CREATE TABLE product ( " +
-                    "upc_code BIGINT PRIMARY KEY, " +
-                    "product_name VARCHAR(255) NOT NULL, " +
-                    "weight INT, brand_name VARCHAR(255)" +
-                "); " +
-                "CREATE TABLE stores ( " +
-                    "store_id BIGINT PRIMARY KEY," +
-                    "store_name VARCHAR(255) NOT NULL, " +
-                    "opening_time TIME, " +
-                    "closing_time TIME, " +
-                    "addr_num INT, " +
-                    "addr_street VARCHAR(255), " +
-                    "addr_city VARCHAR(255), " +
-                    "addr_state VARCHAR(255), " +
-                    "addr_zipcode INT, " +
-                    "check(closing_time > opening_time)" +
-                ");" +
-                "CREATE TABLE store_inventory(" +
-                    "store_id BIGINT, " +
-                    "product_id BIGINT, " +
-                    "unit_price DECIMAL(15,2), " +
-                    "quantity INT PRIMARY KEY (store_id, product_id), " +
-                    "FOREIGN KEY (store_id) REFERENCES stores(store_id), " +
-                    "FOREIGN KEY (product_id) REFERENCES products(upc_code), " +
-                    "check(unit_price >= 0), check(quantity >= 0)" +
-                "); " +
-                "CREATE TABLE customers (" +
-                    "account_number BIGINT PRIMARY KEY, " +
-                    "cust_name VARCHAR(100), " +
-                    "birth_date DATETIME, " +
-                    "male BOOLEAN, " +
-                    "ethnicity VARCHAR(20), " +
-                    "phone_number INT, " +
-                    "accumulated_points INT, " +
-                    "check(birth_date > 1900), " +
-                    "check(birth_date < 2016), " +
-                    "check(accumulated_points >= 0) " +
-                "); " +
-                "CREATE TABLE store_purchases (" +
-                    "purchase_id BIGINT PRIMARY KEY, " +
-                    "store_id BIGINT, " +
-                    "account_number BIGINT, " +
-                    "date DATE NOT NULL, " +
-                    "total_price DECIMAL(15,2) NOT NULL, " +
-                    "online BOOLEAN NOT NULL, " +
-                    "FOREIGN KEY (store_id) REFERENCES stores(store_id), " +
-                    "FOREIGN KEY (account_number) REFERENCES customers(account_number), " +
-                    "check(date <= CURDATE()), " +
-                    "check(total_price > 0)" +
-                "); " +
-                "CREATE TABLE product_purchases (" +
-                    "purchase_id IDENTITY, " +
-                    "product_id IDENTITY, " +
-                    "quantity INT(255) NOT NULL, " +
-                    "PRIMARY KEY (purchase_id, product_id), " +
-                    "FOREIGN KEY (purchase_id) REFERENCES store_purchases(purchase_id), " +
-                    "FOREIGN KEY (product_id) REFERENCES (product_id), " +
-                    "check(quantity > 0)" +
-                "); " +
-                "CREATE TABLE shipments (" +
-                    "shipment_id BIGINT PRIMARY KEY, " +
-                    "store_id BIGINT NOT NULL, " +
-                    "vendor_id BIGINT NOT NULL, " +
-                    "order_date DATE, " +
-                    "arrival_date DATE, " +
-                    "FOREIGN KEY (store_id) REFERENCES store(store_id), " +
-                    "FOREIGN KEY (vendor_id) REFERENCES vendor(vendor_id), " +
-                    "check(arrival_date >= order_date)" +
-                "); " +
-                "CREATE TABLE shipment_contents(" +
-                    "shipment_id BIGINT, " +
-                    "product_id BIGINT, " +
-                    "quantity INT, " +
-                    "PRIMARY KEY (shipment_id, product_id)," +
-                    "FOREIGN KEY (shipment_id) REFERENCES shipments(shipment_id), " +
-                    "FOREIGN KEY (product_id) REFERENCES products(upc_code), " +
-                    "check(quantity >=0)" +
-                "); " +
-                "CREATE TABLE vendor(" +
-                    "vendor_id BIGINT PRIMARY KEY, " +
-                    "vendor_name VARCHAR(255) NOT NULL, " +
-                    "addr_num INT, " +
-                    "addr_street VARCHAR(255), " +
-                    "addr_city VARCHAR(255), " +
-                    "addr_state VARCHAR(255), " +
-                    "addr_zipcode INT" +
-                "); " +
-                "CREATE TABLE vendor_distribution(" +
-                    "vendor_id BIGINT, " +
-                    "product_id BIGINT, " +
-                    "unit_price DECIMAL(15,2), " +
-                    "PRIMARY KEY(vendor_id, product_id), " +
-                    "FOREIGN KEY (vendor_id) REFERENCES vendors(vendor_id), " +
-                    "FOREIGN KEY (product_id) REFERENCES products(upc_code), " +
-                    "check(unit_price >= 0)" +
-                ");";
-            conn.createStatement().execute(statement);
-            conn.close();
-        } catch(Exception ex){
-            LOGGER.log( Level.SEVERE, ex.toString(), ex );
-        }
-    }
-
-    public static boolean notExisting(){
-        boolean result = true;
-        try{
-            Connection conn = ConnectionProxy.connect();
-            ResultSet rs = conn.getMetaData().getTables(null, null, "Products", null);
-            result = !rs.next();
-            conn.close();
-        } catch(Exception ex){
-            LOGGER.log( Level.SEVERE, ex.toString(), ex );
-        }
-        return result;
     }
 }
