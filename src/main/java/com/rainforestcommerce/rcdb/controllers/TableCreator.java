@@ -50,7 +50,18 @@ public class TableCreator {
         }
     }
 
-    public static void createTriggers(){}
+    public static void createTriggers(){
+        String triggerStatement = UpdateStoreInventoryOnShipmentTrigger.update_store_inventory_on_shipment_trigger_sql;
+        logger.info("adding trigger to database for 'UpdatingStoreInventoryOnShipments'");
+        try {
+            Connection conn = ConnectionProxy.connect();
+            conn.createStatement().execute(triggerStatement);
+            conn.close();
+        }catch(SQLException sqle){
+            logger.warning("ERROR adding triggers!");
+            sqle.printStackTrace();
+        }
+    }
 
     public static void dropAllTables(){
         String[] tables = { "products", "customers",
