@@ -24,6 +24,7 @@ public class TableCreator {
         dropAllTables();
         createTables();
         createTriggers();
+        testTrigger();
 
         if(DROP_AFTER_CREATING_IN_MAIN){
             dropAllTables();
@@ -60,6 +61,23 @@ public class TableCreator {
         }catch(SQLException sqle){
             logger.warning("ERROR adding triggers!");
             sqle.printStackTrace();
+        }
+    }
+
+    private static boolean testTrigger(){
+        try {
+            Connection conn = ConnectionProxy.connect();
+            PreparedStatement ps = conn.prepareStatement("SELECT count(*) FROM store_inventory;");
+            int count = ps.executeQuery().getInt(1);
+            logger.info("inventory count before trigger: " + count);
+            DataLoader.insertValuesIntoTable("(1, 1, ", "shipments");
+            count = ps.executeQuery().getInt(1);
+            logger.info("inventory count after trigger: " + count);
+            return true;
+        }catch(SQLException sqle){
+            logger.warning("error testing trigger");
+            sqle.printStackTrace();
+            return false;
         }
     }
 
