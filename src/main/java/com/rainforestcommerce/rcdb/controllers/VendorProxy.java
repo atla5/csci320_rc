@@ -18,7 +18,7 @@ public class VendorProxy {
         ArrayList<Vendor> vendors = new ArrayList<Vendor>();
 	    try {
             Connection conn = ConnectionProxy.connect();
-            String statement = "SELECT * FROM Vendors";
+            String statement = "SELECT * FROM Vendors ORDER BY vendor_name";
             ResultSet rs = conn.createStatement().executeQuery(statement);
             while (rs.next()) {
                 Vendor vendor = new Vendor(
@@ -39,7 +39,7 @@ public class VendorProxy {
         ArrayList<Shipment> shipments = new ArrayList<Shipment>();
 	    try {
             Connection conn = ConnectionProxy.connect();
-            PreparedStatement statement = conn.prepareStatement("SELECT * FROM Shipments INNER JOIN stores ON stores.store_id = Shipments.store_id WHERE vendor_id = ?");
+            PreparedStatement statement = conn.prepareStatement("SELECT * FROM Shipments INNER JOIN stores ON stores.store_id = Shipments.store_id WHERE vendor_id = ? ORDER BY store_name");
             statement.setString(1, Long.toString(vendor.getId()));
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {

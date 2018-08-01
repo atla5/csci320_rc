@@ -22,7 +22,7 @@ public class PurchaseProxy {
         ArrayList<Product> products = new ArrayList<Product>();
 	    try {
             Connection conn = ConnectionProxy.connect();
-            PreparedStatement statement = conn.prepareStatement("SELECT * FROM Product INNER JOIN Brand ON Product.brand_id = Brand.brand_id WHERE upc_code = ?");
+            PreparedStatement statement = conn.prepareStatement("SELECT * FROM Product INNER JOIN Brand ON Product.brand_id = Brand.brand_id WHERE upc_code = ? ORDER BY product_name");
             statement.setString(1, Long.toString(purchase.getUpcCode()));
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
