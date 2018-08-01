@@ -43,15 +43,12 @@ public class ShipmentRequestProxy {
 		return products;
 	}
 
-	public static void recieveShipment(Shipment shipment){
+	public static void receiveShipment(Shipment shipment){
         try {
             Connection conn = ConnectionProxy.connect();
             for (ProductQuantityPrice item : shipment.contents) {
-                PreparedStatement statement = conn.prepareStatement("UPDATE store_inventory SET quantity = quantity + ? WHERE store_id = SOME(SELECT store_id FROM stores WHERE store_name = ?) AND product_id = ?");
-                statement.setString(1, Long.toString(item.getQuantity()));
-                statement.setString(2, shipment.getStore());
-                statement.setString(3, Long.toString(item.getUpcCode()));
-                statement.execute();
+                String query = String.format("UPDATE store_inventory SET quantity = quantity + %d WHERE store_id = SOME(SELECT store_id FROM stores WHERE store_name = '%s') AND product_id = %d", item.getQuantity(), shipment.getStore(), item.getUpcCode());
+                PreparedStatement statement = conn.prepareStatement(query);
             }
             conn.close();
         } catch(SQLException ex){

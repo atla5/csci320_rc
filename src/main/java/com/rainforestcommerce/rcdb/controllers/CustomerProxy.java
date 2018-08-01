@@ -16,7 +16,7 @@ public class CustomerProxy {
 		ArrayList<Customer> customers = new ArrayList<Customer>();
 		try {
 			Connection conn = ConnectionProxy.connect();
-			String statement = "SELECT * FROM Customers";
+			String statement = "SELECT * FROM Customers ORDER BY cust_name";
 			ResultSet rs = conn.createStatement().executeQuery(statement);
 			while (rs.next()) {
 				Customer customer = new Customer(

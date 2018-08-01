@@ -17,7 +17,7 @@ public class StoreProxy {
         ArrayList<Store> stores = new ArrayList<Store>();
          try{
              Connection conn = ConnectionProxy.connect();
-             String statement = "SELECT * FROM Stores";
+             String statement = "SELECT * FROM Stores ORDER BY store_name";
              ResultSet rs = conn.createStatement().executeQuery(statement);
              while(rs.next()){
                  Store store = new Store(
@@ -44,7 +44,7 @@ public class StoreProxy {
         ArrayList<StorePurchase> purchases = new ArrayList<StorePurchase>();
 	    try{
 		    Connection conn = ConnectionProxy.connect();
-		    PreparedStatement statement = conn.prepareStatement("SELECT * FROM store_purchases INNER JOIN customers ON customers.account_number = store_purchases.account_number WHERE store_id = ?");
+		    PreparedStatement statement = conn.prepareStatement("SELECT * FROM store_purchases INNER JOIN customers ON customers.account_number = store_purchases.account_number WHERE store_id = ? ORDER BY cust_name");
             PreparedStatement statement2;
             statement.setString(1, Long.toString(store.getStoreId()));
 		    ResultSet rs = statement.executeQuery();
@@ -56,7 +56,7 @@ public class StoreProxy {
 					rs.getLong("account_number"),
                     rs.getString("cust_name")
 	    		));
-                statement2 = conn.prepareStatement("SELECT * FROM product_purchases INNER JOIN products ON products.upc_code = product_purchases.product_id WHERE purchase_id = ?");
+                statement2 = conn.prepareStatement("SELECT * FROM product_purchases INNER JOIN products ON products.upc_code = product_purchases.product_id WHERE purchase_id = ? ORDER BY product_name");
                 statement2.setString(1, Long.toString(rs.getLong("purchase_id")));
                 ResultSet rs2 = statement2.executeQuery();
                 HashMap<Long, ProductQuantityPrice> hmap = new HashMap<Long, ProductQuantityPrice>();
@@ -87,7 +87,7 @@ public class StoreProxy {
         ArrayList<Shipment> shipments = new ArrayList<Shipment>();
 	    try {
             Connection conn = ConnectionProxy.connect();
-            PreparedStatement statement = conn.prepareStatement("SELECT * FROM Shipments INNER JOIN Stores ON Stores.store_id = Shipments.store_id WHERE Shipments.store_id = ?");
+            PreparedStatement statement = conn.prepareStatement("SELECT * FROM Shipments INNER JOIN Stores ON Stores.store_id = Shipments.store_id WHERE Shipments.store_id = ? ORDER BY shipment_id");
             statement.setString(1, Long.toString(store.getStoreId()));
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
@@ -109,7 +109,7 @@ public class StoreProxy {
         ArrayList<ProductQuantityPrice> products = new ArrayList<ProductQuantityPrice>();
 	    try {
             Connection conn = ConnectionProxy.connect();
-            PreparedStatement statement = conn.prepareStatement("SELECT * FROM Store_inventory INNER JOIN products ON products.upc_code = store_inventory.product_id WHERE store_id = ?");
+            PreparedStatement statement = conn.prepareStatement("SELECT * FROM Store_inventory INNER JOIN products ON products.upc_code = store_inventory.product_id WHERE store_id = ? ORDER BY product_name");
             statement.setString(1, Long.toString(store.getStoreId()));
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {

@@ -20,7 +20,7 @@ public class ProductProxy {
     
     public static ArrayList<Product> getAllProducts() {
     	ArrayList<Product> products = new ArrayList<>();
-    	String command = "SELECT * FROM Products";
+    	String command = "SELECT * FROM Products ORDER BY product_name";
     	ResultSet results;
 		try {
 			Connection connection = ConnectionProxy.connect();
