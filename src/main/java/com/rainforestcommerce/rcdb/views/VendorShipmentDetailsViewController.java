@@ -29,15 +29,9 @@ public class VendorShipmentDetailsViewController {
 	protected TableView<ProductQuantityPrice> item_table;
 	
 	@FXML
-	protected void handleShipItButtonClicked(MouseEvent event) {
-		ShipmentRequestProxy.recieveShipment(SessionData.shipment);
-	}
-	
-	@FXML
 	protected void handleVendorButtonClicked(MouseEvent event) {
 		ActivityManager.start(Activity.VENDOR_SHIPMENT);
 	}
-	
 
 	@FXML
 	protected void handleLogoutButtonClicked(MouseEvent event){ActivityManager.start(Activity.START_SCREEN);}
