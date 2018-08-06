@@ -41,7 +41,6 @@ CREATE TABLE store_purchases (
     purchase_id LONG PRIMARY KEY,
     store_id LONG NOT NULL,
     account_number LONG NOT NULL,
-    total_price NUMERIC(15,2) NOT NULL,
     online_purchase BOOLEAN NOT NULL,
 
     FOREIGN KEY (store_id) REFERENCES stores(store_id),

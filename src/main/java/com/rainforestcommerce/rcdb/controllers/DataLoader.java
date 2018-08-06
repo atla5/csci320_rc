@@ -17,8 +17,9 @@ import static com.rainforestcommerce.rcdb.RcdbApplication.RESOURCES_DIRECTORY;
 public class DataLoader {
     private static final Logger logger = Logger.getLogger( DataLoader.class.getName() );
     private static final Random random = new Random();
-    private static final boolean LOG_EXCEPTION_DETAIL = false;
+    private static final boolean LOG_EXCEPTION_DETAIL = true;
 
+    private static boolean DATA_LOADED = false;
     public static boolean RUN_INSERTIONS_AGAINST_REAL_DB_CONNECTION = true;
 
     public static void main(String[] args){
@@ -40,6 +41,7 @@ public class DataLoader {
         loadPurchases();
         loadVendors();
         loadShipments();
+        DATA_LOADED = true;
         logger.info("finished loading data.");
         return true;
     }
@@ -54,7 +56,7 @@ public class DataLoader {
             PreparedStatement statement = conn.prepareStatement(insertCommand);
             statement.executeUpdate();
         }catch(SQLException sqle){
-            if(LOG_EXCEPTION_DETAIL) {
+            if(LOG_EXCEPTION_DETAIL && DATA_LOADED) {
                 String rowId = values.substring(1, values.indexOf(',')); //('____',*
                 logger.warning(String.format("Exception loading new item '%s' into table '%s'", rowId, tableName));
                 sqle.printStackTrace();
@@ -172,10 +174,9 @@ public class DataLoader {
             String purchaseId = data[0];
             String storeId = data[1];
             int customerId = random.nextInt(1000); //data[2] //TODO: resolve errors in sample data (phone vs account_number)
-            float totalPrice = Integer.parseInt(data[3])*(1.00f/100);
             boolean online_store = data[4].equalsIgnoreCase("true");
 
-            values = String.format("(%s, %s, %s, %s, %b)", purchaseId, storeId, customerId, totalPrice, online_store);
+            values = String.format("(%s, %s, %s, %b)", purchaseId, storeId, customerId, online_store);
             if(!insertValuesIntoTable(values, "store_purchases")){
                 numErrantLines++;
             }
