@@ -49,8 +49,7 @@ public class CustomerViewController {
 		customer_table.setRowFactory(rf -> {
 			TableRow<Customer> row = new TableRow<>();
 			row.setOnMouseClicked(event -> {
-				Customer customer = row.getItem();
-				SessionData.userId = customer.getAccountNumber();
+				SessionData.customer = row.getItem();
 				ActivityManager.start(Activity.STORE_SELECTION);
 			});
 			return row;

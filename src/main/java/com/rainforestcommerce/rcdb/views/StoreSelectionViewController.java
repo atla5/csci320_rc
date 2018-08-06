@@ -31,18 +31,6 @@ import java.util.HashMap;
  */
 public class StoreSelectionViewController {
 
-    // The root node of the view
-    private static VBox view;
-
-    // Loads the view FXML
-    static {
-        try {
-            view = FXMLLoader.load(StoreSelectionViewController.class.getResource("/StoreSelectionView.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     // The table node which is injected by FXMLLoader
     @FXML
     private TableView<Store> store_table;
@@ -95,7 +83,12 @@ public class StoreSelectionViewController {
      * @return : The root node.
      */
     public static VBox getView() {
-        return view;
+    	try {
+            return FXMLLoader.load(StoreSelectionViewController.class.getResource("/StoreSelectionView.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
 }

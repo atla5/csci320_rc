@@ -45,9 +45,17 @@ public class StorePurchase {
     public long getStoreId() {
         return storeId;
     }
+    
+    public void setAccountNumber(long accountNumber) {
+    	this.accountNumber = accountNumber;
+    }
 
     public long getAccountNumber() {
         return accountNumber;
+    }
+    
+    public void setCustomerName(String name) {
+    	this.customerName = name;
     }
 
     public String getCustomerName(){ return customerName; }

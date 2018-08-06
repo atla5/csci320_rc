@@ -54,6 +54,8 @@ public class StoreViewController {
         // Create the shopping cart if needed
     	if (SessionData.shoppingCart == null) {
 			SessionData.shoppingCart = new StorePurchase(SessionData.store.getStoreId());
+			SessionData.shoppingCart.setAccountNumber(SessionData.customer.getAccountNumber());
+			SessionData.shoppingCart.setCustomerName(SessionData.customer.getCustName());
 		}
         TableColumn<ProductQuantityPrice, String> product = (TableColumn<ProductQuantityPrice, String>) product_table.getColumns().get(0);
         TableColumn<ProductQuantityPrice, String> size_column = (TableColumn<ProductQuantityPrice,String>) product_table.getColumns().get(1);

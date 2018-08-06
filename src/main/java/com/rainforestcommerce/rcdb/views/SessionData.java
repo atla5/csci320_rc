@@ -10,7 +10,7 @@ import com.rainforestcommerce.rcdb.models.*;
 public class SessionData {
 	public static StorePurchase shoppingCart = null;
 	public static Store store;
-	public static long userId;
+	public static Customer customer;
 	public static Vendor vendor;
 	public static ProductQuantityPrice productQuantityPrice;
 	public static Shipment shipment;
