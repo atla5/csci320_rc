@@ -40,6 +40,11 @@ public class PurchaseProxy {
 	}
 
 	public static void makePurchase(StorePurchase storePurchase){
+        Long newStorePurchaseId = insertNewStorePurchase(storePurchase);
+        if(newStorePurchaseId == null) {
+			LOGGER.severe("Error creating new StorePurchase. ");
+			return;
+		}
         try {
             Connection conn = ConnectionProxy.connect();
             for (ProductQuantityPrice item : storePurchase.products.values()) {
@@ -48,23 +53,46 @@ public class PurchaseProxy {
                 statement.setString(2, Long.toString(storePurchase.getStoreId()));
                 statement.setString(3, Long.toString(item.getUpcCode()));
                 statement.execute();
+                item.setPurchaseId(newStorePurchaseId);
                 insertNewProductPurchase(item);
             }
             conn.close();
         } catch(SQLException ex){
             LOGGER.log( Level.SEVERE, ex.toString(), ex );
         }
-        insertNewStorePurchase(storePurchase);
     }
 
-	public static boolean insertNewStorePurchase(StorePurchase storePurchase){
-        String values = String.format("(%d, %d, %d, %b)",
-                storePurchase.getPurchaseId(), storePurchase.getStoreId(), storePurchase.getAccountNumber(),
-                storePurchase.isOnline());
-        return DataLoader.insertValuesIntoTable(values, "store_purchases");
+	private static Long insertNewStorePurchase(StorePurchase storePurchase){
+        String values = String.format("(DEFAULT, %d, %d, %b)",
+				storePurchase.getStoreId(), storePurchase.getAccountNumber(), storePurchase.isOnline());
+        boolean insertSuccessful = DataLoader.insertValuesIntoTable(values, "store_purchases");
+		if(!insertSuccessful){ return null; }
+		else{
+			Connection conn = null;
+			Long newId = null;
+			try{
+				conn = ConnectionProxy.connect();
+				PreparedStatement id_current_statement = conn.prepareStatement("SELECT MAX(purchase_id) FROM store_purchases;");
+				ResultSet rs = id_current_statement.executeQuery();
+				if(rs.next()) {
+					newId = rs.getLong(1);
+				}
+			}catch(SQLException sqle){
+				LOGGER.warning("new ProductPurchase inserted successfully, but unable to acquire new ID!");
+				sqle.printStackTrace();
+			}finally{
+				if(conn != null){
+					try{ conn.close(); }
+					catch (SQLException sqle){
+						LOGGER.warning("error closing connection in insertNewStorePurchase");
+					}
+				}
+			}
+			return newId;
+		}
     }
 
-    public static boolean insertNewProductPurchase(ProductQuantityPrice productPurchase){
+    private static boolean insertNewProductPurchase(ProductQuantityPrice productPurchase){
 	    String values = String.format("(%d, %d, %d)", productPurchase.getPurchaseId(), productPurchase.getUpcCode(), productPurchase.getQuantity());
         return DataLoader.insertValuesIntoTable(values, "product_purchases");
     }

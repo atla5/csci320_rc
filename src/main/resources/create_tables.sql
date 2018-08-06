@@ -1,5 +1,5 @@
 CREATE TABLE customers (
-    account_number LONG PRIMARY KEY,
+    account_number LONG AUTO_INCREMENT PRIMARY KEY,
     cust_name VARCHAR(100) NOT NULL,
     phone_number VARCHAR(12),
     accumulated_points INT,
@@ -9,7 +9,7 @@ CREATE TABLE customers (
 );
 
 CREATE TABLE stores (
-    store_id LONG PRIMARY KEY,
+    store_id LONG AUTO_INCREMENT PRIMARY KEY,
     store_name VARCHAR(255) NOT NULL,
     addr_line1 VARCHAR(255),
     addr_city VARCHAR(255),
@@ -18,7 +18,7 @@ CREATE TABLE stores (
 );
 
 CREATE TABLE products (
-    upc_code LONG PRIMARY KEY,
+    upc_code LONG AUTO_INCREMENT PRIMARY KEY,
     product_name VARCHAR(255) NOT NULL,
     weight INT,
     brand_name VARCHAR(255)
@@ -38,7 +38,7 @@ CREATE TABLE store_inventory (
 );
 
 CREATE TABLE store_purchases (
-    purchase_id LONG PRIMARY KEY,
+    purchase_id LONG AUTO_INCREMENT PRIMARY KEY,
     store_id LONG NOT NULL,
     account_number LONG NOT NULL,
     online_purchase BOOLEAN NOT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE product_purchases (
 );
 
 CREATE TABLE vendors (
-  vendor_id LONG PRIMARY KEY,
+  vendor_id LONG AUTO_INCREMENT PRIMARY KEY,
   vendor_name VARCHAR(255) NOT NULL,
   addr_line1 VARCHAR(255),
   addr_city VARCHAR(255),
@@ -77,7 +77,7 @@ CREATE TABLE vendor_distributions (
 );
 
 CREATE TABLE shipments (
-   shipment_id LONG PRIMARY KEY,
+   shipment_id LONG AUTO_INCREMENT PRIMARY KEY,
    store_id LONG,
    vendor_id LONG,
 
