@@ -48,4 +48,6 @@ public class ProductQuantityPrice extends Product {
     public float getUnitPrice() {
     	return this.unit_price;
     }
+
+    public void setPurchaseId(long purchaseId) { this.purchaseId = purchaseId; }
 }
